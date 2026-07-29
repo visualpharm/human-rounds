@@ -1,7 +1,7 @@
 /* Shared public footer for the project site and the demo hub. */
 (function () {
   var GITHUB = 'https://github.com/visualpharm/sana-health';
-  var DEMO = 'https://demo.sana.brieflysites.com/';
+  var DEMO = '/demo';
 
   function render(footer, lang) {
     var es = lang === 'es';

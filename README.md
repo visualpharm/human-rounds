@@ -4,7 +4,7 @@
 
 Sana connects patient registration, intake, referrals, queues, appointments and clinician-reviewed decision support to the health systems public institutions already use. It is designed to improve the operational layer around care without replacing the authoritative clinical record.
 
-[Public project site](https://sana.brieflysites.com) · [Live demo](https://demo.sana.brieflysites.com)
+[Public project site](https://sana.brieflysites.com) · [Live demo](https://sana.brieflysites.com/demo)
 
 ## Current status
 
