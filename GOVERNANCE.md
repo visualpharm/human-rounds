@@ -1,6 +1,6 @@
 # Governance
 
-Sana is being developed as open public-health infrastructure.
+Human Rounds is being developed as AI-native, open public-health infrastructure.
 
 Project decisions are guided by:
 

@@ -1,33 +1,36 @@
 # Architecture overview
 
-Sana is an operational layer around the authoritative health record.
+Human Rounds is an AI-native operational layer around the authoritative health record.
 
 ```text
-Patient
-  -> registration and intake
-  -> clinic operations
-  -> clinician review
-  -> authorised national or institutional record
+Patient and care team
+  <-> Human Rounds listens, coordinates and prepares
+  <-> authorised national or institutional record
 ```
 
 ## Design boundaries
 
 - The existing clinical record remains the system of record.
-- A country connector translates approved Sana workflows into the authorised local system.
+- AI is part of the workflow, not a separate chatbot.
+- A regional connector translates approved Human Rounds workflows into the authorised local system.
 - The institution controls identity rules, consent, access, catalogues and operating policy.
 - Deterministic safety rules cannot be downgraded by a probabilistic model.
 - Clinical-model output remains advisory until a professional acts.
-- Public demos and automated tests use fictional or synthetic data.
+- Public materials and automated tests use fictional or synthetic data.
+
+## Reference implementation
+
+Pinamar Turnos is the first working implementation. It provides service discovery, appointment and walk-in guidance, referral-first requests, preparation guidance, patient follow-up and institutional administration for a municipal public-health network.
 
 ## Module direction
 
-The project is separating the prototypes into reusable modules for:
+Reviewed modules will be added for:
 
-- identity and registration;
 - voice or text intake;
+- clinician summaries and decision support;
 - appointments, arrivals, queues and referrals;
-- clinician-reviewed summaries and decision support;
-- country and institutional connectors;
+- identity and coverage automation;
+- regional and institutional connectors;
 - measurement, audit and implementation guidance.
 
-Application modules will be published only after a privacy, security, licensing and fixture review.
+Earlier Sana prototypes are not exposed as public product features. Each module enters Human Rounds only after privacy, security, licensing, technical and clinical review.

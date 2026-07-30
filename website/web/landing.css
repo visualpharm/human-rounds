@@ -64,10 +64,11 @@ strong { font-weight: 750; }
   align-items: center;
   gap: 12px;
   color: var(--ink);
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 800;
   text-decoration: none;
   letter-spacing: -.04em;
+  white-space: nowrap;
 }
 .brand:hover { color: var(--ink); }
 .brand img { width: 42px; height: 42px; border-radius: 50%; }
@@ -154,6 +155,9 @@ strong { font-weight: 750; }
 }
 .product-proof img {
   width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top;
   border: 1px solid var(--line);
   border-radius: 18px;
   background: var(--surface);
@@ -325,6 +329,21 @@ strong { font-weight: 750; }
 .geography-section li:last-child { border-bottom: 0; }
 .geography-section strong { color: var(--ink); }
 
+[data-language-only] { display: none; }
+body[data-language="en"] [data-language-only="en"],
+body[data-language="es"] [data-language-only="es"] { display: block; }
+
+.argentina-section .section-intro { max-width: 840px; }
+.argentina-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 42px clamp(28px, 4vw, 62px);
+  margin-top: 54px;
+}
+.argentina-grid article { min-width: 0; }
+.argentina-grid p { color: var(--muted); }
+.argentina-grid a { font-weight: 650; }
+
 .roadmap {
   list-style: none;
   margin: 0;
@@ -384,6 +403,7 @@ strong { font-weight: 750; }
   .system-flow { grid-template-columns: 1fr 1fr; }
   .system-flow li:nth-child(2)::after { display: none; }
   .principles { grid-template-columns: 1fr 1fr; }
+  .argentina-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 760px) {
@@ -424,7 +444,8 @@ strong { font-weight: 750; }
   .funding-list,
   .geography-grid,
   .roadmap,
-  .partner-grid {
+  .partner-grid,
+  .argentina-grid {
     grid-template-columns: 1fr;
   }
   .system-flow li {

@@ -1,6 +1,6 @@
 /* Shared public footer for the project site and the demo hub. */
 (function () {
-  var GITHUB = 'https://github.com/visualpharm/sana-health';
+  var GITHUB = 'https://github.com/visualpharm/human-rounds';
   var DEMO = '/demo';
 
   function render(footer, lang) {
@@ -8,20 +8,20 @@
     footer.className = 'public-footer';
     footer.innerHTML =
       '<div class="public-footer__inner">' +
-        '<p><strong>SANA</strong><br>' +
+        '<p><strong>Human Rounds</strong><br>' +
           (es
-            ? 'Infraestructura abierta para la salud pública.'
-            : 'Open infrastructure for public healthcare.') +
+            ? 'IA nativa y código abierto para una atención más humana.'
+            : 'AI-native, open-source infrastructure for human care.') +
         '</p>' +
         '<nav aria-label="' + (es ? 'Enlaces del proyecto' : 'Project links') + '">' +
           '<a href="' + GITHUB + '" rel="noopener">GitHub</a>' +
-          '<a href="' + DEMO + '">' + (es ? 'Demo en vivo' : 'Live demo') + '</a>' +
+          '<a href="' + DEMO + '">' + (es ? 'Referencia de Pinamar Turnos' : 'Pinamar Turnos reference') + '</a>' +
           '<a href="/' + (es ? 'en' : 'es') + '">' + (es ? 'English' : 'Español') + '</a>' +
         '</nav>' +
         '<p class="public-footer__note">' +
           (es
-            ? 'Los datos de la demo son ficticios. Ninguna sugerencia clínica reemplaza la decisión profesional.'
-            : 'Demo data is fictional. Clinical suggestions never replace professional judgment.') +
+            ? 'La IA prepara y sugiere. La decisión y el vínculo siguen en manos del equipo de salud.'
+            : 'AI prepares and suggests. Decisions and human contact stay with the care team.') +
         '</p>' +
       '</div>';
   }
@@ -34,7 +34,7 @@
     }
   }
 
-  window.addEventListener('sana:language', function (event) {
+  window.addEventListener('human-rounds:language', function (event) {
     var footers = document.querySelectorAll('[data-public-footer]');
     for (var i = 0; i < footers.length; i++) render(footers[i], event.detail.lang);
   });

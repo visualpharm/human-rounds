@@ -1,14 +1,16 @@
-# Contributing to Sana
+# Contributing to Human Rounds
 
-Sana welcomes contributions from public-health institutions, clinicians, implementers, researchers, designers and software teams.
+Human Rounds welcomes contributions from public-health institutions, clinicians, implementers, researchers, designers and software teams.
 
 ## Good first contributions
 
 - document the public-health workflow or interoperability standard in your jurisdiction;
-- improve accessibility, translation or low-bandwidth behaviour in the public website;
-- propose a country connector with an explicit system-of-record boundary;
+- improve accessibility or low-bandwidth behaviour in the public website;
+- propose a regional connector with an explicit system-of-record boundary;
 - add testable operational rules that do not require a clinical model;
 - improve the evaluation plan, threat model or implementation guidance.
+
+Local identity, consent, terminology, coverage and health-record systems vary. Adapter code is expected, and pull requests for regional systems are welcome.
 
 ## Clinical contributions
 

@@ -1,23 +1,28 @@
 # Capability status
 
-## Working prototypes
+## Reference installation
 
-- Argentine identity capture
-- Mobile self-registration
-- Voice-first patient intake
-- Appointment, arrival, queue and referral workflows
-- Deterministic red-flag rules
-- Local reference handoff to Argentina's Integrated Health Record
+Pinamar Turnos is the working base:
 
-## In development
+- hospital and community-health service discovery;
+- appointment and walk-in guidance;
+- referral-first requests and preparation guidance;
+- patient accounts and follow-up;
+- institutional content and request administration;
+- authorised health-record handoff.
 
-- Clinician summaries
-- Evidence-backed differential diagnosis for professional review
-- Locally calibrated probability estimates
-- Suggested examinations constrained to approved catalogues
-- Additional specialty models
-- Reusable country connectors
+## In development for Human Rounds
+
+These capabilities exist in earlier Sana prototypes but are not exposed as public product features:
+
+- voice-first patient intake;
+- clinician summaries;
+- evidence-backed differential suggestions for professional review;
+- locally calibrated probability estimates;
+- deterministic safety rules;
+- identity and coverage automation;
+- reusable regional connectors.
 
 ## Not claimed
 
-Sana is not presented as an autonomous diagnostic system, a replacement for the clinical record or a finished medical device. A deployment must establish its local regulatory classification, governance and validation requirements.
+Human Rounds is not an autonomous diagnostic system, a replacement for the clinical record or a finished medical device. A deployment must establish its local regulatory classification, governance, integration and validation requirements.

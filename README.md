@@ -1,58 +1,60 @@
-# Sana
+# Human Rounds
 
-**Open infrastructure for the work around public healthcare.**
+**Let AI take the screen work. Keep care human.**
 
-Sana connects patient registration, intake, referrals, queues, appointments and clinician-reviewed decision support to the health systems public institutions already use. It is designed to improve the operational layer around care without replacing the authoritative clinical record.
+Human Rounds is an AI-native, open-source layer for the work around care. It automates access, referrals, scheduling and clinical preparation so patients and care teams can talk to each other again.
 
-[Public project site](https://sana.brieflysites.com) · [Live demo](https://sana.brieflysites.com/demo)
+[Public project site](https://sana.brieflysites.com) · [Pinamar Turnos reference](https://sana.brieflysites.com/demo)
 
-## Current status
+## The reference installation
 
-Sana is an early open-source project built from working prototypes in Argentina.
+Human Rounds starts from one working implementation: **Pinamar Turnos**, a public-health access layer for a municipal hospital and its primary-care network.
 
-Working prototypes include:
+The reference covers:
 
-- identity capture from an Argentine identity card, typed data or a photo;
-- mobile self-registration with reception confirmation;
-- voice-first patient intake;
-- queues, referrals and appointment workflows;
-- deterministic red-flag rules that an artificial-intelligence model cannot downgrade;
-- a local reference handoff to Argentina's Integrated Health Record.
+- service discovery across the hospital and community health centres;
+- appointments and walk-in guidance that reflect how each service attends;
+- referral-first requests with preparation guidance and professional review;
+- patient accounts and follow-up;
+- institutional administration of services, centres, schedules and requests;
+- structured handoff through the authorised local health-record connector.
 
-Clinical models in development include:
+The authoritative clinical record remains the source of truth.
 
+## What enters Human Rounds next
+
+Earlier Sana work produced prototypes for additional AI-native capabilities. They are not presented as public product features. They will enter Human Rounds one at a time after technical, clinical and institutional review:
+
+- voice-first intake that structures the patient's account;
 - clinician summaries;
-- evidence-backed differential diagnosis for professional review;
-- probability estimates after local calibration;
-- suggested examinations constrained to approved local catalogues;
-- specialty expansion beyond the current cardiology prototype.
+- evidence-backed differential suggestions for professional review;
+- probability estimates only after local calibration;
+- deterministic safety rules that a model cannot downgrade;
+- identity and coverage automation through authorised regional connectors.
 
 No model diagnoses, prescribes, discharges or changes care without a professional action.
 
-## Why this is useful for public health
+## Universal core, local connectors
 
-Public providers often have a clinical record but still coordinate registration, arrivals, referrals, appointments and follow-up through fragmented processes. Sana focuses on that gap.
+The reusable core covers access, scheduling, referrals, intake, coordination and clinician-reviewed support. Identity, consent, terminology, coverage and the authoritative record remain jurisdiction-specific.
 
-- **Local control:** deploy locally or in a chosen cloud.
-- **Interoperability:** connect to the authorised national or institutional record.
-- **Resilience:** support shared devices, intermittent connectivity and low-bandwidth settings.
-- **Open implementation:** publish connectors, operating guidance and evaluation findings.
+Local teams may need to write adapter code for their systems. Pull requests for regional connectors and implementation guides are welcome.
 
 ## Grant and pilot partnership
 
 We are looking for public-health institutions, universities, foundations and implementation partners that can host, evaluate or fund a real pilot.
 
-Grant-funded pilots can launch without a software licence fee for participating public providers. Funding supports implementation, local integration, training, independent validation and open documentation.
+Grant-funded public pilots can launch without a software licence fee. Funding supports implementation, local integration, training, independent validation and open documentation.
 
 See the [funding roadmap](docs/roadmap.md) and [architecture overview](docs/architecture.md).
 
 ## Repository scope
 
-This repository starts with the public roadmap, architecture, governance documents and website source. Reviewed application modules will be added progressively after privacy, security and licensing review. The private prototype history and patient-like fixtures are intentionally not mirrored here.
+This repository starts with the public roadmap, architecture, governance documents and website source. Reviewed application modules will be added progressively after privacy, security and licensing review. Private prototype history and patient-like fixtures are intentionally not mirrored here.
 
 ## Contributing
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing a connector, workflow module or clinical-model contribution. Clinical safety, local governance and privacy boundaries are part of the product, not later paperwork.
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing a connector, workflow module or clinical contribution. Clinical safety, local governance and privacy boundaries are part of the product.
 
 ## Licence
 
