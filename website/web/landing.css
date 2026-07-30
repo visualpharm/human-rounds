@@ -39,7 +39,7 @@ a:hover { color: var(--magenta); }
 button { font: inherit; }
 h1, h2, h3, p { margin-top: 0; }
 h1, h2, h3 { line-height: 1.08; letter-spacing: -.035em; }
-h1 { font-size: clamp(3.1rem, 4.2vw, 4.4rem); max-width: 12ch; margin-bottom: 26px; }
+h1 { font-size: clamp(3rem, 4vw, 4.2rem); max-width: 15ch; margin-bottom: 26px; }
 h2 { font-size: clamp(2.15rem, 4vw, 4rem); max-width: 18ch; margin-bottom: 22px; }
 h3 { font-size: 1.15rem; margin-bottom: 8px; }
 strong { font-weight: 750; }
@@ -115,7 +115,7 @@ strong { font-weight: 750; }
   min-height: 460px;
   padding-block: 44px 48px;
   display: grid;
-  grid-template-columns: minmax(0, .87fr) minmax(520px, 1.13fr);
+  grid-template-columns: minmax(0, .87fr) minmax(560px, 1.13fr);
   align-items: start;
   gap: clamp(42px, 7vw, 108px);
 }
@@ -148,7 +148,7 @@ strong { font-weight: 750; }
 }
 .product-proof {
   width: 100%;
-  max-width: 590px;
+  max-width: 680px;
   min-width: 0;
   margin: 0;
   justify-self: end;
@@ -163,6 +163,9 @@ strong { font-weight: 750; }
   background: var(--surface);
   box-shadow: 0 26px 70px rgba(39, 32, 22, .10);
 }
+.product-proof .modules-diagram--es { display: none; }
+body[data-language="es"] .product-proof .modules-diagram--en { display: none; }
+body[data-language="es"] .product-proof .modules-diagram--es { display: block; }
 .product-proof figcaption {
   max-width: 620px;
   margin: 14px 0 0;
@@ -428,7 +431,7 @@ body[data-language="es"] [data-language-only="es"] { display: block; }
     padding-block: 50px 56px;
     gap: 42px;
   }
-  h1 { font-size: clamp(3rem, 15vw, 4.6rem); }
+  h1 { font-size: clamp(2.45rem, 11vw, 3.4rem); }
   h2 { font-size: clamp(2rem, 10vw, 3rem); }
   .hero-links { margin-bottom: 34px; }
   .system-section .public-wrap,
