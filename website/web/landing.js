@@ -2,18 +2,20 @@
 (function () {
   var copy = {
     en: {
-      navPlatform: 'How it works',
-      navReference: 'Reference',
-      navFunding: 'Funding',
+      navHow: 'How it works',
       navRoadmap: 'Roadmap',
-      navGithub: 'GitHub',
-      navDemo: 'Pinamar Turnos',
-      referenceLink: 'Reference installation',
+      navBlog: 'Blog',
+      navOpenSource: 'Open source ↗',
+      navDemo: 'Live demo',
       language: 'Español',
-      heroTitle: 'AI-native healthcare automation that keeps clinicians in control.',
-      heroLead: 'Human Rounds connects <strong>appointments, referrals, intake, clinical preparation and follow-up</strong> to the health record already in place. It reduces screen work without replacing local systems or professional judgment.',
-      heroProof: '<strong>Open source, modular and safe by design.</strong> Pinamar Turnos is the first working implementation; additional AI modules are in development.',
+
+      heroTitle: 'The open-source, AI-native medical platform',
+      heroTagline: 'Automates paperwork, not people.',
+      heroLead: 'Human Rounds books, prepares, reminds, and writes to the health record. Patients are met by people — doctors, nurses, staff — while AI does the screen work behind them. Free to run, open to inspect.',
+      heroLinkDemo: 'Live demo',
+      heroLinkOpenSource: 'Open source',
       modulesCaption: 'Human Rounds connects modular workflows around the patient–care-team relationship; every status is explicit.',
+
       flowTitle: 'The encounter is the point.',
       flowIntro: 'Human Rounds was rebuilt with artificial intelligence in mind from the start. AI handles the repetitive work before, during and after care while the existing clinical record remains authoritative.',
       flowPatientTitle: 'Listen',
@@ -25,133 +27,193 @@
       flowRecordTitle: 'Record',
       flowRecordText: 'Write structured outcomes back to the authorised health-information system.',
       clinicianDecides: 'AI prepares. The professional decides.',
-      statusTitle: 'One working installation. One careful module at a time.',
-      statusIntro: 'Human Rounds starts with Pinamar Turnos. Capabilities built in the earlier Sana work enter the public project only after review, integration and an honest status label.',
-      workingTitle: 'Reference installation',
-      workingText: 'Pinamar Turnos is the working base: a public-health access layer for a municipal hospital and primary-care network.',
-      working1: '<strong>Service discovery</strong> across the hospital and community health centres.',
-      working2: '<strong>Appointments and walk-in guidance</strong> that reflect how each service actually attends.',
-      working3: '<strong>Referral-first requests</strong> with preparation guidance and professional review.',
-      working4: '<strong>Patient accounts and follow-up</strong> without duplicating the official clinical record.',
-      working5: '<strong>Institutional administration</strong> for services, centres, schedules and requests.',
-      working6: '<strong>Health-record handoff</strong> through the authorised local connector.',
-      developmentTitle: 'Entering Human Rounds',
-      developmentText: 'These AI-native modules are implemented in earlier Sana prototypes and are now in development for reviewed incorporation. The prototypes themselves are not public product claims.',
-      development1: '<strong>Voice-first intake</strong> that structures the patient’s account without replacing it.',
-      development2: '<strong>Clinician summaries</strong> that put consequential information first.',
-      development3: '<strong>Evidence-backed differential suggestions</strong> with probabilities only after local calibration.',
-      development4: '<strong>Deterministic safety rules</strong> that an AI model cannot downgrade.',
-      development5: '<strong>Identity and coverage automation</strong> through authorised regional connectors.',
-      developmentNote: 'No model diagnoses, prescribes, discharges or changes care without a professional action.',
-      openTitle: 'AI-native. Open by design.',
-      openIntro: 'The intelligence is built into the workflow, not bolted on as a chatbot. The code, operating model and local adapters are designed to remain inspectable and replaceable.',
-      open1Title: 'Open source',
-      open1Text: 'The public repository begins with the website, architecture and roadmap. Reviewed modules follow one by one.',
-      open2Title: 'Human authority',
-      open2Text: 'AI can listen, organise and suggest. People retain clinical judgment, consent and accountability.',
-      open3Title: 'Local control',
-      open3Text: 'Institutions keep their system of record, policies and deployment choices.',
-      open4Title: 'Built for reality',
-      open4Text: 'Shared devices, intermittent connectivity and low-bandwidth workflows are first-class conditions.',
-      fundingTitle: 'What grant funding unlocks',
-      fundingIntro: 'Grant support turns a working municipal reference into audited, reusable public infrastructure.',
-      funding1Title: 'Reference deployment',
-      funding1Text: 'Harden Pinamar Turnos, train teams and measure access and workload in real operations.',
-      funding2Title: 'AI module integration',
-      funding2Text: 'Move one reviewed Sana capability at a time into Human Rounds with safety and governance gates.',
-      funding3Title: 'Independent validation',
-      funding3Text: 'Measure time saved, access, safety, clinician workload and calibrated model performance.',
-      funding4Title: 'Open implementation kit',
-      funding4Text: 'Publish reviewed modules, adapters, governance templates and findings for the next site.',
-      fundingPromise: '<strong>Grant-funded public pilots can launch without a software licence fee.</strong> Funding pays for implementation, integration, validation and support.',
+
       roadmapTitle: 'Roadmap',
-      roadmapNowTitle: 'Now',
-      roadmapNowText: 'Human Rounds public project and Pinamar Turnos as the working reference installation.',
-      roadmapNextTitle: 'Next',
-      roadmapNextText: 'Integrate and publish one reviewed AI-native module at a time.',
-      roadmapLaterTitle: 'Then',
-      roadmapLaterText: 'Independent evaluation, additional public-health pilots and regional interoperability packs.',
-      partnerTitle: 'Fund or implement Human Rounds',
-      partnerText: 'We are looking for public-health institutions, universities, foundations and implementation partners that can host, evaluate or fund a real pilot.',
-      partnerGithub: 'GitHub repository',
-      partnerDemo: 'Pinamar Turnos reference',
-      partnerBrief: 'Funding roadmap'
+      roadmapLiveTitle: 'Live',
+      roadmapLiveSubtitle: 'Running at the Pinamar reference installation',
+      roadmapPrototypedTitle: 'Prototyped',
+      roadmapPrototypedSubtitle: 'Built in the Sana prototypes, entering Human Rounds after review',
+      roadmapPlannedTitle: 'Planned',
+
+      kbLive1Title: 'Find a service by typing 3 letters', kbLive1Text: 'Search with stemming across the hospital and 7 health centres',
+      kbLive2Title: 'Book online in 2 clicks', kbLive2Text: 'Real slots, nearest first, held while you decide',
+      kbLive3Title: 'Referral orders read by AI', kbLive3Text: 'Even handwriting; staff approve, the AI proposes',
+      kbLive4Title: 'Rejections carry the next step', kbLive4Text: 'Alternative slots or a re-upload link, never a dead end',
+      kbLive5Title: 'Patient accounts', kbLive5Text: 'Sign up with a photo of your DNI',
+      kbLive6Title: 'Coverage check (PUCO)', kbLive6Text: 'The patient’s insurance is detected automatically from the national registry',
+      kbLive7Title: 'Day-before reminders by email and WhatsApp', kbLive7Text: 'Reply YES or NO to confirm or cancel',
+      kbLive8Title: 'Cancellation + waitlist', kbLive8Text: 'A freed slot is re-offered automatically to the next patient',
+      kbLive9Title: 'Booking chat', kbLive9Text: 'On the site and on WhatsApp',
+      kbLive10Title: 'Staff panel', kbLive10Text: 'Request queue, today’s patients, doctor agendas, capacity and billing-recovery reports',
+      kbLive11Title: 'Health-record handoff', kbLive11Text: 'Writes to HSI with automatic retry; nothing breaks if the record is down',
+      kbLive12Title: 'Multi-site engine', kbLive12Text: 'Data packs, languages, installer wizard, pluggable per-country connectors',
+
+      kbProto1Title: 'Scan-to-register', kbProto1Text: 'DNI + insurance credential scan fills the health-record registration',
+      kbProto2Title: 'Voice intake', kbProto2Text: 'The patient dictates symptoms and answers follow-ups',
+      kbProto3Title: 'Triage codes', kbProto3Text: 'With deterministic red-flag rules the model can escalate but never downgrade',
+      kbProto4Title: 'SOAP summary + differential probabilities', kbProto4Text: 'For the clinician',
+      kbProto5Title: 'Orders by checkbox', kbProto5Text: 'To the electronic system or the printer',
+
+      kbPlanned1Title: 'Teleconsultation',
+      kbPlanned2Title: 'Clinical-history summary',
+      kbPlanned3Title: 'More regional connectors', kbPlanned3Text: 'Identity, coverage and record systems beyond Argentina',
+
+      blogTitle: 'Blog',
+      blogIntro: 'Three days in the life of the platform.',
+      blogBackLink: 'More stories',
+
+      blogPost1Title: 'Three letters to a cardiologist',
+      blogPost1Teaser: 'A search box, two clicks, and one visit instead of two.',
+      blogPost1Body:
+        '<p>Grace needs to see a cardiologist. She doesn’t know which health centre has one, or when.</p>' +
+        '<p>She opens the search box and types <strong>“car.”</strong> Three letters. The results already show <em>Cardiology</em>, at the hospital and at the health centre 10 minutes closer to her house.</p>' +
+        '<p>She picks the <strong>nearest appointment</strong>. Two clicks and it’s booked, no phone call, no waiting room, no callback.</p>' +
+        '<p><strong>Before the visit, she talks instead of typing.</strong> Grace dictates her symptoms by voice, answers a few follow-up questions, and the system organises what she said into something a doctor can use.</p>' +
+        '<p>A week before the appointment, an <strong>order for blood work arrives</strong>. There’s still time to get it done before the visit, not after.</p>' +
+        '<p>She walks into the consultation with results already in hand. The cardiologist reads them during the visit, not two weeks later in a second appointment.</p>' +
+        '<p><strong>One visit instead of two.</strong> One waiting period instead of two. The difference isn’t a new test or a new specialist — it’s that the paperwork happened in the background while Grace kept living her week.</p>' +
+        '<p>That’s the idea behind Human Rounds: the system does the searching, the booking, the ordering and the reminding. The people — the doctor, the phlebotomist, the receptionist — do the parts that need a person.</p>',
+
+      blogPost2Title: 'The doctor walks in prepared',
+      blogPost2Teaser: 'The chart already knows the patient’s story when he walks in.',
+      blogPost2Body:
+        '<p>Dr. Nguyen opens today’s list before the first patient arrives.</p>' +
+        '<p>Each row shows a name, a <strong>triage colour</strong>, and a one-line summary. No file to dig through, no chart to reconstruct from memory.</p>' +
+        '<p>A new patient comes in, someone he hasn’t met before. Her intake already sits on the screen: <strong>her own words</strong>, captured when she booked. Below that, a <strong>SOAP summary</strong> the system built from her account, and a <strong>differential with probabilities</strong> ranked by likelihood.</p>' +
+        '<p>Suggested orders sit at the bottom, tests and medication, proposed, not decided.</p>' +
+        '<p>He examines her. He talks to her. That part is his, and no software touches it: reading a person, noticing what they don’t say, deciding what matters. That’s the part machines don’t do.</p>' +
+        '<p>When he’s done, he <strong>checks the boxes</strong> on the orders he agrees with. Some go straight to the electronic system. Others print, for the patient to carry. He doesn’t retype a single result, a single vital, a single medication name.</p>' +
+        '<p><strong>No typing.</strong> The screen work happened before he walked in, and it stops the moment he starts talking to the patient.</p>' +
+        '<p>That’s the trade Human Rounds makes: AI reads, organises and suggests. The doctor decides. The visit stays what it always was — one person examining another.</p>',
+
+      blogPost3Title: 'A queue that reads itself',
+      blogPost3Teaser: 'AI reads every referral order before the queue does.',
+      blogPost3Body:
+        '<p>Sonia starts her morning with a queue of appointment requests, each one carrying a referral order a patient uploaded, a photo, sometimes handwritten.</p>' +
+        '<p>She doesn’t read them cold. <strong>The AI has already read every order</strong> overnight: is the date valid, is the doctor’s licence current, does the name on the order match the patient’s account. Handwriting included.</p>' +
+        '<p>For each request, the AI proposes an action, <strong>accept or reject</strong>, with the reason attached. Sonia reviews the proposals, not the raw images.</p>' +
+        '<p>She <strong>rejects two</strong>. One order is expired; one name doesn’t match. She <strong>approves the rest</strong>.</p>' +
+        '<p>The rejected patients don’t hit a dead end. They get a notification with <strong>the next step already attached</strong>, a link to re-upload a corrected order, or the right service with its next free slots.</p>' +
+        '<p>The approved patients get a reminder the day before their visit. They <strong>answer YES or NO</strong>, confirming or freeing the slot for someone else on the waitlist.</p>' +
+        '<p>Nothing here replaces Sonia’s judgment; she still makes the final call on every request. What changed is what she spends her morning on: not deciphering handwriting and checking licence numbers, but deciding.</p>' +
+        '<p><strong>Attendance goes up</strong> when a freed slot doesn’t sit empty, and when every rejection tells the patient exactly what to do next.</p>',
+
+      invitationsTitle: 'Three ways in',
+      inviteOrgTitle: 'Health organizations — run it.',
+      inviteOrgText: 'Free to deploy, no licence fee; the Pinamar installation is live proof. Grant-funded public pilots can launch without a software licence fee.',
+      inviteDevTitle: 'Developers — extend it.',
+      inviteDevText: 'Fork the repo and submit a pull request with a local module: your region’s identity, coverage and health-record connectors.',
+      inviteFundTitle: 'Investors and grant organizations — fund it.',
+      inviteFundText: 'Money goes to hardening, independent validation and the next public pilots.',
+      inviteContact: 'Contact',
+      inviteGithub: 'GitHub'
     },
     es: {
-      navPlatform: 'Cómo funciona',
-      navReference: 'Pinamar',
-      navFunding: 'Financiamiento',
+      navHow: 'Cómo funciona',
       navRoadmap: 'Hoja de ruta',
-      navGithub: 'GitHub',
-      navDemo: 'Pinamar Turnos',
-      referenceLink: 'Instalación de referencia',
+      navBlog: 'Blog',
+      navOpenSource: 'Código abierto ↗',
+      navDemo: 'Demo en vivo',
       language: 'English',
-      heroTitle: 'IA nativa para turnos y derivaciones, integrada a la HSI y con el equipo de salud al mando.',
-      heroLead: 'Human Rounds conecta <strong>turnos, derivaciones, admisión, preparación clínica y seguimiento</strong> con la HSI y los sistemas existentes. Reduce tareas de pantalla sin reemplazar la decisión profesional.',
-      heroProof: '<strong>Código abierto, modular y diseñado para revisión profesional.</strong> Pinamar Turnos es la primera implementación funcional; los nuevos módulos de IA están en desarrollo.',
+
+      heroTitle: 'La plataforma médica de código abierto e IA nativa',
+      heroTagline: 'Automatiza el papeleo, no a las personas.',
+      heroLead: 'Human Rounds saca turnos, prepara, recuerda y escribe en la historia clínica. A los pacientes los atienden personas (médicos, enfermeros, personal) mientras la IA hace el trabajo de pantalla detrás de escena. Gratis para instalar, abierto para auditar.',
+      heroLinkDemo: 'Demo en vivo',
+      heroLinkOpenSource: 'Código abierto',
       modulesCaption: 'Human Rounds conecta módulos alrededor del vínculo entre paciente y equipo de salud; el estado de cada uno es explícito.',
+
       flowTitle: 'La consulta es entre personas.',
-      flowIntro: 'Human Rounds fue replanteado desde cero con inteligencia artificial. La IA ordena el trabajo antes, durante y después de la atención; la HSI conserva la historia clínica oficial y el profesional conserva la decisión.',
+      flowIntro: 'Human Rounds fue replanteado desde cero con inteligencia artificial. La IA ordena el trabajo antes, durante y después de la atención; la historia clínica sigue siendo la fuente oficial.',
       flowPatientTitle: 'Escuchar',
       flowPatientText: 'Recibir el relato del paciente por voz o texto, desde el celular o con ayuda del equipo.',
       flowOpsTitle: 'Coordinar',
-      flowOpsText: 'Automatizar turnos, órdenes, llegadas, colas, derivaciones y seguimiento.',
+      flowOpsText: 'Automatizar turnos, órdenes, llegadas, colas y seguimiento.',
       flowClinicianTitle: 'Preparar',
       flowClinicianText: 'Presentar hechos, alertas y evidencia para que el profesional decida con menos pantalla.',
       flowRecordTitle: 'Registrar',
       flowRecordText: 'Devolver el resultado estructurado al sistema de salud autorizado.',
       clinicianDecides: 'La IA prepara. El profesional decide.',
-      statusTitle: 'Una instalación real. Un módulo por vez.',
-      statusIntro: 'Human Rounds empieza con Pinamar Turnos. Las funciones construidas antes en Sana se incorporan una por una, después de revisión, integración y validación. No mostramos prototipos como si fueran producto terminado.',
-      workingTitle: 'Pinamar Turnos',
-      workingText: 'La base funcional para el Hospital de Pinamar y los CAPS municipales de Pinamar, Ostende y Valeria del Mar.',
-      working1: '<strong>Búsqueda de servicios</strong> del hospital y los centros de atención primaria.',
-      working2: '<strong>Turnos y atención por orden de llegada</strong> según el funcionamiento real de cada servicio.',
-      working3: '<strong>Solicitudes con orden médica</strong> y preparación clara antes de atenderse.',
-      working4: '<strong>Cuenta del paciente y seguimiento</strong> sin duplicar la historia clínica oficial.',
-      working5: '<strong>Gestión institucional</strong> de servicios, centros, horarios y solicitudes.',
-      working6: '<strong>Conexión con HSI</strong> mediante el flujo autorizado de la instalación local.',
-      developmentTitle: 'En desarrollo para Human Rounds',
-      developmentText: 'Estos módulos de IA ya existen en los prototipos anteriores de Sana. Ahora se preparan para incorporarlos con revisión técnica, clínica e institucional, sin exponer los prototipos.',
-      development1: '<strong>Admisión por voz</strong> que estructura el relato sin reemplazar las palabras del paciente.',
-      development2: '<strong>Resúmenes para el equipo de salud</strong> con lo importante primero.',
-      development3: '<strong>Sugerencias de diagnóstico diferencial</strong> con evidencia y probabilidades, siempre sujetas a calibración y revisión profesional.',
-      development4: '<strong>Reglas de seguridad determinísticas</strong> que la IA no puede bajar de prioridad.',
-      development5: '<strong>Automatización de identidad y cobertura</strong> mediante conectores institucionales autorizados.',
-      developmentNote: 'Ningún modelo diagnostica, receta, da el alta ni cambia la atención sin una acción profesional.',
-      openTitle: 'IA nativa. Código abierto.',
-      openIntro: 'La inteligencia está dentro del flujo de trabajo, no agregada como un chatbot. El código, los adaptadores y las reglas operativas pueden auditarse, reemplazarse y mejorarse.',
-      open1Title: 'Código abierto',
-      open1Text: 'El repositorio público empieza con el sitio, la arquitectura y la hoja de ruta. Los módulos revisados se publican uno por uno.',
-      open2Title: 'Autoridad humana',
-      open2Text: 'La IA escucha, ordena y sugiere. El equipo conserva el criterio clínico, el consentimiento y la responsabilidad.',
-      open3Title: 'Control local',
-      open3Text: 'Cada institución conserva su historia clínica, sus reglas y la forma de desplegar el sistema.',
-      open4Title: 'Hecho para el terreno',
-      open4Text: 'Dispositivos compartidos, conectividad intermitente y poco ancho de banda son condiciones centrales.',
-      fundingTitle: 'Qué habilita un subsidio',
-      fundingIntro: 'El financiamiento convierte una referencia municipal funcional en infraestructura pública auditable y reutilizable.',
-      funding1Title: 'Instalación de referencia',
-      funding1Text: 'Fortalecer Pinamar Turnos, capacitar equipos y medir acceso y carga de trabajo en la operación real.',
-      funding2Title: 'Integración de módulos de IA',
-      funding2Text: 'Incorporar una capacidad revisada de Sana por vez, con controles de seguridad y gobernanza.',
-      funding3Title: 'Validación independiente',
-      funding3Text: 'Medir tiempo ahorrado, acceso, seguridad, carga profesional y calibración de los modelos.',
-      funding4Title: 'Kit abierto de implementación',
-      funding4Text: 'Publicar módulos, adaptadores, plantillas de gobernanza y resultados para el próximo municipio.',
-      fundingPromise: '<strong>Los pilotos públicos financiados pueden comenzar sin costo de licencia de software.</strong> El subsidio paga implementación, integración, validación y soporte.',
+
       roadmapTitle: 'Hoja de ruta',
-      roadmapNowTitle: 'Ahora',
-      roadmapNowText: 'Human Rounds como proyecto público y Pinamar Turnos como instalación de referencia funcional.',
-      roadmapNextTitle: 'Próximo',
-      roadmapNextText: 'Integrar y publicar un módulo de IA nativa por vez, después de revisión.',
-      roadmapLaterTitle: 'Después',
-      roadmapLaterText: 'Evaluación independiente, nuevos municipios y conectores para provincias y países.',
-      partnerTitle: 'Financiar o implementar Human Rounds',
-      partnerText: 'Buscamos municipios, provincias, universidades, fundaciones y equipos de implementación que puedan alojar, evaluar o financiar un piloto real.',
-      partnerGithub: 'Repositorio en GitHub',
-      partnerDemo: 'Referencia de Pinamar Turnos',
-      partnerBrief: 'Hoja de ruta de financiamiento'
+      roadmapLiveTitle: 'En vivo',
+      roadmapLiveSubtitle: 'Funcionando en la instalación de referencia de Pinamar',
+      roadmapPrototypedTitle: 'Prototipado',
+      roadmapPrototypedSubtitle: 'Construido en los prototipos de Sana, entra a Human Rounds después de revisión',
+      roadmapPlannedTitle: 'Planeado',
+
+      kbLive1Title: 'Encontrá un servicio escribiendo 3 letras', kbLive1Text: 'Búsqueda con stemming en el hospital y los 7 centros de salud',
+      kbLive2Title: 'Sacá un turno online en 2 clics', kbLive2Text: 'Turnos reales, el más cercano primero, reservado mientras decidís',
+      kbLive3Title: 'Órdenes de derivación leídas por IA', kbLive3Text: 'Incluso manuscritas; el personal aprueba, la IA propone',
+      kbLive4Title: 'Los rechazos incluyen el próximo paso', kbLive4Text: 'Turnos alternativos o un link para resubir, nunca un callejón sin salida',
+      kbLive5Title: 'Cuentas de paciente', kbLive5Text: 'Alta con una foto del DNI',
+      kbLive6Title: 'Verificación de cobertura (PUCO)', kbLive6Text: 'La obra social del paciente se detecta automáticamente desde el padrón nacional',
+      kbLive7Title: 'Recordatorios el día anterior por email y WhatsApp', kbLive7Text: 'Respondé SÍ o NO para confirmar o cancelar',
+      kbLive8Title: 'Cancelación + lista de espera', kbLive8Text: 'Un turno liberado se reofrece automáticamente al próximo paciente',
+      kbLive9Title: 'Chat para sacar turno', kbLive9Text: 'En el sitio y por WhatsApp',
+      kbLive10Title: 'Panel de personal', kbLive10Text: 'Cola de solicitudes, pacientes del día, agendas médicas, reportes de capacidad y recupero',
+      kbLive11Title: 'Envío a la historia clínica', kbLive11Text: 'Escribe en la HSI con reintento automático; nada se rompe si la historia está caída',
+      kbLive12Title: 'Motor multi-sede', kbLive12Text: 'Paquetes de datos, idiomas, asistente de instalación, conectores enchufables por país',
+
+      kbProto1Title: 'Alta por escaneo', kbProto1Text: 'El escaneo del DNI y la credencial de la obra social completa el registro en la historia clínica',
+      kbProto2Title: 'Admisión por voz', kbProto2Text: 'El paciente dicta los síntomas y responde preguntas de seguimiento',
+      kbProto3Title: 'Códigos de triage', kbProto3Text: 'Con reglas determinísticas de alarma que el modelo puede escalar pero nunca bajar',
+      kbProto4Title: 'Resumen SOAP + probabilidades diferenciales', kbProto4Text: 'Para el profesional',
+      kbProto5Title: 'Órdenes con un tilde', kbProto5Text: 'Al sistema electrónico o a la impresora',
+
+      kbPlanned1Title: 'Teleconsulta',
+      kbPlanned2Title: 'Resumen de historia clínica',
+      kbPlanned3Title: 'Más conectores regionales', kbPlanned3Text: 'Sistemas de identidad, cobertura e historia clínica más allá de Argentina',
+
+      blogTitle: 'Blog',
+      blogIntro: 'Tres días en la vida de la plataforma.',
+      blogBackLink: 'Más historias',
+
+      blogPost1Title: 'Tres letras hasta un cardiólogo',
+      blogPost1Teaser: 'Un buscador, dos clics y una sola consulta en lugar de dos.',
+      blogPost1Body:
+        '<p>Grace necesita ver a un cardiólogo. No sabe en qué centro de salud atienden, ni cuándo.</p>' +
+        '<p>Abre el buscador y escribe <strong>“car.”</strong> Tres letras. Los resultados ya muestran <em>Cardiología</em>, en el hospital y en el centro de salud que le queda 10 minutos más cerca de su casa.</p>' +
+        '<p>Elige el <strong>turno más cercano</strong>. Dos clics y queda reservado, sin llamado, sin sala de espera, sin que la vuelvan a llamar.</p>' +
+        '<p><strong>Antes de la consulta, habla en vez de tipear.</strong> Grace dicta sus síntomas por voz, responde algunas preguntas de seguimiento, y el sistema ordena lo que contó en algo que el médico puede usar.</p>' +
+        '<p>Una semana antes del turno, llega una <strong>orden para análisis de sangre</strong>. Todavía hay tiempo de hacérselos antes de la consulta, no después.</p>' +
+        '<p>Llega a la consulta con los resultados en mano. El cardiólogo los lee en el momento, no dos semanas después en un segundo turno.</p>' +
+        '<p><strong>Una consulta en lugar de dos.</strong> Una espera en lugar de dos. La diferencia no es un estudio nuevo ni un especialista nuevo: es que el trámite pasó mientras Grace seguía con su semana.</p>' +
+        '<p>Esa es la idea de Human Rounds: el sistema busca, reserva, pide los estudios y recuerda. Las personas (el médico, quien saca la sangre, la recepcionista) hacen la parte que necesita una persona.</p>',
+
+      blogPost2Title: 'El médico entra preparado',
+      blogPost2Teaser: 'La historia ya cuenta lo que el paciente vino a decir.',
+      blogPost2Body:
+        '<p>El Dr. Nguyen abre la lista del día antes de que llegue el primer paciente.</p>' +
+        '<p>Cada fila muestra un nombre, un <strong>color de triage</strong> y un resumen de una línea. Sin carpeta para revisar, sin historia para reconstruir de memoria.</p>' +
+        '<p>Entra una paciente nueva, alguien que no conoce. Su admisión ya está en la pantalla: <strong>sus propias palabras</strong>, registradas cuando sacó el turno. Debajo, un <strong>resumen SOAP</strong> que el sistema armó a partir de su relato, y un <strong>diferencial con probabilidades</strong> ordenado por probabilidad.</p>' +
+        '<p>Al final hay órdenes sugeridas, estudios y medicación, propuestas, no decididas.</p>' +
+        '<p>La examina. Habla con ella. Esa parte es suya, y ningún software la toca: leer a una persona, notar lo que no dice, decidir qué importa. Eso no lo hace ninguna máquina.</p>' +
+        '<p>Cuando termina, <strong>tilda</strong> las órdenes con las que está de acuerdo. Algunas van directo al sistema electrónico. Otras se imprimen, para que la paciente se las lleve. No vuelve a tipear ni un resultado, ni un signo vital, ni el nombre de un medicamento.</p>' +
+        '<p><strong>Sin tipear nada.</strong> El trabajo de pantalla ya pasó antes de que él entrara, y se detiene en el momento en que empieza a hablar con la paciente.</p>' +
+        '<p>Esa es la apuesta de Human Rounds: la IA lee, ordena y sugiere. El médico decide. La consulta sigue siendo lo que siempre fue: una persona examinando a otra.</p>',
+
+      blogPost3Title: 'Una cola que se lee sola',
+      blogPost3Teaser: 'La IA lee cada orden de derivación antes que la cola.',
+      blogPost3Body:
+        '<p>Sonia empieza la mañana con una cola de solicitudes de turno, cada una con una orden médica que subió el paciente, a veces una foto, a veces manuscrita.</p>' +
+        '<p>No las lee en frío. <strong>La IA ya leyó cada orden</strong> durante la noche: si la fecha es válida, si la matrícula del médico está vigente, si el nombre de la orden coincide con la cuenta del paciente. Manuscritas incluidas.</p>' +
+        '<p>Para cada solicitud, la IA propone una acción, <strong>aceptar o rechazar</strong>, con el motivo. Sonia revisa las propuestas, no las imágenes crudas.</p>' +
+        '<p><strong>Rechaza dos.</strong> Una orden está vencida, un nombre no coincide. <strong>Aprueba el resto.</strong></p>' +
+        '<p>Los pacientes rechazados no llegan a un callejón sin salida. Reciben una notificación con <strong>el próximo paso ya incluido</strong>: un link para resubir la orden corregida, o el servicio correcto con sus próximos turnos disponibles.</p>' +
+        '<p>Los pacientes aprobados reciben un recordatorio el día anterior a la consulta. <strong>Responden SÍ o NO</strong>, confirmando o liberando el turno para el siguiente de la lista de espera.</p>' +
+        '<p>Nada de esto reemplaza el criterio de Sonia: la decisión final de cada solicitud sigue siendo suya. Lo que cambió es en qué se le va la mañana: no en descifrar letra manuscrita ni verificar matrículas, sino en decidir.</p>' +
+        '<p><strong>La asistencia sube</strong> cuando un turno liberado no queda vacío, y cuando cada rechazo le dice al paciente exactamente qué hacer.</p>',
+
+      invitationsTitle: 'Tres formas de sumarte',
+      inviteOrgTitle: 'Instituciones de salud — ponela a andar.',
+      inviteOrgText: 'Gratis para instalar, sin costo de licencia; la instalación de Pinamar es la prueba en producción. Los pilotos públicos financiados por subsidios pueden lanzarse sin costo de licencia de software.',
+      inviteDevTitle: 'Desarrolladores — extendela.',
+      inviteDevText: 'Forkeá el repositorio y mandá un pull request con un módulo local: los conectores de identidad, cobertura e historia clínica de tu región.',
+      inviteFundTitle: 'Inversores y organizaciones de subsidios — financiala.',
+      inviteFundText: 'El dinero se destina a robustecer el sistema, la validación independiente y los próximos pilotos públicos.',
+      inviteContact: 'Contacto',
+      inviteGithub: 'GitHub'
     }
   };
 

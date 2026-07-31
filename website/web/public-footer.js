@@ -23,6 +23,9 @@
             ? 'La IA prepara y sugiere. La decisión y el vínculo siguen en manos del equipo de salud.'
             : 'AI prepares and suggests. Decisions and human contact stay with the care team.') +
         '</p>' +
+        '<p class="public-footer__credit"><a href="https://icons8.com" rel="noopener">' +
+          (es ? 'Íconos de Icons8' : 'Icons by Icons8') +
+        '</a></p>' +
       '</div>';
   }
 

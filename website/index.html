@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Human Rounds — AI-native healthcare automation</title>
-  <meta name="description" content="Human Rounds connects appointments, referrals, intake, clinical preparation and follow-up to the health record already in place.">
+  <title>Human Rounds — open-source AI-native medical platform</title>
+  <meta name="description" content="Human Rounds is the open-source, AI-native medical platform. It books, prepares, reminds, and writes to the record, so patients are met by people, not paperwork.">
   <meta name="theme-color" content="#f7f3eb">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="AI-native healthcare automation that keeps clinicians in control">
-  <meta property="og:description" content="Automate the work around care without replacing local systems or professional judgment.">
+  <meta property="og:title" content="The open-source, AI-native medical platform">
+  <meta property="og:description" content="Automates paperwork, not people. Human Rounds books, prepares, reminds, and writes to the health record — free to run, open to inspect.">
   <meta property="og:url" content="https://humanrounds.org/">
   <meta property="og:image" content="https://humanrounds.org/web/human-rounds-public-preview.png?v=3">
   <meta name="twitter:card" content="summary_large_image">
@@ -16,8 +16,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/web/landing.css?v=3">
-  <link rel="stylesheet" href="/web/public-footer.css?v=2">
+  <link rel="stylesheet" href="/web/landing.css?v=4">
+  <link rel="stylesheet" href="/web/public-footer.css?v=3">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -25,7 +25,7 @@
     "name": "Human Rounds",
     "applicationCategory": "HealthApplication",
     "operatingSystem": "Web",
-    "description": "AI-native, open-source healthcare operations infrastructure.",
+    "description": "The open-source, AI-native medical platform. Automates paperwork, not people.",
     "url": "https://humanrounds.org/",
     "codeRepository": "https://github.com/visualpharm/human-rounds",
     "isAccessibleForFree": true
@@ -39,14 +39,13 @@
       <span>Human Rounds</span>
     </a>
     <nav class="site-nav" aria-label="Primary navigation">
-      <a href="#platform" data-i18n="navPlatform">How it works</a>
-      <a href="#reference" data-i18n="navReference">Reference</a>
-      <a href="#funding" data-i18n="navFunding">Funding</a>
+      <a href="#platform" data-i18n="navHow">How it works</a>
       <a href="#roadmap" data-i18n="navRoadmap">Roadmap</a>
+      <a href="#blog" data-i18n="navBlog">Blog</a>
     </nav>
     <nav class="site-actions" aria-label="Project destinations">
-      <a class="github-link" href="https://github.com/visualpharm/human-rounds" rel="noopener" data-i18n="navGithub">GitHub</a>
-      <a href="https://demo.humanrounds.org/" data-i18n="navDemo">Pinamar Turnos</a>
+      <a href="https://github.com/visualpharm/human-rounds" rel="noopener" data-i18n="navOpenSource">Open source ↗</a>
+      <a href="https://demo.humanrounds.org/" data-i18n="navDemo">Live demo</a>
       <button class="language-toggle" type="button" data-language-toggle>Español</button>
     </nav>
   </header>
@@ -54,13 +53,13 @@
   <main>
     <section class="hero public-wrap">
       <div class="hero-copy">
-        <h1 data-i18n="heroTitle">AI-native healthcare automation that keeps clinicians in control.</h1>
-        <p class="hero-lead" data-i18n="heroLead" data-i18n-html>Human Rounds connects <strong>appointments, referrals, intake, clinical preparation and follow-up</strong> to the health record already in place. It reduces screen work without replacing local systems or professional judgment.</p>
+        <h1 data-i18n="heroTitle">The open-source, AI-native medical platform</h1>
+        <p class="hero-tagline" data-i18n="heroTagline">Automates paperwork, not people.</p>
+        <p class="hero-lead" data-i18n="heroLead">Human Rounds books, prepares, reminds, and writes to the health record. Patients are met by people — doctors, nurses, staff — while AI does the screen work behind them. Free to run, open to inspect.</p>
         <div class="hero-links">
-          <a href="https://github.com/visualpharm/human-rounds" rel="noopener" data-i18n="navGithub">GitHub</a>
-          <a href="https://demo.humanrounds.org/" data-i18n="referenceLink">Reference installation</a>
+          <a href="https://demo.humanrounds.org/" data-i18n="heroLinkDemo">Live demo</a>
+          <a href="https://github.com/visualpharm/human-rounds" rel="noopener" data-i18n="heroLinkOpenSource">Open source</a>
         </div>
-        <p class="hero-proof" data-i18n="heroProof" data-i18n-html><strong>Open source, modular and safe by design.</strong> Pinamar Turnos is the first working implementation; additional AI modules are in development.</p>
       </div>
 
       <figure class="product-proof">
@@ -78,22 +77,34 @@
         </div>
         <ol class="system-flow">
           <li>
-            <span class="flow-number">01</span>
+            <div class="flow-head">
+              <img class="flow-icon" src="/web/icons/microphone.svg?v=1" width="24" height="24" alt="">
+              <span class="flow-number">01</span>
+            </div>
             <h3 data-i18n="flowPatientTitle">Listen</h3>
             <p data-i18n="flowPatientText">Capture the patient’s words by voice or text, with self-service or assisted access.</p>
           </li>
           <li>
-            <span class="flow-number">02</span>
+            <div class="flow-head">
+              <img class="flow-icon" src="/web/icons/calendar.svg?v=1" width="24" height="24" alt="">
+              <span class="flow-number">02</span>
+            </div>
             <h3 data-i18n="flowOpsTitle">Coordinate</h3>
             <p data-i18n="flowOpsText">Automate appointments, referrals, arrivals, queues and follow-up.</p>
           </li>
           <li>
-            <span class="flow-number">03</span>
+            <div class="flow-head">
+              <img class="flow-icon" src="/web/icons/soap-note.svg?v=1" width="24" height="24" alt="">
+              <span class="flow-number">03</span>
+            </div>
             <h3 data-i18n="flowClinicianTitle">Prepare</h3>
             <p data-i18n="flowClinicianText">Bring forward the facts, alerts and evidence a professional needs to decide.</p>
           </li>
           <li>
-            <span class="flow-number">04</span>
+            <div class="flow-head">
+              <img class="flow-icon" src="/web/icons/checklist.svg?v=1" width="24" height="24" alt="">
+              <span class="flow-number">04</span>
+            </div>
             <h3 data-i18n="flowRecordTitle">Record</h3>
             <p data-i18n="flowRecordText">Write structured outcomes back to the authorised health-information system.</p>
           </li>
@@ -102,186 +113,110 @@
       </div>
     </section>
 
-    <section class="status-section public-wrap" id="reference">
-      <div class="section-intro">
-        <h2 data-i18n="statusTitle">One working installation. One careful module at a time.</h2>
-        <p data-i18n="statusIntro">Human Rounds starts with Pinamar Turnos. Capabilities built in the earlier Sana work enter the public project only after review, integration and an honest status label.</p>
-      </div>
-      <div class="status-columns">
-        <article>
-          <span class="status-tag status-working" data-i18n="workingTitle">Reference installation</span>
-          <p data-i18n="workingText">Pinamar Turnos is the working base: a public-health access layer for a municipal hospital and primary-care network.</p>
-          <ul>
-            <li data-i18n="working1" data-i18n-html><strong>Service discovery</strong> across the hospital and community health centres.</li>
-            <li data-i18n="working2" data-i18n-html><strong>Appointments and walk-in guidance</strong> that reflect how each service actually attends.</li>
-            <li data-i18n="working3" data-i18n-html><strong>Referral-first requests</strong> with preparation guidance and professional review.</li>
-            <li data-i18n="working4" data-i18n-html><strong>Patient accounts and follow-up</strong> without duplicating the official clinical record.</li>
-            <li data-i18n="working5" data-i18n-html><strong>Institutional administration</strong> for services, centres, schedules and requests.</li>
-            <li data-i18n="working6" data-i18n-html><strong>Health-record handoff</strong> through the authorised local connector.</li>
-          </ul>
-          <p><a href="https://demo.humanrounds.org/" data-i18n="referenceLink">Reference installation</a></p>
-        </article>
-        <article>
-          <span class="status-tag status-development" data-i18n="developmentTitle">Entering Human Rounds</span>
-          <p data-i18n="developmentText">These AI-native modules are implemented in earlier Sana prototypes and are now in development for reviewed incorporation. The prototypes themselves are not public product claims.</p>
-          <ul>
-            <li data-i18n="development1" data-i18n-html><strong>Voice-first intake</strong> that structures the patient’s account without replacing it.</li>
-            <li data-i18n="development2" data-i18n-html><strong>Clinician summaries</strong> that put consequential information first.</li>
-            <li data-i18n="development3" data-i18n-html><strong>Evidence-backed differential suggestions</strong> with probabilities only after local calibration.</li>
-            <li data-i18n="development4" data-i18n-html><strong>Deterministic safety rules</strong> that an AI model cannot downgrade.</li>
-            <li data-i18n="development5" data-i18n-html><strong>Identity and coverage automation</strong> through authorised regional connectors.</li>
-          </ul>
-          <p class="safety-note" data-i18n="developmentNote">No model diagnoses, prescribes, discharges or changes care without a professional action.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="open-section">
-      <div class="public-wrap">
-        <div class="section-intro">
-          <h2 data-i18n="openTitle">AI-native. Open by design.</h2>
-          <p data-i18n="openIntro">The intelligence is built into the workflow, not bolted on as a chatbot. The code, operating model and local adapters are designed to remain inspectable and replaceable.</p>
-        </div>
-        <div class="principles">
-          <article>
-            <h3 data-i18n="open1Title">Open source</h3>
-            <p data-i18n="open1Text">The public repository begins with the website, architecture and roadmap. Reviewed modules follow one by one.</p>
-          </article>
-          <article>
-            <h3 data-i18n="open2Title">Human authority</h3>
-            <p data-i18n="open2Text">AI can listen, organise and suggest. People retain clinical judgment, consent and accountability.</p>
-          </article>
-          <article>
-            <h3 data-i18n="open3Title">Local control</h3>
-            <p data-i18n="open3Text">Institutions keep their system of record, policies and deployment choices.</p>
-          </article>
-          <article>
-            <h3 data-i18n="open4Title">Built for reality</h3>
-            <p data-i18n="open4Text">Shared devices, intermittent connectivity and low-bandwidth workflows are first-class conditions.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="geography-section" data-language-only="en">
-      <div class="public-wrap geography-grid">
-        <div>
-          <h2>Universal modules. Local connectors.</h2>
-          <p>The core journey can travel. Identity, consent, terminology, coverage, referrals and the authoritative record remain jurisdiction-specific.</p>
-        </div>
-        <ul>
-          <li><strong>Reusable core:</strong> access, scheduling, referrals, intake, coordination and clinician-reviewed support.</li>
-          <li><strong>Regional adapters:</strong> local teams may need to write code for identity, coverage and record systems.</li>
-          <li><strong>Open contribution path:</strong> we welcome pull requests for regional systems and implementation guides.</li>
-          <li><strong>Regulation by module:</strong> operational automation can lead; clinical functionality follows local evidence and regulatory pathways.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="geography-section argentina-section" data-language-only="es">
-      <div class="public-wrap">
-        <div class="section-intro">
-          <h2>Hecho para integrarse con la salud pública argentina.</h2>
-          <p>Human Rounds no reemplaza los sistemas oficiales. Se conecta con ellos donde existe autorización y suma cada adaptador jurisdicción por jurisdicción.</p>
-        </div>
-        <div class="argentina-grid">
-          <article>
-            <h3>HSI</h3>
-            <p>El flujo de referencia ya trabaja con la Historia de Salud Integrada. La historia clínica sigue siendo la fuente oficial.</p>
-            <a href="https://www.ms.gba.gov.ar/sitios/saluddigitalbonaerense/ejes/historia-de-salud-integrada/" rel="noopener">Historia de Salud Integrada</a>
-          </article>
-          <article>
-            <h3>RENAPER</h3>
-            <p>La validación de identidad se habilita solo mediante servicios y credenciales institucionales autorizados.</p>
-            <a href="https://www.argentina.gob.ar/interior/renaper" rel="noopener">Registro Nacional de las Personas</a>
-          </article>
-          <article>
-            <h3>PUCO</h3>
-            <p>El adaptador para consultar cobertura de obra social está planificado; no se publica ninguna credencial ni acceso institucional.</p>
-            <a href="https://sisa.msal.gov.ar/sisadoc/docs/0204/puco_intro.jsp" rel="noopener">Padrón Único Consolidado Operativo</a>
-          </article>
-          <article>
-            <h3>SISA, REFES y REFEPS</h3>
-            <p>Los establecimientos, profesionales y catálogos deben alinearse con los registros federales y las reglas de cada jurisdicción.</p>
-            <a href="https://www.argentina.gob.ar/salud/garantia-de-calidad-de-la-atencion-medica/registros-federales-de-referencia-de" rel="noopener">Registros federales de salud</a>
-          </article>
-          <article>
-            <h3>SNOMED CT y guías oficiales</h3>
-            <p>Los módulos clínicos en desarrollo se limitan a terminología, guías y protocolos aprobados por la autoridad sanitaria correspondiente.</p>
-            <a href="https://www.argentina.gob.ar/salud/digital/estandares" rel="noopener">Estándares de salud digital</a>
-          </article>
-          <article>
-            <h3>Municipios y provincias</h3>
-            <p>Aceptamos contribuciones para conectores regionales. Cada implementación conserva sus autorizaciones, reglas y responsables.</p>
-            <a href="https://github.com/visualpharm/human-rounds" rel="noopener">Contribuir en GitHub</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="funding-section public-wrap" id="funding">
-      <div class="section-intro">
-        <h2 data-i18n="fundingTitle">What grant funding unlocks</h2>
-        <p data-i18n="fundingIntro">Grant support turns a working municipal reference into audited, reusable public infrastructure.</p>
-      </div>
-      <ol class="funding-list">
-        <li>
-          <span>01</span>
-          <div><h3 data-i18n="funding1Title">Reference deployment</h3><p data-i18n="funding1Text">Harden Pinamar Turnos, train teams and measure access and workload in real operations.</p></div>
-        </li>
-        <li>
-          <span>02</span>
-          <div><h3 data-i18n="funding2Title">AI module integration</h3><p data-i18n="funding2Text">Move one reviewed Sana capability at a time into Human Rounds with safety and governance gates.</p></div>
-        </li>
-        <li>
-          <span>03</span>
-          <div><h3 data-i18n="funding3Title">Independent validation</h3><p data-i18n="funding3Text">Measure time saved, access, safety, clinician workload and calibrated model performance.</p></div>
-        </li>
-        <li>
-          <span>04</span>
-          <div><h3 data-i18n="funding4Title">Open implementation kit</h3><p data-i18n="funding4Text">Publish reviewed modules, adapters, governance templates and findings for the next site.</p></div>
-        </li>
-      </ol>
-      <p class="funding-promise" data-i18n="fundingPromise" data-i18n-html><strong>Grant-funded public pilots can launch without a software licence fee.</strong> Funding pays for implementation, integration, validation and support.</p>
-    </section>
-
     <section class="roadmap-section public-wrap" id="roadmap">
       <div class="section-intro">
         <h2 data-i18n="roadmapTitle">Roadmap</h2>
       </div>
-      <ol class="roadmap">
-        <li>
-          <span class="roadmap-state" data-i18n="roadmapNowTitle">Now</span>
-          <p data-i18n="roadmapNowText">Human Rounds public project and Pinamar Turnos as the working reference installation.</p>
-        </li>
-        <li>
-          <span class="roadmap-state" data-i18n="roadmapNextTitle">Next</span>
-          <p data-i18n="roadmapNextText">Integrate and publish one reviewed AI-native module at a time.</p>
-        </li>
-        <li>
-          <span class="roadmap-state" data-i18n="roadmapLaterTitle">Then</span>
-          <p data-i18n="roadmapLaterText">Independent evaluation, additional public-health pilots and regional interoperability packs.</p>
-        </li>
-      </ol>
+      <div class="kanban">
+        <div class="kanban-column kanban-column--live">
+          <h3 data-i18n="roadmapLiveTitle">Live</h3>
+          <p class="kanban-subtitle" data-i18n="roadmapLiveSubtitle">Running at the Pinamar reference installation</p>
+          <ul class="kanban-cards">
+            <li><h4 data-i18n="kbLive1Title">Find a service by typing 3 letters</h4><p data-i18n="kbLive1Text">Search with stemming across the hospital and 7 health centres</p></li>
+            <li><h4 data-i18n="kbLive2Title">Book online in 2 clicks</h4><p data-i18n="kbLive2Text">Real slots, nearest first, held while you decide</p></li>
+            <li><h4 data-i18n="kbLive3Title">Referral orders read by AI</h4><p data-i18n="kbLive3Text">Even handwriting; staff approve, the AI proposes</p></li>
+            <li><h4 data-i18n="kbLive4Title">Rejections carry the next step</h4><p data-i18n="kbLive4Text">Alternative slots or a re-upload link, never a dead end</p></li>
+            <li><h4 data-i18n="kbLive5Title">Patient accounts</h4><p data-i18n="kbLive5Text">Sign up with a photo of your DNI</p></li>
+            <li><h4 data-i18n="kbLive6Title">Coverage check (PUCO)</h4><p data-i18n="kbLive6Text">The patient’s insurance is detected automatically from the national registry</p></li>
+            <li><h4 data-i18n="kbLive7Title">Day-before reminders by email and WhatsApp</h4><p data-i18n="kbLive7Text">Reply YES or NO to confirm or cancel</p></li>
+            <li><h4 data-i18n="kbLive8Title">Cancellation + waitlist</h4><p data-i18n="kbLive8Text">A freed slot is re-offered automatically to the next patient</p></li>
+            <li><h4 data-i18n="kbLive9Title">Booking chat</h4><p data-i18n="kbLive9Text">On the site and on WhatsApp</p></li>
+            <li><h4 data-i18n="kbLive10Title">Staff panel</h4><p data-i18n="kbLive10Text">Request queue, today’s patients, doctor agendas, capacity and billing-recovery reports</p></li>
+            <li><h4 data-i18n="kbLive11Title">Health-record handoff</h4><p data-i18n="kbLive11Text">Writes to HSI with automatic retry; nothing breaks if the record is down</p></li>
+            <li><h4 data-i18n="kbLive12Title">Multi-site engine</h4><p data-i18n="kbLive12Text">Data packs, languages, installer wizard, pluggable per-country connectors</p></li>
+          </ul>
+        </div>
+        <div class="kanban-column kanban-column--prototyped">
+          <h3 data-i18n="roadmapPrototypedTitle">Prototyped</h3>
+          <p class="kanban-subtitle" data-i18n="roadmapPrototypedSubtitle">Built in the Sana prototypes, entering Human Rounds after review</p>
+          <ul class="kanban-cards">
+            <li><h4 data-i18n="kbProto1Title">Scan-to-register</h4><p data-i18n="kbProto1Text">DNI + insurance credential scan fills the health-record registration</p></li>
+            <li><h4 data-i18n="kbProto2Title">Voice intake</h4><p data-i18n="kbProto2Text">The patient dictates symptoms and answers follow-ups</p></li>
+            <li><h4 data-i18n="kbProto3Title">Triage codes</h4><p data-i18n="kbProto3Text">With deterministic red-flag rules the model can escalate but never downgrade</p></li>
+            <li><h4 data-i18n="kbProto4Title">SOAP summary + differential probabilities</h4><p data-i18n="kbProto4Text">For the clinician</p></li>
+            <li><h4 data-i18n="kbProto5Title">Orders by checkbox</h4><p data-i18n="kbProto5Text">To the electronic system or the printer</p></li>
+          </ul>
+        </div>
+        <div class="kanban-column kanban-column--planned">
+          <h3 data-i18n="roadmapPlannedTitle">Planned</h3>
+          <ul class="kanban-cards">
+            <li><h4 data-i18n="kbPlanned1Title">Teleconsultation</h4></li>
+            <li><h4 data-i18n="kbPlanned2Title">Clinical-history summary</h4></li>
+            <li><h4 data-i18n="kbPlanned3Title">More regional connectors</h4><p data-i18n="kbPlanned3Text">Identity, coverage and record systems beyond Argentina</p></li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section class="partner-section">
-      <div class="public-wrap partner-grid">
-        <div>
-          <h2 data-i18n="partnerTitle">Fund or implement Human Rounds</h2>
-          <p data-i18n="partnerText">We are looking for public-health institutions, universities, foundations and implementation partners that can host, evaluate or fund a real pilot.</p>
+    <section class="blog-section public-wrap" id="blog">
+      <div class="section-intro">
+        <h2 data-i18n="blogTitle">Blog</h2>
+        <p data-i18n="blogIntro">Three days in the life of the platform.</p>
+      </div>
+      <div class="blog-grid">
+        <a class="blog-card" href="/blog/three-letters-to-a-cardiologist.html">
+          <h3 data-i18n="blogPost1Title">Three letters to a cardiologist</h3>
+          <p data-i18n="blogPost1Teaser">A search box, two clicks, and one visit instead of two.</p>
+        </a>
+        <a class="blog-card" href="/blog/the-doctor-walks-in-prepared.html">
+          <h3 data-i18n="blogPost2Title">The doctor walks in prepared</h3>
+          <p data-i18n="blogPost2Teaser">The chart already knows the patient’s story when he walks in.</p>
+        </a>
+        <a class="blog-card" href="/blog/a-queue-that-reads-itself.html">
+          <h3 data-i18n="blogPost3Title">A queue that reads itself</h3>
+          <p data-i18n="blogPost3Teaser">AI reads every referral order before the queue does.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="invitations-section" id="invitations">
+      <div class="public-wrap">
+        <div class="section-intro">
+          <h2 data-i18n="invitationsTitle">Three ways in</h2>
         </div>
-        <nav aria-label="Collaboration links">
-          <a href="https://github.com/visualpharm/human-rounds" rel="noopener" data-i18n="partnerGithub">GitHub repository</a>
-          <a href="https://demo.humanrounds.org/" data-i18n="partnerDemo">Pinamar Turnos reference</a>
-          <a href="#funding" data-i18n="partnerBrief">Funding roadmap</a>
-        </nav>
+        <div class="invite-grid">
+          <article class="invite-card">
+            <img class="invite-icon" src="/web/icons/stethoscope.svg?v=1" width="30" height="30" alt="">
+            <h3 data-i18n="inviteOrgTitle">Health organizations — run it.</h3>
+            <p data-i18n="inviteOrgText">Free to deploy, no licence fee; the Pinamar installation is live proof. Grant-funded public pilots can launch without a software licence fee.</p>
+            <div class="invite-links">
+              <a href="https://demo.humanrounds.org/" data-i18n="heroLinkDemo">Live demo</a>
+              <a href="https://github.com/visualpharm/human-rounds/issues/new" data-i18n="inviteContact">Contact</a>
+            </div>
+          </article>
+          <article class="invite-card">
+            <img class="invite-icon" src="/web/icons/code-fork.svg?v=1" width="30" height="30" alt="">
+            <h3 data-i18n="inviteDevTitle">Developers — extend it.</h3>
+            <p data-i18n="inviteDevText">Fork the repo and submit a pull request with a local module: your region’s identity, coverage and health-record connectors.</p>
+            <div class="invite-links">
+              <a href="https://github.com/visualpharm/human-rounds" rel="noopener" data-i18n="inviteGithub">GitHub</a>
+            </div>
+          </article>
+          <article class="invite-card">
+            <img class="invite-icon" src="/web/icons/shield.svg?v=1" width="30" height="30" alt="">
+            <h3 data-i18n="inviteFundTitle">Investors and grant organizations — fund it.</h3>
+            <p data-i18n="inviteFundText">Money goes to hardening, independent validation and the next public pilots.</p>
+            <div class="invite-links">
+              <a href="https://github.com/visualpharm/human-rounds/issues/new" data-i18n="inviteContact">Contact</a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   </main>
 
   <footer data-public-footer data-lang="en"></footer>
-  <script src="/web/public-footer.js?v=2"></script>
-  <script src="/web/landing.js?v=3"></script>
+  <script src="/web/public-footer.js?v=3"></script>
+  <script src="/web/landing.js?v=4"></script>
 </body>
 </html>

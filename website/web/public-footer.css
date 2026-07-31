@@ -35,6 +35,13 @@
   color: #bbb4aa;
   font-size: .84rem;
 }
+.public-footer__credit {
+  grid-column: 1 / -1;
+  margin-top: 2px;
+  font-size: .78rem;
+}
+.public-footer__credit a { color: #8f887c; }
+.public-footer__credit a:hover { color: #ff7b5c; }
 @media (max-width: 760px) {
   .public-footer__inner {
     width: min(100% - 34px, var(--footer-wrap));
