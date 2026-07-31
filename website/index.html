@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/web/landing.css?v=5">
+  <link rel="stylesheet" href="/web/landing.css?v=6">
   <link rel="stylesheet" href="/web/public-footer.css?v=3">
   <script type="application/ld+json">
   {
@@ -157,21 +157,76 @@
         </div>
       </div>
       <div class="roadmap-stories">
-        <a class="story-card" href="/blog/three-letters-to-a-cardiologist.html">
-          <h4 data-i18n="blogPost1Title">Three letters to a cardiologist</h4>
-          <p data-i18n="storyPost1Body" data-i18n-html></p>
-          <span class="story-more" data-i18n="storyReadMore">Read more →</span>
-        </a>
-        <a class="story-card" href="/blog/the-doctor-walks-in-prepared.html">
-          <h4 data-i18n="blogPost2Title">The doctor walks in prepared</h4>
-          <p data-i18n="storyPost2Body" data-i18n-html></p>
-          <span class="story-more" data-i18n="storyReadMore">Read more →</span>
-        </a>
-        <a class="story-card" href="/blog/a-queue-that-reads-itself.html">
-          <h4 data-i18n="blogPost3Title">A queue that reads itself</h4>
-          <p data-i18n="storyPost3Body" data-i18n-html></p>
-          <span class="story-more" data-i18n="storyReadMore">Read more →</span>
-        </a>
+
+        <article class="story-block story-block--mockup" id="story-grace">
+          <div class="story-text">
+            <img class="story-icon" src="/web/icons/search.svg?v=1" width="28" height="28" alt="">
+            <h3 data-i18n="blogPost1Title">Three letters to a cardiologist</h3>
+            <p data-i18n="story1Para1">Grace needs to see a cardiologist. She doesn't know which health centre has one, or when.</p>
+            <p data-i18n="story1Para2">She types three letters into the search box. Two clicks books the nearest opening. Before the visit, she dictates her symptoms by voice instead of filling out a form.</p>
+            <ul class="story-facts">
+              <li data-i18n="story1Fact1">3 letters → the right service, nearest first</li>
+              <li data-i18n="story1Fact2">2 clicks, no phone call</li>
+              <li data-i18n="story1Fact3">Blood-test order arrives a week ahead</li>
+              <li data-i18n="story1Fact4">One visit instead of two</li>
+            </ul>
+            <a class="story-permalink" href="/blog/three-letters-to-a-cardiologist.html" data-i18n="storyPermalink">Permalink</a>
+          </div>
+          <div class="story-visual">
+            <div class="phone-mockup" aria-hidden="true">
+              <div class="phone-mockup__notch"></div>
+              <div class="phone-mockup__screen">
+                <div class="phone-mockup__search">
+                  <span data-i18n="phoneSearchText">car</span><span class="phone-mockup__cursor"></span>
+                </div>
+                <div class="phone-mockup__result">
+                  <strong data-i18n="phoneResultTitle">Cardiología</strong>
+                  <span data-i18n="phoneResultSub">Hospital de Pinamar · 10 min</span>
+                  <span class="phone-mockup__btn" data-i18n="phoneResultBtn">Reservar</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="story-block story-block--image story-block--reverse" id="story-nguyen">
+          <div class="story-text">
+            <img class="story-icon" src="/web/icons/stethoscope.svg?v=1" width="28" height="28" alt="">
+            <h3 data-i18n="blogPost2Title">The doctor walks in prepared</h3>
+            <p data-i18n="story2Para1">Dr. Nguyen opens today's list before the first patient arrives. Each row shows a triage colour and a one-line summary — no file to dig through.</p>
+            <p data-i18n="story2Para2">A new patient's story is already on the screen: her own words, a SOAP summary, a differential ranked by likelihood. He examines her. He talks to her. That part stays his — no software touches it.</p>
+            <ul class="story-facts">
+              <li data-i18n="story2Fact1">Triage colour + one-line summary, no digging</li>
+              <li data-i18n="story2Fact2">SOAP note &amp; differential ready before he speaks</li>
+              <li data-i18n="story2Fact3">He checks the boxes on orders he agrees with</li>
+              <li data-i18n="story2Fact4">No typing during the visit</li>
+            </ul>
+            <a class="story-permalink" href="/blog/the-doctor-walks-in-prepared.html" data-i18n="storyPermalink">Permalink</a>
+          </div>
+          <div class="story-visual">
+            <img class="story-illustration" src="/web/illustrations/story-doctor-visit.webp?v=1" width="1200" height="800" alt="" loading="lazy">
+          </div>
+        </article>
+
+        <article class="story-block story-block--image" id="story-sonia">
+          <div class="story-text">
+            <img class="story-icon" src="/web/icons/shield.svg?v=1" width="28" height="28" alt="">
+            <h3 data-i18n="blogPost3Title">A queue that reads itself</h3>
+            <p data-i18n="story3Para1">Sonia starts her morning with a queue of referral orders — some handwritten, some photos taken in a hurry.</p>
+            <p data-i18n="story3Para2">The AI already read every one overnight: date, licence, name match. She reviews the proposals, not the raw images — rejects two, approves the rest. Nobody hits a dead end.</p>
+            <ul class="story-facts">
+              <li data-i18n="story3Fact1">AI reads every referral overnight, handwriting included</li>
+              <li data-i18n="story3Fact2">Proposes accept or reject, with the reason attached</li>
+              <li data-i18n="story3Fact3">Rejected patients get the next step, not a dead end</li>
+              <li data-i18n="story3Fact4">Attendance goes up</li>
+            </ul>
+            <a class="story-permalink" href="/blog/a-queue-that-reads-itself.html" data-i18n="storyPermalink">Permalink</a>
+          </div>
+          <div class="story-visual">
+            <img class="story-illustration" src="/web/illustrations/story-referral-queue.webp?v=1" width="1200" height="800" alt="" loading="lazy">
+          </div>
+        </article>
+
       </div>
     </section>
 
@@ -213,6 +268,6 @@
 
   <footer data-public-footer data-lang="en"></footer>
   <script src="/web/public-footer.js?v=3"></script>
-  <script src="/web/landing.js?v=5"></script>
+  <script src="/web/landing.js?v=6"></script>
 </body>
 </html>

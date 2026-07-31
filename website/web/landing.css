@@ -332,38 +332,140 @@ body[data-language="es"] .product-proof .modules-diagram--es { display: block; }
 }
 .kanban-cards p { margin: 0; color: var(--muted); font-size: .86rem; }
 
-/* Roadmap stories (shortened user-story teasers, folded into #roadmap) */
+/* Roadmap stories (fully expanded inline story blocks, folded into #roadmap) */
 .roadmap-stories {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(48px, 6vw, 88px);
+  margin-top: 56px;
+}
+.story-block {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 44px;
-}
-.story-card {
-  display: block;
-  min-width: 0;
-  padding: 22px 4px 0;
+  grid-template-columns: 1.05fr .95fr;
+  gap: clamp(28px, 4vw, 56px);
+  align-items: center;
+  padding-top: 40px;
   border-top: 1px solid var(--line);
-  color: var(--ink);
-  text-decoration: none;
 }
-.story-card h4 {
-  margin: 0 0 8px;
-  font-size: .96rem;
-  font-weight: 750;
+.story-block--reverse .story-visual { order: 2; }
+.story-icon { width: 28px; height: 28px; margin-bottom: 14px; }
+.story-text h3 {
+  margin: 0 0 14px;
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 800;
   letter-spacing: -.01em;
 }
-.story-card p {
-  margin: 0 0 10px;
-  color: var(--muted);
-  font-size: .9rem;
-  line-height: 1.5;
+.story-text p {
+  margin: 0 0 14px;
+  color: var(--ink);
+  font-size: .98rem;
+  line-height: 1.6;
 }
-.story-card p strong { color: var(--ink); }
-.story-more {
-  color: var(--accent-deep);
-  font-size: .86rem;
+.story-facts {
+  list-style: none;
+  margin: 18px 0 20px;
+  padding: 0;
+  display: grid;
+  gap: 9px;
+}
+.story-facts li {
+  position: relative;
+  padding-left: 22px;
+  font-size: .92rem;
+  color: var(--muted);
+}
+.story-facts li::before {
+  content: "";
+  position: absolute; left: 0; top: .5em;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.story-permalink {
+  font-size: .82rem;
   font-weight: 600;
+  color: var(--muted);
+  text-decoration-color: var(--line);
+}
+.story-permalink:hover { color: var(--accent-deep); text-decoration-color: currentColor; }
+
+.story-visual { min-width: 0; }
+.story-illustration {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+}
+
+/* Phone mockup — coded, not an image */
+.phone-mockup {
+  width: min(220px, 70%);
+  margin-inline: auto;
+  aspect-ratio: 9 / 18.5;
+  background: var(--ink);
+  border-radius: 28px;
+  padding: 10px;
+  box-shadow: 0 18px 40px -20px rgba(24,23,22,.45);
+}
+.phone-mockup__notch {
+  width: 40%; height: 18px;
+  margin: 0 auto 8px;
+  background: var(--ink);
+  border-radius: 0 0 12px 12px;
+}
+.phone-mockup__screen {
+  background: var(--surface);
+  border-radius: 18px;
+  height: 100%;
+  padding: 18px 14px;
+}
+.phone-mockup__search {
+  display: flex; align-items: center;
+  background: var(--paper-deep);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: .92rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+.phone-mockup__cursor {
+  display: inline-block;
+  width: 2px; height: 1em;
+  background: var(--accent);
+  margin-left: 2px;
+  animation: phoneBlink 1s step-end infinite;
+}
+@keyframes phoneBlink { 50% { opacity: 0; } }
+.phone-mockup__result {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.phone-mockup__result strong { font-size: .94rem; }
+.phone-mockup__result span:not(.phone-mockup__btn) { font-size: .76rem; color: var(--muted); }
+.phone-mockup__btn {
+  align-self: flex-start;
+  margin-top: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-size: .76rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+@media (max-width: 760px) {
+  .story-block, .story-block--reverse {
+    grid-template-columns: 1fr;
+  }
+  .story-block--reverse .story-visual { order: 0; }
+  .story-visual { margin-bottom: 8px; }
+  .phone-mockup { width: min(200px, 60%); }
 }
 
 /* Blog post page */
@@ -440,7 +542,6 @@ body[data-language="es"] .product-proof .modules-diagram--es { display: block; }
   .kanban-column--planned { grid-column: 1 / -1; }
   .kanban-column--planned .kanban-cards { flex-direction: row; flex-wrap: wrap; }
   .kanban-column--planned .kanban-cards li { flex: 1 1 220px; }
-  .roadmap-stories,
   .invite-grid { grid-template-columns: 1fr 1fr; }
 }
 
@@ -479,7 +580,6 @@ body[data-language="es"] .product-proof .modules-diagram--es { display: block; }
   .status-columns,
   .partner-grid,
   .kanban,
-  .roadmap-stories,
   .invite-grid {
     grid-template-columns: 1fr;
   }
