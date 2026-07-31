@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/web/landing.css?v=4">
+  <link rel="stylesheet" href="/web/landing.css?v=5">
   <link rel="stylesheet" href="/web/public-footer.css?v=3">
   <script type="application/ld+json">
   {
@@ -41,7 +41,6 @@
     <nav class="site-nav" aria-label="Primary navigation">
       <a href="#platform" data-i18n="navHow">How it works</a>
       <a href="#roadmap" data-i18n="navRoadmap">Roadmap</a>
-      <a href="#blog" data-i18n="navBlog">Blog</a>
     </nav>
     <nav class="site-actions" aria-label="Project destinations">
       <a href="https://github.com/visualpharm/human-rounds" rel="noopener" data-i18n="navOpenSource">Open source ↗</a>
@@ -78,35 +77,35 @@
         <ol class="system-flow">
           <li>
             <div class="flow-head">
-              <img class="flow-icon" src="/web/icons/microphone.svg?v=1" width="24" height="24" alt="">
+              <img class="flow-icon" src="/web/icons/priority.svg?v=1" width="24" height="24" alt="">
               <span class="flow-number">01</span>
             </div>
-            <h3 data-i18n="flowPatientTitle">Listen</h3>
-            <p data-i18n="flowPatientText">Capture the patient’s words by voice or text, with self-service or assisted access.</p>
+            <h3 data-i18n="flowPatientTitle">Encounter and prioritize</h3>
+            <p data-i18n="flowPatientText">The AI asks what's wrong, follows up, and judges urgency — so the most urgent patients are seen first.</p>
           </li>
           <li>
             <div class="flow-head">
               <img class="flow-icon" src="/web/icons/calendar.svg?v=1" width="24" height="24" alt="">
               <span class="flow-number">02</span>
             </div>
-            <h3 data-i18n="flowOpsTitle">Coordinate</h3>
-            <p data-i18n="flowOpsText">Automate appointments, referrals, arrivals, queues and follow-up.</p>
+            <h3 data-i18n="flowOpsTitle">Coordinate the patient journey</h3>
+            <p data-i18n="flowOpsText">One system runs registration, booking, arrivals, queues, and insurance claims, start to finish.</p>
           </li>
           <li>
             <div class="flow-head">
-              <img class="flow-icon" src="/web/icons/soap-note.svg?v=1" width="24" height="24" alt="">
+              <img class="flow-icon" src="/web/icons/line-chart.svg?v=1" width="24" height="24" alt="">
               <span class="flow-number">03</span>
             </div>
-            <h3 data-i18n="flowClinicianTitle">Prepare</h3>
-            <p data-i18n="flowClinicianText">Bring forward the facts, alerts and evidence a professional needs to decide.</p>
+            <h3 data-i18n="flowClinicianTitle">Surface the relevant history</h3>
+            <p data-i18n="flowClinicianText">No more typing through the visit. The dashboard surfaces history, key facts, trends, and charts on sight.</p>
           </li>
           <li>
             <div class="flow-head">
               <img class="flow-icon" src="/web/icons/checklist.svg?v=1" width="24" height="24" alt="">
               <span class="flow-number">04</span>
             </div>
-            <h3 data-i18n="flowRecordTitle">Record</h3>
-            <p data-i18n="flowRecordText">Write structured outcomes back to the authorised health-information system.</p>
+            <h3 data-i18n="flowRecordTitle">Record and automate the outcome</h3>
+            <p data-i18n="flowRecordText">The visit is summarized automatically, and prescriptions, orders, and test requests are generated with it.</p>
           </li>
         </ol>
         <p class="clinician-line" data-i18n="clinicianDecides">AI prepares. The professional decides.</p>
@@ -118,6 +117,26 @@
         <h2 data-i18n="roadmapTitle">Roadmap</h2>
       </div>
       <div class="kanban">
+        <div class="kanban-column kanban-column--planned">
+          <h3 data-i18n="roadmapPlannedTitle">Planned</h3>
+          <p class="kanban-subtitle" data-i18n="roadmapPlannedSubtitle">Not started yet</p>
+          <ul class="kanban-cards">
+            <li><h4 data-i18n="kbPlanned1Title">Teleconsultation</h4></li>
+            <li><h4 data-i18n="kbPlanned2Title">Clinical-history summary</h4></li>
+            <li><h4 data-i18n="kbPlanned3Title">More regional connectors</h4><p data-i18n="kbPlanned3Text">Identity, coverage and record systems beyond Argentina</p></li>
+          </ul>
+        </div>
+        <div class="kanban-column kanban-column--prototyped">
+          <h3 data-i18n="roadmapPrototypedTitle">Prototyped</h3>
+          <p class="kanban-subtitle" data-i18n="roadmapPrototypedSubtitle">Built in the Sana prototypes, entering Human Rounds after review</p>
+          <ul class="kanban-cards">
+            <li><h4 data-i18n="kbProto1Title">Scan-to-register</h4><p data-i18n="kbProto1Text">DNI + insurance credential scan fills the health-record registration</p></li>
+            <li><h4 data-i18n="kbProto2Title">Voice intake</h4><p data-i18n="kbProto2Text">The patient dictates symptoms and answers follow-ups</p></li>
+            <li><h4 data-i18n="kbProto3Title">Triage codes</h4><p data-i18n="kbProto3Text">With deterministic red-flag rules the model can escalate but never downgrade</p></li>
+            <li><h4 data-i18n="kbProto4Title">SOAP summary + differential probabilities</h4><p data-i18n="kbProto4Text">For the clinician</p></li>
+            <li><h4 data-i18n="kbProto5Title">Orders by checkbox</h4><p data-i18n="kbProto5Text">To the electronic system or the printer</p></li>
+          </ul>
+        </div>
         <div class="kanban-column kanban-column--live">
           <h3 data-i18n="roadmapLiveTitle">Live</h3>
           <p class="kanban-subtitle" data-i18n="roadmapLiveSubtitle">Running at the Pinamar reference installation</p>
@@ -136,45 +155,22 @@
             <li><h4 data-i18n="kbLive12Title">Multi-site engine</h4><p data-i18n="kbLive12Text">Data packs, languages, installer wizard, pluggable per-country connectors</p></li>
           </ul>
         </div>
-        <div class="kanban-column kanban-column--prototyped">
-          <h3 data-i18n="roadmapPrototypedTitle">Prototyped</h3>
-          <p class="kanban-subtitle" data-i18n="roadmapPrototypedSubtitle">Built in the Sana prototypes, entering Human Rounds after review</p>
-          <ul class="kanban-cards">
-            <li><h4 data-i18n="kbProto1Title">Scan-to-register</h4><p data-i18n="kbProto1Text">DNI + insurance credential scan fills the health-record registration</p></li>
-            <li><h4 data-i18n="kbProto2Title">Voice intake</h4><p data-i18n="kbProto2Text">The patient dictates symptoms and answers follow-ups</p></li>
-            <li><h4 data-i18n="kbProto3Title">Triage codes</h4><p data-i18n="kbProto3Text">With deterministic red-flag rules the model can escalate but never downgrade</p></li>
-            <li><h4 data-i18n="kbProto4Title">SOAP summary + differential probabilities</h4><p data-i18n="kbProto4Text">For the clinician</p></li>
-            <li><h4 data-i18n="kbProto5Title">Orders by checkbox</h4><p data-i18n="kbProto5Text">To the electronic system or the printer</p></li>
-          </ul>
-        </div>
-        <div class="kanban-column kanban-column--planned">
-          <h3 data-i18n="roadmapPlannedTitle">Planned</h3>
-          <ul class="kanban-cards">
-            <li><h4 data-i18n="kbPlanned1Title">Teleconsultation</h4></li>
-            <li><h4 data-i18n="kbPlanned2Title">Clinical-history summary</h4></li>
-            <li><h4 data-i18n="kbPlanned3Title">More regional connectors</h4><p data-i18n="kbPlanned3Text">Identity, coverage and record systems beyond Argentina</p></li>
-          </ul>
-        </div>
       </div>
-    </section>
-
-    <section class="blog-section public-wrap" id="blog">
-      <div class="section-intro">
-        <h2 data-i18n="blogTitle">Blog</h2>
-        <p data-i18n="blogIntro">Three days in the life of the platform.</p>
-      </div>
-      <div class="blog-grid">
-        <a class="blog-card" href="/blog/three-letters-to-a-cardiologist.html">
-          <h3 data-i18n="blogPost1Title">Three letters to a cardiologist</h3>
-          <p data-i18n="blogPost1Teaser">A search box, two clicks, and one visit instead of two.</p>
+      <div class="roadmap-stories">
+        <a class="story-card" href="/blog/three-letters-to-a-cardiologist.html">
+          <h4 data-i18n="blogPost1Title">Three letters to a cardiologist</h4>
+          <p data-i18n="storyPost1Body" data-i18n-html></p>
+          <span class="story-more" data-i18n="storyReadMore">Read more →</span>
         </a>
-        <a class="blog-card" href="/blog/the-doctor-walks-in-prepared.html">
-          <h3 data-i18n="blogPost2Title">The doctor walks in prepared</h3>
-          <p data-i18n="blogPost2Teaser">The chart already knows the patient’s story when he walks in.</p>
+        <a class="story-card" href="/blog/the-doctor-walks-in-prepared.html">
+          <h4 data-i18n="blogPost2Title">The doctor walks in prepared</h4>
+          <p data-i18n="storyPost2Body" data-i18n-html></p>
+          <span class="story-more" data-i18n="storyReadMore">Read more →</span>
         </a>
-        <a class="blog-card" href="/blog/a-queue-that-reads-itself.html">
-          <h3 data-i18n="blogPost3Title">A queue that reads itself</h3>
-          <p data-i18n="blogPost3Teaser">AI reads every referral order before the queue does.</p>
+        <a class="story-card" href="/blog/a-queue-that-reads-itself.html">
+          <h4 data-i18n="blogPost3Title">A queue that reads itself</h4>
+          <p data-i18n="storyPost3Body" data-i18n-html></p>
+          <span class="story-more" data-i18n="storyReadMore">Read more →</span>
         </a>
       </div>
     </section>
@@ -217,6 +213,6 @@
 
   <footer data-public-footer data-lang="en"></footer>
   <script src="/web/public-footer.js?v=3"></script>
-  <script src="/web/landing.js?v=4"></script>
+  <script src="/web/landing.js?v=5"></script>
 </body>
 </html>

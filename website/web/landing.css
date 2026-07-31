@@ -239,8 +239,7 @@ body[data-language="es"] .product-proof .modules-diagram--es { display: block; }
 }
 
 .status-section,
-.roadmap-section,
-.blog-section {
+.roadmap-section {
   padding-block: 96px;
 }
 .status-columns {
@@ -298,13 +297,17 @@ body[data-language="es"] .product-proof .modules-diagram--es { display: block; }
   padding-top: 16px;
   margin-bottom: 6px;
   border-top: 3px solid var(--accent-deep);
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -.02em;
 }
 .kanban-column--prototyped h3 { border-top-color: var(--development); }
 .kanban-column--planned h3 { border-top-color: var(--muted); }
 .kanban-subtitle {
   margin-bottom: 22px;
   color: var(--muted);
-  font-size: .86rem;
+  font-size: .78rem;
   line-height: 1.4;
 }
 .kanban-cards {
@@ -329,31 +332,39 @@ body[data-language="es"] .product-proof .modules-diagram--es { display: block; }
 }
 .kanban-cards p { margin: 0; color: var(--muted); font-size: .86rem; }
 
-/* Blog */
-.blog-grid {
+/* Roadmap stories (shortened user-story teasers, folded into #roadmap) */
+.roadmap-stories {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 8px;
+  gap: 20px;
+  margin-top: 44px;
 }
-.blog-card {
+.story-card {
   display: block;
   min-width: 0;
-  padding: 26px;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: var(--surface);
+  padding: 22px 4px 0;
+  border-top: 1px solid var(--line);
   color: var(--ink);
   text-decoration: none;
-  transition: border-color .15s ease, box-shadow .15s ease;
 }
-.blog-card:hover {
-  color: var(--ink);
-  border-color: var(--accent-deep);
-  box-shadow: 0 14px 34px rgba(39, 32, 22, .09);
+.story-card h4 {
+  margin: 0 0 8px;
+  font-size: .96rem;
+  font-weight: 750;
+  letter-spacing: -.01em;
 }
-.blog-card h3 { margin-bottom: 10px; }
-.blog-card p { margin-bottom: 0; color: var(--muted); }
+.story-card p {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.5;
+}
+.story-card p strong { color: var(--ink); }
+.story-more {
+  color: var(--accent-deep);
+  font-size: .86rem;
+  font-weight: 600;
+}
 
 /* Blog post page */
 .post-section { padding-block: 64px 96px; }
@@ -429,7 +440,7 @@ body[data-language="es"] .product-proof .modules-diagram--es { display: block; }
   .kanban-column--planned { grid-column: 1 / -1; }
   .kanban-column--planned .kanban-cards { flex-direction: row; flex-wrap: wrap; }
   .kanban-column--planned .kanban-cards li { flex: 1 1 220px; }
-  .blog-grid,
+  .roadmap-stories,
   .invite-grid { grid-template-columns: 1fr 1fr; }
 }
 
@@ -463,13 +474,12 @@ body[data-language="es"] .product-proof .modules-diagram--es { display: block; }
   .partner-section .public-wrap,
   .status-section,
   .roadmap-section,
-  .blog-section,
   .post-section { padding-block: 64px; }
   .system-flow,
   .status-columns,
   .partner-grid,
   .kanban,
-  .blog-grid,
+  .roadmap-stories,
   .invite-grid {
     grid-template-columns: 1fr;
   }
@@ -483,7 +493,7 @@ body[data-language="es"] .product-proof .modules-diagram--es { display: block; }
   .clinician-line { margin-left: 0; }
   .status-columns { gap: 64px; }
   .kanban { gap: 44px; }
-  .blog-grid,
+  .roadmap-stories,
   .invite-grid { gap: 28px; }
   .partner-grid { gap: 44px; }
 }
@@ -493,7 +503,6 @@ body[data-language="es"] .product-proof .modules-diagram--es { display: block; }
   .site-header { width: min(100% - 24px, var(--wrap)); }
   .hero-lead { font-size: 1.08rem; }
   .hero-links { gap: 18px 28px; }
-  .blog-card,
   .kanban-cards li { padding: 18px; }
 }
 

@@ -18,14 +18,14 @@
 
       flowTitle: 'The encounter is the point.',
       flowIntro: 'Human Rounds was rebuilt with artificial intelligence in mind from the start. AI handles the repetitive work before, during and after care while the existing clinical record remains authoritative.',
-      flowPatientTitle: 'Listen',
-      flowPatientText: 'Capture the patient’s words by voice or text, with self-service or assisted access.',
-      flowOpsTitle: 'Coordinate',
-      flowOpsText: 'Automate appointments, referrals, arrivals, queues and follow-up.',
-      flowClinicianTitle: 'Prepare',
-      flowClinicianText: 'Bring forward the facts, alerts and evidence a professional needs to decide.',
-      flowRecordTitle: 'Record',
-      flowRecordText: 'Write structured outcomes back to the authorised health-information system.',
+      flowPatientTitle: 'Encounter and prioritize',
+      flowPatientText: 'The AI asks what\'s wrong, follows up, and judges urgency — so the most urgent patients are seen first.',
+      flowOpsTitle: 'Coordinate the patient journey',
+      flowOpsText: 'One system runs registration, booking, arrivals, queues, and insurance claims, start to finish.',
+      flowClinicianTitle: 'Surface the relevant history',
+      flowClinicianText: 'No more typing through the visit. The dashboard surfaces history, key facts, trends, and charts on sight.',
+      flowRecordTitle: 'Record and automate the outcome',
+      flowRecordText: 'The visit is summarized automatically, and prescriptions, orders, and test requests are generated with it.',
       clinicianDecides: 'AI prepares. The professional decides.',
 
       roadmapTitle: 'Roadmap',
@@ -34,6 +34,7 @@
       roadmapPrototypedTitle: 'Prototyped',
       roadmapPrototypedSubtitle: 'Built in the Sana prototypes, entering Human Rounds after review',
       roadmapPlannedTitle: 'Planned',
+      roadmapPlannedSubtitle: 'Not started yet',
 
       kbLive1Title: 'Find a service by typing 3 letters', kbLive1Text: 'Search with stemming across the hospital and 7 health centres',
       kbLive2Title: 'Book online in 2 clicks', kbLive2Text: 'Real slots, nearest first, held while you decide',
@@ -58,12 +59,14 @@
       kbPlanned2Title: 'Clinical-history summary',
       kbPlanned3Title: 'More regional connectors', kbPlanned3Text: 'Identity, coverage and record systems beyond Argentina',
 
-      blogTitle: 'Blog',
-      blogIntro: 'Three days in the life of the platform.',
       blogBackLink: 'More stories',
 
+      storyPost1Body: 'Grace types <strong>"car."</strong> Cardiology comes up at the clinic closer to home — <strong>two clicks</strong> books it. She dictates her symptoms by voice, and a blood-test order arrives before the visit. <strong>One visit instead of two.</strong>',
+      storyPost2Body: 'Dr. Nguyen opens today\'s list: <strong>triage colors</strong>, one-line summaries, a <strong>SOAP note</strong> and <strong>differential</strong> already drafted. He examines the patient, talks to her, then checks the orders he agrees with. <strong>No typing.</strong>',
+      storyPost3Body: 'The AI already read every referral order — <strong>date, license, name match</strong>, handwriting included — and proposed accept or reject. Sonia rejects two, approves the rest. Patients get <strong>YES/NO reminders</strong>. <strong>Attendance goes up.</strong>',
+      storyReadMore: 'Read more →',
+
       blogPost1Title: 'Three letters to a cardiologist',
-      blogPost1Teaser: 'A search box, two clicks, and one visit instead of two.',
       blogPost1Body:
         '<p>Grace needs to see a cardiologist. She doesn’t know which health centre has one, or when.</p>' +
         '<p>She opens the search box and types <strong>“car.”</strong> Three letters. The results already show <em>Cardiology</em>, at the hospital and at the health centre 10 minutes closer to her house.</p>' +
@@ -75,7 +78,6 @@
         '<p>That’s the idea behind Human Rounds: the system does the searching, the booking, the ordering and the reminding. The people — the doctor, the phlebotomist, the receptionist — do the parts that need a person.</p>',
 
       blogPost2Title: 'The doctor walks in prepared',
-      blogPost2Teaser: 'The chart already knows the patient’s story when he walks in.',
       blogPost2Body:
         '<p>Dr. Nguyen opens today’s list before the first patient arrives.</p>' +
         '<p>Each row shows a name, a <strong>triage colour</strong>, and a one-line summary. No file to dig through, no chart to reconstruct from memory.</p>' +
@@ -87,7 +89,6 @@
         '<p>That’s the trade Human Rounds makes: AI reads, organises and suggests. The doctor decides. The visit stays what it always was — one person examining another.</p>',
 
       blogPost3Title: 'A queue that reads itself',
-      blogPost3Teaser: 'AI reads every referral order before the queue does.',
       blogPost3Body:
         '<p>Sonia starts her morning with a queue of appointment requests, each one carrying a referral order a patient uploaded, a photo, sometimes handwritten.</p>' +
         '<p>She doesn’t read them cold. <strong>The AI has already read every order</strong> overnight: is the date valid, is the doctor’s licence current, does the name on the order match the patient’s account. Handwriting included.</p>' +
@@ -125,14 +126,14 @@
 
       flowTitle: 'La consulta es entre personas.',
       flowIntro: 'Human Rounds fue replanteado desde cero con inteligencia artificial. La IA ordena el trabajo antes, durante y después de la atención; la historia clínica sigue siendo la fuente oficial.',
-      flowPatientTitle: 'Escuchar',
-      flowPatientText: 'Recibir el relato del paciente por voz o texto, desde el celular o con ayuda del equipo.',
-      flowOpsTitle: 'Coordinar',
-      flowOpsText: 'Automatizar turnos, órdenes, llegadas, colas y seguimiento.',
-      flowClinicianTitle: 'Preparar',
-      flowClinicianText: 'Presentar hechos, alertas y evidencia para que el profesional decida con menos pantalla.',
-      flowRecordTitle: 'Registrar',
-      flowRecordText: 'Devolver el resultado estructurado al sistema de salud autorizado.',
+      flowPatientTitle: 'Recibir y priorizar',
+      flowPatientText: 'La IA pregunta qué le pasa, repregunta y evalúa la urgencia: los casos más urgentes se atienden primero.',
+      flowOpsTitle: 'Coordinar el recorrido del paciente',
+      flowOpsText: 'Un solo sistema lleva el alta, el turno, la llegada, la cola y la cobertura, de punta a punta.',
+      flowClinicianTitle: 'Mostrar la historia relevante',
+      flowClinicianText: 'Se terminó tipear durante la consulta. El panel muestra de entrada la historia, los datos clave, las tendencias y los gráficos.',
+      flowRecordTitle: 'Registrar y automatizar el resultado',
+      flowRecordText: 'El resumen de la consulta se genera solo, junto con recetas, órdenes y pedidos de estudios.',
       clinicianDecides: 'La IA prepara. El profesional decide.',
 
       roadmapTitle: 'Hoja de ruta',
@@ -141,6 +142,7 @@
       roadmapPrototypedTitle: 'Prototipado',
       roadmapPrototypedSubtitle: 'Construido en los prototipos de Sana, entra a Human Rounds después de revisión',
       roadmapPlannedTitle: 'Planeado',
+      roadmapPlannedSubtitle: 'Todavía sin empezar',
 
       kbLive1Title: 'Encontrá un servicio escribiendo 3 letras', kbLive1Text: 'Búsqueda con stemming en el hospital y los 7 centros de salud',
       kbLive2Title: 'Sacá un turno online en 2 clics', kbLive2Text: 'Turnos reales, el más cercano primero, reservado mientras decidís',
@@ -165,12 +167,14 @@
       kbPlanned2Title: 'Resumen de historia clínica',
       kbPlanned3Title: 'Más conectores regionales', kbPlanned3Text: 'Sistemas de identidad, cobertura e historia clínica más allá de Argentina',
 
-      blogTitle: 'Blog',
-      blogIntro: 'Tres días en la vida de la plataforma.',
       blogBackLink: 'Más historias',
 
+      storyPost1Body: 'Grace escribe <strong>"car".</strong> Cardiología aparece en el centro más cercano — <strong>dos clics</strong> y reserva. Dicta sus síntomas por voz, y llega una orden de análisis de sangre antes de la consulta. <strong>Una consulta en vez de dos.</strong>',
+      storyPost2Body: 'El Dr. Nguyen abre la lista del día: <strong>colores de triage</strong>, resúmenes de una línea, una <strong>nota SOAP</strong> y un <strong>diferencial</strong> ya armados. Examina a la paciente, habla con ella, y tilda las órdenes que aprueba. <strong>Sin tipear.</strong>',
+      storyPost3Body: 'La IA ya leyó cada orden de derivación — <strong>fecha, matrícula, coincidencia de nombre</strong>, manuscrita incluida — y propuso aceptar o rechazar. Sonia rechaza dos, aprueba el resto. Los pacientes reciben <strong>recordatorios SÍ/NO</strong>. <strong>Aumenta la asistencia.</strong>',
+      storyReadMore: 'Leer más →',
+
       blogPost1Title: 'Tres letras hasta un cardiólogo',
-      blogPost1Teaser: 'Un buscador, dos clics y una sola consulta en lugar de dos.',
       blogPost1Body:
         '<p>Grace necesita ver a un cardiólogo. No sabe en qué centro de salud atienden, ni cuándo.</p>' +
         '<p>Abre el buscador y escribe <strong>“car.”</strong> Tres letras. Los resultados ya muestran <em>Cardiología</em>, en el hospital y en el centro de salud que le queda 10 minutos más cerca de su casa.</p>' +
@@ -182,7 +186,6 @@
         '<p>Esa es la idea de Human Rounds: el sistema busca, reserva, pide los estudios y recuerda. Las personas (el médico, quien saca la sangre, la recepcionista) hacen la parte que necesita una persona.</p>',
 
       blogPost2Title: 'El médico entra preparado',
-      blogPost2Teaser: 'La historia ya cuenta lo que el paciente vino a decir.',
       blogPost2Body:
         '<p>El Dr. Nguyen abre la lista del día antes de que llegue el primer paciente.</p>' +
         '<p>Cada fila muestra un nombre, un <strong>color de triage</strong> y un resumen de una línea. Sin carpeta para revisar, sin historia para reconstruir de memoria.</p>' +
@@ -194,7 +197,6 @@
         '<p>Esa es la apuesta de Human Rounds: la IA lee, ordena y sugiere. El médico decide. La consulta sigue siendo lo que siempre fue: una persona examinando a otra.</p>',
 
       blogPost3Title: 'Una cola que se lee sola',
-      blogPost3Teaser: 'La IA lee cada orden de derivación antes que la cola.',
       blogPost3Body:
         '<p>Sonia empieza la mañana con una cola de solicitudes de turno, cada una con una orden médica que subió el paciente, a veces una foto, a veces manuscrita.</p>' +
         '<p>No las lee en frío. <strong>La IA ya leyó cada orden</strong> durante la noche: si la fecha es válida, si la matrícula del médico está vigente, si el nombre de la orden coincide con la cuenta del paciente. Manuscritas incluidas.</p>' +
