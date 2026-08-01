@@ -4,7 +4,7 @@
 
 Human Rounds is an AI-native, open-source layer for the work around care. It automates access, referrals, scheduling and clinical preparation so patients and care teams can talk to each other again.
 
-[Public project site](https://sana.brieflysites.com) · [Pinamar Turnos reference](https://sana.brieflysites.com/demo)
+[Public project site](https://humanrounds.org) · [Demo](https://demo.humanrounds.org)
 
 ## The reference installation
 
