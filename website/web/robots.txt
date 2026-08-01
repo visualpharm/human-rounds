@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sana.brieflysites.com/sitemap.xml
+Sitemap: https://humanrounds.org/sitemap.xml

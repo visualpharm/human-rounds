@@ -23,7 +23,7 @@ The authoritative clinical record remains the source of truth.
 
 ## What enters Human Rounds next
 
-Earlier Sana work produced prototypes for additional AI-native capabilities. They are not presented as public product features. They will enter Human Rounds one at a time after technical, clinical and institutional review:
+Earlier internal prototype work produced additional AI-native capabilities. They are not presented as public product features. They will enter Human Rounds one at a time after technical, clinical and institutional review:
 
 - voice-first intake that structures the patient's account;
 - clinician summaries;
@@ -56,6 +56,8 @@ This repository starts with the public roadmap, architecture, governance documen
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing a connector, workflow module or clinical contribution. Clinical safety, local governance and privacy boundaries are part of the product.
 
-## Licence
+## Author and licence
 
-Apache License 2.0. See [LICENSE](LICENSE).
+Human Rounds is built by [Generated Media, Inc.](https://generated.photos)
+
+Copyright © 2026 Generated Media, Inc. Apache License 2.0, see [LICENSE](LICENSE).

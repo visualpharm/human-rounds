@@ -5,14 +5,14 @@
 - Establish Human Rounds as the public project.
 - Use Pinamar Turnos as the working reference installation.
 - Document the system-of-record and human-review boundaries.
-- Keep earlier Sana prototypes out of public product claims.
+- Keep earlier internal prototypes out of public product claims.
 
 ## First funded phase
 
 - Harden Pinamar Turnos for institutional use.
 - Train teams and establish support, incident and rollback procedures.
 - Measure patient access, staff time and duplicate work.
-- Integrate one reviewed AI-native Sana capability at a time.
+- Integrate one reviewed AI-native capability at a time.
 
 ## Independent evaluation
 

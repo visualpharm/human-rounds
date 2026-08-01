@@ -33,4 +33,4 @@ Reviewed modules will be added for:
 - regional and institutional connectors;
 - measurement, audit and implementation guidance.
 
-Earlier Sana prototypes are not exposed as public product features. Each module enters Human Rounds only after privacy, security, licensing, technical and clinical review.
+Earlier internal prototypes are not exposed as public product features. Each module enters Human Rounds only after privacy, security, licensing, technical and clinical review.

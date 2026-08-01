@@ -36,7 +36,7 @@
       roadmapLiveTitle: 'Live',
       roadmapLiveSubtitle: 'Running at the Pinamar reference installation',
       roadmapPrototypedTitle: 'Prototyped',
-      roadmapPrototypedSubtitle: 'Built in the Sana prototypes, entering Human Rounds after review',
+      roadmapPrototypedSubtitle: 'Built in an internal prototype, entering Human Rounds after review',
       roadmapPlannedTitle: 'Planned',
       roadmapPlannedSubtitle: 'Not started yet',
 
@@ -171,7 +171,7 @@
       roadmapLiveTitle: 'En vivo',
       roadmapLiveSubtitle: 'Funcionando en la instalación de referencia de Pinamar',
       roadmapPrototypedTitle: 'Prototipado',
-      roadmapPrototypedSubtitle: 'Construido en los prototipos de Sana, entra a Human Rounds después de revisión',
+      roadmapPrototypedSubtitle: 'Construido en un prototipo interno, entra a Human Rounds después de revisión',
       roadmapPlannedTitle: 'Planeado',
       roadmapPlannedSubtitle: 'Todavía sin empezar',
 

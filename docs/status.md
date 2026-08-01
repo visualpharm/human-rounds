@@ -13,7 +13,7 @@ Pinamar Turnos is the working base:
 
 ## In development for Human Rounds
 
-These capabilities exist in earlier Sana prototypes but are not exposed as public product features:
+These capabilities exist in earlier internal prototypes but are not exposed as public product features:
 
 - voice-first patient intake;
 - clinician summaries;
