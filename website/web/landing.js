@@ -10,8 +10,8 @@
       language: 'Español',
 
       heroTitle: 'The open-source, AI-native medical platform',
-      heroTagline: 'Automates paperwork, not people.',
-      heroLead: 'Human Rounds books, prepares, reminds, and writes to the health record. Patients are met by people — doctors, nurses, staff — while AI does the screen work behind them. Free to run, open to inspect.',
+      heroTagline: 'Humans do the rounds. AI does the rest.',
+      heroLead: 'AI interviews patients before the visit, reads handwritten referral orders from a photo, judges urgency, and writes to the health record. The care team walks in prepared. Live today in a real public hospital. Free to run, open to inspect.',
       heroLinkDemo: 'Live demo',
       heroLinkOpenSource: 'Open source',
       modulesCaption: 'Human Rounds connects modular workflows around the patient–care-team relationship; every status is explicit.',
@@ -145,8 +145,8 @@
       language: 'English',
 
       heroTitle: 'La plataforma médica de código abierto e IA nativa',
-      heroTagline: 'Automatiza el papeleo, no a las personas.',
-      heroLead: 'Human Rounds saca turnos, prepara, recuerda y escribe en la historia clínica. A los pacientes los atienden personas (médicos, enfermeros, personal) mientras la IA hace el trabajo de pantalla detrás de escena. Gratis para instalar, abierto para auditar.',
+      heroTagline: 'La ronda la hacen las personas. El resto lo hace la IA.',
+      heroLead: 'La IA entrevista al paciente antes de la consulta, lee derivaciones manuscritas desde una foto, estima la urgencia y escribe en la historia clínica. El equipo de salud entra a la consulta ya preparado. Hoy funciona en un hospital público de verdad. Gratis para instalar, abierto para auditar.',
       heroLinkDemo: 'Demo en vivo',
       heroLinkOpenSource: 'Código abierto',
       modulesCaption: 'Human Rounds conecta módulos alrededor del vínculo entre paciente y equipo de salud; el estado de cada uno es explícito.',
