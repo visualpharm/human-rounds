@@ -33,6 +33,7 @@
       clinicianDecides: 'AI prepares. The professional decides.',
 
       roadmapTitle: 'Roadmap',
+      roadmapIntro: 'The end state we build toward: the doctor talks to the patient, then clicks confirm. Everything else is already prepared.',
       roadmapLiveTitle: 'Live',
       roadmapLiveSubtitle: 'Running at the Pinamar reference installation',
       roadmapPrototypedTitle: 'Prototyped',
@@ -56,11 +57,11 @@
       kbProto1Title: 'Scan-to-register', kbProto1Text: 'DNI + insurance credential scan fills the health-record registration',
       kbProto2Title: 'Voice intake', kbProto2Text: 'The patient dictates symptoms and answers follow-ups',
       kbProto3Title: 'Triage codes', kbProto3Text: 'With deterministic red-flag rules the model can escalate but never downgrade',
-      kbProto4Title: 'SOAP summary + differential probabilities', kbProto4Text: 'For the clinician',
+      kbProto4Title: 'SOAP summary + differential probabilities', kbProto4Text: 'The dictated interview arrives structured: SOAP note, ranked differential, draft orders and prescriptions to review',
       kbProto5Title: 'Orders by checkbox', kbProto5Text: 'To the electronic system or the printer',
 
-      kbPlanned1Title: 'Teleconsultation',
-      kbPlanned2Title: 'Clinical-history summary',
+      kbPlanned1Title: 'Teleconsultation', kbPlanned1Text: 'Referral orders and prescriptions draft themselves while the doctor talks. One click confirms them.',
+      kbPlanned2Title: 'Clinical-history summary', kbPlanned2Text: "Reads today's symptoms, finds what matters in years of history, and charts it as data-dense, Tufte-style graphics.",
       kbPlanned3Title: 'More regional connectors', kbPlanned3Text: 'Identity, coverage and record systems beyond Argentina',
 
       blogBackLink: 'More stories',
@@ -168,6 +169,7 @@
       clinicianDecides: 'La IA prepara. El profesional decide.',
 
       roadmapTitle: 'Hoja de ruta',
+      roadmapIntro: 'El estado final que buscamos: el médico conversa con el paciente y hace clic en confirmar. Todo lo demás ya está preparado.',
       roadmapLiveTitle: 'En vivo',
       roadmapLiveSubtitle: 'Funcionando en la instalación de referencia de Pinamar',
       roadmapPrototypedTitle: 'Prototipado',
@@ -191,11 +193,11 @@
       kbProto1Title: 'Alta por escaneo', kbProto1Text: 'El escaneo del DNI y la credencial de la obra social completa el registro en la historia clínica',
       kbProto2Title: 'Admisión por voz', kbProto2Text: 'El paciente dicta los síntomas y responde preguntas de seguimiento',
       kbProto3Title: 'Códigos de triage', kbProto3Text: 'Con reglas determinísticas de alarma que el modelo puede escalar pero nunca bajar',
-      kbProto4Title: 'Resumen SOAP + probabilidades diferenciales', kbProto4Text: 'Para el profesional',
+      kbProto4Title: 'Resumen SOAP + probabilidades diferenciales', kbProto4Text: 'La entrevista dictada llega estructurada: nota SOAP, diferenciales ordenados por probabilidad y borradores de órdenes y recetas para revisar',
       kbProto5Title: 'Órdenes con un tilde', kbProto5Text: 'Al sistema electrónico o a la impresora',
 
-      kbPlanned1Title: 'Teleconsulta',
-      kbPlanned2Title: 'Resumen de historia clínica',
+      kbPlanned1Title: 'Teleconsulta', kbPlanned1Text: 'Las derivaciones y recetas se redactan solas mientras el médico conversa. Un clic las confirma.',
+      kbPlanned2Title: 'Resumen de historia clínica', kbPlanned2Text: 'Lee los síntomas de hoy, encuentra lo que importa en años de historia clínica y lo grafica en infografías estilo Tufte, densas en datos.',
       kbPlanned3Title: 'Más conectores regionales', kbPlanned3Text: 'Sistemas de identidad, cobertura e historia clínica más allá de Argentina',
 
       blogBackLink: 'Más historias',
