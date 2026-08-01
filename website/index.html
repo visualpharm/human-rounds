@@ -13,10 +13,12 @@
   <meta property="og:image" content="https://humanrounds.org/web/human-rounds-public-preview.png?v=3">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://humanrounds.org/">
+  <link rel="icon" href="/web/human-rounds-mark-32.png?v=1" sizes="32x32">
+  <link rel="apple-touch-icon" href="/web/human-rounds-mark-180.png?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/web/landing.css?v=6">
+  <link rel="stylesheet" href="/web/landing.css?v=7">
   <link rel="stylesheet" href="/web/public-footer.css?v=3">
   <script type="application/ld+json">
   {
@@ -35,7 +37,7 @@
 <body>
   <header class="site-header">
     <a class="brand" href="/" aria-label="Human Rounds home">
-      <img src="/web/sana-mark.png" alt="" width="42" height="42">
+      <img src="/web/human-rounds-mark.png?v=1" alt="" width="42" height="42">
       <span>Human Rounds</span>
     </a>
     <nav class="site-nav" aria-label="Primary navigation">
@@ -71,41 +73,29 @@
     <section class="system-section" id="platform">
       <div class="public-wrap">
         <div class="section-intro">
-          <h2 data-i18n="flowTitle">The encounter is the point.</h2>
-          <p data-i18n="flowIntro">Human Rounds was rebuilt with artificial intelligence in mind from the start. AI handles the repetitive work before, during and after care while the existing clinical record remains authoritative.</p>
+          <h2 data-i18n="flowTitle">Every patient encounter, prepared by AI.</h2>
+          <p data-i18n="flowIntro">Human Rounds automates the repetitive work before, during, and after each visit. Your existing medical record remains the source of truth — clinicians review every recommendation.</p>
         </div>
         <ol class="system-flow">
           <li>
-            <div class="flow-head">
-              <img class="flow-icon" src="/web/icons/priority.svg?v=1" width="24" height="24" alt="">
-              <span class="flow-number">01</span>
-            </div>
-            <h3 data-i18n="flowPatientTitle">Encounter and prioritize</h3>
-            <p data-i18n="flowPatientText">The AI asks what's wrong, follows up, and judges urgency — so the most urgent patients are seen first.</p>
+            <div class="flow-badge" data-i18n="flowBadge1">Before the visit</div>
+            <h3 data-i18n="flowPatientTitle">AI interviews and prioritizes patients</h3>
+            <p data-i18n="flowPatientText">Patients describe their problem in their own words. AI asks follow-up questions, estimates urgency, and places the patient in the right queue.</p>
           </li>
           <li>
-            <div class="flow-head">
-              <img class="flow-icon" src="/web/icons/calendar.svg?v=1" width="24" height="24" alt="">
-              <span class="flow-number">02</span>
-            </div>
-            <h3 data-i18n="flowOpsTitle">Coordinate the patient journey</h3>
-            <p data-i18n="flowOpsText">One system runs registration, booking, arrivals, queues, and insurance claims, start to finish.</p>
+            <div class="flow-badge" data-i18n="flowBadge2">During the visit</div>
+            <h3 data-i18n="flowClinicianTitle">Everything the clinician needs is already prepared</h3>
+            <p data-i18n="flowClinicianText">The dashboard surfaces relevant history, medications, past visits, trends, and key findings before the conversation begins.</p>
           </li>
           <li>
-            <div class="flow-head">
-              <img class="flow-icon" src="/web/icons/line-chart.svg?v=1" width="24" height="24" alt="">
-              <span class="flow-number">03</span>
-            </div>
-            <h3 data-i18n="flowClinicianTitle">Surface the relevant history</h3>
-            <p data-i18n="flowClinicianText">No more typing through the visit. The dashboard surfaces history, key facts, trends, and charts on sight.</p>
+            <div class="flow-badge" data-i18n="flowBadge3">Around the visit</div>
+            <h3 data-i18n="flowOpsTitle">One workflow instead of disconnected systems</h3>
+            <p data-i18n="flowOpsText">Registration, scheduling, arrivals, waiting-room management, queues, and insurance claims run in one coordinated workflow.</p>
           </li>
           <li>
-            <div class="flow-head">
-              <img class="flow-icon" src="/web/icons/checklist.svg?v=1" width="24" height="24" alt="">
-              <span class="flow-number">04</span>
-            </div>
-            <h3 data-i18n="flowRecordTitle">Record and automate the outcome</h3>
-            <p data-i18n="flowRecordText">The visit is summarized automatically, and prescriptions, orders, and test requests are generated with it.</p>
+            <div class="flow-badge" data-i18n="flowBadge4">After the visit</div>
+            <h3 data-i18n="flowRecordTitle">Documentation completes itself</h3>
+            <p data-i18n="flowRecordText">The consultation is summarized automatically. Prescriptions, referrals, lab orders, and follow-up instructions are generated for clinician review.</p>
           </li>
         </ol>
         <p class="clinician-line" data-i18n="clinicianDecides">AI prepares. The professional decides.</p>
@@ -118,7 +108,7 @@
       </div>
       <div class="kanban">
         <div class="kanban-column kanban-column--planned">
-          <h3 data-i18n="roadmapPlannedTitle">Planned</h3>
+          <h3><span class="status-dot"></span><span data-i18n="roadmapPlannedTitle">Planned</span></h3>
           <p class="kanban-subtitle" data-i18n="roadmapPlannedSubtitle">Not started yet</p>
           <ul class="kanban-cards">
             <li><h4 data-i18n="kbPlanned1Title">Teleconsultation</h4></li>
@@ -127,7 +117,7 @@
           </ul>
         </div>
         <div class="kanban-column kanban-column--prototyped">
-          <h3 data-i18n="roadmapPrototypedTitle">Prototyped</h3>
+          <h3><span class="status-dot"></span><span data-i18n="roadmapPrototypedTitle">Prototyped</span></h3>
           <p class="kanban-subtitle" data-i18n="roadmapPrototypedSubtitle">Built in the Sana prototypes, entering Human Rounds after review</p>
           <ul class="kanban-cards">
             <li><h4 data-i18n="kbProto1Title">Scan-to-register</h4><p data-i18n="kbProto1Text">DNI + insurance credential scan fills the health-record registration</p></li>
@@ -138,7 +128,7 @@
           </ul>
         </div>
         <div class="kanban-column kanban-column--live">
-          <h3 data-i18n="roadmapLiveTitle">Live</h3>
+          <h3><span class="status-dot"></span><span data-i18n="roadmapLiveTitle">Live</span></h3>
           <p class="kanban-subtitle" data-i18n="roadmapLiveSubtitle">Running at the Pinamar reference installation</p>
           <ul class="kanban-cards">
             <li><h4 data-i18n="kbLive1Title">Find a service by typing 3 letters</h4><p data-i18n="kbLive1Text">Search with stemming across the hospital and 7 health centres</p></li>
@@ -156,77 +146,74 @@
           </ul>
         </div>
       </div>
-      <div class="roadmap-stories">
+      <div class="stories-block">
+        <h3 class="stories-title" data-i18n="storiesTitle">Use cases</h3>
+        <div class="story-cards">
 
-        <article class="story-block story-block--mockup" id="story-grace">
-          <div class="story-text">
-            <img class="story-icon" src="/web/icons/search.svg?v=1" width="28" height="28" alt="">
+          <article class="story-card" id="story-grace">
             <h3 data-i18n="blogPost1Title">Three letters to a cardiologist</h3>
-            <p data-i18n="story1Para1">Grace needs to see a cardiologist. She doesn't know which health centre has one, or when.</p>
-            <p data-i18n="story1Para2">She types three letters into the search box. Two clicks books the nearest opening. Before the visit, she dictates her symptoms by voice instead of filling out a form.</p>
-            <ul class="story-facts">
-              <li data-i18n="story1Fact1">3 letters → the right service, nearest first</li>
-              <li data-i18n="story1Fact2">2 clicks, no phone call</li>
-              <li data-i18n="story1Fact3">Blood-test order arrives a week ahead</li>
-              <li data-i18n="story1Fact4">One visit instead of two</li>
-            </ul>
-            <a class="story-permalink" href="/blog/three-letters-to-a-cardiologist.html" data-i18n="storyPermalink">Permalink</a>
-          </div>
-          <div class="story-visual">
-            <div class="phone-mockup" aria-hidden="true">
-              <div class="phone-mockup__notch"></div>
-              <div class="phone-mockup__screen">
-                <div class="phone-mockup__search">
-                  <span data-i18n="phoneSearchText">car</span><span class="phone-mockup__cursor"></span>
-                </div>
-                <div class="phone-mockup__result">
-                  <strong data-i18n="phoneResultTitle">Cardiología</strong>
-                  <span data-i18n="phoneResultSub">Hospital de Pinamar · 10 min</span>
-                  <span class="phone-mockup__btn" data-i18n="phoneResultBtn">Reservar</span>
-                </div>
+            <div class="story-body">
+              <p class="story-excerpt" data-i18n="story1Para1">Grace needs to see a cardiologist. She doesn't know which health centre has one, or when.</p>
+              <div class="story-more">
+                <p data-i18n="story1Para2">She types three letters into the search box. Two clicks books the nearest opening. Before the visit, she dictates her symptoms by voice instead of filling out a form.</p>
+                <ul class="story-facts">
+                  <li data-i18n="story1Fact1">3 letters → the right service, nearest first</li>
+                  <li data-i18n="story1Fact2">2 clicks, no phone call</li>
+                  <li data-i18n="story1Fact3">Blood-test order arrives a week ahead</li>
+                  <li data-i18n="story1Fact4">One visit instead of two</li>
+                </ul>
+                <a class="story-permalink" href="/blog/three-letters-to-a-cardiologist.html" data-i18n="storyPermalink">Permalink</a>
               </div>
             </div>
-          </div>
-        </article>
+            <button class="story-toggle" type="button" data-story-toggle>
+              <span class="story-toggle-open" data-i18n="storyReadMore">Read more →</span>
+              <span class="story-toggle-close" data-i18n="storyClose">Close ↑</span>
+            </button>
+          </article>
 
-        <article class="story-block story-block--image story-block--reverse" id="story-nguyen">
-          <div class="story-text">
-            <img class="story-icon" src="/web/icons/stethoscope.svg?v=1" width="28" height="28" alt="">
+          <article class="story-card" id="story-nguyen">
             <h3 data-i18n="blogPost2Title">The doctor walks in prepared</h3>
-            <p data-i18n="story2Para1">Dr. Nguyen opens today's list before the first patient arrives. Each row shows a triage colour and a one-line summary — no file to dig through.</p>
-            <p data-i18n="story2Para2">A new patient's story is already on the screen: her own words, a SOAP summary, a differential ranked by likelihood. He examines her. He talks to her. That part stays his — no software touches it.</p>
-            <ul class="story-facts">
-              <li data-i18n="story2Fact1">Triage colour + one-line summary, no digging</li>
-              <li data-i18n="story2Fact2">SOAP note &amp; differential ready before he speaks</li>
-              <li data-i18n="story2Fact3">He checks the boxes on orders he agrees with</li>
-              <li data-i18n="story2Fact4">No typing during the visit</li>
-            </ul>
-            <a class="story-permalink" href="/blog/the-doctor-walks-in-prepared.html" data-i18n="storyPermalink">Permalink</a>
-          </div>
-          <div class="story-visual">
-            <img class="story-illustration" src="/web/illustrations/story-doctor-visit.webp?v=1" width="1200" height="800" alt="" loading="lazy">
-          </div>
-        </article>
+            <div class="story-body">
+              <p class="story-excerpt" data-i18n="story2Para1">Dr. Nguyen opens today's list before the first patient arrives. Each row shows a triage colour and a one-line summary — no file to dig through.</p>
+              <div class="story-more">
+                <p data-i18n="story2Para2">A new patient's story is already on the screen: her own words, a SOAP summary, a differential ranked by likelihood. He examines her. He talks to her. That part stays his — no software touches it.</p>
+                <ul class="story-facts">
+                  <li data-i18n="story2Fact1">Triage colour + one-line summary, no digging</li>
+                  <li data-i18n="story2Fact2">SOAP note &amp; differential ready before he speaks</li>
+                  <li data-i18n="story2Fact3">He checks the boxes on orders he agrees with</li>
+                  <li data-i18n="story2Fact4">No typing during the visit</li>
+                </ul>
+                <a class="story-permalink" href="/blog/the-doctor-walks-in-prepared.html" data-i18n="storyPermalink">Permalink</a>
+              </div>
+            </div>
+            <button class="story-toggle" type="button" data-story-toggle>
+              <span class="story-toggle-open" data-i18n="storyReadMore">Read more →</span>
+              <span class="story-toggle-close" data-i18n="storyClose">Close ↑</span>
+            </button>
+          </article>
 
-        <article class="story-block story-block--image" id="story-sonia">
-          <div class="story-text">
-            <img class="story-icon" src="/web/icons/shield.svg?v=1" width="28" height="28" alt="">
+          <article class="story-card" id="story-sonia">
             <h3 data-i18n="blogPost3Title">A queue that reads itself</h3>
-            <p data-i18n="story3Para1">Sonia starts her morning with a queue of referral orders — some handwritten, some photos taken in a hurry.</p>
-            <p data-i18n="story3Para2">The AI already read every one overnight: date, licence, name match. She reviews the proposals, not the raw images — rejects two, approves the rest. Nobody hits a dead end.</p>
-            <ul class="story-facts">
-              <li data-i18n="story3Fact1">AI reads every referral overnight, handwriting included</li>
-              <li data-i18n="story3Fact2">Proposes accept or reject, with the reason attached</li>
-              <li data-i18n="story3Fact3">Rejected patients get the next step, not a dead end</li>
-              <li data-i18n="story3Fact4">Attendance goes up</li>
-            </ul>
-            <a class="story-permalink" href="/blog/a-queue-that-reads-itself.html" data-i18n="storyPermalink">Permalink</a>
-          </div>
-          <div class="story-visual">
-            <img class="story-illustration" src="/web/illustrations/story-referral-queue.webp?v=1" width="1200" height="800" alt="" loading="lazy">
-          </div>
-        </article>
+            <div class="story-body">
+              <p class="story-excerpt" data-i18n="story3Para1">Sonia starts her morning with a queue of referral orders — some handwritten, some photos taken in a hurry.</p>
+              <div class="story-more">
+                <p data-i18n="story3Para2">The AI already read every one overnight: date, licence, name match. She reviews the proposals, not the raw images — rejects two, approves the rest. Nobody hits a dead end.</p>
+                <ul class="story-facts">
+                  <li data-i18n="story3Fact1">AI reads every referral overnight, handwriting included</li>
+                  <li data-i18n="story3Fact2">Proposes accept or reject, with the reason attached</li>
+                  <li data-i18n="story3Fact3">Rejected patients get the next step, not a dead end</li>
+                  <li data-i18n="story3Fact4">Attendance goes up</li>
+                </ul>
+                <a class="story-permalink" href="/blog/a-queue-that-reads-itself.html" data-i18n="storyPermalink">Permalink</a>
+              </div>
+            </div>
+            <button class="story-toggle" type="button" data-story-toggle>
+              <span class="story-toggle-open" data-i18n="storyReadMore">Read more →</span>
+              <span class="story-toggle-close" data-i18n="storyClose">Close ↑</span>
+            </button>
+          </article>
 
+        </div>
       </div>
     </section>
 
@@ -237,7 +224,7 @@
         </div>
         <div class="invite-grid">
           <article class="invite-card">
-            <img class="invite-icon" src="/web/icons/stethoscope.svg?v=1" width="30" height="30" alt="">
+            <div class="invite-icon"></div>
             <h3 data-i18n="inviteOrgTitle">Health organizations — run it.</h3>
             <p data-i18n="inviteOrgText">Free to deploy, no licence fee; the Pinamar installation is live proof. Grant-funded public pilots can launch without a software licence fee.</p>
             <div class="invite-links">
@@ -246,7 +233,7 @@
             </div>
           </article>
           <article class="invite-card">
-            <img class="invite-icon" src="/web/icons/code-fork.svg?v=1" width="30" height="30" alt="">
+            <div class="invite-icon"></div>
             <h3 data-i18n="inviteDevTitle">Developers — extend it.</h3>
             <p data-i18n="inviteDevText">Fork the repo and submit a pull request with a local module: your region’s identity, coverage and health-record connectors.</p>
             <div class="invite-links">
@@ -254,7 +241,7 @@
             </div>
           </article>
           <article class="invite-card">
-            <img class="invite-icon" src="/web/icons/shield.svg?v=1" width="30" height="30" alt="">
+            <div class="invite-icon"></div>
             <h3 data-i18n="inviteFundTitle">Investors and grant organizations — fund it.</h3>
             <p data-i18n="inviteFundText">Money goes to hardening, independent validation and the next public pilots.</p>
             <div class="invite-links">
@@ -268,6 +255,6 @@
 
   <footer data-public-footer data-lang="en"></footer>
   <script src="/web/public-footer.js?v=3"></script>
-  <script src="/web/landing.js?v=6"></script>
+  <script src="/web/landing.js?v=7"></script>
 </body>
 </html>

@@ -16,16 +16,20 @@
       heroLinkOpenSource: 'Open source',
       modulesCaption: 'Human Rounds connects modular workflows around the patient–care-team relationship; every status is explicit.',
 
-      flowTitle: 'The encounter is the point.',
-      flowIntro: 'Human Rounds was rebuilt with artificial intelligence in mind from the start. AI handles the repetitive work before, during and after care while the existing clinical record remains authoritative.',
-      flowPatientTitle: 'Encounter and prioritize',
-      flowPatientText: 'The AI asks what\'s wrong, follows up, and judges urgency — so the most urgent patients are seen first.',
-      flowOpsTitle: 'Coordinate the patient journey',
-      flowOpsText: 'One system runs registration, booking, and insurance claims — schedules tests into the patient’s account, and queues guide each arrival just in time.',
-      flowClinicianTitle: 'Surface the relevant history',
-      flowClinicianText: 'No more typing through the visit. The dashboard surfaces history, key facts, trends, and charts on sight.',
-      flowRecordTitle: 'Record and automate the outcome',
-      flowRecordText: 'A voice recorder captures the visit, then prescriptions, orders, and test requests are generated automatically from it.',
+      flowTitle: 'Every patient encounter, prepared by AI.',
+      flowIntro: 'Human Rounds automates the repetitive work before, during, and after each visit. Your existing medical record remains the source of truth — clinicians review every recommendation.',
+      flowBadge1: 'Before the visit',
+      flowBadge2: 'During the visit',
+      flowBadge3: 'Around the visit',
+      flowBadge4: 'After the visit',
+      flowPatientTitle: 'AI interviews and prioritizes patients',
+      flowPatientText: 'Patients describe their problem in their own words. AI asks follow-up questions, estimates urgency, and places the patient in the right queue.',
+      flowClinicianTitle: 'Everything the clinician needs is already prepared',
+      flowClinicianText: 'The dashboard surfaces relevant history, medications, past visits, trends, and key findings before the conversation begins.',
+      flowOpsTitle: 'One workflow instead of disconnected systems',
+      flowOpsText: 'Registration, scheduling, arrivals, waiting-room management, queues, and insurance claims run in one coordinated workflow.',
+      flowRecordTitle: 'Documentation completes itself',
+      flowRecordText: 'The consultation is summarized automatically. Prescriptions, referrals, lab orders, and follow-up instructions are generated for clinician review.',
       clinicianDecides: 'AI prepares. The professional decides.',
 
       roadmapTitle: 'Roadmap',
@@ -60,6 +64,10 @@
       kbPlanned3Title: 'More regional connectors', kbPlanned3Text: 'Identity, coverage and record systems beyond Argentina',
 
       blogBackLink: 'More stories',
+
+      storiesTitle: 'Use cases',
+      storyReadMore: 'Read more →',
+      storyClose: 'Close ↑',
 
       story1Para1: 'Grace needs to see a cardiologist. She doesn\'t know which health centre has one, or when.',
       story1Para2: 'She types three letters into the search box. Two clicks books the nearest opening. Before the visit, she dictates her symptoms by voice instead of filling out a form.',
@@ -143,16 +151,20 @@
       heroLinkOpenSource: 'Código abierto',
       modulesCaption: 'Human Rounds conecta módulos alrededor del vínculo entre paciente y equipo de salud; el estado de cada uno es explícito.',
 
-      flowTitle: 'La consulta es entre personas.',
-      flowIntro: 'Human Rounds fue replanteado desde cero con inteligencia artificial. La IA ordena el trabajo antes, durante y después de la atención; la historia clínica sigue siendo la fuente oficial.',
-      flowPatientTitle: 'Recibir y priorizar',
-      flowPatientText: 'La IA pregunta qué le pasa, repregunta y evalúa la urgencia: los casos más urgentes se atienden primero.',
-      flowOpsTitle: 'Coordinar el recorrido del paciente',
-      flowOpsText: 'Un solo sistema lleva el alta, el turno y la cobertura — agenda los estudios en la cuenta del paciente, y la cola guía cada llegada justo a tiempo.',
-      flowClinicianTitle: 'Mostrar la historia relevante',
-      flowClinicianText: 'Se terminó tipear durante la consulta. El panel muestra de entrada la historia, los datos clave, las tendencias y los gráficos.',
-      flowRecordTitle: 'Registrar y automatizar el resultado',
-      flowRecordText: 'Un grabador de voz capta la consulta, y de ahí se generan solas las recetas, las órdenes y los pedidos de estudios.',
+      flowTitle: 'Cada consulta, preparada por la IA.',
+      flowIntro: 'Human Rounds automatiza el trabajo repetitivo antes, durante y después de cada consulta. Tu historia clínica actual sigue siendo la fuente de verdad: el equipo de salud revisa cada sugerencia.',
+      flowBadge1: 'Antes de la consulta',
+      flowBadge2: 'Durante la consulta',
+      flowBadge3: 'Alrededor de la consulta',
+      flowBadge4: 'Después de la consulta',
+      flowPatientTitle: 'La IA entrevista y prioriza a los pacientes',
+      flowPatientText: 'Los pacientes cuentan lo que les pasa con sus propias palabras. La IA repregunta, estima la urgencia y los ubica en la cola correcta.',
+      flowClinicianTitle: 'Todo lo que el profesional necesita ya está preparado',
+      flowClinicianText: 'El panel muestra la historia relevante, la medicación, las consultas anteriores, las tendencias y los hallazgos clave antes de que arranque la charla.',
+      flowOpsTitle: 'Un solo flujo en vez de sistemas sueltos',
+      flowOpsText: 'El alta, el turno, la llegada, la sala de espera, la cola y la cobertura corren en un solo flujo coordinado.',
+      flowRecordTitle: 'La documentación se completa sola',
+      flowRecordText: 'La consulta se resume sola. Las recetas, derivaciones, órdenes de laboratorio e indicaciones de seguimiento se generan para que el profesional las revise.',
       clinicianDecides: 'La IA prepara. El profesional decide.',
 
       roadmapTitle: 'Hoja de ruta',
@@ -187,6 +199,10 @@
       kbPlanned3Title: 'Más conectores regionales', kbPlanned3Text: 'Sistemas de identidad, cobertura e historia clínica más allá de Argentina',
 
       blogBackLink: 'Más historias',
+
+      storiesTitle: 'Casos de uso',
+      storyReadMore: 'Leer más →',
+      storyClose: 'Cerrar ↑',
 
       story1Para1: 'Grace necesita ver a un cardiólogo. No sabe en qué centro de salud hay uno, ni cuándo.',
       story1Para2: 'Escribe tres letras en el buscador. Dos clics y reserva el turno más cercano. Antes de la consulta, dicta sus síntomas por voz en vez de llenar un formulario.',
@@ -291,6 +307,15 @@
     return 'en';
   }
 
+  function initStoryCards() {
+    var toggles = document.querySelectorAll('[data-story-toggle]');
+    for (var i = 0; i < toggles.length; i++) {
+      toggles[i].addEventListener('click', function () {
+        this.closest('.story-card').classList.toggle('is-open');
+      });
+    }
+  }
+
   function init() {
     var lang = initialLanguage();
     setLanguage(lang);
@@ -298,6 +323,7 @@
     if (toggle) toggle.addEventListener('click', function () {
       setLanguage(document.documentElement.lang === 'en' ? 'es' : 'en');
     });
+    initStoryCards();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

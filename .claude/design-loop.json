@@ -1,0 +1,9 @@
+{
+  "project_id": "d21fe5c7-89eb-4c89-ad85-d04cd02695c8",
+  "ds_mirror": "docs/design-system",
+  "base_url": "http://127.0.0.1:4500",
+  "default_mode": "review",
+  "pages": {
+    "homepage": { "url": "/index.html", "dc": "Homepage.dc.html", "impl": ["website/index.html", "website/web/landing.css", "website/web/landing.js"] }
+  }
+}
