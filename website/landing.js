@@ -5,8 +5,9 @@
       navHow: 'How it works',
       navRoadmap: 'Roadmap',
       navBlog: 'Blog',
-      navOpenSource: 'Open source ↗',
+      navGithub: 'GitHub',
       navDemo: 'Live demo',
+      navContact: 'Contact',
       language: 'Español',
 
       heroTitle: 'The open-source, AI-native medical platform',
@@ -18,31 +19,27 @@
       constHubTitle: 'Your health network',
       constInstitutionsLabel: 'Who it talks to',
 
-      flowTitle: 'The encounter is the point.',
-      flowIntro: 'Human Rounds was rebuilt with artificial intelligence in mind from the start. AI handles the repetitive work before, during and after care while the existing clinical record remains authoritative.',
+      flowTitle: 'Every patient encounter, prepared by AI.',
+      flowIntro: 'Human Rounds automates the repetitive work before, during, and after each visit. Your existing medical record remains the source of truth — clinicians review every recommendation.',
       flowBadge1: 'Before the visit',
       flowBadge2: 'During the visit',
       flowBadge3: 'Around the visit',
       flowBadge4: 'After the visit',
-      flowPatientTitle: 'Encounter and prioritize',
-      flowPatientText: 'The AI asks what\'s wrong, follows up, and judges urgency — so the most urgent patients are seen first.',
-      flowOpsTitle: 'Coordinate the patient journey',
-      flowOpsText: 'One system runs registration, booking, and insurance claims — schedules tests into the patient’s account, and queues guide each arrival just in time.',
-      flowClinicianTitle: 'Surface the relevant history',
-      flowClinicianText: 'No more typing through the visit. The dashboard surfaces history, key facts, trends, and charts on sight.',
-      flowRecordTitle: 'Record and automate the outcome',
-      flowRecordText: 'A voice recorder captures the visit, then prescriptions, orders, and test requests are generated automatically from it.',
+      flowPatientTitle: 'AI interviews and prioritizes patients',
+      flowPatientText: 'Patients describe their problem in their own words. AI asks follow-up questions, estimates urgency, and places the patient in the right queue.',
+      flowOpsTitle: 'One workflow instead of disconnected systems',
+      flowOpsText: 'Registration, scheduling, arrivals, waiting-room management, queues, and insurance claims run in one coordinated workflow.',
+      flowClinicianTitle: 'Everything the clinician needs is already prepared',
+      flowClinicianText: 'The dashboard surfaces relevant history, medications, past visits, trends, and key findings before the conversation begins.',
+      flowRecordTitle: 'Documentation completes itself',
+      flowRecordText: 'The consultation is summarized automatically. Prescriptions, referrals, lab orders, and follow-up instructions are generated for clinician review.',
       roadmapTitle: 'Roadmap',
-      roadmapIntro: 'The end state we build toward: the doctor talks to the patient, then clicks confirm. Everything else is already prepared.',
       roadmapLiveTitle: 'Live',
       roadmapLiveSubtitle: 'Running at the Pinamar reference installation',
       roadmapPrototypedTitle: 'Prototyped',
       roadmapPrototypedSubtitle: 'Prototype ready, pending Human Rounds review',
       roadmapPlannedTitle: 'Planned',
       roadmapPlannedSubtitle: 'Not started yet',
-      kanbanSeeAll: 'See all →',
-      kanbanShowLess: 'Show less ↑',
-
       kbLive1Title: 'Find a service by typing 3 letters', kbLive1Text: 'Search with stemming across the hospital and 7 health centres',
       kbLive2Title: 'Book online in 2 clicks', kbLive2Text: 'Real slots, nearest first, held while you decide',
       kbLive3Title: 'Referral orders read by AI', kbLive3Text: 'Even handwriting; staff approve, the AI proposes',
@@ -69,30 +66,77 @@
 
       storiesTitle: 'Use cases',
 
+      story1Title: 'Three letters to a cardiologist',
       story1Para1: 'Grace needs to see a cardiologist. She doesn\'t know which health centre has one, or when.',
-      story1Para2: 'She types three letters into the search box. Two clicks books the nearest opening. Before the visit, she dictates her symptoms by voice instead of filling out a form.',
-      story1Fact1: '3 letters → the right service, nearest first',
-      story1Fact2: '2 clicks, no phone call',
-      story1Fact3: 'Blood-test order arrives a week ahead',
-      story1Fact4: 'One visit instead of two',
+      story1More:
+        '<p>She types three letters into the search box:</p>' +
+        '<div class="ui-frame">' +
+          '<div class="ui-field"><span class="ui-typed">car<span class="ui-caret"></span></span></div>' +
+          '<ul class="ui-rows">' +
+            '<li><span class="ui-dot ui-dot--accent"></span>Cardiologist — Pinamar Hospital<span class="ui-meta">today 14:00</span></li>' +
+            '<li><span class="ui-dot ui-dot--routine"></span>Cardiologist — Ostende centre<span class="ui-meta">tomorrow 18:00</span></li>' +
+            '<li><span class="ui-dot ui-dot--slate"></span>Cardiologist — Valeria del Mar<span class="ui-meta">Aug 4, 09:40</span></li>' +
+          '</ul>' +
+        '</div>' +
+        '<p>Two clicks book the nearest opening. Before the visit she dictates her symptoms by voice instead of filling out a form.</p>' +
+        '<p>The blood-test order reaches her a week ahead, so the results are already on the screen when she sits down — one visit instead of two.</p>' +
+        '<ul class="story-facts">' +
+          '<li>3 letters → the right service, nearest first</li>' +
+          '<li>2 clicks, no phone call</li>' +
+          '<li>Blood-test order arrives a week ahead</li>' +
+          '<li>One visit instead of two</li>' +
+        '</ul>',
+
+      story2Title: 'The doctor already knows the case',
       story2Para1: 'Dr. Nguyen opens today\'s list before the first patient arrives. Each row shows a triage colour and a one-line summary — no file to dig through.',
-      story2Para2: 'A new patient\'s story is already on the screen: her own words, a SOAP summary, a differential ranked by likelihood. He examines her. He talks to her. That part stays his — no software touches it.',
-      story2Fact1: 'Triage colour + one-line summary, no digging',
-      story2Fact2: 'SOAP note & differential ready before he speaks',
-      story2Fact3: 'He checks the boxes on orders he agrees with',
-      story2Fact4: 'No typing during the visit',
+      story2More:
+        '<div class="ui-frame">' +
+          '<p class="ui-hint">Today · 14 patients</p>' +
+          '<ul class="ui-rows">' +
+            '<li><span class="ui-dot ui-dot--urgent"></span>Chest pain on exertion, 3 days<span class="ui-meta">09:00</span></li>' +
+            '<li><span class="ui-dot ui-dot--soon"></span>Blood-pressure follow-up<span class="ui-meta">09:20</span></li>' +
+            '<li><span class="ui-dot ui-dot--routine"></span>Repeat prescription, statin<span class="ui-meta">09:40</span></li>' +
+          '</ul>' +
+        '</div>' +
+        '<p>A new patient’s story is already on the screen: her own words, a SOAP summary, a differential ranked by likelihood.</p>' +
+        '<p>He examines her. He talks to her. That part stays his — no software touches it. Afterwards he ticks the orders he agrees with, and the note writes itself.</p>' +
+        '<div class="ui-frame">' +
+          '<p class="ui-hint">Proposed orders</p>' +
+          '<ul class="ui-rows">' +
+            '<li><span class="ui-check" data-on>✓</span>ECG, 12-lead<span class="ui-meta">today</span></li>' +
+            '<li><span class="ui-check" data-on>✓</span>Troponin + lipid panel<span class="ui-meta">today</span></li>' +
+            '<li><span class="ui-check"></span>Chest X-ray<span class="ui-meta">declined</span></li>' +
+          '</ul>' +
+        '</div>' +
+        '<ul class="story-facts">' +
+          '<li>Triage colour + one-line summary, no digging</li>' +
+          '<li>SOAP note &amp; differential ready before he speaks</li>' +
+          '<li>He checks the boxes on orders he agrees with</li>' +
+          '<li>No typing during the visit</li>' +
+        '</ul>',
+
+      story3Title: 'A queue that reads itself',
       story3Para1: 'Sonia starts her morning with a queue of referral orders — some handwritten, some photos taken in a hurry.',
-      story3Para2: 'The AI already read every one overnight: date, licence, name match. She reviews the proposals, not the raw images — rejects two, approves the rest. Nobody hits a dead end.',
-      story3Fact1: 'AI reads every referral overnight, handwriting included',
-      story3Fact2: 'Proposes accept or reject, with the reason attached',
-      story3Fact3: 'Rejected patients get the next step, not a dead end',
-      story3Fact4: 'No freed slot sits empty',
-      storyExpand: 'Read the full story',
-      storyCollapse: 'Show less',
-      phoneSearchText: 'car',
-      phoneResultTitle: 'Cardiology',
-      phoneResultSub: 'Hospital de Pinamar · 10 min',
-      phoneResultBtn: 'Book',
+      story3More:
+        '<p>The AI already read every one overnight: date, licence, name match. She reviews the proposals, not the raw images — rejects two, approves the rest.</p>' +
+        '<div class="ui-frame">' +
+          '<p class="ui-hint">Referral queue · 38 read overnight</p>' +
+          '<ul class="ui-rows">' +
+            '<li><span class="ui-dot ui-dot--routine"></span>Traumatology — R. Salas<span class="ui-meta">approve</span></li>' +
+            '<li><span class="ui-dot ui-dot--routine"></span>Endocrinology — M. Duarte<span class="ui-meta">approve</span></li>' +
+            '<li><span class="ui-dot ui-dot--urgent"></span>Licence unreadable — J. Pérez<span class="ui-meta">re-upload link</span></li>' +
+          '</ul>' +
+        '</div>' +
+        '<p>Every rejection leaves with a next step attached: an alternative slot or a re-upload link. Nobody hits a dead end, and attendance goes up.</p>' +
+        '<ul class="story-facts">' +
+          '<li>AI reads every referral overnight, handwriting included</li>' +
+          '<li>Proposes accept or reject, with the reason attached</li>' +
+          '<li>Rejected patients get the next step, not a dead end</li>' +
+          '<li>No freed slot sits empty</li>' +
+        '</ul>',
+
+      storyExpand: 'Read more →',
+      storyCollapse: 'Close ↑',
 
       blogPost1Title: 'Three letters to a cardiologist',
       blogPost1Body:
@@ -132,13 +176,23 @@
       update2Text: '<b>Scan-to-register.</b> A document camera reads an ID and insurance credential, fills the health record, and learns unfamiliar QR formats for the next patient.',
       update3Text: '<b>Resilient EHR handoff.</b> Registration work stays queued locally and retries automatically when the clinical record comes back online.',
 
-      invitationsTitle: 'Three ways in',
-      inviteOrgTitle: 'Health organizations — run it.',
-      inviteOrgText: 'Free to deploy, no licence fee; the Pinamar installation is live proof. Grant-funded public pilots can launch without a software licence fee.',
-      inviteDevTitle: 'Developers — extend it.',
-      inviteDevText: 'Fork the repo and submit a pull request with a local module: your region’s identity, coverage and health-record connectors.',
-      inviteFundTitle: 'Investors and grant organizations — fund it.',
-      inviteFundText: 'Money goes to hardening, independent validation and the next public pilots.',
+      invitationsTitle: 'Who this is for',
+      invitationsIntro: 'Three ways into the same platform — run it, extend it, or fund the next deployments.',
+      inviteOrgRole: 'Health organizations',
+      inviteOrgTitle: 'Get back the hours your staff spend on the screen.',
+      inviteOrgText: 'Booking, reminders, coverage checks and documentation stop being manual work. No licence fee, no vendor lock — you host it, you own the data.',
+      inviteOrgFact1: 'Self-hosted, your data stays yours',
+      inviteOrgFact2: 'Running today at the Pinamar installation',
+      inviteDevRole: 'Developers',
+      inviteDevTitle: 'Ship a whole country as a module, not a fork.',
+      inviteDevText: 'Identity, coverage and health-record connectors are pluggable, so your region’s integration is a pull request instead of a rewrite.',
+      inviteDevFact1: 'Pluggable per-country connectors',
+      inviteDevFact2: 'A codebase already carrying real clinical traffic',
+      inviteFundRole: 'Investors and grant organizations',
+      inviteFundTitle: 'Every dollar buys deployments, not licences.',
+      inviteFundText: 'Funding goes to hardening, independent clinical validation and the next public pilots. Because the platform is free to run, the same grant reaches more clinics.',
+      inviteFundFact1: 'No licence cost between grant and clinic',
+      inviteFundFact2: 'Outcomes stay open for anyone to check',
       inviteContact: 'Contact',
       inviteGithub: 'GitHub'
     },
@@ -146,8 +200,9 @@
       navHow: 'Cómo funciona',
       navRoadmap: 'Hoja de ruta',
       navBlog: 'Blog',
-      navOpenSource: 'Código abierto ↗',
+      navGithub: 'GitHub',
       navDemo: 'Demo en vivo',
+      navContact: 'Contacto',
       language: 'English',
 
       heroTitle: 'La plataforma médica de código abierto e IA nativa',
@@ -159,31 +214,27 @@
       constHubTitle: 'Tu red de salud',
       constInstitutionsLabel: 'Con quién se conecta',
 
-      flowTitle: 'La consulta es entre personas.',
-      flowIntro: 'Human Rounds fue replanteado desde cero con inteligencia artificial. La IA ordena el trabajo antes, durante y después de la atención; la historia clínica sigue siendo la fuente oficial.',
+      flowTitle: 'Cada consulta, preparada por la IA.',
+      flowIntro: 'Human Rounds automatiza el trabajo repetitivo antes, durante y después de cada consulta. La historia clínica que ya usás sigue siendo la fuente oficial: el equipo de salud revisa cada sugerencia.',
       flowBadge1: 'Antes de la consulta',
       flowBadge2: 'Durante la consulta',
       flowBadge3: 'Alrededor de la consulta',
       flowBadge4: 'Después de la consulta',
-      flowPatientTitle: 'Recibir y priorizar',
-      flowPatientText: 'La IA pregunta qué le pasa, repregunta y evalúa la urgencia: los casos más urgentes se atienden primero.',
-      flowOpsTitle: 'Coordinar el recorrido del paciente',
-      flowOpsText: 'Un solo sistema lleva el alta, el turno y la cobertura — agenda los estudios en la cuenta del paciente, y la cola guía cada llegada justo a tiempo.',
-      flowClinicianTitle: 'Mostrar la historia relevante',
-      flowClinicianText: 'Se terminó tipear durante la consulta. El panel muestra de entrada la historia, los datos clave, las tendencias y los gráficos.',
-      flowRecordTitle: 'Registrar y automatizar el resultado',
-      flowRecordText: 'Un grabador de voz capta la consulta, y de ahí se generan solas las recetas, las órdenes y los pedidos de estudios.',
+      flowPatientTitle: 'La IA entrevista y prioriza a los pacientes',
+      flowPatientText: 'El paciente cuenta su problema con sus propias palabras. La IA repregunta, estima la urgencia y lo ubica en la cola que corresponde.',
+      flowOpsTitle: 'Un solo circuito en vez de sistemas sueltos',
+      flowOpsText: 'Alta, turnos, llegadas, sala de espera, colas y cobertura funcionan dentro de un mismo circuito coordinado.',
+      flowClinicianTitle: 'El médico encuentra todo listo',
+      flowClinicianText: 'El panel muestra la historia relevante, la medicación, las consultas previas, las tendencias y los datos clave antes de que empiece la conversación.',
+      flowRecordTitle: 'La documentación se completa sola',
+      flowRecordText: 'La consulta se resume automáticamente. Recetas, derivaciones, órdenes de laboratorio e indicaciones quedan generadas para que el profesional las revise.',
       roadmapTitle: 'Hoja de ruta',
-      roadmapIntro: 'El estado final que buscamos: el médico conversa con el paciente y hace clic en confirmar. Todo lo demás ya está preparado.',
       roadmapLiveTitle: 'En vivo',
       roadmapLiveSubtitle: 'Funcionando en la instalación de referencia de Pinamar',
       roadmapPrototypedTitle: 'Prototipado',
       roadmapPrototypedSubtitle: 'Prototipo listo, entra a Human Rounds tras revisión',
       roadmapPlannedTitle: 'Planeado',
       roadmapPlannedSubtitle: 'Todavía sin empezar',
-      kanbanSeeAll: 'Ver todo →',
-      kanbanShowLess: 'Ver menos ↑',
-
       kbLive1Title: 'Encontrá un servicio escribiendo 3 letras', kbLive1Text: 'Búsqueda con stemming en el hospital y los 7 centros de salud',
       kbLive2Title: 'Sacá un turno online en 2 clics', kbLive2Text: 'Turnos reales, el más cercano primero, reservado mientras decidís',
       kbLive3Title: 'Órdenes de derivación leídas por IA', kbLive3Text: 'Incluso manuscritas; el personal aprueba, la IA propone',
@@ -210,30 +261,77 @@
 
       storiesTitle: 'Casos de uso',
 
+      story1Title: 'Tres letras hasta un cardiólogo',
       story1Para1: 'Grace necesita ver a un cardiólogo. No sabe en qué centro de salud hay uno, ni cuándo.',
-      story1Para2: 'Escribe tres letras en el buscador. Dos clics y reserva el turno más cercano. Antes de la consulta, dicta sus síntomas por voz en vez de llenar un formulario.',
-      story1Fact1: '3 letras → el servicio correcto, el más cercano primero',
-      story1Fact2: '2 clics, sin llamada telefónica',
-      story1Fact3: 'La orden de análisis de sangre llega una semana antes',
-      story1Fact4: 'Una consulta en vez de dos',
+      story1More:
+        '<p>Escribe tres letras en el buscador:</p>' +
+        '<div class="ui-frame">' +
+          '<div class="ui-field"><span class="ui-typed">car<span class="ui-caret"></span></span></div>' +
+          '<ul class="ui-rows">' +
+            '<li><span class="ui-dot ui-dot--accent"></span>Cardiólogo — Hospital de Pinamar<span class="ui-meta">hoy 14:00</span></li>' +
+            '<li><span class="ui-dot ui-dot--routine"></span>Cardiólogo — Centro de Ostende<span class="ui-meta">mañana 18:00</span></li>' +
+            '<li><span class="ui-dot ui-dot--slate"></span>Cardiólogo — Valeria del Mar<span class="ui-meta">4 ago, 09:40</span></li>' +
+          '</ul>' +
+        '</div>' +
+        '<p>Dos clics y queda reservado el turno más cercano. Antes de la consulta dicta sus síntomas por voz en vez de llenar un formulario.</p>' +
+        '<p>La orden de análisis le llega una semana antes, así que los resultados ya están en la pantalla cuando se sienta: una consulta en lugar de dos.</p>' +
+        '<ul class="story-facts">' +
+          '<li>3 letras → el servicio correcto, el más cercano primero</li>' +
+          '<li>2 clics, sin llamada telefónica</li>' +
+          '<li>La orden de análisis llega una semana antes</li>' +
+          '<li>Una consulta en vez de dos</li>' +
+        '</ul>',
+
+      story2Title: 'El médico ya conoce el caso',
       story2Para1: 'El Dr. Nguyen abre la lista del día antes de que llegue el primer paciente. Cada fila muestra un color de triage y un resumen de una línea, sin carpeta que revolver.',
-      story2Para2: 'La historia de una paciente nueva ya está en la pantalla: sus propias palabras, un resumen SOAP, un diferencial ordenado por probabilidad. La examina. Habla con ella. Esa parte sigue siendo suya — ningún software la toca.',
-      story2Fact1: 'Color de triage + resumen de una línea, sin buscar',
-      story2Fact2: 'Nota SOAP y diferencial listos antes de hablar',
-      story2Fact3: 'Tilda las órdenes que aprueba',
-      story2Fact4: 'Sin tipear durante la consulta',
+      story2More:
+        '<div class="ui-frame">' +
+          '<p class="ui-hint">Hoy · 14 pacientes</p>' +
+          '<ul class="ui-rows">' +
+            '<li><span class="ui-dot ui-dot--urgent"></span>Dolor de pecho al esfuerzo, 3 días<span class="ui-meta">09:00</span></li>' +
+            '<li><span class="ui-dot ui-dot--soon"></span>Control de presión<span class="ui-meta">09:20</span></li>' +
+            '<li><span class="ui-dot ui-dot--routine"></span>Receta repetida, estatina<span class="ui-meta">09:40</span></li>' +
+          '</ul>' +
+        '</div>' +
+        '<p>La historia de una paciente nueva ya está en la pantalla: sus propias palabras, un resumen SOAP y un diferencial ordenado por probabilidad.</p>' +
+        '<p>La examina. Habla con ella. Esa parte sigue siendo suya, ningún software la toca. Después tilda las órdenes con las que está de acuerdo y la nota se escribe sola.</p>' +
+        '<div class="ui-frame">' +
+          '<p class="ui-hint">Órdenes propuestas</p>' +
+          '<ul class="ui-rows">' +
+            '<li><span class="ui-check" data-on>✓</span>ECG de 12 derivaciones<span class="ui-meta">hoy</span></li>' +
+            '<li><span class="ui-check" data-on>✓</span>Troponina + perfil lipídico<span class="ui-meta">hoy</span></li>' +
+            '<li><span class="ui-check"></span>Radiografía de tórax<span class="ui-meta">descartada</span></li>' +
+          '</ul>' +
+        '</div>' +
+        '<ul class="story-facts">' +
+          '<li>Color de triage + resumen de una línea, sin buscar</li>' +
+          '<li>Nota SOAP y diferencial listos antes de hablar</li>' +
+          '<li>Tilda las órdenes que aprueba</li>' +
+          '<li>Sin tipear durante la consulta</li>' +
+        '</ul>',
+
+      story3Title: 'Una cola que se lee sola',
       story3Para1: 'Sonia empieza la mañana con una cola de órdenes de derivación — algunas manuscritas, algunas fotos sacadas apurada.',
-      story3Para2: 'La IA ya leyó todas durante la noche: fecha, matrícula, coincidencia de nombre. Ella revisa las propuestas, no las imágenes crudas — rechaza dos, aprueba el resto. Nadie llega a un callejón sin salida.',
-      story3Fact1: 'La IA lee cada derivación de noche, manuscritas incluidas',
-      story3Fact2: 'Propone aceptar o rechazar, con el motivo',
-      story3Fact3: 'Los rechazados reciben el siguiente paso, no un cierre',
-      story3Fact4: 'Ningún turno liberado queda vacío',
-      storyExpand: 'Leer la historia completa',
-      storyCollapse: 'Mostrar menos',
-      phoneSearchText: 'car',
-      phoneResultTitle: 'Cardiología',
-      phoneResultSub: 'Hospital de Pinamar · 10 min',
-      phoneResultBtn: 'Reservar',
+      story3More:
+        '<p>La IA ya leyó todas durante la noche: fecha, matrícula, coincidencia de nombre. Ella revisa las propuestas, no las imágenes crudas: rechaza dos, aprueba el resto.</p>' +
+        '<div class="ui-frame">' +
+          '<p class="ui-hint">Cola de derivaciones · 38 leídas de noche</p>' +
+          '<ul class="ui-rows">' +
+            '<li><span class="ui-dot ui-dot--routine"></span>Traumatología — R. Salas<span class="ui-meta">aprobar</span></li>' +
+            '<li><span class="ui-dot ui-dot--routine"></span>Endocrinología — M. Duarte<span class="ui-meta">aprobar</span></li>' +
+            '<li><span class="ui-dot ui-dot--urgent"></span>Matrícula ilegible — J. Pérez<span class="ui-meta">link para resubir</span></li>' +
+          '</ul>' +
+        '</div>' +
+        '<p>Cada rechazo sale con el próximo paso incluido: un turno alternativo o un link para resubir la orden. Nadie llega a un callejón sin salida, y la asistencia sube.</p>' +
+        '<ul class="story-facts">' +
+          '<li>La IA lee cada derivación de noche, manuscritas incluidas</li>' +
+          '<li>Propone aceptar o rechazar, con el motivo</li>' +
+          '<li>Los rechazados reciben el siguiente paso, no un cierre</li>' +
+          '<li>Ningún turno liberado queda vacío</li>' +
+        '</ul>',
+
+      storyExpand: 'Leer más →',
+      storyCollapse: 'Cerrar ↑',
 
       blogPost1Title: 'Tres letras hasta un cardiólogo',
       blogPost1Body:
@@ -273,13 +371,23 @@
       update2Text: '<b>Alta por escaneo.</b> Una cámara lee el DNI y la credencial de cobertura, completa HSI y aprende formatos de QR desconocidos para el próximo paciente.',
       update3Text: '<b>Envío resiliente a HSI.</b> El alta queda en cola local y se reintenta automáticamente cuando vuelve la historia clínica.',
 
-      invitationsTitle: 'Tres formas de sumarte',
-      inviteOrgTitle: 'Instituciones de salud — ponela a andar.',
-      inviteOrgText: 'Gratis para instalar, sin costo de licencia; la instalación de Pinamar es la prueba en producción. Los pilotos públicos financiados por subsidios pueden lanzarse sin costo de licencia de software.',
-      inviteDevTitle: 'Desarrolladores — extendela.',
-      inviteDevText: 'Forkeá el repositorio y mandá un pull request con un módulo local: los conectores de identidad, cobertura e historia clínica de tu región.',
-      inviteFundTitle: 'Inversores y organizaciones de subsidios — financiala.',
-      inviteFundText: 'El dinero se destina a robustecer el sistema, la validación independiente y los próximos pilotos públicos.',
+      invitationsTitle: 'Para quién es',
+      invitationsIntro: 'Tres formas de entrar a la misma plataforma: ponerla a andar, extenderla o financiar las próximas instalaciones.',
+      inviteOrgRole: 'Instituciones de salud',
+      inviteOrgTitle: 'Recuperá las horas que tu equipo pasa frente a la pantalla.',
+      inviteOrgText: 'Turnos, recordatorios, verificación de cobertura y documentación dejan de ser trabajo manual. Sin costo de licencia y sin atarte a un proveedor: la instalás vos, los datos son tuyos.',
+      inviteOrgFact1: 'Instalación propia, los datos quedan en tu institución',
+      inviteOrgFact2: 'Hoy funcionando en la instalación de Pinamar',
+      inviteDevRole: 'Desarrolladores',
+      inviteDevTitle: 'Sumá todo un país como módulo, no como fork.',
+      inviteDevText: 'Los conectores de identidad, cobertura e historia clínica son enchufables: la integración de tu región es un pull request y no una reescritura.',
+      inviteDevFact1: 'Conectores enchufables por país',
+      inviteDevFact2: 'Un código que ya mueve tráfico clínico real',
+      inviteFundRole: 'Inversores y organizaciones de subsidios',
+      inviteFundTitle: 'Cada dólar compra instalaciones, no licencias.',
+      inviteFundText: 'El dinero se destina a robustecer el sistema, la validación clínica independiente y los próximos pilotos públicos. Como la plataforma es gratis para instalar, el mismo subsidio llega a más centros de salud.',
+      inviteFundFact1: 'Sin costo de licencia entre el subsidio y el centro de salud',
+      inviteFundFact2: 'Los resultados quedan abiertos para que cualquiera los revise',
       inviteContact: 'Contacto',
       inviteGithub: 'GitHub'
     }
@@ -319,44 +427,27 @@
     return 'en';
   }
 
+  /* Both labels live in the DOM and CSS shows the right one, so a language
+     switch while a card is open can't leave a stale label behind. */
   function initStoryToggles() {
     var toggles = document.querySelectorAll('.story-toggle');
     for (var i = 0; i < toggles.length; i++) {
       toggles[i].addEventListener('click', function () {
-        var block = this.closest('.story-block');
-        var full = block.querySelector('.story-full');
-        var expanded = block.classList.toggle('is-expanded');
-        full.hidden = !expanded;
-        this.setAttribute('aria-expanded', String(expanded));
-        var key = expanded ? 'storyCollapse' : 'storyExpand';
-        this.setAttribute('data-i18n', key);
-        this.textContent = copy[document.documentElement.lang][key];
+        var card = this.closest('.story-card');
+        var open = !card.hasAttribute('data-open');
+        if (open) card.setAttribute('data-open', '');
+        else card.removeAttribute('data-open');
+        this.setAttribute('aria-expanded', String(open));
       });
     }
   }
 
-  function initKanbanStacks() {
-    var columns = document.querySelectorAll('.kanban-column--stackable');
+  /* The column header count is the real number of rows, never a hand-kept number. */
+  function initKanbanCounts() {
+    var columns = document.querySelectorAll('.kanban-column');
     for (var i = 0; i < columns.length; i++) {
-      (function (column) {
-        var stack = column.querySelector('[data-kanban-stack]');
-        if (!stack) return;
-        var collapsedHeight = stack.style.maxHeight || getComputedStyle(stack).maxHeight;
-
-        function setOpen(open) {
-          column.classList.toggle('is-open', open);
-          stack.style.maxHeight = open ? stack.scrollHeight + 'px' : collapsedHeight;
-        }
-
-        stack.addEventListener('click', function () {
-          if (!column.classList.contains('is-open')) setOpen(true);
-        });
-        var toggle = column.querySelector('[data-kanban-toggle]');
-        if (toggle) toggle.addEventListener('click', function (e) {
-          e.stopPropagation();
-          setOpen(!column.classList.contains('is-open'));
-        });
-      })(columns[i]);
+      var slot = columns[i].querySelector('[data-kanban-count]');
+      if (slot) slot.textContent = columns[i].querySelectorAll('.kanban-cards > li').length;
     }
   }
 
@@ -368,7 +459,7 @@
       setLanguage(document.documentElement.lang === 'en' ? 'es' : 'en');
     });
     initStoryToggles();
-    initKanbanStacks();
+    initKanbanCounts();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

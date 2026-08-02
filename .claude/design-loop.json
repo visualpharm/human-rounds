@@ -4,6 +4,6 @@
   "base_url": "http://127.0.0.1:4500",
   "default_mode": "review",
   "pages": {
-    "homepage": { "url": "/index.html", "dc": "Homepage.dc.html", "impl": ["website/index.html", "website/web/landing.css", "website/web/landing.js"] }
+    "homepage": { "url": "/", "dc": "Homepage.dc.html", "impl": ["website/landing.html", "website/landing.css", "website/landing.js"] }
   }
 }

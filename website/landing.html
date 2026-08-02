@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Human Rounds — open-source AI-native medical platform</title>
   <meta name="description" content="Human Rounds, the open-source AI-native medical platform: AI interviews patients before the visit, reads handwritten referrals, and writes to the health record. Humans do the rounds. AI does the rest.">
-  <meta name="theme-color" content="#f7f3eb">
+  <meta name="theme-color" content="#f8ecde">
   <meta property="og:type" content="website">
   <meta property="og:title" content="The open-source, AI-native medical platform">
   <meta property="og:description" content="Humans do the rounds. AI does the rest. AI interviews patients, reads handwritten referrals, judges urgency, and writes to the health record. Free to run, open to inspect.">
@@ -18,9 +18,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/web/landing.css?v=13">
+  <link rel="stylesheet" href="/web/landing.css?v=15">
   <link rel="stylesheet" href="/web/constellation.css?v=11">
-  <link rel="stylesheet" href="/web/public-footer.css?v=6">
+  <link rel="stylesheet" href="/web/public-footer.css?v=7">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,14 +38,15 @@
 <body>
   <header class="site-header site-header--bilingual">
     <a class="brand" href="/" aria-label="Human Rounds home">
-      <img src="/web/human-rounds-mark.png?v=1" alt="" width="42" height="42">
+      <img src="/web/human-rounds-mark.png?v=1" alt="" width="55" height="55">
       <span>Human Rounds</span>
     </a>
     <nav class="site-nav" aria-label="Primary navigation">
       <a href="#platform" data-i18n="navHow">How it works</a>
       <a href="#roadmap" data-i18n="navRoadmap">Roadmap</a>
-      <a href="https://github.com/visualpharm/human-rounds" rel="noopener" data-i18n="navOpenSource">Open source ↗</a>
+      <a href="https://github.com/visualpharm/human-rounds" rel="noopener" data-i18n="navGithub">GitHub</a>
       <a href="https://demo.humanrounds.org/" data-i18n="navDemo">Live demo</a>
+      <a href="https://github.com/visualpharm/human-rounds/issues/new" rel="noopener" data-i18n="navContact">Contact</a>
     </nav>
     <nav class="site-actions" aria-label="Language">
       <button class="language-toggle" type="button" data-language-toggle>Español</button>
@@ -85,29 +86,41 @@
     <section class="system-section" id="platform">
       <div class="public-wrap">
         <div class="section-intro">
-          <h2 data-i18n="flowTitle">The encounter is the point.</h2>
-          <p data-i18n="flowIntro">Human Rounds was rebuilt with artificial intelligence in mind from the start. AI handles the repetitive work before, during and after care while the existing clinical record remains authoritative.</p>
+          <h2 data-i18n="flowTitle">Every patient encounter, prepared by AI.</h2>
+          <p data-i18n="flowIntro">Human Rounds automates the repetitive work before, during, and after each visit. Your existing medical record remains the source of truth — clinicians review every recommendation.</p>
         </div>
-        <ol class="system-flow">
+        <ol class="system-flow system-flow--tiles">
           <li>
-            <div class="flow-badge" data-i18n="flowBadge1">Before the visit</div>
-            <h3 data-i18n="flowPatientTitle">Encounter and prioritize</h3>
-            <p data-i18n="flowPatientText">The AI asks what's wrong, follows up, and judges urgency — so the most urgent patients are seen first.</p>
+            <div class="flow-rail"><span class="flow-num">01</span></div>
+            <div class="flow-copy">
+              <div class="flow-badge" data-i18n="flowBadge1">Before the visit</div>
+              <h3 data-i18n="flowPatientTitle">AI interviews and prioritizes patients</h3>
+              <p data-i18n="flowPatientText">Patients describe their problem in their own words. AI asks follow-up questions, estimates urgency, and places the patient in the right queue.</p>
+            </div>
           </li>
           <li>
-            <div class="flow-badge" data-i18n="flowBadge2">During the visit</div>
-            <h3 data-i18n="flowClinicianTitle">Surface the relevant history</h3>
-            <p data-i18n="flowClinicianText">No more typing through the visit. The dashboard surfaces history, key facts, trends, and charts on sight.</p>
+            <div class="flow-rail"><span class="flow-num">02</span></div>
+            <div class="flow-copy">
+              <div class="flow-badge" data-i18n="flowBadge2">During the visit</div>
+              <h3 data-i18n="flowClinicianTitle">Everything the clinician needs is already prepared</h3>
+              <p data-i18n="flowClinicianText">The dashboard surfaces relevant history, medications, past visits, trends, and key findings before the conversation begins.</p>
+            </div>
           </li>
           <li>
-            <div class="flow-badge" data-i18n="flowBadge3">Around the visit</div>
-            <h3 data-i18n="flowOpsTitle">Coordinate the patient journey</h3>
-            <p data-i18n="flowOpsText">One system runs registration, booking, arrivals, queues, and insurance claims, start to finish.</p>
+            <div class="flow-rail"><span class="flow-num">03</span></div>
+            <div class="flow-copy">
+              <div class="flow-badge" data-i18n="flowBadge3">Around the visit</div>
+              <h3 data-i18n="flowOpsTitle">One workflow instead of disconnected systems</h3>
+              <p data-i18n="flowOpsText">Registration, scheduling, arrivals, waiting-room management, queues, and insurance claims run in one coordinated workflow.</p>
+            </div>
           </li>
           <li>
-            <div class="flow-badge" data-i18n="flowBadge4">After the visit</div>
-            <h3 data-i18n="flowRecordTitle">Record and automate the outcome</h3>
-            <p data-i18n="flowRecordText">The visit is summarized automatically, and prescriptions, orders, and test requests are generated with it.</p>
+            <div class="flow-rail"><span class="flow-num">04</span></div>
+            <div class="flow-copy">
+              <div class="flow-badge" data-i18n="flowBadge4">After the visit</div>
+              <h3 data-i18n="flowRecordTitle">Documentation completes itself</h3>
+              <p data-i18n="flowRecordText">The consultation is summarized automatically. Prescriptions, referrals, lab orders, and follow-up instructions are generated for clinician review.</p>
+            </div>
           </li>
         </ol>
       </div>
@@ -116,96 +129,93 @@
     <section class="roadmap-section public-wrap" id="roadmap">
       <div class="section-intro">
         <h2 data-i18n="roadmapTitle">Roadmap</h2>
-        <p data-i18n="roadmapIntro">The end state we build toward: the doctor talks to the patient, then clicks confirm. Everything else is already prepared.</p>
       </div>
       <div class="kanban">
         <div class="kanban-column kanban-column--planned">
-          <h3><span class="status-dot"></span><span data-i18n="roadmapPlannedTitle">Planned</span></h3>
+          <div class="kanban-head">
+            <h3><span class="status-dot"></span><span data-i18n="roadmapPlannedTitle">Planned</span></h3>
+            <span class="kanban-count" data-kanban-count>2</span>
+          </div>
           <p class="kanban-subtitle" data-i18n="roadmapPlannedSubtitle">Not started yet</p>
           <ul class="kanban-cards">
-            <li><h4 data-i18n="kbPlanned2Title">Clinical-history summary</h4><p data-i18n="kbPlanned2Text">Reads today's symptoms, finds what matters in years of history, and charts it as data-dense, Tufte-style graphics.</p></li>
-            <li><h4 data-i18n="kbPlanned3Title">More regional connectors</h4><p data-i18n="kbPlanned3Text">Identity, coverage and record systems beyond Argentina</p></li>
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbPlanned2Title">Clinical-history summary</h4><p data-i18n="kbPlanned2Text">Reads today's symptoms, finds what matters in years of history, and charts it as data-dense, Tufte-style graphics.</p></div></li>
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbPlanned3Title">More regional connectors</h4><p data-i18n="kbPlanned3Text">Identity, coverage and record systems beyond Argentina</p></div></li>
           </ul>
         </div>
-        <div class="kanban-column kanban-column--prototyped kanban-column--stackable">
-          <h3><span class="status-dot"></span><span data-i18n="roadmapPrototypedTitle">Prototyped</span></h3>
+        <div class="kanban-column kanban-column--prototyped">
+          <div class="kanban-head">
+            <h3><span class="status-dot"></span><span data-i18n="roadmapPrototypedTitle">Prototyped</span></h3>
+            <span class="kanban-count" data-kanban-count>5</span>
+          </div>
           <p class="kanban-subtitle" data-i18n="roadmapPrototypedSubtitle">Prototype ready, pending Human Rounds review</p>
-          <ul class="kanban-cards" data-kanban-stack>
-            <li><h4 data-i18n="kbProto4Title">SOAP summary + differential probabilities</h4><p data-i18n="kbProto4Text">The dictated interview arrives structured: SOAP note, ranked differential, draft orders and prescriptions to review</p></li>
-            <li><h4 data-i18n="kbProto2Title">Voice intake</h4><p data-i18n="kbProto2Text">The patient dictates symptoms and answers follow-ups</p></li>
-            <li><h4 data-i18n="kbProto1Title">Scan-to-register</h4><p data-i18n="kbProto1Text">DNI + insurance credential scan fills the health-record registration</p></li>
-            <li><h4 data-i18n="kbProto3Title">Triage codes</h4><p data-i18n="kbProto3Text">With deterministic red-flag rules the model can escalate but never downgrade</p></li>
-            <li><h4 data-i18n="kbProto5Title">Orders by checkbox</h4><p data-i18n="kbProto5Text">To the electronic system or the printer</p></li>
+          <ul class="kanban-cards">
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbProto4Title">SOAP summary + differential probabilities</h4><p data-i18n="kbProto4Text">The dictated interview arrives structured: SOAP note, ranked differential, draft orders and prescriptions to review</p></div></li>
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbProto2Title">Voice intake</h4><p data-i18n="kbProto2Text">The patient dictates symptoms and answers follow-ups</p></div></li>
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbProto1Title">Scan-to-register</h4><p data-i18n="kbProto1Text">DNI + insurance credential scan fills the health-record registration</p></div></li>
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbProto3Title">Triage codes</h4><p data-i18n="kbProto3Text">With deterministic red-flag rules the model can escalate but never downgrade</p></div></li>
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbProto5Title">Orders by checkbox</h4><p data-i18n="kbProto5Text">To the electronic system or the printer</p></div></li>
           </ul>
-          <button class="kanban-toggle" type="button" data-kanban-toggle>
-            <span class="kanban-toggle-open" data-i18n="kanbanSeeAll">See all →</span>
-            <span class="kanban-toggle-close" data-i18n="kanbanShowLess">Show less ↑</span>
-          </button>
         </div>
-        <div class="kanban-column kanban-column--live kanban-column--stackable">
-          <h3><span class="status-dot"></span><span data-i18n="roadmapLiveTitle">Live</span></h3>
+        <div class="kanban-column kanban-column--live">
+          <div class="kanban-head">
+            <h3><span class="status-dot"></span><span data-i18n="roadmapLiveTitle">Live</span></h3>
+            <span class="kanban-count" data-kanban-count>12</span>
+          </div>
           <p class="kanban-subtitle" data-i18n="roadmapLiveSubtitle">Running at the Pinamar reference installation</p>
-          <ul class="kanban-cards" data-kanban-stack>
-            <li><h4 data-i18n="kbLive3Title">Referral orders read by AI</h4><p data-i18n="kbLive3Text">Even handwriting; staff approve, the AI proposes</p></li>
-            <li><h4 data-i18n="kbLive11Title">Health-record handoff</h4><p data-i18n="kbLive11Text">Writes to the national EHR with automatic retry; nothing breaks if the record is down</p></li>
-            <li><h4 data-i18n="kbLive6Title">Insurance lookup</h4><p data-i18n="kbLive6Text">The patient’s insurance is detected automatically from the national registry</p></li>
-            <li><h4 data-i18n="kbLive8Title">Cancellation + waitlist</h4><p data-i18n="kbLive8Text">A freed slot is re-offered automatically to the next patient</p></li>
-            <li><h4 data-i18n="kbLive2Title">Book online in 2 clicks</h4><p data-i18n="kbLive2Text">Real slots, nearest first, held while you decide</p></li>
-            <li><h4 data-i18n="kbLive1Title">Find a service by typing 3 letters</h4><p data-i18n="kbLive1Text">Search with stemming across the hospital and 7 health centres</p></li>
-            <li><h4 data-i18n="kbLive4Title">Rejections carry the next step</h4><p data-i18n="kbLive4Text">Alternative slots or a re-upload link, never a dead end</p></li>
-            <li><h4 data-i18n="kbLive7Title">Day-before reminders by email and WhatsApp</h4><p data-i18n="kbLive7Text">Reply YES or NO to confirm or cancel</p></li>
-            <li><h4 data-i18n="kbLive9Title">Booking chat</h4><p data-i18n="kbLive9Text">On the site and on WhatsApp</p></li>
-            <li><h4 data-i18n="kbLive5Title">Patient accounts</h4><p data-i18n="kbLive5Text">Sign up with a photo of your DNI</p></li>
-            <li><h4 data-i18n="kbLive10Title">Staff panel</h4><p data-i18n="kbLive10Text">Request queue, today’s patients, doctor agendas, capacity and billing-recovery reports</p></li>
-            <li><h4 data-i18n="kbLive12Title">Multi-site engine</h4><p data-i18n="kbLive12Text">Data packs, languages, installer wizard, pluggable per-country connectors</p></li>
+          <ul class="kanban-cards">
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbLive3Title">Referral orders read by AI</h4><p data-i18n="kbLive3Text">Even handwriting; staff approve, the AI proposes</p></div></li>
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbLive11Title">Health-record handoff</h4><p data-i18n="kbLive11Text">Writes to the national EHR with automatic retry; nothing breaks if the record is down</p></div></li>
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbLive6Title">Insurance lookup</h4><p data-i18n="kbLive6Text">The patient’s insurance is detected automatically from the national registry</p></div></li>
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbLive8Title">Cancellation + waitlist</h4><p data-i18n="kbLive8Text">A freed slot is re-offered automatically to the next patient</p></div></li>
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbLive2Title">Book online in 2 clicks</h4><p data-i18n="kbLive2Text">Real slots, nearest first, held while you decide</p></div></li>
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbLive1Title">Find a service by typing 3 letters</h4><p data-i18n="kbLive1Text">Search with stemming across the hospital and 7 health centres</p></div></li>
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbLive4Title">Rejections carry the next step</h4><p data-i18n="kbLive4Text">Alternative slots or a re-upload link, never a dead end</p></div></li>
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbLive7Title">Day-before reminders by email and WhatsApp</h4><p data-i18n="kbLive7Text">Reply YES or NO to confirm or cancel</p></div></li>
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbLive9Title">Booking chat</h4><p data-i18n="kbLive9Text">On the site and on WhatsApp</p></div></li>
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbLive5Title">Patient accounts</h4><p data-i18n="kbLive5Text">Sign up with a photo of your DNI</p></div></li>
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbLive10Title">Staff panel</h4><p data-i18n="kbLive10Text">Request queue, today’s patients, doctor agendas, capacity and billing-recovery reports</p></div></li>
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbLive12Title">Multi-site engine</h4><p data-i18n="kbLive12Text">Data packs, languages, installer wizard, pluggable per-country connectors</p></div></li>
           </ul>
-          <button class="kanban-toggle" type="button" data-kanban-toggle>
-            <span class="kanban-toggle-open" data-i18n="kanbanSeeAll">See all →</span>
-            <span class="kanban-toggle-close" data-i18n="kanbanShowLess">Show less ↑</span>
-          </button>
         </div>
       </div>
       <div class="stories-block">
         <h3 class="stories-title" data-i18n="storiesTitle">Use cases</h3>
         <div class="roadmap-stories">
 
-        <article class="story-block" id="story-grace">
-          <h3 data-i18n="blogPost1Title">Three letters to a cardiologist</h3>
-          <p data-i18n="story1Para1">Grace needs to see a cardiologist. She doesn't know which health centre has one, or when.</p>
-          <ul class="story-facts">
-            <li data-i18n="story1Fact1">3 letters → the right service, nearest first</li>
-            <li data-i18n="story1Fact2">2 clicks, no phone call</li>
-            <li data-i18n="story1Fact3">Blood-test order arrives a week ahead</li>
-            <li data-i18n="story1Fact4">One visit instead of two</li>
-          </ul>
-          <div class="story-full post-body" data-i18n="blogPost1Body" data-i18n-html hidden></div>
-          <button class="story-toggle" type="button" aria-expanded="false" data-i18n="storyExpand">Read the full story</button>
+        <article class="story-card" id="story-grace">
+          <h3 data-i18n="story1Title">Three letters to a cardiologist</h3>
+          <div class="story-body">
+            <p class="story-excerpt" data-i18n="story1Para1">Grace needs to see a cardiologist. She doesn't know which health centre has one, or when.</p>
+            <div class="story-more" data-i18n="story1More" data-i18n-html></div>
+          </div>
+          <button class="story-toggle" type="button" aria-expanded="false">
+            <span class="story-toggle-open" data-i18n="storyExpand">Read more →</span>
+            <span class="story-toggle-close" data-i18n="storyCollapse">Close ↑</span>
+          </button>
         </article>
 
-        <article class="story-block" id="story-nguyen">
-          <h3 data-i18n="blogPost2Title">The doctor walks in prepared</h3>
-          <p data-i18n="story2Para1">Dr. Nguyen opens today's list before the first patient arrives. Each row shows a triage colour and a one-line summary — no file to dig through.</p>
-          <ul class="story-facts">
-            <li data-i18n="story2Fact1">Triage colour + one-line summary, no digging</li>
-            <li data-i18n="story2Fact2">SOAP note &amp; differential ready before he speaks</li>
-            <li data-i18n="story2Fact3">He checks the boxes on orders he agrees with</li>
-            <li data-i18n="story2Fact4">No typing during the visit</li>
-          </ul>
-          <div class="story-full post-body" data-i18n="blogPost2Body" data-i18n-html hidden></div>
-          <button class="story-toggle" type="button" aria-expanded="false" data-i18n="storyExpand">Read the full story</button>
+        <article class="story-card" id="story-nguyen">
+          <h3 data-i18n="story2Title">The doctor already knows the case</h3>
+          <div class="story-body">
+            <p class="story-excerpt" data-i18n="story2Para1">Dr. Nguyen opens today's list before the first patient arrives. Each row shows a triage colour and a one-line summary — no file to dig through.</p>
+            <div class="story-more" data-i18n="story2More" data-i18n-html></div>
+          </div>
+          <button class="story-toggle" type="button" aria-expanded="false">
+            <span class="story-toggle-open" data-i18n="storyExpand">Read more →</span>
+            <span class="story-toggle-close" data-i18n="storyCollapse">Close ↑</span>
+          </button>
         </article>
 
-        <article class="story-block" id="story-sonia">
-          <h3 data-i18n="blogPost3Title">A queue that reads itself</h3>
-          <p data-i18n="story3Para1">Sonia starts her morning with a queue of referral orders — some handwritten, some photos taken in a hurry.</p>
-          <ul class="story-facts">
-            <li data-i18n="story3Fact1">AI reads every referral overnight, handwriting included</li>
-            <li data-i18n="story3Fact2">Proposes accept or reject, with the reason attached</li>
-            <li data-i18n="story3Fact3">Rejected patients get the next step, not a dead end</li>
-            <li data-i18n="story3Fact4">No freed slot sits empty</li>
-          </ul>
-          <div class="story-full post-body" data-i18n="blogPost3Body" data-i18n-html hidden></div>
-          <button class="story-toggle" type="button" aria-expanded="false" data-i18n="storyExpand">Read the full story</button>
+        <article class="story-card" id="story-sonia">
+          <h3 data-i18n="story3Title">A queue that reads itself</h3>
+          <div class="story-body">
+            <p class="story-excerpt" data-i18n="story3Para1">Sonia starts her morning with a queue of referral orders — some handwritten, some photos taken in a hurry.</p>
+            <div class="story-more" data-i18n="story3More" data-i18n-html></div>
+          </div>
+          <button class="story-toggle" type="button" aria-expanded="false">
+            <span class="story-toggle-open" data-i18n="storyExpand">Read more →</span>
+            <span class="story-toggle-close" data-i18n="storyCollapse">Close ↑</span>
+          </button>
         </article>
 
         </div>
@@ -235,30 +245,43 @@
     <section class="invitations-section" id="invitations">
       <div class="public-wrap">
         <div class="section-intro">
-          <h2 data-i18n="invitationsTitle">Three ways in</h2>
+          <h2 data-i18n="invitationsTitle">Who this is for</h2>
+          <p data-i18n="invitationsIntro">Three ways into the same platform — run it, extend it, or fund the next deployments.</p>
         </div>
         <div class="invite-grid">
           <article class="invite-card">
-            <img class="invite-icon" src="/web/icons/invite-hospital.svg?v=2" alt="" width="38" height="38" loading="lazy">
-            <h3 data-i18n="inviteOrgTitle">Health organizations — run it.</h3>
-            <p data-i18n="inviteOrgText">Free to deploy, no licence fee; the Pinamar installation is live proof. Grant-funded public pilots can launch without a software licence fee.</p>
+            <div class="invite-role" data-i18n="inviteOrgRole">Health organizations</div>
+            <h3 data-i18n="inviteOrgTitle">Get back the hours your staff spend on the screen.</h3>
+            <p data-i18n="inviteOrgText">Booking, reminders, coverage checks and documentation stop being manual work. No licence fee, no vendor lock — you host it, you own the data.</p>
+            <ul class="invite-facts">
+              <li data-i18n="inviteOrgFact1">Self-hosted, your data stays yours</li>
+              <li data-i18n="inviteOrgFact2">Running today at the Pinamar installation</li>
+            </ul>
             <div class="invite-links">
               <a href="https://demo.humanrounds.org/" data-i18n="heroLinkDemo">Live demo</a>
               <a href="https://github.com/visualpharm/human-rounds/issues/new" data-i18n="inviteContact">Contact</a>
             </div>
           </article>
           <article class="invite-card">
-            <img class="invite-icon" src="/web/icons/invite-code.svg?v=1" alt="" width="38" height="38" loading="lazy">
-            <h3 data-i18n="inviteDevTitle">Developers — extend it.</h3>
-            <p data-i18n="inviteDevText">Fork the repo and submit a pull request with a local module: your region’s identity, coverage and health-record connectors.</p>
+            <div class="invite-role" data-i18n="inviteDevRole">Developers</div>
+            <h3 data-i18n="inviteDevTitle">Ship a whole country as a module, not a fork.</h3>
+            <p data-i18n="inviteDevText">Identity, coverage and health-record connectors are pluggable, so your region’s integration is a pull request instead of a rewrite.</p>
+            <ul class="invite-facts">
+              <li data-i18n="inviteDevFact1">Pluggable per-country connectors</li>
+              <li data-i18n="inviteDevFact2">A codebase already carrying real clinical traffic</li>
+            </ul>
             <div class="invite-links">
               <a href="https://github.com/visualpharm/human-rounds" rel="noopener" data-i18n="inviteGithub">GitHub</a>
             </div>
           </article>
           <article class="invite-card">
-            <img class="invite-icon" src="/web/icons/invite-funding.svg?v=1" alt="" width="38" height="38" loading="lazy">
-            <h3 data-i18n="inviteFundTitle">Investors and grant organizations — fund it.</h3>
-            <p data-i18n="inviteFundText">Money goes to hardening, independent validation and the next public pilots.</p>
+            <div class="invite-role" data-i18n="inviteFundRole">Investors and grant organizations</div>
+            <h3 data-i18n="inviteFundTitle">Every dollar buys deployments, not licences.</h3>
+            <p data-i18n="inviteFundText">Funding goes to hardening, independent clinical validation and the next public pilots. Because the platform is free to run, the same grant reaches more clinics.</p>
+            <ul class="invite-facts">
+              <li data-i18n="inviteFundFact1">No licence cost between grant and clinic</li>
+              <li data-i18n="inviteFundFact2">Outcomes stay open for anyone to check</li>
+            </ul>
             <div class="invite-links">
               <a href="https://github.com/visualpharm/human-rounds/issues/new" data-i18n="inviteContact">Contact</a>
             </div>
@@ -270,7 +293,7 @@
 
   <footer data-public-footer data-lang="en"></footer>
   <script src="/web/public-footer.js?v=6"></script>
-  <script src="/web/landing.js?v=15"></script>
+  <script src="/web/landing.js?v=16"></script>
   <script src="/web/constellation.js?v=12"></script>
 </body>
 </html>

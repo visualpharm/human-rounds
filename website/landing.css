@@ -1,16 +1,23 @@
 :root {
-  --paper: #f7f3eb;
-  --paper-deep: #eee8dd;
-  --surface: #fffdfa;
-  --ink: #181716;
-  --muted: #625f59;
-  --line: #d9d2c7;
-  --accent: #e54b27;
-  --accent-deep: #bd2f16;
+  --paper: #f8ecde;
+  --paper-deep: #efe1cf;
+  --surface: #fdf7ef;
+  --ink: #1a1712;
+  --muted: #6d6559;
+  --line: #ddcfba;
+  --accent: oklch(.52 .085 52);
+  --accent-deep: oklch(.44 .085 52);
+  --olive: oklch(.52 .055 128);
+  --slate: oklch(.52 .045 250);
   --magenta: #c10967;
-  --development: #5f43b2;
+  --development: var(--slate);
   --wrap: 1360px;
   --prose: 680px;
+  /* Three standard rhythms, used everywhere instead of ad-hoc paddings
+     (Ivan, 2026-08-02: "create several standard spacings and use them everywhere"). */
+  --sp-section: 88px;
+  --sp-intro: 44px;
+  --sp-block: 56px;
 }
 
 * { box-sizing: border-box; }
@@ -18,14 +25,15 @@ html { scroll-behavior: smooth; scrollbar-gutter: stable; }
 body {
   margin: 0;
   background:
-    linear-gradient(rgba(24, 23, 22, .028) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(24, 23, 22, .028) 1px, transparent 1px),
+    linear-gradient(rgba(26, 23, 18, .03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 23, 18, .03) 1px, transparent 1px),
     var(--paper);
-  background-size: 24px 24px;
+  background-size: 26px 26px;
   color: var(--ink);
   font-family: "Manrope", system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.55;
+  text-wrap: pretty;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -34,14 +42,19 @@ a {
   color: var(--accent-deep);
   text-decoration: none;
 }
-a:hover { color: var(--magenta); }
+a:hover { color: var(--ink); }
 button { font: inherit; }
 h1, h2, h3, p { margin-top: 0; }
-h1, h2, h3 { line-height: 1.08; letter-spacing: -.035em; text-wrap: pretty; }
-h1 { font-size: clamp(3rem, 4vw, 4.2rem); max-width: 15ch; margin-bottom: 26px; }
-h2 { font-size: clamp(2.15rem, 4vw, 4rem); max-width: 18ch; margin-bottom: 22px; }
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.015em;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(3rem, 4.2vw, 4.4rem); max-width: 15ch; margin-bottom: 20px; }
+h2 { font-size: clamp(2.1rem, 3.6vw, 3.3rem); max-width: 18ch; margin-bottom: 8px; }
 h3 { font-size: 1.15rem; margin-bottom: 8px; }
-strong { font-weight: 750; }
+strong { font-weight: 700; }
 
 .public-wrap {
   width: min(var(--wrap), calc(100% - 64px));
@@ -50,8 +63,9 @@ strong { font-weight: 750; }
 
 .site-header {
   width: min(var(--wrap), calc(100% - 64px));
-  min-height: 88px;
+  min-height: 96px;
   margin-inline: auto;
+  margin-top: 4px;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
@@ -61,23 +75,25 @@ strong { font-weight: 750; }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   color: var(--ink);
-  font-size: 1.35rem;
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 1.34rem;
   font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .07em;
   text-decoration: none;
-  letter-spacing: -.04em;
   white-space: nowrap;
 }
-.brand:hover { color: var(--ink); }
-.brand img { width: 42px; height: 42px; border-radius: 50%; }
+.brand:hover { color: var(--ink); opacity: .72; }
+.brand img { width: 55px; height: 55px; border-radius: 50%; flex: none; }
 .site-nav,
 .site-actions {
   display: flex;
   align-items: center;
-  gap: clamp(16px, 2.4vw, 34px);
+  gap: clamp(16px, 2.4vw, 32px);
 }
-.site-nav { justify-self: start; }
+.site-nav { justify-self: end; }
 .site-actions { justify-self: end; }
 .site-nav a,
 .site-actions a {
@@ -87,12 +103,10 @@ strong { font-weight: 750; }
   text-decoration: none;
   white-space: nowrap;
 }
-.site-actions a {
-  color: var(--accent-deep);
-}
-.site-actions .github-link { color: var(--accent); }
+.site-actions a { color: var(--ink); }
+.site-actions .github-link { color: var(--ink); }
 .site-nav a:hover,
-.site-actions a:hover { color: var(--magenta); }
+.site-actions a:hover { color: var(--ink); opacity: .62; }
 .language-toggle {
   appearance: none;
   border: 0;
@@ -100,58 +114,44 @@ strong { font-weight: 750; }
   color: var(--ink);
   padding: 8px 0;
   font-size: .88rem;
-  font-weight: 650;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  font-weight: 600;
   cursor: pointer;
 }
-.language-toggle:hover { color: var(--magenta); }
+.language-toggle:hover { opacity: .62; }
 
 .hero {
-  min-height: 460px;
-  padding-block: 44px 48px;
+  padding-block: 56px 64px;
   display: grid;
-  grid-template-columns: minmax(0, .95fr) minmax(540px, 1.05fr);
-  align-items: start;
-  gap: clamp(42px, 4vw, 72px);
+  grid-template-columns: minmax(0, .92fr) minmax(460px, 1.08fr);
+  align-items: center;
+  gap: clamp(48px, 7vw, 100px);
 }
 .hero-copy { min-width: 0; }
 .hero-copy h1 {
-  max-width: 26ch;
-  font-size: clamp(3rem, 3.4vw, 3.5rem);
+  max-width: 20ch;
+  font-size: clamp(3rem, 3.6vw, 3.9rem);
+}
+.hero-tagline {
+  margin: 16px 0 20px;
+  color: var(--ink);
+  font-size: clamp(1.24rem, 1.7vw, 1.5rem);
+  font-weight: 600;
 }
 .hero-lead {
-  max-width: 660px;
+  max-width: 620px;
   color: var(--muted);
-  font-size: clamp(1.08rem, 1.35vw, 1.28rem);
-  line-height: 1.5;
-  margin-bottom: 22px;
+  font-size: clamp(1.05rem, 1.2vw, 1.16rem);
+  line-height: 1.55;
+  margin-bottom: 30px;
 }
 .hero-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px 52px;
-  margin-bottom: 28px;
+  gap: 30px 44px;
 }
 .hero-links a {
-  font-size: 1.25rem;
-  font-weight: 750;
-}
-.hero-proof {
-  max-width: 570px;
-  padding-top: 16px;
-  border-top: 3px solid transparent;
-  border-image: linear-gradient(90deg, var(--accent), var(--magenta)) 1;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: .88rem;
-  line-height: 1.55;
-}
-.hero-tagline {
-  margin: -8px 0 18px;
-  color: var(--ink);
-  font-size: clamp(1.25rem, 1.8vw, 1.6rem);
-  font-weight: 800;
-  letter-spacing: -.02em;
+  font-size: 1.08rem;
+  font-weight: 700;
 }
 .product-proof {
   width: 100%;
@@ -173,18 +173,17 @@ strong { font-weight: 750; }
   font-size: .76rem;
 }
 
-.system-section,
-.invitations-section,
-.partner-section {
-  background: rgba(255, 253, 250, .58);
-}
-.system-section .public-wrap { padding-block: 74px 68px; }
-.section-intro { max-width: var(--prose); margin-bottom: 48px; }
-.system-section .section-intro { max-width: 900px; }
+/* Sections sit straight on the paper — no tinted bands, no dividers between
+   them (Ivan, 2026-08-02). Only the tiles inside carry the light surface. */
+.partner-section { background: rgba(253, 247, 239, .58); }
+.system-section { padding-block: 24px var(--sp-section); }
+.section-intro { max-width: var(--prose); margin-bottom: var(--sp-intro); }
+.system-section .section-intro { max-width: 780px; }
 .system-section .section-intro h2 { max-width: none; }
 .section-intro p {
   color: var(--muted);
   font-size: 1.1rem;
+  margin: 18px 0 0;
 }
 .system-flow {
   list-style: none;
@@ -199,14 +198,56 @@ strong { font-weight: 750; }
   min-width: 0;
   padding: 0;
 }
-.flow-badge {
-  margin-bottom: 7px;
+/* Landing variant: numbered tiles in a two-column hairline grid. */
+.system-flow--tiles {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  max-width: none;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.system-flow--tiles li {
+  background: var(--surface);
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 20px;
+  padding: 28px 26px 30px;
+  transition: background .15s ease;
+}
+.system-flow--tiles li:hover { background: rgba(26, 23, 18, .025); }
+.flow-rail {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.flow-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--muted);
   font-family: "IBM Plex Mono", monospace;
-  font-size: .78rem;
+  font-size: .82rem;
+}
+.system-flow--tiles li:hover .flow-num {
+  border-color: var(--accent-deep);
+  color: var(--accent-deep);
+}
+.flow-copy { min-width: 0; }
+.flow-badge {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .74rem;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: .04em;
+  letter-spacing: .06em;
   white-space: nowrap;
 }
 /* .flow-number: still used by demo.html's simpler (icon-less) system-flow markup */
@@ -218,16 +259,17 @@ strong { font-weight: 750; }
   font-size: .8rem;
   font-weight: 500;
 }
-.system-flow p { color: var(--muted); font-size: .94rem; margin-bottom: 0; }
+.system-flow h3 { font-size: 1.22rem; font-weight: 600; margin-bottom: 8px; max-width: 34ch; }
+.system-flow p { color: var(--muted); font-size: .96rem; max-width: 56ch; margin-bottom: 0; }
 .clinician-line {
   margin: 32px 0 0;
   color: var(--ink);
   font-size: 1.1rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 .status-section,
 .roadmap-section {
-  padding-block: 96px;
+  padding-block: 0 var(--sp-section);
 }
 .status-columns {
   display: grid;
@@ -264,15 +306,15 @@ strong { font-weight: 750; }
 .safety-note {
   margin-top: 28px;
   padding-top: 20px;
-  border-top: 3px solid var(--magenta);
+  border-top: 3px solid var(--accent);
   color: var(--ink) !important;
-  font-weight: 750;
+  font-weight: 700;
 }
 
-.invitations-section .public-wrap { padding-block: 88px; }
+.invitations-section { padding-block: 24px var(--sp-section); }
 
 /* Latest updates */
-.updates-section { padding-block: 56px 64px; }
+.updates-section { padding-block: 0 var(--sp-section); }
 .updates-list {
   list-style: none;
   margin: 8px 0 0;
@@ -296,131 +338,187 @@ strong { font-weight: 750; }
 }
 .updates-item p { margin: 0; color: var(--ink); }
 
-/* Roadmap Kanban */
+/* Roadmap — a plain, linear task tracker: three hairline columns of rows,
+   each column scrolling inside a fixed height instead of pushing the page. */
 .kanban {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(28px, 3.5vw, 44px);
-  align-items: start;
+  gap: 1px;
   margin-top: 8px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
 }
-.kanban-column { min-width: 0; }
+.kanban-column {
+  min-width: 0;
+  min-height: 0;
+  height: 500px;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+}
+.kanban-head {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 15px 16px 13px;
+  border-bottom: 1px solid var(--line);
+}
 .kanban-column h3 {
   display: flex;
   align-items: center;
-  gap: 11px;
-  margin-bottom: 6px;
-  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -.02em;
+  gap: 9px;
+  margin: 0;
+  font-size: .8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .09em;
 }
-.status-dot { width: 13px; height: 13px; border-radius: 50%; flex: none; }
+.kanban-count {
+  margin-left: auto;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .72rem;
+}
+.status-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
 .kanban-column--live .status-dot { background: var(--accent-deep); }
-.kanban-column--prototyped .status-dot { background: var(--development); }
+.kanban-column--prototyped .status-dot { background: var(--slate); }
 .kanban-column--planned .status-dot { background: var(--muted); }
 .kanban-subtitle {
-  margin-bottom: 22px;
+  margin: 0;
+  padding: 11px 16px 3px;
   color: var(--muted);
-  font-size: .78rem;
-  line-height: 1.4;
+  font-size: .74rem;
+  line-height: 1.45;
 }
 .kanban-cards {
   list-style: none;
   margin: 0;
+  padding: 6px 8px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+.kanban-cards li {
+  display: grid;
+  grid-template-columns: 13px 1fr;
+  gap: 10px;
+  padding: 9px 9px 10px;
+  border-radius: 8px;
+  transition: background .12s ease;
+}
+.kanban-cards li:hover { background: rgba(26, 23, 18, .04); }
+.task-glyph {
+  width: 11px;
+  height: 11px;
+  margin-top: 4px;
+  border-radius: 3px;
+  border: 1.5px solid var(--muted);
+  opacity: .55;
+}
+.kanban-column--prototyped .task-glyph { border-color: var(--slate); border-radius: 50%; opacity: .8; }
+.kanban-column--live .task-glyph { border-color: var(--accent-deep); background: var(--accent-deep); opacity: 1; }
+.kanban-cards h4 {
+  margin: 0;
+  font-size: .88rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.kanban-cards p { margin: 3px 0 0; color: var(--muted); font-size: .8rem; line-height: 1.45; }
+
+/* Minimal UI fragments quoted inside a story, so the screen being described
+   is shown rather than explained (Ivan, 2026-08-02). */
+.ui-frame {
+  break-inside: avoid;
+  margin: 2px 0 16px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper-deep);
+  box-shadow: 0 8px 22px rgba(39, 32, 22, .06);
+}
+.ui-field {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface);
+  font-size: .9rem;
+}
+.ui-typed { display: inline-flex; align-items: center; gap: 1px; }
+.ui-caret {
+  display: inline-block;
+  width: 1px;
+  height: 15px;
+  background: var(--accent-deep);
+}
+.ui-hint {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.ui-rows {
+  list-style: none;
+  margin: 8px 0 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1px;
 }
-.kanban-cards li {
-  padding: 14px 16px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
+.ui-rows li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
   background: var(--surface);
+  font-size: .87rem;
 }
-.kanban-cards h4 {
-  margin: 0 0 4px;
-  font-size: .96rem;
-  font-weight: 750;
-  letter-spacing: -.01em;
+.ui-rows li:hover { background: rgba(26, 23, 18, .045); }
+.ui-rows .ui-meta {
+  margin-left: auto;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .72rem;
+  white-space: nowrap;
 }
-.kanban-cards p { margin: 0; color: var(--muted); font-size: .86rem; }
+.ui-dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.ui-dot--urgent { background: #c0392b; }
+.ui-dot--soon { background: #d8a13a; }
+.ui-dot--routine { background: var(--olive); }
+.ui-dot--accent { background: var(--accent-deep); }
+.ui-dot--slate { background: var(--slate); }
+.ui-check {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  border: 1.5px solid var(--muted);
+  flex: none;
+  display: grid;
+  place-items: center;
+  color: var(--surface);
+  font-size: .6rem;
+}
+.ui-check[data-on] { background: var(--accent-deep); border-color: var(--accent-deep); }
 
-/* Stacked deck: Prototyped + Live collapse to a capped-height pile, unstacking on click.
-   Each card behind the first is pulled up under it and fully covered by an opaque
-   sliver (no text) — showing real card text through the overlap looked like broken
-   layout, so depth comes from stacked edges only, never from peeking body copy. */
-.kanban-column--stackable .kanban-cards {
-  position: relative;
-  max-height: 230px;
-  overflow: hidden;
-  transition: max-height .6s cubic-bezier(.16, 1, .3, 1);
-}
-.kanban-column--stackable .kanban-cards li {
-  position: relative;
-  background: var(--surface);
-  transition:
-    margin-top .5s cubic-bezier(.34, 1.56, .64, 1),
-    transform .5s cubic-bezier(.34, 1.56, .64, 1);
-}
-.kanban-column--stackable .kanban-cards li:not(:first-child) {
-  margin-top: -12px;
-  transform: scale(.97);
-}
-.kanban-column--stackable .kanban-cards li:nth-child(1) { z-index: 5; }
-.kanban-column--stackable .kanban-cards li:nth-child(2) { z-index: 4; }
-.kanban-column--stackable .kanban-cards li:nth-child(3) { z-index: 3; }
-.kanban-column--stackable .kanban-cards li:nth-child(4) { z-index: 2; }
-.kanban-column--stackable .kanban-cards li:not(:first-child) > * { transition: opacity .2s ease; opacity: 0; }
-.kanban-column--stackable .kanban-cards::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 60px;
-  background: linear-gradient(to bottom, transparent, var(--paper));
-  transition: opacity .35s ease;
-}
-.kanban-column--stackable.is-open .kanban-cards::after { opacity: 0; }
-.kanban-column--stackable.is-open .kanban-cards li {
-  margin-top: 12px;
-  transform: none;
-}
-.kanban-column--stackable.is-open .kanban-cards li:first-child { margin-top: 0; }
-.kanban-column--stackable.is-open .kanban-cards li > * { opacity: 1; }
-.kanban-column--stackable.is-open .kanban-cards li:nth-child(2) > * { transition-delay: .05s; }
-.kanban-column--stackable.is-open .kanban-cards li:nth-child(3) > * { transition-delay: .1s; }
-.kanban-column--stackable.is-open .kanban-cards li:nth-child(4) > * { transition-delay: .15s; }
-.kanban-column--stackable.is-open .kanban-cards li:nth-child(n+5) > * { transition-delay: .2s; }
-/* Own class, not .story-toggle: initStoryToggles() below binds to every .story-toggle
-   generically and expects a .story-block ancestor — a kanban toggle has none, so
-   reusing that class would throw on click. Same look, kept as a sibling declaration. */
-.kanban-toggle {
-  display: block;
-  margin-top: 14px;
-  background: none;
-  border: none;
-  padding: 0;
-  font: inherit;
-  font-size: .82rem;
-  font-weight: 600;
-  color: var(--accent-deep);
-  cursor: pointer;
-}
-.kanban-toggle:hover { color: var(--magenta); }
-.kanban-column:not(.is-open) .kanban-toggle-close,
-.kanban-column.is-open .kanban-toggle-open { display: none; }
-
-/* Roadmap "Use cases" — accordion cards, folded into #roadmap */
+/* Roadmap "Use cases" — three story cards, folded into #roadmap */
 .stories-block {
-  margin-top: 56px;
-  padding-top: 44px;
+  margin-top: var(--sp-block);
+  padding-top: var(--sp-intro);
   border-top: 1px solid var(--line);
 }
 .stories-title {
   font-size: clamp(1.6rem, 2.4vw, 2.1rem);
-  font-weight: 800;
-  letter-spacing: -.02em;
+  font-weight: 700;
+  letter-spacing: -.015em;
   margin-bottom: 28px;
 }
 .roadmap-stories {
@@ -429,73 +527,71 @@ strong { font-weight: 750; }
   gap: clamp(24px, 2.6vw, 34px);
   align-items: start;
 }
-.story-block {
-  grid-column: span 1;
+.story-card {
   min-width: 0;
   padding: 26px 26px 22px;
   border: 1px solid var(--line);
   border-radius: 16px;
   background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
-.story-block h3 {
-  margin: 0 0 14px;
-  font-size: clamp(1.2rem, 1.6vw, 1.4rem);
-  font-weight: 800;
-  letter-spacing: -.01em;
+.story-card h3 {
+  margin: 0;
+  font-size: clamp(1.3rem, 1.7vw, 1.55rem);
 }
-.story-block p {
-  margin: 0 0 14px;
+.story-body p {
+  margin: 0 0 15px;
   color: var(--ink);
-  font-size: .98rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.68;
+  max-width: 62ch;
 }
+.story-card[data-open] .story-excerpt { font-size: 1.05rem; font-weight: 600; }
+.story-card:not([data-open]) .story-excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.story-card:not([data-open]) .story-more { display: none; }
 .story-facts {
   list-style: none;
-  margin: 18px 0 20px;
+  margin: 4px 0 14px;
   padding: 0;
   display: grid;
   gap: 9px;
+  break-inside: avoid;
 }
 .story-facts li {
   position: relative;
-  padding-left: 22px;
-  font-size: .92rem;
+  padding-left: 19px;
+  font-size: .91rem;
   color: var(--muted);
 }
 .story-facts li::before {
   content: "";
-  position: absolute; left: 0; top: .5em;
-  width: 7px; height: 7px;
+  position: absolute; left: 0; top: .52em;
+  width: 6px; height: 6px;
   border-radius: 50%;
   background: var(--accent);
 }
-.story-full { margin: 4px 0 20px; max-width: var(--prose); }
 .story-toggle {
+  align-self: flex-start;
+  margin-top: auto;
   background: none;
-  border: none;
+  border: 0;
   padding: 0;
   font: inherit;
-  font-size: .82rem;
-  font-weight: 600;
+  font-size: .92rem;
+  font-weight: 700;
   color: var(--accent-deep);
   cursor: pointer;
 }
-.story-toggle::after {
-  content: "↓";
-  display: inline-block;
-  margin-left: 5px;
-  transition: transform .15s ease;
-}
-.story-toggle[aria-expanded="true"]::after { transform: rotate(180deg); }
-.story-toggle:hover { text-decoration: underline; }
-
-@media (max-width: 900px) {
-  .roadmap-stories { grid-template-columns: 1fr; gap: 16px; }
-}
-
-@media (max-width: 620px) {
-  .roadmap-stories { gap: 16px; }
-}
+.story-toggle:hover { color: var(--ink); }
+.story-card:not([data-open]) .story-toggle-close,
+.story-card[data-open] .story-toggle-open { display: none; }
 
 /* Blog post page */
 .post-section { padding-block: 64px 96px; }
@@ -510,26 +606,75 @@ strong { font-weight: 750; }
 .invite-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(28px, 4vw, 56px);
+  gap: 1px;
   margin-top: 8px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
 }
-.invite-card { min-width: 0; }
-.invite-icon {
-  width: 38px;
-  height: 38px;
-  margin-bottom: 18px;
-  object-fit: contain;
+.invite-card {
+  min-width: 0;
+  background: var(--surface);
+  padding: 28px 26px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background .15s ease;
 }
-.invite-card p { color: var(--muted); }
+.invite-card:hover { background: rgba(26, 23, 18, .025); }
+.invite-role {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .74rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+.invite-role::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex: none;
+}
+.invite-card:nth-child(2) .invite-role::before { background: var(--slate); }
+.invite-card:nth-child(3) .invite-role::before { background: var(--olive); }
+.invite-card h3 { margin: 0; font-size: 1.28rem; font-weight: 600; max-width: 22ch; }
+.invite-card p { margin: 0; color: var(--muted); font-size: .96rem; }
+.invite-facts {
+  list-style: none;
+  margin: 2px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.invite-facts li {
+  position: relative;
+  padding-left: 19px;
+  font-size: .88rem;
+  color: var(--muted);
+}
+.invite-facts li::before {
+  content: "";
+  position: absolute; left: 0; top: .52em;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
 .invite-links {
   display: flex;
   flex-wrap: wrap;
   gap: 10px 22px;
-  margin-top: 16px;
+  margin-top: auto;
+  padding-top: 18px;
 }
-.invite-links a { font-weight: 700; }
+.invite-links a { font-weight: 700; font-size: .95rem; }
 
-.partner-section .public-wrap { padding-block: 88px; }
+.partner-section .public-wrap { padding-block: var(--sp-section); }
 .partner-grid {
   display: grid;
   grid-template-columns: 1fr .72fr;
@@ -543,10 +688,10 @@ strong { font-weight: 750; }
   align-items: flex-start;
   gap: 16px;
 }
-.partner-grid a { font-size: 1.15rem; font-weight: 750; }
+.partner-grid a { font-size: 1.15rem; font-weight: 700; }
 
 :focus-visible {
-  outline: 3px solid var(--magenta);
+  outline: 3px solid var(--accent);
   outline-offset: 4px;
 }
 
@@ -566,19 +711,26 @@ strong { font-weight: 750; }
   }
   .hero {
     grid-template-columns: 1fr;
-    min-height: 0;
-    padding-top: 32px;
-    padding-bottom: 32px;
+    padding-block: 32px;
     gap: 28px;
   }
   .hero-copy { max-width: 820px; }
   .hero-copy h1 { max-width: 24ch; font-size: clamp(2.3rem, 5vw, 3.2rem); margin-bottom: 14px; }
-  .hero-tagline { margin: -4px 0 12px; font-size: 1.18rem; }
+  .hero-tagline { margin: 0 0 12px; font-size: 1.18rem; }
   .hero-lead { font-size: 1rem; margin-bottom: 14px; }
-  .hero-links { margin-bottom: 0; gap: 18px 40px; }
+  .hero-links { gap: 18px 40px; }
   .product-proof { max-width: 980px; justify-self: start; }
-  .kanban { grid-template-columns: 1fr; gap: 44px; }
-  .invite-grid { grid-template-columns: 1fr 1fr; }
+  .system-flow--tiles li { grid-template-columns: 48px 1fr; gap: 18px; padding-block: 22px; }
+}
+
+/* A narrow laptop still fits two columns of tiles and the three tracker
+   columns (Ivan, 2026-08-02) — they only stack once the page is tablet-wide. */
+@media (max-width: 900px) {
+  .system-flow--tiles { grid-template-columns: 1fr; }
+  .kanban { grid-template-columns: 1fr; }
+  .kanban-column { height: auto; max-height: 420px; }
+  .roadmap-stories { grid-template-columns: 1fr; gap: 16px; }
+  .invite-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 620px) {
@@ -586,12 +738,13 @@ strong { font-weight: 750; }
   .site-header {
     width: min(100% - 34px, var(--wrap));
   }
-  body { background-size: 20px 20px; }
+  body { background-size: 22px 22px; }
   .site-header {
     grid-template-columns: 1fr;
     gap: 14px;
   }
-  .brand { grid-column: auto; }
+  .brand { grid-column: auto; font-size: 1.15rem; }
+  .brand img { width: 44px; height: 44px; }
   .site-nav,
   .site-actions {
     justify-self: stretch;
@@ -615,19 +768,20 @@ strong { font-weight: 750; }
   .site-header--bilingual .site-nav {
     grid-column: 1 / -1;
     grid-row: 2;
+    justify-self: start;
   }
   .hero {
-    padding-block: 50px 56px;
+    padding-block: 44px 48px;
     gap: 42px;
   }
   h1 { font-size: clamp(2.45rem, 11vw, 3.4rem); }
   h2 { font-size: clamp(2rem, 10vw, 3rem); }
-  .hero-links { margin-bottom: 34px; }
-  .system-section .public-wrap,
-  .invitations-section .public-wrap,
-  .partner-section .public-wrap,
+  .system-section,
+  .invitations-section,
+  .updates-section,
   .status-section,
-  .roadmap-section,
+  .roadmap-section { padding-bottom: 64px; }
+  .partner-section .public-wrap,
   .post-section { padding-block: 64px; }
   .system-flow,
   .status-columns,
@@ -639,11 +793,9 @@ strong { font-weight: 750; }
   .kanban-column--live { order: 1; }
   .kanban-column--prototyped { order: 2; }
   .kanban-column--planned { order: 3; }
-  .system-flow li {
-    padding: 0;
-  }
+  .system-flow li { padding: 0; }
+  .system-flow--tiles li { padding: 22px 20px; }
   .status-columns { gap: 64px; }
-  .invite-grid { gap: 28px; }
   .partner-grid { gap: 44px; }
   .updates-item {
     grid-template-columns: 1fr;
@@ -665,7 +817,7 @@ strong { font-weight: 750; }
   .site-header { width: min(100% - 24px, var(--wrap)); }
   .hero-lead { font-size: 1.08rem; }
   .hero-links { gap: 18px 28px; }
-  .kanban-cards li { padding: 18px; }
+  .story-card { padding: 22px 20px 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
