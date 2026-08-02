@@ -32,7 +32,8 @@
   font-size: 1.15rem;
   margin-bottom: 24px;
 }
-.legal-body ul {
+.legal-body ul,
+.legal-body ol {
   margin: 0 0 20px;
   padding-left: 22px;
 }

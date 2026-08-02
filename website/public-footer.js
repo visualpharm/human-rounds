@@ -17,6 +17,7 @@
         '</p>' +
         '<nav aria-label="' + (es ? 'Enlaces legales' : 'Legal links') + '">' +
           '<a href="/privacy">' + (es ? 'Privacidad' : 'Privacy') + '</a>' +
+          '<a href="/data-deletion">' + (es ? 'Borrar datos' : 'Data deletion') + '</a>' +
           '<a href="/terms">' + (es ? 'Términos' : 'Terms') + '</a>' +
           '<a href="' + GITHUB + '/blob/main/LICENSE" rel="noopener">' + (es ? 'Licencia' : 'License') + '</a>' +
         '</nav>' +

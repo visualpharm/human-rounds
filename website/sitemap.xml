@@ -16,6 +16,11 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://humanrounds.org/data-deletion</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://humanrounds.org/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
