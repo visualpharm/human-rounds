@@ -70,13 +70,14 @@
       story1Para1: 'Grace needs to see a cardiologist. She doesn\'t know which health centre has one, or when.',
       story1More:
         '<p>She types three letters into the search box:</p>' +
-        '<div class="ui-frame">' +
-          '<div class="ui-field"><span class="ui-typed">car<span class="ui-caret"></span></span></div>' +
-          '<ul class="ui-rows">' +
-            '<li><span class="ui-dot ui-dot--accent"></span>Cardiologist — Pinamar Hospital<span class="ui-meta">today 14:00</span></li>' +
-            '<li><span class="ui-dot ui-dot--routine"></span>Cardiologist — Ostende centre<span class="ui-meta">tomorrow 18:00</span></li>' +
-            '<li><span class="ui-dot ui-dot--slate"></span>Cardiologist — Valeria del Mar<span class="ui-meta">Aug 4, 09:40</span></li>' +
-          '</ul>' +
+        '<div class="ui-frame ui-frame--search" aria-label="Example of doctor search results">' +
+          '<div class="ui-field"><span class="ui-search-icon" aria-hidden="true"></span><span class="ui-typed">car<span class="ui-caret"></span></span></div>' +
+          '<p class="ui-hint">Doctors</p>' +
+          '<div class="ui-results">' +
+            '<div class="ui-result"><span class="ui-avatar" aria-hidden="true">MF</span><span class="ui-result-main"><strong>Marcelo Flores</strong><small><mark>Car</mark>diologist</small></span><span class="ui-result-slot"><strong>Tomorrow, 07:00</strong><small>More times</small></span></div>' +
+            '<div class="ui-result"><span class="ui-avatar" aria-hidden="true">SR</span><span class="ui-result-main"><strong>Sergio Ruiz</strong><small><mark>Car</mark>diologist</small></span><span class="ui-result-slot"><strong>Aug 4, 08:30</strong><small>More times</small></span></div>' +
+            '<div class="ui-result"><span class="ui-avatar" aria-hidden="true">AA</span><span class="ui-result-main"><strong>Adrián Acosta</strong><small><mark>Car</mark>diologist</small></span><span class="ui-result-slot"><strong>Tomorrow, 09:30</strong><small>More times</small></span></div>' +
+          '</div>' +
         '</div>' +
         '<p>Two clicks book the nearest opening. Before the visit she dictates her symptoms by voice instead of filling out a form.</p>' +
         '<p>The blood-test order reaches her a week ahead, so the results are already on the screen when she sits down — one visit instead of two.</p>' +
@@ -90,19 +91,20 @@
       story2Title: 'The doctor already knows the case',
       story2Para1: 'Dr. Nguyen opens today\'s list before the first patient arrives. Each row shows a triage colour and a one-line summary — no file to dig through.',
       story2More:
-        '<div class="ui-frame">' +
-          '<p class="ui-hint">Today · 14 patients</p>' +
-          '<ul class="ui-rows">' +
-            '<li><span class="ui-dot ui-dot--urgent"></span>Chest pain on exertion, 3 days<span class="ui-meta">09:00</span></li>' +
-            '<li><span class="ui-dot ui-dot--soon"></span>Blood-pressure follow-up<span class="ui-meta">09:20</span></li>' +
-            '<li><span class="ui-dot ui-dot--routine"></span>Repeat prescription, statin<span class="ui-meta">09:40</span></li>' +
-          '</ul>' +
+        '<div class="ui-frame ui-frame--schedule" aria-label="Example of today’s patients">' +
+          '<div class="ui-group-head"><span><strong>Agustina Conti</strong><small>Dermatology · Villa Ejemplo Hospital</small></span><span>8 appointments</span></div>' +
+          '<div class="ui-table ui-table--patients">' +
+            '<div class="ui-table-head"><span>Time</span><span>Patient</span><span>Service</span><span>Attendance</span></div>' +
+            '<div class="ui-table-row"><span class="ui-time">09:00</span><span><strong>Marina Costa</strong><small>32 years</small></span><span>Dermatology</span><span class="ui-status ui-status--done">Seen 09:00</span></div>' +
+            '<div class="ui-table-row"><span class="ui-time">09:20</span><span><strong>Camila Fernández</strong><small>41 years</small></span><span>Dermatology</span><span class="ui-status ui-status--waiting">Waiting</span></div>' +
+            '<div class="ui-table-row"><span class="ui-time">09:40</span><span><strong>Milagros Vega</strong><small>28 years</small></span><span>Dermatology</span><span class="ui-status ui-status--missed">Did not attend</span></div>' +
+          '</div>' +
         '</div>' +
         '<p>A new patient’s story is already on the screen: her own words, a SOAP summary, a differential ranked by likelihood.</p>' +
         '<p>He examines her. He talks to her. That part stays his — no software touches it. Afterwards he ticks the orders he agrees with, and the note writes itself.</p>' +
-        '<div class="ui-frame">' +
-          '<p class="ui-hint">Proposed orders</p>' +
-          '<ul class="ui-rows">' +
+        '<div class="ui-frame ui-frame--orders" aria-label="Example of proposed orders">' +
+          '<div class="ui-panel-head"><strong>Proposed orders</strong><span>Review before signing</span></div>' +
+          '<ul class="ui-rows ui-rows--orders">' +
             '<li><span class="ui-check" data-on>✓</span>ECG, 12-lead<span class="ui-meta">today</span></li>' +
             '<li><span class="ui-check" data-on>✓</span>Troponin + lipid panel<span class="ui-meta">today</span></li>' +
             '<li><span class="ui-check"></span>Chest X-ray<span class="ui-meta">declined</span></li>' +
@@ -119,13 +121,11 @@
       story3Para1: 'Sonia starts her morning with a queue of referral orders — some handwritten, some photos taken in a hurry.',
       story3More:
         '<p>The AI already read every one overnight: date, licence, name match. She reviews the proposals, not the raw images — rejects two, approves the rest.</p>' +
-        '<div class="ui-frame">' +
-          '<p class="ui-hint">Referral queue · 38 read overnight</p>' +
-          '<ul class="ui-rows">' +
-            '<li><span class="ui-dot ui-dot--routine"></span>Traumatology — R. Salas<span class="ui-meta">approve</span></li>' +
-            '<li><span class="ui-dot ui-dot--routine"></span>Endocrinology — M. Duarte<span class="ui-meta">approve</span></li>' +
-            '<li><span class="ui-dot ui-dot--urgent"></span>Licence unreadable — J. Pérez<span class="ui-meta">re-upload link</span></li>' +
-          '</ul>' +
+        '<div class="ui-frame ui-frame--request" aria-label="Example of a referral request">' +
+          '<div class="ui-request-head"><span><strong>Julieta Ruiz</strong><small>DNI 30.001.918 · 79 years</small></span><span class="ui-verdict">Uncertain</span><time>Today, 08:42</time></div>' +
+          '<div class="ui-request-service"><strong>Obstetrics and Gynecology</strong><span>Maternal and Child Health Centre</span></div>' +
+          '<div class="ui-request-fields"><span><small>Order date</small><strong>Aug 1, 2026</strong></span><span><small>Licence</small><strong>Matched</strong></span><span><small>Name</small><strong>Matched</strong></span></div>' +
+          '<div class="ui-request-actions"><span>AI proposal: approve</span><span class="ui-control">Tomorrow, 09:00</span><span class="ui-control ui-control--primary">Approve</span><span class="ui-control">Reject</span></div>' +
         '</div>' +
         '<p>Every rejection leaves with a next step attached: an alternative slot or a re-upload link. Nobody hits a dead end, and attendance goes up.</p>' +
         '<ul class="story-facts">' +
@@ -265,13 +265,14 @@
       story1Para1: 'Grace necesita ver a un cardiólogo. No sabe en qué centro de salud hay uno, ni cuándo.',
       story1More:
         '<p>Escribe tres letras en el buscador:</p>' +
-        '<div class="ui-frame">' +
-          '<div class="ui-field"><span class="ui-typed">car<span class="ui-caret"></span></span></div>' +
-          '<ul class="ui-rows">' +
-            '<li><span class="ui-dot ui-dot--accent"></span>Cardiólogo — Hospital de Pinamar<span class="ui-meta">hoy 14:00</span></li>' +
-            '<li><span class="ui-dot ui-dot--routine"></span>Cardiólogo — Centro de Ostende<span class="ui-meta">mañana 18:00</span></li>' +
-            '<li><span class="ui-dot ui-dot--slate"></span>Cardiólogo — Valeria del Mar<span class="ui-meta">4 ago, 09:40</span></li>' +
-          '</ul>' +
+        '<div class="ui-frame ui-frame--search" aria-label="Ejemplo de resultados de búsqueda de médicos">' +
+          '<div class="ui-field"><span class="ui-search-icon" aria-hidden="true"></span><span class="ui-typed">car<span class="ui-caret"></span></span></div>' +
+          '<p class="ui-hint">Médicos</p>' +
+          '<div class="ui-results">' +
+            '<div class="ui-result"><span class="ui-avatar" aria-hidden="true">MF</span><span class="ui-result-main"><strong>Marcelo Flores</strong><small><mark>Car</mark>diólogo</small></span><span class="ui-result-slot"><strong>Mañana, 07:00</strong><small>Más horarios</small></span></div>' +
+            '<div class="ui-result"><span class="ui-avatar" aria-hidden="true">SR</span><span class="ui-result-main"><strong>Sergio Ruiz</strong><small><mark>Car</mark>diólogo</small></span><span class="ui-result-slot"><strong>4 ago, 08:30</strong><small>Más horarios</small></span></div>' +
+            '<div class="ui-result"><span class="ui-avatar" aria-hidden="true">AA</span><span class="ui-result-main"><strong>Adrián Acosta</strong><small><mark>Car</mark>diólogo</small></span><span class="ui-result-slot"><strong>Mañana, 09:30</strong><small>Más horarios</small></span></div>' +
+          '</div>' +
         '</div>' +
         '<p>Dos clics y queda reservado el turno más cercano. Antes de la consulta dicta sus síntomas por voz en vez de llenar un formulario.</p>' +
         '<p>La orden de análisis le llega una semana antes, así que los resultados ya están en la pantalla cuando se sienta: una consulta en lugar de dos.</p>' +
@@ -285,19 +286,20 @@
       story2Title: 'El médico ya conoce el caso',
       story2Para1: 'El Dr. Nguyen abre la lista del día antes de que llegue el primer paciente. Cada fila muestra un color de triage y un resumen de una línea, sin carpeta que revolver.',
       story2More:
-        '<div class="ui-frame">' +
-          '<p class="ui-hint">Hoy · 14 pacientes</p>' +
-          '<ul class="ui-rows">' +
-            '<li><span class="ui-dot ui-dot--urgent"></span>Dolor de pecho al esfuerzo, 3 días<span class="ui-meta">09:00</span></li>' +
-            '<li><span class="ui-dot ui-dot--soon"></span>Control de presión<span class="ui-meta">09:20</span></li>' +
-            '<li><span class="ui-dot ui-dot--routine"></span>Receta repetida, estatina<span class="ui-meta">09:40</span></li>' +
-          '</ul>' +
+        '<div class="ui-frame ui-frame--schedule" aria-label="Ejemplo de pacientes de hoy">' +
+          '<div class="ui-group-head"><span><strong>Agustina Conti</strong><small>Dermatología · Hospital de Villa Ejemplo</small></span><span>8 turnos</span></div>' +
+          '<div class="ui-table ui-table--patients">' +
+            '<div class="ui-table-head"><span>Hora</span><span>Paciente</span><span>Servicio</span><span>Asistencia</span></div>' +
+            '<div class="ui-table-row"><span class="ui-time">09:00</span><span><strong>Marina Costa</strong><small>32 años</small></span><span>Dermatología</span><span class="ui-status ui-status--done">Atendió 09:00</span></div>' +
+            '<div class="ui-table-row"><span class="ui-time">09:20</span><span><strong>Camila Fernández</strong><small>41 años</small></span><span>Dermatología</span><span class="ui-status ui-status--waiting">En espera</span></div>' +
+            '<div class="ui-table-row"><span class="ui-time">09:40</span><span><strong>Milagros Vega</strong><small>28 años</small></span><span>Dermatología</span><span class="ui-status ui-status--missed">No vino</span></div>' +
+          '</div>' +
         '</div>' +
         '<p>La historia de una paciente nueva ya está en la pantalla: sus propias palabras, un resumen SOAP y un diferencial ordenado por probabilidad.</p>' +
         '<p>La examina. Habla con ella. Esa parte sigue siendo suya, ningún software la toca. Después tilda las órdenes con las que está de acuerdo y la nota se escribe sola.</p>' +
-        '<div class="ui-frame">' +
-          '<p class="ui-hint">Órdenes propuestas</p>' +
-          '<ul class="ui-rows">' +
+        '<div class="ui-frame ui-frame--orders" aria-label="Ejemplo de órdenes propuestas">' +
+          '<div class="ui-panel-head"><strong>Órdenes propuestas</strong><span>Revisar antes de firmar</span></div>' +
+          '<ul class="ui-rows ui-rows--orders">' +
             '<li><span class="ui-check" data-on>✓</span>ECG de 12 derivaciones<span class="ui-meta">hoy</span></li>' +
             '<li><span class="ui-check" data-on>✓</span>Troponina + perfil lipídico<span class="ui-meta">hoy</span></li>' +
             '<li><span class="ui-check"></span>Radiografía de tórax<span class="ui-meta">descartada</span></li>' +
@@ -314,13 +316,11 @@
       story3Para1: 'Sonia empieza la mañana con una cola de órdenes de derivación — algunas manuscritas, algunas fotos sacadas apurada.',
       story3More:
         '<p>La IA ya leyó todas durante la noche: fecha, matrícula, coincidencia de nombre. Ella revisa las propuestas, no las imágenes crudas: rechaza dos, aprueba el resto.</p>' +
-        '<div class="ui-frame">' +
-          '<p class="ui-hint">Cola de derivaciones · 38 leídas de noche</p>' +
-          '<ul class="ui-rows">' +
-            '<li><span class="ui-dot ui-dot--routine"></span>Traumatología — R. Salas<span class="ui-meta">aprobar</span></li>' +
-            '<li><span class="ui-dot ui-dot--routine"></span>Endocrinología — M. Duarte<span class="ui-meta">aprobar</span></li>' +
-            '<li><span class="ui-dot ui-dot--urgent"></span>Matrícula ilegible — J. Pérez<span class="ui-meta">link para resubir</span></li>' +
-          '</ul>' +
+        '<div class="ui-frame ui-frame--request" aria-label="Ejemplo de una solicitud de derivación">' +
+          '<div class="ui-request-head"><span><strong>Julieta Ruiz</strong><small>DNI 30.001.918 · 79 años</small></span><span class="ui-verdict">Dudosa</span><time>Hoy, 08:42</time></div>' +
+          '<div class="ui-request-service"><strong>Ginecología y Obstetricia</strong><span>Centro Materno Infantil</span></div>' +
+          '<div class="ui-request-fields"><span><small>Fecha de la orden</small><strong>1 ago 2026</strong></span><span><small>Matrícula</small><strong>Coincide</strong></span><span><small>Nombre</small><strong>Coincide</strong></span></div>' +
+          '<div class="ui-request-actions"><span>Propuesta IA: aprobar</span><span class="ui-control">Mañana, 09:00</span><span class="ui-control ui-control--primary">Aprobar</span><span class="ui-control">Rechazar</span></div>' +
         '</div>' +
         '<p>Cada rechazo sale con el próximo paso incluido: un turno alternativo o un link para resubir la orden. Nadie llega a un callejón sin salida, y la asistencia sube.</p>' +
         '<ul class="story-facts">' +
