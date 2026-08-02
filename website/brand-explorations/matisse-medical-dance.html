@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Human Rounds — Dancing figures exploration</title>
+    <style>
+      :root {
+        --paper: #f5efe4;
+        --ink: #1d1d1a;
+        --muted: #625f57;
+        --line: #d9d1c4;
+        --olive: #667057;
+        --clay: #a75e3d;
+      }
+
+      * { box-sizing: border-box; }
+
+      html { background: var(--paper); }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .page {
+        width: min(1180px, calc(100% - 48px));
+        margin: 0 auto;
+        padding: clamp(40px, 7vw, 88px) 0 72px;
+      }
+
+      header {
+        max-width: 760px;
+        margin-bottom: clamp(42px, 7vw, 80px);
+      }
+
+      h1, h2, h3, p { margin-top: 0; }
+
+      h1 {
+        max-width: 730px;
+        margin-bottom: 18px;
+        font-family: Iowan Old Style, Baskerville, Georgia, serif;
+        font-size: clamp(2.5rem, 6.3vw, 5.2rem);
+        font-weight: 500;
+        letter-spacing: -0.062em;
+        line-height: .93;
+      }
+
+      h2 {
+        margin-bottom: 28px;
+        font-family: Iowan Old Style, Baskerville, Georgia, serif;
+        font-size: clamp(2rem, 4vw, 3.25rem);
+        font-weight: 500;
+        letter-spacing: -0.045em;
+        line-height: .98;
+      }
+
+      h3 {
+        margin-bottom: 8px;
+        font-family: Iowan Old Style, Baskerville, Georgia, serif;
+        font-size: clamp(1.55rem, 2.5vw, 2.1rem);
+        font-weight: 500;
+        letter-spacing: -0.035em;
+        line-height: 1.02;
+      }
+
+      .lede {
+        max-width: 620px;
+        color: var(--muted);
+        font-size: clamp(1.02rem, 1.6vw, 1.22rem);
+      }
+
+      .lede strong { color: var(--ink); }
+
+      section + section { margin-top: clamp(72px, 11vw, 142px); }
+
+      .selected {
+        display: grid;
+        grid-template-columns: minmax(0, 1.16fr) minmax(280px, .84fr);
+        gap: clamp(28px, 5vw, 74px);
+        align-items: center;
+      }
+
+      .art {
+        background: #eee6d9;
+        overflow: hidden;
+      }
+
+      .selected .art { border-radius: 2px; }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+      }
+
+      .selected-copy { min-width: 0; }
+
+      .selected-copy > p { color: var(--muted); }
+
+      .decision {
+        margin: 24px 0 0;
+        padding: 18px 0 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .decision strong { display: block; margin-bottom: 4px; }
+
+      .provenance {
+        margin-top: 24px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: .9rem;
+      }
+
+      .provenance p { margin-bottom: 10px; }
+
+      details {
+        color: var(--muted);
+        font-size: .88rem;
+      }
+
+      summary {
+        color: var(--ink);
+        cursor: pointer;
+        font-weight: 650;
+      }
+
+      .prompt {
+        margin: 12px 0 0;
+        padding: 14px 0 0;
+        border-top: 1px solid var(--line);
+        white-space: pre-line;
+      }
+
+      .option-grid, .discard-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(26px, 4vw, 52px);
+      }
+
+      .option-card, .discard-card { min-width: 0; }
+
+      .option-card .art {
+        margin-bottom: 22px;
+        aspect-ratio: 1 / 1;
+      }
+
+      .option-card .art img {
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .option-card.vertical .art { aspect-ratio: 2 / 3; }
+
+      .option-card p, .discard-card p { color: var(--muted); }
+
+      .option-card .provenance, .discard-card .provenance { margin-top: 18px; }
+
+      .discarded { padding-top: 2px; }
+
+      .discard-card {
+        display: grid;
+        grid-template-columns: minmax(150px, .82fr) minmax(0, 1.18fr);
+        gap: 22px;
+        align-items: start;
+        padding-top: 22px;
+        border-top: 1px solid var(--line);
+      }
+
+      .discard-card .art { aspect-ratio: 1 / 1; }
+
+      .discard-card .art img {
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .discard-card h3 { font-size: 1.55rem; }
+
+      @media (max-width: 760px) {
+        .page { width: min(100% - 32px, 620px); padding-top: 36px; }
+        .selected, .option-grid, .discard-grid { grid-template-columns: 1fr; }
+        .selected { gap: 28px; }
+        .option-card .art { max-width: 570px; }
+        .discard-card { grid-template-columns: 126px minmax(0, 1fr); gap: 18px; }
+      }
+
+      @media (max-width: 430px) {
+        .page { width: min(100% - 28px, 620px); }
+        h1 { letter-spacing: -0.055em; }
+        .discard-card { grid-template-columns: 1fr; }
+        .discard-card .art { width: min(170px, 45vw); }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <h1>Human Rounds<br>in motion</h1>
+        <p class="lede">A focused logo study of <strong>care workers in recognisable scrubs</strong>, moving as a shared ribbon. Every figure now carries a V-neck top, short sleeves, a patch pocket and loose trousers. The reference informed the social rhythm only. Every result is an original generated direction, not a reproduction.</p>
+      </header>
+
+      <section aria-labelledby="selected-heading">
+        <h2 id="selected-heading">Selected direction</h2>
+        <article class="selected">
+          <div class="art">
+            <img src="matisse-medical-dance-assets/06-selected-scrubs-ribbon-dance.png" alt="Three people in sage green medical scrubs dancing around a connected charcoal ribbon">
+          </div>
+          <div class="selected-copy">
+            <h3>Scrubs ribbon dance</h3>
+            <p>The first direction where the people read as healthcare workers immediately, not as generic bodies with an implied medical detail. The sage V-necks, short sleeves, patch pockets and loose trousers make the identity concrete without resorting to clinical clip art.</p>
+            <p>The charcoal band gives the group a shared motion rather than a literal circle. It feels like a round passing between people, while the wide negative space keeps the emblem generous and human.</p>
+            <p class="decision"><strong>Recommendation</strong>Use this as the primary family. Redraw it as a vector system, tightening the outer ribbon and removing the small detached dark fragments before a 24 px icon test. Keep the scrub construction exactly this legible.</p>
+            <div class="provenance">
+              <p><strong>Provenance:</strong> Built-in image generation, new iteration 1 of 6. Reference role: social-motion reference only. No model identifier was returned by the generation tool.</p>
+              <details>
+                <summary>Generation prompt</summary>
+                <p class="prompt">Exactly 3 joyful abstract dancers visibly wearing contemporary medical scrubs: clear V-neck scrub tops, short sleeves, a single patch pocket and loose straight scrub trousers. Their arms and bodies become a single broad ribbon in an asymmetrical circular dance. Sophisticated hand-cut paper silhouette, charcoal with one muted sage garment accent, with no literal medical props or text.</p>
+              </details>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section aria-labelledby="options-heading">
+        <h2 id="options-heading">Other strong directions</h2>
+        <div class="option-grid">
+          <article class="option-card">
+            <div class="art">
+              <img src="matisse-medical-dance-assets/07-option-escher-scrubs-ribbon.png" alt="Three people in green medical scrubs dancing around an impossible geometric ribbon">
+            </div>
+            <h3>Impossible scrubs ribbon</h3>
+            <p><strong>Best for deliberate weirdness.</strong> The impossible over-under centre creates a memorable contradiction while the V-necks, cuffs, pockets and trousers remain unmistakable. It is too rich for the master mark, but ideal for an animated or campaign expression.</p>
+            <div class="provenance">
+              <p><strong>Provenance:</strong> Built-in image generation, new iteration 2 of 6. Reference role: social-motion reference only.</p>
+              <details>
+                <summary>Generation prompt</summary>
+                <p class="prompt">Exactly 3 clearly scrubs-wearing care workers create a clean impossible over-under triangle through their clothing seams and sleeves. Visible V-necks, short sleeves, patch pockets and loose scrub trousers. Refined paper-cut identity symbol in charcoal and muted surgical green, with no literal hospital imagery.</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="option-card">
+            <div class="art">
+              <img src="matisse-medical-dance-assets/08-option-symmetric-scrub-wheel.png" alt="Four people in teal medical scrubs forming a geometric circular dance">
+            </div>
+            <h3>Symmetric scrub wheel</h3>
+            <p><strong>Best for a modular system.</strong> Four people in scrubs create a recognisable circle-symmetry mark. It has a strong app-badge presence, though its repeated heads and pockets make it less singular than the primary ribbon.</p>
+            <div class="provenance">
+              <p><strong>Provenance:</strong> Built-in image generation, new iteration 3 of 6. Reference role: social-motion reference only.</p>
+              <details>
+                <summary>Generation prompt</summary>
+                <p class="prompt">Exactly 4 care workers in readable V-neck scrub tops, short sleeves, patch pockets and loose trousers form a rotationally symmetric pinwheel dance. Minimal high-end paper-cut geometry in charcoal and muted teal-green, retaining human warmth and no outer ring.</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="option-card vertical">
+            <div class="art">
+              <img src="matisse-medical-dance-assets/09-option-vertical-care-chain.png" alt="Three care workers in dark green scrubs dancing through a tall ribbon composition">
+            </div>
+            <h3>Vertical care chain</h3>
+            <p><strong>Best for editorial use.</strong> The V-neck tunics, patch pockets, waist ties and trousers have the clearest garment construction in the set. It should become an illustration layer, not the small master mark.</p>
+            <div class="provenance">
+              <p><strong>Provenance:</strong> Built-in image generation, new iteration 4 of 6. Reference role: social-motion reference only.</p>
+              <details>
+                <summary>Generation prompt</summary>
+                <p class="prompt">Three medical-scrubs-wearing people form a vertical sculptural chain, passing a broad shared ribbon through arms and waists. Obvious V-neck tunics, short sleeves, patch pockets, roomy trousers and an optional waist tie. Abstract cut-paper collage in moss, charcoal and terracotta, with no medical props.</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="option-card">
+            <div class="art">
+              <img src="matisse-medical-dance-assets/10-option-care-chorus.png" alt="Three dancing people in blue and green medical scrubs creating an open conversation">
+            </div>
+            <h3>Care chorus</h3>
+            <p><strong>Best for a visual campaign.</strong> This is the most overtly joyous and fashion-forward scrub treatment. It has more personality than a conventional health illustration, but it belongs in an expanded identity rather than the compact mark.</p>
+            <div class="provenance">
+              <p><strong>Provenance:</strong> Built-in image generation, new iteration 5 of 6. Reference role: social-motion reference only.</p>
+              <details>
+                <summary>Generation prompt</summary>
+                <p class="prompt">Three clinicians in obvious scrubs make a bold flattened paper-cut care chorus: contrasting V-necks, short sleeves, patch pockets, roomy trousers and one small waist tie. Their poses form an open oval conversation through a soft negative-space aperture, in muted ultramarine, oxidised green and charcoal.</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="option-card">
+            <div class="art">
+              <img src="matisse-medical-dance-assets/11-option-compact-scrub-loop.png" alt="Three sage-scrub wearing people linked by a compact rounded charcoal loop">
+            </div>
+            <h3>Compact scrub loop</h3>
+            <p><strong>Best for an app icon.</strong> It reduces the family to a more direct badge while retaining V-necks, pockets and loose trousers. It is an excellent reduction test, but the primary ribbon has more charm and motion.</p>
+            <div class="provenance">
+              <p><strong>Provenance:</strong> Built-in image generation, new iteration 6 of 6. Reference role: social-motion reference only.</p>
+              <details>
+                <summary>Generation prompt</summary>
+                <p class="prompt">Exactly 3 dancing people in immediately recognisable sage scrubs. V-neck short-sleeved tops with square patch pockets and loose trousers connect sleeve-to-sleeve as a thick rounded triangular charcoal ribbon. Compact, no faces, no outer circle, no stray elements, warm cream background.</p>
+              </details>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="discarded" aria-labelledby="discarded-heading">
+        <h2 id="discarded-heading">Discarded directions</h2>
+        <div class="discard-grid">
+          <article class="discard-card">
+            <div class="art">
+              <img src="matisse-medical-dance-assets/01-selected-three-body-loop.png" alt="Earlier monochrome abstract three-body loop without visible scrub clothing">
+            </div>
+            <div>
+              <h3>Earlier three-body loop</h3>
+              <p><strong>Discarded:</strong> it offered a compact knot, but the clinical reading relied on one subtle V-neck. It no longer clears the stronger requirement that the people read as wearing scrubs at first glance.</p>
+              <div class="provenance">
+                <p><strong>Provenance:</strong> Built-in image generation, previous iteration 5 of 5. Reference role: social-motion reference only.</p>
+                <details>
+                  <summary>Generation prompt</summary>
+                  <p class="prompt">Three human figures dance and link in an asymmetrical compact knot, with one V-neck negative-space cut suggesting a scrub top. Flat paper-cut silhouette in almost-black ink on warm cream.</p>
+                </details>
+              </div>
+            </div>
+          </article>
+
+          <article class="discard-card">
+            <div class="art">
+              <img src="matisse-medical-dance-assets/02-option-ribbon-dance.png" alt="Earlier black abstract dancers linking around a central negative space without clear scrub clothing">
+            </div>
+            <div>
+              <h3>Earlier ribbon dance</h3>
+              <p><strong>Discarded:</strong> the movement is good, but the medical cue is only an abstract cut. The new primary carries the same energy while making the uniform immediately visible.</p>
+              <div class="provenance">
+                <p><strong>Provenance:</strong> Built-in image generation, previous iteration 3 of 5. Reference role: social-motion reference only.</p>
+                <details>
+                  <summary>Generation prompt</summary>
+                  <p class="prompt">Three stylised dancers form a continuous impossible ribbon with one V-neck negative-space scrub detail, in charcoal black and warm cream.</p>
+                </details>
+              </div>
+            </div>
+          </article>
+
+          <article class="discard-card">
+            <div class="art">
+              <img src="matisse-medical-dance-assets/03-option-open-round.png" alt="Earlier earth-toned four-person open round with only subtle clinical apparel">
+            </div>
+            <div>
+              <h3>Earlier open round</h3>
+              <p><strong>Discarded:</strong> the colour and open perimeter are promising, but the attire remains too cryptic and the mark has too much fine detail to serve as the core logo.</p>
+              <div class="provenance">
+                <p><strong>Provenance:</strong> Built-in image generation, previous iteration 4 of 5. Reference role: social-motion reference only.</p>
+                <details>
+                  <summary>Generation prompt</summary>
+                  <p class="prompt">Four abstract dancers form an open circular conversation through one continuous ribbon, with a scrub overlap and cuff rendered in ecru, umber, terracotta and muted olive.</p>
+                </details>
+              </div>
+            </div>
+          </article>
+          <article class="discard-card">
+            <div class="art">
+              <img src="matisse-medical-dance-assets/04-discarded-four-person-ring.png" alt="Four black abstract people in a circular dance, with small sage clothing accents">
+            </div>
+            <div>
+              <h3>Four-person ring</h3>
+              <p><strong>Discarded:</strong> the small hanging rectangle makes the clinical cue too literal and bureaucratic. The outer ring is calm but predictable, and the four full figures are less ownable at micro size.</p>
+              <div class="provenance">
+                <p><strong>Provenance:</strong> Built-in image generation, iteration 1 of 5. Reference role: social-motion reference only.</p>
+                <details>
+                  <summary>Generation prompt</summary>
+                  <p class="prompt">Four abstract dancing human figures joined in a circular rhythm, with subtle clinical attire such as a scrub neckline, small ID rectangle and cuff. Modernist cut-paper and ink, warm bone ground, deep ink figures with muted sage detail.</p>
+                </details>
+              </div>
+            </div>
+          </article>
+
+          <article class="discard-card">
+            <div class="art">
+              <img src="matisse-medical-dance-assets/05-discarded-broken-orbit.png" alt="Three abstract dancers in olive and charcoal around a broken circular orbit">
+            </div>
+            <div>
+              <h3>Broken orbit</h3>
+              <p><strong>Discarded:</strong> the interrupted wrists dilute the idea of a mutual loop. The two-colour treatment is attractive but the emblem loses authority when reduced to a single ink.</p>
+              <div class="provenance">
+                <p><strong>Provenance:</strong> Built-in image generation, iteration 2 of 5. Reference role: social-motion reference only.</p>
+                <details>
+                  <summary>Generation prompt</summary>
+                  <p class="prompt">Exactly three abstract dancers whose arms and negative spaces resolve into one impossible continuous loop. The medical signal is a single scrub collar and small cuffs. Editorial paper-cut logo study in bone, charcoal and muted olive, designed to reveal more detail at large scale.</p>
+                </details>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

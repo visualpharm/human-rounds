@@ -1,0 +1,46 @@
+/* Legal pages (privacy, terms).
+   Layout comes from landing.css (.public-wrap, .post-section, .post-body); this
+   file only (a) scales the display headings down to document sizes, since a
+   policy has ~10 sections and landing.css sizes h1/h2 for a hero, and (b) owns
+   the bilingual show/hide.
+
+   Bilingual without duplicating the page: both language blocks live in the
+   markup and CSS shows one. The switch keys off <html lang>, which
+   landing.js's setLanguage() already writes on every toggle, and which the
+   inline <head> script on each legal page stamps before first paint so a
+   Spanish reader never sees an English flash. */
+
+.legal-body { max-width: var(--prose); }
+.legal-body h1 {
+  font-size: clamp(2.2rem, 4vw, 2.8rem);
+  max-width: 20ch;
+  margin-bottom: 12px;
+}
+.legal-body h2 {
+  font-size: 1.3rem;
+  max-width: 34ch;
+  letter-spacing: -.02em;
+  margin: 44px 0 12px;
+}
+.legal-body h2:first-of-type { margin-top: 36px; }
+.legal-body .legal-updated {
+  color: var(--muted);
+  font-size: .88rem;
+  margin-bottom: 28px;
+}
+.legal-body .legal-lead {
+  font-size: 1.15rem;
+  margin-bottom: 24px;
+}
+.legal-body ul {
+  margin: 0 0 20px;
+  padding-left: 22px;
+}
+.legal-body li { margin-bottom: 8px; }
+.legal-body li:last-child { margin-bottom: 0; }
+
+/* Language blocks: English is the default so a bare document (no JS, no lang
+   attribute) still renders exactly one policy. */
+.lang-es { display: none; }
+html[lang="es"] .lang-es { display: block; }
+html[lang="es"] .lang-en { display: none; }

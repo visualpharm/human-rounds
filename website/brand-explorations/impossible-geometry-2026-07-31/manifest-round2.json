@@ -1,0 +1,59 @@
+{
+  "brief": "Human Rounds targeted logo iteration, round 2",
+  "prompts": {
+    "gpt-image-2": "Create one original, finished logo lockup for the exact brand name \"HUMAN ROUNDS\", an international open-source healthcare operations platform that returns time for patients and care teams to talk. Warm black on a plain warm-cream field. Flat vector-like identity design. Render \"HUMAN ROUNDS\" exactly once and spell it correctly. One lockup only, generous padding, strong silhouette, credible for a global healthcare institution, recognizable at 16-24 px. No mockup, poster, stationery, explanation text, extra words, watermark, gradient, medical cross, heart, shield, stethoscope, brain, circuit, sparkle, node network, connected dots, speech bubble, hands, faces, bodies, flower, camera aperture, triangle, triquetra, Celtic knot, or 3-fold rotational rosette. Do not resemble OpenAI, Perplexity, or Anthropic marks.\n\nDirection: impossible roundtable. Create a compact asymmetrical emblem from one open circular band with 3 concave bays that only indirectly suggest 3 presences sharing a conversation. Include exactly one Escher-like contradiction where the band passes both over and under itself, plus one memorable interruption. The emblem is not a closed knot and must not have rotational symmetry. Pair it with a quiet custom wordmark, restrained editorial serif or humanist sans, with one unusual counter or join. The result should feel inevitable, not decorative.",
+    "reve-2.1": "Create one original, finished logo lockup for the exact brand name \"HUMAN ROUNDS\", an international open-source healthcare operations platform that returns time for patients and care teams to talk. Warm black on a plain warm-cream field. Flat vector-like identity design. Render \"HUMAN ROUNDS\" exactly once and spell it correctly. One lockup only, generous padding, strong silhouette, credible for a global healthcare institution, recognizable at 16-24 px. No mockup, poster, stationery, explanation text, extra words, watermark, gradient, medical cross, heart, shield, stethoscope, brain, circuit, sparkle, node network, connected dots, speech bubble, hands, faces, bodies, flower, camera aperture, triangle, triquetra, Celtic knot, or 3-fold rotational rosette. Do not resemble OpenAI, Perplexity, or Anthropic marks.\n\nDirection: impossible typographic ligature. Build the identity around a custom H/R monogram in which the vertical of H and the bowl/leg of R become one continuous impossible ribbon. Use ambiguous figure/ground so 2 facing presences can be sensed only on a second look, without drawing profiles. Pair it with a strong editorial wordmark whose altered R or joined round counters echo the monogram. Avoid a separate generic icon beside stock type. Controlled imperfection and one optical contradiction; simple enough to redraw from memory.",
+    "ideogram-4.0": "Create one original, finished logo lockup for the exact brand name \"HUMAN ROUNDS\", an international open-source healthcare operations platform that returns time for patients and care teams to talk. Warm black on a plain warm-cream field. Flat vector-like identity design. Render \"HUMAN ROUNDS\" exactly once and spell it correctly. One lockup only, generous padding, strong silhouette, credible for a global healthcare institution, recognizable at 16-24 px. No mockup, poster, stationery, explanation text, extra words, watermark, gradient, medical cross, heart, shield, stethoscope, brain, circuit, sparkle, node network, connected dots, speech bubble, hands, faces, bodies, flower, camera aperture, triangle, triquetra, Celtic knot, or 3-fold rotational rosette. Do not resemble OpenAI, Perplexity, or Anthropic marks.\n\nDirection: distorted editorial wordmark as the symbol. Make \"HUMAN ROUNDS\" itself memorable: a custom black wordmark combining an intelligent editorial serif with hand-drawn distortion. One horizontal cut passes through selected letters, shifts their upper halves slightly, then reconnects impossibly through the counters of R/O/U. Create one compact HR monogram derived from the same cuts only if the lockup needs it. Keep distortion controlled and readable, closer to a cultural institution than an experimental poster. No generic icon."
+  },
+  "models": [
+    {
+      "model": "round2-gpt-image-2",
+      "endpoint": "fal-ai/gpt-image-2",
+      "request_id": "019fba2d-1933-74e3-872a-b7d2e0b83cfd",
+      "files": [
+        "assets/raw/round2-gpt-image-2-01.png",
+        "assets/raw/round2-gpt-image-2-02.png",
+        "assets/raw/round2-gpt-image-2-03.png",
+        "assets/raw/round2-gpt-image-2-04.png"
+      ],
+      "result_metadata": {}
+    },
+    {
+      "model": "round2-ideogram-4.0",
+      "endpoint": "ideogram/v4",
+      "request_id": "019fba2d-19ee-73f0-9059-c910ded51992",
+      "files": [
+        "assets/raw/round2-ideogram-4.0-01.png",
+        "assets/raw/round2-ideogram-4.0-02.png",
+        "assets/raw/round2-ideogram-4.0-03.png",
+        "assets/raw/round2-ideogram-4.0-04.png"
+      ],
+      "result_metadata": {
+        "timings": {
+          "inference": 11.811838679001085,
+          "prompt_expansion": 4.585793771999306
+        },
+        "seed": 2077623031,
+        "has_nsfw_concepts": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "prompt": "{\"high_level_description\":\"A finished editorial wordmark logo lockup for HUMAN ROUNDS, an international open-source healthcare operations platform, set in warm black ink on a warm-cream field with a small HR monogram to the left of the wordmark.\",\"compositional_deconstruction\":{\"background\":\"A plain warm-cream field (#F2EAD8) filling the entire frame with generous even padding on all four sides around the centered lockup. Flat vector-like identity design, no gradients, no shadows, no textures.\",\"elements\":[{\"type\":\"obj\",\"desc\":\"Compact HR monogram in warm black ink (#1A1612), sitting as a small mark to the left of the wordmark and vertically centered against the cap height. Editorial serif letterforms with subtle hand-drawn imperfection at the stroke terminals. A single clean horizontal cut slices through the midline of both letters, displacing their upper halves roughly one-quarter cap height to the right, then rejoining through the open counters so the letters read as whole despite the shift.\"},{\"type\":\"text\",\"text\":\"HUMAN ROUNDS\",\"desc\":\"Headline-sized wordmark spanning the central horizontal band of the frame, dominant element of the lockup. Custom editorial serif in warm black ink (#1A1612), single horizontal line, left-aligned against the monogram. Subtle hand-drawn imperfection at stroke terminals and slight baseline wobble. A precise horizontal cut slices through the midline of H, M, N, R, U, D, displacing upper halves one-quarter cap height to the right and reconnecting through the counters of R, O, and U.\"}]}}"
+      }
+    },
+    {
+      "model": "round2-reve-2.1",
+      "endpoint": "reve/2.1/text-to-image",
+      "request_id": "019fba2d-19f1-7800-9ab9-ed1e44922d60",
+      "files": [
+        "assets/raw/round2-reve-2.1-01.png",
+        "assets/raw/round2-reve-2.1-02.png",
+        "assets/raw/round2-reve-2.1-03.png",
+        "assets/raw/round2-reve-2.1-04.png"
+      ],
+      "result_metadata": {}
+    }
+  ]
+}

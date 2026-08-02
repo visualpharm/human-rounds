@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Human Rounds — Escáner de DNI + prepaga</title>
+  <link rel="stylesheet" href="/web/styles.css">
+  <style>
+    .story h1 { font-size: 30px; margin: 6px 0 10px; }
+    .step { display: flex; gap: 12px; align-items: flex-start; margin: 14px 0; }
+    .num { background: var(--brand); color: #fff; font-weight: 800; border-radius: 50%;
+      width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+    .flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 14px 0;
+      color: var(--ink); font-weight: 600; }
+    .arrow { color: var(--muted); font-weight: 800; }
+  </style>
+</head>
+<body>
+  <div class="topbar" data-topbar data-home="/demo" data-sub="Demo — escáner de DNI + prepaga"></div>
+  <script src="/web/topbar.js"></script>
+  <div class="wrap">
+    <div class="card story">
+      <p class="muted">Recepción</p>
+      <h1>🪪 Escáner de DNI + prepaga</h1>
+      <p class="muted">Una extensión de Chrome que automatiza el empadronamiento: lee el DNI y la
+        credencial de obra social, y crea el paciente en HSI sin tipear.</p>
+
+      <p class="flow">
+        <span>Webcam</span><span class="arrow">→</span>
+        <span>PDF417 / QR</span><span class="arrow">→</span>
+        <span>Parseo</span><span class="arrow">→</span>
+        <span>Crea paciente en HSI</span>
+      </p>
+
+      <div class="step"><span class="num">1</span><div>El recepcionista apunta la webcam (o un lector
+        USB) al <b>código PDF417 del DNI</b>.</div></div>
+      <div class="step"><span class="num">2</span><div>Opcionalmente escanea el <b>QR de la prepaga</b>
+        (app del paciente, ej. Swiss Medical) — se acumula en el mismo registro.</div></div>
+      <div class="step"><span class="num">3</span><div>Un clic en <b>"Crear paciente en HSI"</b>
+        completa el empadronamiento + cobertura y guarda el paciente.</div></div>
+
+      <p class="muted small">Es una extensión de navegador, no una web: se carga desde
+        <code>chrome://extensions</code> (modo desarrollador → "Cargar descomprimida" →
+        carpeta <code>extension/</code>). Los nombres con acento del DNI son best-effort; DNI, sexo y
+        fecha son confiables.</p>
+      <p><a href="http://localhost:8280" target="_blank">Abrir HSI</a></p>
+    </div>
+  </div>
+</body>
+</html>

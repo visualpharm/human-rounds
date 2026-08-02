@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Human Rounds — Consola médica</title>
+  <link rel="stylesheet" href="/web/styles.css">
+</head>
+<body>
+  <div class="topbar" data-topbar data-home="/console" data-sub="Consola del cardiólogo"></div>
+  <script src="/web/topbar.js"></script>
+  <div class="wrap-full">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:4px">
+      <h2 id="qlabel" style="margin:0">Sala de espera</h2>
+      <span class="small muted" id="count"></span>
+    </div>
+    <p class="small muted" style="margin:0 0 12px">Ordenado por hora de turno. Se actualiza solo cada 5 s.</p>
+
+    <div class="q-toolbar">
+      <select id="triageFilter" class="q-select" title="Triage">
+        <option value="all">Todos los triages</option>
+        <option value="ROJO">Rojo</option>
+        <option value="NARANJA">Naranja</option>
+        <option value="AMARILLO">Amarillo</option>
+        <option value="VERDE">Verde</option>
+      </select>
+      <select id="estadoFilter" class="q-select" title="Estado">
+        <option value="all">Todos los estados</option>
+        <option value="waiting">En espera</option>
+        <option value="done">Atendidos</option>
+      </select>
+      <input id="search" type="search" class="q-search" placeholder="Buscar paciente o resumen…">
+    </div>
+
+    <div class="table-wrap">
+      <table class="queue-table" id="qtable"><thead></thead><tbody></tbody></table>
+    </div>
+    <p class="muted" id="empty" style="display:none">No hay pacientes para mostrar.</p>
+  </div>
+  <script type="module" src="/web/console.js"></script>
+</body>
+</html>

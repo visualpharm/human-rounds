@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ayudanos a ayudarte</title>
+  <link rel="stylesheet" href="/web/styles.css">
+  <style>
+    /* width + centering come from the shared .wrap-mid token */
+    .page-hero { margin-bottom: 34px; }
+    .page-hero h1 { margin: 0 0 16px; max-width: 680px; font-size: clamp(40px, 8vw, 64px);
+      letter-spacing: -.045em; line-height: .98; color: var(--brand-d); }
+    .page-hero .appeal { margin: 0; max-width: 650px; font-size: 20px; line-height: 1.5; }
+    .page-hero .how { margin: 18px 0 0; max-width: 620px; color: var(--muted); font-size: 16px; }
+
+    .addr-block { margin-top: 24px; padding: 16px 18px; background: #f7ece5;
+      border-left: 4px solid var(--brand); border-radius: 0 12px 12px 0; }
+    .addr-block strong { display: block; margin-bottom: 2px; color: var(--brand-d); }
+    .addr-block span { color: var(--muted); font-size: 14px; }
+
+    .supply-list { margin: 0; padding: 0; list-style: none; background: var(--card);
+      border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow); }
+    .supply-list li + li { border-top: 1px solid var(--line); }
+    .item-link { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px;
+      align-items: center; min-height: 70px; padding: 18px 20px; color: var(--ink);
+      text-decoration: none; transition: background .15s; }
+    .item-link:hover, .item-link:focus-visible { background: #f7f5f1; outline: none; }
+    .item-title { min-width: 0; font-size: 17px; font-weight: 650; line-height: 1.35; }
+    .item-price { color: var(--brand-d); font-size: 18px; font-weight: 800;
+      font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+    .trust-note { margin: 14px 0 0; color: var(--muted); font-size: 13px; }
+    .print-link { display: inline-flex; margin-top: 28px; color: var(--brand-d);
+      font-weight: 700; text-underline-offset: 3px; }
+    .loading-row, .error-row { padding: 32px 20px; text-align: center; color: var(--muted); }
+    .error-row { color: #8f3a30; }
+
+    @media (max-width: 767px) {
+      .supplies-page { padding: 38px 20px 48px; }
+      .page-hero .appeal { font-size: 18px; }
+      .supply-list { margin-inline: -20px; border-left: 0; border-right: 0; border-radius: 0; }
+      .item-link { padding-inline: 20px; gap: 14px; }
+      .item-title { font-size: 16px; }
+      .item-price { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap-mid supplies-page">
+    <header class="page-hero">
+      <h1>Ayudanos a ayudarte</h1>
+      <p class="appeal">
+        Comprá un insumo y envialo directo al Hospital Municipal de Pinamar.
+        Faltan guantes, gasas, jeringas y otros básicos. La lista empieza en $8.400.
+      </p>
+      <p class="how">
+        No hay caja común: cada persona elige qué comprar. También podés traerlo personalmente.
+      </p>
+      <div class="addr-block">
+        <strong>Hospital Municipal de Pinamar</strong>
+        <span>Av. Enrique Shaw 255, Pinamar (7167). Referencia: guardia de emergencias.</span>
+      </div>
+    </header>
+
+    <ul id="list" class="supply-list">
+      <li class="loading-row">Cargando insumos…</li>
+    </ul>
+    <p class="trust-note">Podemos contar clicks para saber qué interesa; no vemos ni controlamos quién compró.</p>
+
+    <a class="print-link" href="/insumos/cartel.pdf" target="_blank" rel="noopener">
+      Descargar cartel para imprimir (PDF)
+    </a>
+  </main>
+
+  <script type="module">
+    const fmt = new Intl.NumberFormat('es-AR', {
+      style: 'currency', currency: 'ARS', maximumFractionDigits: 0
+    });
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>'"]/g, (char) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+      })[char]);
+    }
+
+    function renderItem(item) {
+      return `<li>
+        <a class="item-link" href="/insumos/ir/${encodeURIComponent(item.meliId)}"
+          target="_blank" rel="noopener">
+          <span class="item-title">${escapeHtml(item.title)}</span>
+          <span class="item-price">${fmt.format(item.price)}</span>
+        </a>
+      </li>`;
+    }
+
+    async function load() {
+      const list = document.getElementById('list');
+      try {
+        const response = await fetch('/api/insumos');
+        if (!response.ok) throw new Error('No se pudo cargar la lista');
+        const data = await response.json();
+        list.innerHTML = data.items?.length
+          ? data.items.map(renderItem).join('')
+          : '<li class="loading-row">Próximamente…</li>';
+      } catch (error) {
+        list.innerHTML = `<li class="error-row">${escapeHtml(error.message)}</li>`;
+      }
+    }
+
+    load();
+  </script>
+</body>
+</html>

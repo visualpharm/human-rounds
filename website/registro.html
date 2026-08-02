@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Human Rounds — Registrarme</title>
+  <link rel="stylesheet" href="/web/styles.css">
+</head>
+<body>
+  <div class="topbar" data-topbar data-home="/demo" data-sub="Registro del paciente"></div>
+  <script src="/web/topbar.js"></script>
+  <div class="wrap" id="app"></div>
+  <!-- Shared DNI / obra-social parsers (same source as the extension) -> window.SanaDni / window.SanaOs -->
+  <script src="/shared/pdf417-parser.js"></script>
+  <script src="/shared/os-credential-parser.js"></script>
+  <script src="/web/lib/date-parser.js"></script>
+  <script type="module" src="/web/registro.js"></script>
+</body>
+</html>

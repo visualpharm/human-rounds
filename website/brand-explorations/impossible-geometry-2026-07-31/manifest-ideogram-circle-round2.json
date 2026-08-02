@@ -1,0 +1,72 @@
+{
+  "endpoint": "ideogram/v4/image-to-image",
+  "source": "ideogram-4.0-04.png",
+  "sourceUrl": "https://v3b.fal.media/files/b/0aa48345/TZWRvL1aYG3LH1o6h4ldl_1785536691252.png",
+  "generatedAt": "2026-07-31T22:24:53.155Z",
+  "outputs": [
+    {
+      "number": 7,
+      "slug": "human-triskelion",
+      "strength": 0.82,
+      "prompt": "Create one world-class horizontal logo lockup for HUMAN ROUNDS, an international healthcare-operations platform. Use the supplied logo only as conceptual DNA: exactly three people in a human round, connected hand-to-hand through one continuous impossible band. Render \"HUMAN ROUNDS\" exactly once and spell it exactly. Warm cream field, black ink, flat vector-like mark, restrained editorial serif. The emblem must be memorable at 20px and richly constructed when enlarged. This must be a substantially new design, not a trace of the reference. No mockup, poster, extra text, chat bubbles, dots-and-lines network, brain, circuit, heart, cross, stethoscope, sparkle, gradient, shadow, or generic Celtic knot.\nDirection: a circular threefold triskelion made from three softened geometric people facing inward. Each person's forearm becomes the next person's shoulder in a continuous loop. The center is a small calm roundtable-shaped opening. Exact rotational structure, with one hand-drawn irregularity.",
+      "filename": "ideogram-circle-07-human-triskelion.png",
+      "requestId": "019fba47-c5d5-7e71-ba64-e11af5d4b446",
+      "image": {
+        "url": "https://v3b.fal.media/files/b/0aa48346/wfMD16HuInSeVZdbHtYXv_xyN7DPtl.png",
+        "content_type": "image/png",
+        "file_name": "wfMD16HuInSeVZdbHtYXv_xyN7DPtl.png",
+        "file_size": null,
+        "width": 1024,
+        "height": 768
+      }
+    },
+    {
+      "number": 8,
+      "slug": "escher-roundtable",
+      "strength": 0.84,
+      "prompt": "Create one world-class horizontal logo lockup for HUMAN ROUNDS, an international healthcare-operations platform. Use the supplied logo only as conceptual DNA: exactly three people in a human round, connected hand-to-hand through one continuous impossible band. Render \"HUMAN ROUNDS\" exactly once and spell it exactly. Warm cream field, black ink, flat vector-like mark, restrained editorial serif. The emblem must be memorable at 20px and richly constructed when enlarged. This must be a substantially new design, not a trace of the reference. No mockup, poster, extra text, chat bubbles, dots-and-lines network, brain, circuit, heart, cross, stethoscope, sparkle, gradient, shadow, or generic Celtic knot.\nDirection: an Escher-like impossible roundtable. Three simplified seated human presences surround a circular void; one black ribbon passes over and under itself in a physically impossible way and also becomes their joined arms. Readable people first, optical contradiction second.",
+      "filename": "ideogram-circle-08-escher-roundtable.png",
+      "requestId": "019fba48-07a0-7f81-a4e9-b00a578071a3",
+      "image": {
+        "url": "https://v3b.fal.media/files/b/0aa48347/HvWg_sogGPRt--ru2-9XP_hNecEScy.png",
+        "content_type": "image/png",
+        "file_name": "HvWg_sogGPRt--ru2-9XP_hNecEScy.png",
+        "file_size": null,
+        "width": 1024,
+        "height": 768
+      }
+    },
+    {
+      "number": 9,
+      "slug": "matisse-cutout",
+      "strength": 0.88,
+      "prompt": "Create one world-class horizontal logo lockup for HUMAN ROUNDS, an international healthcare-operations platform. Use the supplied logo only as conceptual DNA: exactly three people in a human round, connected hand-to-hand through one continuous impossible band. Render \"HUMAN ROUNDS\" exactly once and spell it exactly. Warm cream field, black ink, flat vector-like mark, restrained editorial serif. The emblem must be memorable at 20px and richly constructed when enlarged. This must be a substantially new design, not a trace of the reference. No mockup, poster, extra text, chat bubbles, dots-and-lines network, brain, circuit, heart, cross, stethoscope, sparkle, gradient, shadow, or generic Celtic knot.\nDirection: a bold Matisse-inspired paper-cut emblem. Exactly three joyful, abstract human silhouettes dance in a connected circle, but one continuous black strip forms all three bodies. Sweeping hand-cut curves, generous negative space, deliberate imperfection, no anatomy details.",
+      "filename": "ideogram-circle-09-matisse-cutout.png",
+      "requestId": "019fba48-49f3-7a51-904d-7bc79d668370",
+      "image": {
+        "url": "https://v3b.fal.media/files/b/0aa48349/XD0xWbMvRBc5VV-7MtmgD_gfi3euIu.png",
+        "content_type": "image/png",
+        "file_name": "XD0xWbMvRBc5VV-7MtmgD_gfi3euIu.png",
+        "file_size": null,
+        "width": 1024,
+        "height": 768
+      }
+    },
+    {
+      "number": 10,
+      "slug": "impossible-infinity",
+      "strength": 0.78,
+      "prompt": "Create one world-class horizontal logo lockup for HUMAN ROUNDS, an international healthcare-operations platform. Use the supplied logo only as conceptual DNA: exactly three people in a human round, connected hand-to-hand through one continuous impossible band. Render \"HUMAN ROUNDS\" exactly once and spell it exactly. Warm cream field, black ink, flat vector-like mark, restrained editorial serif. The emblem must be memorable at 20px and richly constructed when enlarged. This must be a substantially new design, not a trace of the reference. No mockup, poster, extra text, chat bubbles, dots-and-lines network, brain, circuit, heart, cross, stethoscope, sparkle, gradient, shadow, or generic Celtic knot.\nDirection: evolve the reference infinity into a sharper impossible geometry. Three unmistakable inward-facing heads occupy three lobes of a single round infinity band; their linked hands form the only crossing. Use one clean over-under paradox and remove every tiny facial detail.",
+      "filename": "ideogram-circle-10-impossible-infinity.png",
+      "requestId": "019fba48-87e7-73b2-99b4-d5c77fc325c4",
+      "image": {
+        "url": "https://v3b.fal.media/files/b/0aa4835a/Vwif42MTRXFjR3bzP83AY_HHRMIKD2.png",
+        "content_type": "image/png",
+        "file_name": "Vwif42MTRXFjR3bzP83AY_HHRMIKD2.png",
+        "file_size": null,
+        "width": 1024,
+        "height": 768
+      }
+    }
+  ]
+}

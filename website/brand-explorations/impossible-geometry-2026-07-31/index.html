@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Human Rounds logo benchmark</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4eee4;
+      --panel: #fbf8f1;
+      --ink: #171715;
+      --muted: #68645d;
+      --line: #cbc2b5;
+      --max: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.2em;
+    }
+
+    a:hover { text-decoration-thickness: 2px; }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    header,
+    main,
+    footer {
+      width: min(calc(100% - 40px), var(--max));
+      margin-inline: auto;
+    }
+
+    header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 28px 0 24px;
+    }
+
+    .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.2rem, 2vw, 1.55rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      font-size: 0.9rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    p { margin-top: 0; }
+
+    h1 {
+      max-width: 980px;
+      margin-bottom: 18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 7vw, 6.8rem);
+      font-weight: 500;
+      letter-spacing: -0.055em;
+      line-height: 0.94;
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 4rem);
+      font-weight: 500;
+      letter-spacing: -0.035em;
+      line-height: 1;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+      line-height: 1.25;
+    }
+
+    .lede {
+      max-width: 760px;
+      margin-bottom: 48px;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+    }
+
+    section { padding: 62px 0; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.65fr);
+      gap: clamp(22px, 4vw, 56px);
+      align-items: start;
+    }
+
+    .hero-visual,
+    .option-visual,
+    .discard-visual {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .hero-copy {
+      position: sticky;
+      top: 24px;
+    }
+
+    .score {
+      display: block;
+      margin-bottom: 18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.6rem, 6vw, 5.5rem);
+      font-weight: 500;
+      letter-spacing: -0.05em;
+      line-height: 0.9;
+    }
+
+    .model-tag {
+      display: inline-block;
+      margin-bottom: 16px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      padding: 3px 9px;
+      font-size: 0.74rem;
+      font-weight: 650;
+    }
+
+    .why,
+    .model-notes {
+      margin: 18px 0 0;
+      padding-left: 1.15em;
+    }
+
+    .why li,
+    .model-notes li { margin-bottom: 9px; }
+
+    .micro {
+      margin-top: 28px;
+    }
+
+    .micro img {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 34px 24px;
+    }
+
+    figure { margin: 0; }
+
+    figcaption { padding-top: 14px; }
+
+    .option-meta,
+    .discard-meta {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .option-copy { max-width: 62ch; }
+
+    .model-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      border-block: 1px solid var(--line);
+    }
+
+    .model-grid article {
+      padding: 24px;
+      border-right: 1px solid var(--line);
+    }
+
+    .model-grid article:last-child { border-right: 0; }
+
+    .discard-intro {
+      max-width: 740px;
+      margin-bottom: 30px;
+    }
+
+    .discard-group { margin-top: 48px; }
+
+    .discard-group > h3 {
+      margin-bottom: 0;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px 18px;
+      margin-top: 20px;
+    }
+
+    .discard-visual { aspect-ratio: 4 / 3; }
+
+    .discard-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    footer {
+      padding: 36px 0 48px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-copy { position: static; }
+      .model-grid { grid-template-columns: 1fr; }
+      .model-grid article { border-right: 0; border-bottom: 1px solid var(--line); }
+      .model-grid article:last-child { border-bottom: 0; }
+      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 620px) {
+      header,
+      main,
+      footer { width: min(calc(100% - 32px), var(--max)); }
+
+      header { align-items: flex-start; flex-direction: column; }
+      section { padding: 46px 0; }
+      .options,
+      .gallery { grid-template-columns: 1fr; }
+
+      .gallery {
+        margin-inline: -16px;
+        gap: 30px;
+      }
+
+      .gallery figcaption { padding-inline: 16px; }
+      .discard-visual { border-inline: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">Human Rounds identity study</div>
+    <nav aria-label="Report sections">
+      <a href="#best">Best</a>
+      <a href="#human-circle">Human circle</a>
+      <a href="#options">Options</a>
+      <a href="#models">Models</a>
+      <a href="#discarded">Discarded</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="best">
+      <h1>Advance the impossible roundtable.</h1>
+      <p class="lede"><strong>It is the only direction that combines human connection, optical contradiction, and 16 px recognition without medical cliché.</strong> The idea is ready for a deliberate vector build and clearance, not direct use of the generated raster.</p>
+
+      <div class="hero">
+        <figure>
+          <div class="hero-visual">
+            <img src="assets/finals/01-impossible-roundtable.png" alt="Human Rounds lockup with an open three-part impossible circular ribbon">
+          </div>
+          <figcaption>
+            <h3><a href="assets/finals/01-impossible-roundtable.png">Impossible roundtable</a></h3>
+            <div class="option-meta">Primary direction · GPT Image 2 · iteration 4</div>
+          </figcaption>
+        </figure>
+
+        <div class="hero-copy">
+          <span class="model-tag">Advance</span>
+          <strong class="score">88/100</strong>
+          <p><strong>3 presences share one open round.</strong> The broken outer loop stays humane and approachable; the under-over transition supplies the deliberate weirdness.</p>
+          <ul class="why">
+            <li><strong>22/25 ownability:</strong> memorable silhouette with one clear interruption.</li>
+            <li><strong>18/20 human touch:</strong> the 3-way conversation appears through negative space.</li>
+            <li><strong>18/20 impossible geometry:</strong> the central weave rewards a second look.</li>
+            <li><strong>14/15 micro legibility:</strong> the outer contour holds at 16-24 px.</li>
+            <li><strong>16/20 wordmark + trust:</strong> calm and international; final letterforms still need human drawing.</li>
+          </ul>
+
+          <div class="micro">
+            <strong>Micro test: 16, 24, 32, 64 px</strong>
+            <img src="assets/finals/micro-test.png" alt="Impossible roundtable emblem rendered at 16, 24, 32 and 64 pixels">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="human-circle">
+      <h2>Promote Ideogram 1.4.</h2>
+      <p class="lede"><strong>The three-person infinity is the strongest literal-human route and now ranks second overall.</strong> Ten focused variations confirm that its value is the hand-to-hand circular rhythm, not the small facial details. The original remains the best-balanced version; the three directions below reveal where a deliberate vector redraw can take it.</p>
+
+      <div class="options">
+        <figure>
+          <div class="option-visual"><img src="assets/finals/06-human-infinity.png" alt="Human Rounds logo with three people woven into an infinity-shaped circle"></div>
+          <figcaption class="option-copy">
+            <h3><a href="assets/finals/06-human-infinity.png">Human infinity</a> · 86/100</h3>
+            <div class="option-meta">Ideogram 4.0 · original 1.4 · promoted</div>
+            <p>Three people, joined hands, and an impossible weave arrive in one compact silhouette. Keep the composition; simplify the hands and faces in the vector build so it survives at app-icon scale.</p>
+          </figcaption>
+        </figure>
+
+        <figure>
+          <div class="option-visual"><img src="assets/finals/07-matisse-human-circle.png" alt="Human Rounds logo with three abstract Matisse-like people forming a circle"></div>
+          <figcaption class="option-copy">
+            <h3><a href="assets/finals/07-matisse-human-circle.png">Matisse human circle</a> · 83/100</h3>
+            <div class="option-meta">Ideogram 4.0 · focused variation 9</div>
+            <p>The best new simplification. It is joyful, unmistakably human, and strong at micro size; its weakness is that the impossible geometry has nearly disappeared.</p>
+          </figcaption>
+        </figure>
+
+        <figure>
+          <div class="option-visual"><img src="assets/finals/08-high-contrast-infinity.png" alt="Human Rounds logo with joined hands inside a high-contrast impossible infinity loop"></div>
+          <figcaption class="option-copy">
+            <h3><a href="assets/finals/08-high-contrast-infinity.png">High-contrast infinity</a> · 81/100</h3>
+            <div class="option-meta">Ideogram 4.0 · focused variation 10</div>
+            <p>The strongest evolutionary redraw: bolder figure-ground and a clearer over-under loop. It over-indexes on hands, so the three people read less immediately than in the original.</p>
+          </figcaption>
+        </figure>
+
+        <figure>
+          <div class="option-visual"><img src="assets/finals/09-human-triskelion.png" alt="Human Rounds circular triskelion with three simplified human presences"></div>
+          <figcaption class="option-copy">
+            <h3><a href="assets/finals/09-human-triskelion.png">Human triskelion</a> · 77/100</h3>
+            <div class="option-meta">Ideogram 4.0 · focused variation 7</div>
+            <p>Circle symmetry and a central shared space are strong. The face-like center feels totemic rather than conversational, so this is a useful construction reference, not a finalist.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="options">
+      <h2>Keep 4 alternatives.</h2>
+      <div class="options">
+        <figure>
+          <div class="option-visual"><img src="assets/finals/02-open-roundtable.png" alt="Human Rounds open roundtable logo option"></div>
+          <figcaption class="option-copy">
+            <h3><a href="assets/finals/02-open-roundtable.png">Open roundtable</a> · 84/100</h3>
+            <div class="option-meta">GPT Image 2</div>
+            <p>Warmer and quieter than the winner. The single flowing interior line is elegant, but the impossible transition is less immediate.</p>
+          </figcaption>
+        </figure>
+
+        <figure>
+          <div class="option-visual"><img src="assets/finals/03-hr-ligature.png" alt="Human Rounds bold HR ligature logo option"></div>
+          <figcaption class="option-copy">
+            <h3><a href="assets/finals/03-hr-ligature.png">HR ligature</a> · 82/100</h3>
+            <div class="option-meta">Reve 2.1</div>
+            <p>The strongest typographic system and the easiest to extend into a modular identity. It says Human Rounds, but not yet human connection.</p>
+          </figcaption>
+        </figure>
+
+        <figure>
+          <div class="option-visual"><img src="assets/finals/05-original-open-loop.png" alt="Human Rounds original open impossible loop logo option"></div>
+          <figcaption class="option-copy">
+            <h3><a href="assets/finals/05-original-open-loop.png">Original open loop</a> · 80/100</h3>
+            <div class="option-meta">GPT Image 2</div>
+            <p>The strongest optical contradiction from round 2. It became the source for the winner, but this version still reads slightly like linked chain.</p>
+          </figcaption>
+        </figure>
+
+        <figure>
+          <div class="option-visual"><img src="assets/finals/04-editorial-hr.png" alt="Human Rounds editorial HR monogram logo option"></div>
+          <figcaption class="option-copy">
+            <h3><a href="assets/finals/04-editorial-hr.png">Editorial HR</a> · 78/100</h3>
+            <div class="option-meta">Reve 2.1</div>
+            <p>Trustworthy and editorial. It could support reports and institutional material, but it lacks the memorable contradiction the brief requires.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="models">
+      <h2>GPT Image 2 won the concept work.</h2>
+      <div class="model-grid">
+        <article>
+          <h3>GPT Image 2</h3>
+          <p><strong>Best at geometry and refinement.</strong> It moved from generic knots to a coherent open-ribbon system and preserved the idea through an edit pass.</p>
+        </article>
+        <article>
+          <h3>Reve 2.1</h3>
+          <p><strong>Best at monograms.</strong> Its HR ligatures were controlled and extensible, but its abstract symbols tended toward generic 3-part forms.</p>
+        </article>
+        <article>
+          <h3>Ideogram 4.0</h3>
+          <p><strong>Best at exact text and human figuration.</strong> Reference-led image-to-image work turned its literal figures into a credible second route, although GPT Image 2 still handled impossible geometry better.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="discarded">
+      <h2>Discarded: all 33 rejected outputs.</h2>
+      <p class="discard-intro"><strong>42 images were generated across 3 models and 6 passes.</strong> Nine remain above. The 33 below failed for cliché, literalness, weak micro behavior, prompt noncompliance, near-duplication, or a contact-sheet artifact.</p>
+
+      <div class="discard-group">
+        <h3>Pass 1 · Generic knots and literal people</h3>
+        <div class="gallery">
+          <figure><div class="discard-visual"><img src="assets/thumbs/gpt-image-2-01.png" alt="Discarded GPT Image 2 logo"></div><figcaption><h3><a href="assets/raw/gpt-image-2-01.png">GPT 1.1</a></h3><div class="discard-meta">Generic triquetra</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/gpt-image-2-02.png" alt="Discarded GPT Image 2 logo"></div><figcaption><h3><a href="assets/raw/gpt-image-2-02.png">GPT 1.2</a></h3><div class="discard-meta">Camera-aperture association</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/gpt-image-2-03.png" alt="Discarded GPT Image 2 logo"></div><figcaption><h3><a href="assets/raw/gpt-image-2-03.png">GPT 1.3</a></h3><div class="discard-meta">Celtic-knot territory</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/gpt-image-2-04.png" alt="Discarded GPT Image 2 logo"></div><figcaption><h3><a href="assets/raw/gpt-image-2-04.png">GPT 1.4</a></h3><div class="discard-meta">Too adjacent to familiar AI rosettes</div></figcaption></figure>
+
+          <figure><div class="discard-visual"><img src="assets/thumbs/reve-2.1-01.png" alt="Discarded Reve 2.1 logo"></div><figcaption><h3><a href="assets/raw/reve-2.1-01.png">Reve 1.1</a></h3><div class="discard-meta">Literal nodes and person dots</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/reve-2.1-02.png" alt="Discarded Reve 2.1 logo"></div><figcaption><h3><a href="assets/raw/reve-2.1-02.png">Reve 1.2</a></h3><div class="discard-meta">Generic triskelion</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/reve-2.1-03.png" alt="Discarded Reve 2.1 logo"></div><figcaption><h3><a href="assets/raw/reve-2.1-03.png">Reve 1.3</a></h3><div class="discard-meta">Flower-like and static</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/reve-2.1-04.png" alt="Discarded Reve 2.1 logo"></div><figcaption><h3><a href="assets/raw/reve-2.1-04.png">Reve 1.4</a></h3><div class="discard-meta">Literal people around a knot</div></figcaption></figure>
+
+          <figure><div class="discard-visual"><img src="assets/thumbs/ideogram-4.0-01.png" alt="Discarded Ideogram 4.0 logo"></div><figcaption><h3><a href="assets/raw/ideogram-4.0-01.png">Ideogram 1.1</a></h3><div class="discard-meta">Too detailed for micro use</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/ideogram-4.0-02.png" alt="Discarded Ideogram 4.0 logo"></div><figcaption><h3><a href="assets/raw/ideogram-4.0-02.png">Ideogram 1.2</a></h3><div class="discard-meta">Literal hands</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/ideogram-4.0-03.png" alt="Discarded Ideogram 4.0 logo"></div><figcaption><h3><a href="assets/raw/ideogram-4.0-03.png">Ideogram 1.3</a></h3><div class="discard-meta">Heart and people cliché</div></figcaption></figure>
+        </div>
+      </div>
+
+      <div class="discard-group">
+        <h3>Pass 2 · Targeted directions that missed</h3>
+        <div class="gallery">
+          <figure><div class="discard-visual"><img src="assets/thumbs/round2-gpt-image-2-02.png" alt="Discarded GPT Image 2 logo"></div><figcaption><h3><a href="assets/raw/round2-gpt-image-2-02.png">GPT 2.2</a></h3><div class="discard-meta">Incomplete and overly calligraphic</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/round2-gpt-image-2-03.png" alt="Discarded GPT Image 2 logo"></div><figcaption><h3><a href="assets/raw/round2-gpt-image-2-03.png">GPT 2.3</a></h3><div class="discard-meta">Ambiguous blob, weak contradiction</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/round2-gpt-image-2-04.png" alt="Discarded GPT Image 2 logo"></div><figcaption><h3><a href="assets/raw/round2-gpt-image-2-04.png">GPT 2.4</a></h3><div class="discard-meta">Elegant but generic loop</div></figcaption></figure>
+
+          <figure><div class="discard-visual"><img src="assets/thumbs/round2-reve-2.1-02.png" alt="Discarded Reve 2.1 logo"></div><figcaption><h3><a href="assets/raw/round2-reve-2.1-02.png">Reve 2.2</a></h3><div class="discard-meta">Generic software monogram</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/round2-reve-2.1-04.png" alt="Discarded Reve 2.1 logo"></div><figcaption><h3><a href="assets/raw/round2-reve-2.1-04.png">Reve 2.4</a></h3><div class="discard-meta">Clean but not distinctive</div></figcaption></figure>
+
+          <figure><div class="discard-visual"><img src="assets/thumbs/round2-ideogram-4.0-01.png" alt="Discarded Ideogram 4.0 logo"></div><figcaption><h3><a href="assets/raw/round2-ideogram-4.0-01.png">Ideogram 2.1</a></h3><div class="discard-meta">Ignored distorted-wordmark brief</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/round2-ideogram-4.0-02.png" alt="Discarded Ideogram 4.0 logo"></div><figcaption><h3><a href="assets/raw/round2-ideogram-4.0-02.png">Ideogram 2.2</a></h3><div class="discard-meta">Conventional serif lockup</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/round2-ideogram-4.0-03.png" alt="Discarded Ideogram 4.0 logo"></div><figcaption><h3><a href="assets/raw/round2-ideogram-4.0-03.png">Ideogram 2.3</a></h3><div class="discard-meta">Stock editorial treatment</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/round2-ideogram-4.0-04.png" alt="Discarded Ideogram 4.0 logo"></div><figcaption><h3><a href="assets/raw/round2-ideogram-4.0-04.png">Ideogram 2.4</a></h3><div class="discard-meta">No deliberate weirdness</div></figcaption></figure>
+        </div>
+      </div>
+
+      <div class="discard-group">
+        <h3>Pass 3 · Rejected contact-sheet artifact</h3>
+        <div class="gallery">
+          <figure><div class="discard-visual"><img src="assets/thumbs/final-gpt-image-2-01.png" alt="Discarded contact sheet"></div><figcaption><h3><a href="assets/raw/final-gpt-image-2-01.png">Synthesis 3.1</a></h3><div class="discard-meta">Multiple lockups in one image</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/final-gpt-image-2-02.png" alt="Discarded contact sheet"></div><figcaption><h3><a href="assets/raw/final-gpt-image-2-02.png">Synthesis 3.2</a></h3><div class="discard-meta">Multiple rows in one image</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/final-gpt-image-2-03.png" alt="Discarded contact sheet"></div><figcaption><h3><a href="assets/raw/final-gpt-image-2-03.png">Synthesis 3.3</a></h3><div class="discard-meta">Grid instead of one lockup</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/final-gpt-image-2-04.png" alt="Discarded contact sheet"></div><figcaption><h3><a href="assets/raw/final-gpt-image-2-04.png">Synthesis 3.4</a></h3><div class="discard-meta">Multiple rows in one image</div></figcaption></figure>
+        </div>
+      </div>
+
+      <div class="discard-group">
+        <h3>Pass 4 · Final refinements not selected</h3>
+        <div class="gallery">
+          <figure><div class="discard-visual"><img src="assets/thumbs/final2-gpt-image-2-01.png" alt="Discarded final Human Rounds logo"></div><figcaption><h3><a href="assets/raw/final2-gpt-image-2-01.png">Final 4.1</a></h3><div class="discard-meta">3 circles, no impossible moment</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/final2-gpt-image-2-04.png" alt="Discarded final Human Rounds logo"></div><figcaption><h3><a href="assets/raw/final2-gpt-image-2-04.png">Final 4.4</a></h3><div class="discard-meta">Strong wave, weak 3-person read</div></figcaption></figure>
+        </div>
+      </div>
+
+      <div class="discard-group">
+        <h3>Passes 5-6 · Human-circle exploration not selected</h3>
+        <div class="gallery">
+          <figure><div class="discard-visual"><img src="assets/thumbs/ideogram-circle-01-clarified-weave.png" alt="Discarded conservative human infinity logo refinement"></div><figcaption><h3><a href="assets/raw/ideogram-circle-01-clarified-weave.png">Circle 5.1</a></h3><div class="discard-meta">Cosmetic redraw only</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/ideogram-circle-02-negative-space-trinity.png" alt="Discarded negative-space human infinity logo refinement"></div><figcaption><h3><a href="assets/raw/ideogram-circle-02-negative-space-trinity.png">Circle 5.2</a></h3><div class="discard-meta">Too close to the source</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/ideogram-circle-03-impossible-round.png" alt="Discarded impossible human infinity logo refinement"></div><figcaption><h3><a href="assets/raw/ideogram-circle-03-impossible-round.png">Circle 5.3</a></h3><div class="discard-meta">Contradiction did not strengthen</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/ideogram-circle-04-circle-symmetry.png" alt="Discarded circular symmetry logo refinement"></div><figcaption><h3><a href="assets/raw/ideogram-circle-04-circle-symmetry.png">Circle 5.4</a></h3><div class="discard-meta">Symmetry remained an infinity</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/ideogram-circle-05-matisse-ribbon.png" alt="Discarded Matisse ribbon logo refinement"></div><figcaption><h3><a href="assets/raw/ideogram-circle-05-matisse-ribbon.png">Circle 5.5</a></h3><div class="discard-meta">Ignored the ribbon-dance brief</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/ideogram-circle-06-soft-modular.png" alt="Discarded modular human infinity logo refinement"></div><figcaption><h3><a href="assets/raw/ideogram-circle-06-soft-modular.png">Circle 5.6</a></h3><div class="discard-meta">No useful modular shift</div></figcaption></figure>
+          <figure><div class="discard-visual"><img src="assets/thumbs/ideogram-circle-08-escher-roundtable.png" alt="Discarded literal people sitting around a roundtable logo"></div><figcaption><h3><a href="assets/raw/ideogram-circle-08-escher-roundtable.png">Circle 6.2</a></h3><div class="discard-meta">Literal boardroom icon</div></figcaption></figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Provenance:</strong> GPT Image 2, Reve 2.1, and Ideogram 4.0 through provider-native fal endpoints. Prompts, request IDs, and model settings are recorded in the adjacent manifest files. Generated marks are concept art, not cleared trademarks or production vectors.</p>
+  </footer>
+</body>
+</html>

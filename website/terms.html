@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms and conditions — Human Rounds</title>
+  <meta name="description" content="Terms for the Human Rounds website and software: free under the Apache License 2.0, offered as is, advisory only, with a licensed professional responsible for every clinical decision.">
+  <meta name="theme-color" content="#f7f3eb">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Terms and conditions">
+  <meta property="og:description" content="Free under the Apache License 2.0, offered as is. The AI prepares and suggests; a licensed professional decides.">
+  <meta property="og:url" content="https://humanrounds.org/terms">
+  <meta property="og:image" content="https://humanrounds.org/web/human-rounds-public-preview.png?v=4">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://humanrounds.org/terms">
+  <link rel="icon" href="/web/human-rounds-mark-32.png?v=1" sizes="32x32">
+  <link rel="apple-touch-icon" href="/web/human-rounds-mark-180.png?v=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/web/landing.css?v=13">
+  <link rel="stylesheet" href="/web/public-footer.css?v=6">
+  <link rel="stylesheet" href="/web/legal.css?v=1">
+  <script>
+  /* Stamp the reader's language on <html> before first paint so the Spanish
+     version does not flash English. landing.js re-applies the same value on
+     load and on every toggle. */
+  (function () {
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      var lang = q || localStorage.getItem('human-rounds-language') || 'en';
+      document.documentElement.lang = lang === 'es' ? 'es' : 'en';
+    } catch (e) {}
+  })();
+  </script>
+</head>
+<body>
+  <header class="site-header site-header--bilingual">
+    <a class="brand" href="/" aria-label="Human Rounds home">
+      <img src="/web/human-rounds-mark.png?v=1" alt="" width="42" height="42">
+      <span>Human Rounds</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="/#platform" data-i18n="navHow">How it works</a>
+      <a href="/#roadmap" data-i18n="navRoadmap">Roadmap</a>
+      <a href="https://github.com/visualpharm/human-rounds" rel="noopener" data-i18n="navOpenSource">Open source ↗</a>
+      <a href="https://demo.humanrounds.org/" data-i18n="navDemo">Live demo</a>
+    </nav>
+    <nav class="site-actions" aria-label="Language">
+      <button class="language-toggle" type="button" data-language-toggle>Español</button>
+    </nav>
+  </header>
+
+  <main>
+    <article class="post-section public-wrap">
+      <div class="post-body legal-body">
+
+        <div class="lang-en">
+          <h1>Terms and conditions</h1>
+          <p class="legal-updated">Last updated 1 August 2026</p>
+          <p class="legal-lead"><strong>Human Rounds is free, open-source software, offered as is.</strong> This page governs the website. The <a href="https://github.com/visualpharm/human-rounds/blob/main/LICENSE" rel="noopener">Apache License 2.0</a> governs the code. Using this site means accepting what follows.</p>
+
+          <h2>Who we are</h2>
+          <p>Human Rounds is an <strong>open-source project</strong> maintained from Argentina, building AI-native software for public health care. This website is informational: it describes the project, its roadmap and its installations. Nothing on it is a contract to deliver software, support or a service.</p>
+
+          <h2>The software is Apache 2.0</h2>
+          <p>The source code is released under the <a href="https://github.com/visualpharm/human-rounds/blob/main/LICENSE" rel="noopener">Apache License 2.0</a>. That license, not this page, decides what you may do with the code. In short, it lets you run, study, modify, distribute and commercially deploy the software at <strong>no licence fee</strong>, and it grants <strong>no warranty, no support obligation and no trademark rights</strong>.</p>
+
+          <h2>Not medical advice, not a medical device</h2>
+          <p>Human Rounds <strong>prepares and suggests. A licensed professional decides.</strong></p>
+          <ul>
+            <li>Nothing on this website is medical advice, diagnosis or treatment for anyone reading it.</li>
+            <li>The software's output, including its interviews, summaries, urgency estimates and differentials, is <strong>advisory</strong>. It must not diagnose, prescribe, discharge, triage autonomously or otherwise change care without a professional acting on it.</li>
+            <li>The project makes <strong>no claim of regulatory clearance</strong> as a medical device in any jurisdiction.</li>
+            <li>If you have a health emergency, contact your local emergency service, not this website.</li>
+          </ul>
+
+          <h2>If you deploy it</h2>
+          <p>Anyone who installs Human Rounds runs it on their own responsibility, and is responsible for:</p>
+          <ul>
+            <li><strong>local law</strong>, including data protection, health record rules and medical-device regulation in their jurisdiction;</li>
+            <li><strong>clinical validation</strong> of any model or rule before it touches patient care, and monitoring of it afterwards;</li>
+            <li>keeping a <strong>licensed professional accountable</strong> for every clinical decision;</li>
+            <li>the <strong>security, availability and backups</strong> of their own instance and its data;</li>
+            <li>keeping <strong>real patient data out of public repositories</strong>, issues, screenshots and test fixtures.</li>
+          </ul>
+          <p>The project is not a party to the relationship between an institution and its patients, and holds none of that data.</p>
+
+          <h2>The live demo</h2>
+          <p>The demo installation is provided for evaluation, with <strong>fictional data only</strong>.</p>
+          <ul>
+            <li>Do not enter real patient data or anyone's personal details.</li>
+            <li>It may be reset, changed or taken offline at any time, without notice, and carries no availability commitment.</li>
+          </ul>
+
+          <h2>The name and the logo</h2>
+          <p>The Apache license covers the code, <strong>not the brand</strong>. The Human Rounds name, wordmark and logo stay with the project. You may run and fork the software freely, but you may not present a modified version as Human Rounds or suggest that the project endorses, certifies or supports your deployment.</p>
+
+          <h2>Contributions</h2>
+          <p>Contributions are accepted under the <strong>Apache License 2.0</strong> and the terms in the repository's contributing and security guidelines. By opening a pull request you confirm you have the right to contribute that work under that license, and that it contains no patient-identifiable data.</p>
+
+          <h2>No warranty</h2>
+          <p>The website and the software are provided <strong>"as is", without warranty of any kind</strong>, express or implied, including fitness for a particular purpose, accuracy of clinical output, availability, or non-infringement. You bear the entire risk of determining whether the software is appropriate for your setting.</p>
+
+          <h2>Limitation of liability</h2>
+          <p>To the fullest extent the law allows, the project and its maintainers are <strong>not liable for any damages</strong> arising from the use of this website or the software: direct, indirect, incidental, special or consequential, including clinical outcomes, lost data, lost revenue or business interruption, even if advised of the possibility. This mirrors sections 7 and 8 of the Apache License 2.0.</p>
+
+          <h2>Third-party links and services</h2>
+          <p>This site links to GitHub, Icons8, the live demo and other external sites, and installations may call third-party AI providers configured by their operators. We do not control those services and take no responsibility for them; their own terms apply.</p>
+
+          <h2>Changes</h2>
+          <p>These terms change as the project does. We revise the date at the top, and every past version stays visible in the public git history. Continuing to use the site after a change means accepting the current version.</p>
+
+          <h2>Governing law</h2>
+          <p>These terms are governed by the laws of the <strong>Argentine Republic</strong>, without regard to conflict-of-law rules. The Apache License 2.0 keeps its own terms wherever they differ.</p>
+
+          <h2>Contact</h2>
+          <p>Questions about these terms go to the <a href="https://github.com/visualpharm/human-rounds/issues/new" rel="noopener">project's GitHub issues</a>. Issues are public, so leave personal details out of them.</p>
+        </div>
+
+        <div class="lang-es">
+          <h1>Términos y condiciones</h1>
+          <p class="legal-updated">Última actualización: 1 de agosto de 2026</p>
+          <p class="legal-lead"><strong>Human Rounds es software libre y de código abierto, entregado tal como está.</strong> Esta página rige el sitio web. La <a href="https://github.com/visualpharm/human-rounds/blob/main/LICENSE" rel="noopener">Licencia Apache 2.0</a> rige el código. Usar este sitio implica aceptar lo que sigue.</p>
+
+          <h2>Quiénes somos</h2>
+          <p>Human Rounds es un <strong>proyecto de código abierto</strong> mantenido desde Argentina, que construye software con IA nativa para la salud pública. Este sitio es informativo: describe el proyecto, su hoja de ruta y sus instalaciones. Nada de lo que dice constituye un compromiso de entregar software, soporte o un servicio.</p>
+
+          <h2>El software es Apache 2.0</h2>
+          <p>El código se publica bajo la <a href="https://github.com/visualpharm/human-rounds/blob/main/LICENSE" rel="noopener">Licencia Apache 2.0</a>. Esa licencia, y no esta página, define qué podés hacer con el código. En resumen: permite usar, estudiar, modificar, distribuir y desplegar comercialmente el software <strong>sin pagar licencia</strong>, y no otorga <strong>ninguna garantía, ninguna obligación de soporte ni derechos sobre la marca</strong>.</p>
+
+          <h2>No es consejo médico ni un producto médico regulado</h2>
+          <p>Human Rounds <strong>prepara y sugiere. La decisión es de un profesional matriculado.</strong></p>
+          <ul>
+            <li>Nada de este sitio es consejo médico, diagnóstico ni tratamiento para quien lo lea.</li>
+            <li>Lo que produce el software, incluidas sus entrevistas, resúmenes, estimaciones de urgencia y diagnósticos diferenciales, es <strong>orientativo</strong>. No debe diagnosticar, prescribir, dar de alta, triar de forma autónoma ni modificar la atención sin que un profesional actúe.</li>
+            <li>El proyecto <strong>no declara tener autorización regulatoria</strong> como producto médico en ninguna jurisdicción.</li>
+            <li>Ante una emergencia de salud, comunicate con el servicio de emergencias de tu zona, no con este sitio.</li>
+          </ul>
+
+          <h2>Si lo instalás</h2>
+          <p>Quien instala Human Rounds lo corre bajo su propia responsabilidad, y responde por:</p>
+          <ul>
+            <li>la <strong>normativa local</strong>, incluidas protección de datos, reglas de historia clínica y regulación de productos médicos en su jurisdicción;</li>
+            <li>la <strong>validación clínica</strong> de todo modelo o regla antes de que toque la atención de un paciente, y su monitoreo posterior;</li>
+            <li>mantener a un <strong>profesional matriculado como responsable</strong> de cada decisión clínica;</li>
+            <li>la <strong>seguridad, la disponibilidad y los respaldos</strong> de su instancia y de sus datos;</li>
+            <li>mantener los <strong>datos reales de pacientes fuera de repositorios públicos</strong>, issues, capturas de pantalla y fixtures de prueba.</li>
+          </ul>
+          <p>El proyecto no es parte de la relación entre una institución y sus pacientes, y no guarda ninguno de esos datos.</p>
+
+          <h2>La demo en vivo</h2>
+          <p>La instalación de demostración existe para evaluar el producto, con <strong>datos ficticios únicamente</strong>.</p>
+          <ul>
+            <li>No cargues datos reales de pacientes ni datos personales de nadie.</li>
+            <li>Puede reiniciarse, cambiar o salir de línea en cualquier momento, sin aviso, y no ofrece ningún compromiso de disponibilidad.</li>
+          </ul>
+
+          <h2>El nombre y el logo</h2>
+          <p>La licencia Apache cubre el código, <strong>no la marca</strong>. El nombre Human Rounds, su logotipo y su marca gráfica siguen siendo del proyecto. Podés usar y bifurcar el software libremente, pero no presentar una versión modificada como Human Rounds ni sugerir que el proyecto respalda, certifica o acompaña tu instalación.</p>
+
+          <h2>Contribuciones</h2>
+          <p>Las contribuciones se aceptan bajo la <strong>Licencia Apache 2.0</strong> y las guías de contribución y seguridad del repositorio. Al abrir un pull request confirmás que tenés derecho a aportar ese trabajo bajo esa licencia, y que no contiene datos identificables de pacientes.</p>
+
+          <h2>Sin garantía</h2>
+          <p>El sitio y el software se entregan <strong>"tal como están", sin garantía de ningún tipo</strong>, expresa o implícita, incluidas la aptitud para un fin determinado, la exactitud de la salida clínica, la disponibilidad y la ausencia de infracción. El riesgo de evaluar si el software sirve para tu contexto es enteramente tuyo.</p>
+
+          <h2>Limitación de responsabilidad</h2>
+          <p>En la máxima medida que permita la ley, el proyecto y quienes lo mantienen <strong>no responden por daños</strong> derivados del uso de este sitio o del software: directos, indirectos, incidentales, especiales o consecuentes, incluidos resultados clínicos, pérdida de datos, lucro cesante o interrupción de la actividad, aun habiendo sido advertidos de esa posibilidad. Esto refleja las secciones 7 y 8 de la Licencia Apache 2.0.</p>
+
+          <h2>Enlaces y servicios de terceros</h2>
+          <p>Este sitio enlaza a GitHub, Icons8, la demo en vivo y otros sitios externos, y una instalación puede llamar a proveedores de IA que configure quien la opera. No controlamos esos servicios ni respondemos por ellos: rigen sus propios términos.</p>
+
+          <h2>Cambios</h2>
+          <p>Estos términos cambian junto con el proyecto. Actualizamos la fecha de arriba, y cada versión anterior queda visible en el historial público de git. Seguir usando el sitio después de un cambio implica aceptar la versión vigente.</p>
+
+          <h2>Ley aplicable</h2>
+          <p>Estos términos se rigen por las leyes de la <strong>República Argentina</strong>, sin aplicar sus normas de conflicto de leyes. La Licencia Apache 2.0 conserva sus propios términos donde difieran.</p>
+
+          <h2>Contacto</h2>
+          <p>Las consultas sobre estos términos van a los <a href="https://github.com/visualpharm/human-rounds/issues/new" rel="noopener">issues del proyecto en GitHub</a>. Son públicos, así que no incluyas datos personales.</p>
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+  <!-- No data-lang: the footer follows <html lang>, which the head script above
+       already stamped, so a Spanish reader gets a Spanish footer on first paint. -->
+  <footer data-public-footer></footer>
+  <script src="/web/public-footer.js?v=5"></script>
+  <script src="/web/landing.js?v=15"></script>
+</body>
+</html>

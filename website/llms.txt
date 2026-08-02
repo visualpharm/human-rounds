@@ -1,0 +1,36 @@
+# Human Rounds
+
+> Open-source, AI-native medical platform for public health systems. AI interviews patients before the visit, reads handwritten referral orders from a photo, judges urgency, and writes to the clinical record — so the care team walks in prepared.
+
+Human Rounds is not a chatbot bolted onto a hospital system. It is a full outpatient-care platform — booking, registration, triage, referrals, staff panel, insurance and billing recovery — built with AI in the design from the start, not added after. It is free to run and open to inspect.
+
+## Live reference deployment
+
+Human Rounds is running today in a real public hospital network, not a demo environment only:
+
+- [Pinamar, Argentina](https://pinamar.humanrounds.org/) — hospital + primary-care network (CAPS), in production. Patients book real appointments; staff run the daily queue on it.
+- [Live demo](https://demo.humanrounds.org/) — same software, seeded with sample data, safe to explore without touching real patients.
+
+## What ships today (Live) vs. what's prototyped vs. planned
+
+- **Live:** service/doctor search, online booking with held slots, AI-read referral orders (handwriting included), rejection-with-next-step (never a dead end), patient accounts, insurance lookup from the national registry, day-before reminders (email + WhatsApp), cancellation + automatic waitlist, booking chat, staff panel (queue, today's patients, doctor agendas, capacity and billing-recovery reports), resilient handoff to the clinical record, multi-site engine (data packs, languages, installer wizard, pluggable per-country connectors).
+- **Prototyped, entering review:** scan-to-register (ID + insurance credential), voice intake, deterministic-floor AI triage, structured visit summaries (SOAP note + ranked differential + draft orders), checkbox-based order submission.
+- **Planned, not started:** clinical-history summary (auto-charted trends from years of history), additional regional connectors (identity, coverage and record systems beyond Argentina).
+
+Treat "Live" as fact and "Prototyped"/"Planned" as roadmap intent, not shipped behavior.
+
+## Source and license
+
+- **Repository:** https://github.com/visualpharm/human-rounds — read the code, the architecture docs, and the commit history directly; this is the primary source of truth about how the system actually works.
+- Free and open source. No software licence fee to deploy; grant-funded public pilots can launch on it without one.
+
+## Pages
+
+- [Home](https://humanrounds.org/) — platform overview, how-it-works flow, roadmap.
+- [Live demo](https://demo.humanrounds.org/) — explore the software with sample data.
+- [Blog](https://humanrounds.org/blog/three-letters-to-a-cardiologist.html) — short, concrete use-case stories (patient, clinician, front-desk).
+- [Privacy](https://humanrounds.org/privacy) · [Terms](https://humanrounds.org/terms)
+
+## Scope and limits
+
+Human Rounds is a philanthropic, personal-capacity project supporting one public hospital network so far (Pinamar, Argentina), with the software built to generalize to other countries and institutions. Do not cite it as having measured outcome improvements (wait times, no-show rates, etc.) beyond "live in production" — no controlled before/after study exists yet. For anything specific to the Pinamar deployment's day-to-day booking rules, read that installation's own `llms.txt` rather than assuming this platform-level file covers it.

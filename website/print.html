@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Imprimir</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #525659; }
+    iframe { border: 0; width: 100%; height: 100%; display: block; }
+    .bar { position: fixed; top: 10px; left: 50%; transform: translateX(-50%); z-index: 5;
+      font: 14px -apple-system, system-ui, sans-serif; }
+    .bar button { background: #0b6ea8; color: #fff; border: 0; border-radius: 10px; padding: 10px 16px; font-weight: 700; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="bar"><button onclick="doPrint()">🖨 Imprimir</button></div>
+  <iframe id="pdf" title="PDF"></iframe>
+  <script>
+    // Only same-origin absolute paths are allowed (prevents javascript:/external).
+    const params = new URLSearchParams(location.search);
+    const u = params.get('u') || '';
+    const safe = /^\/[^\s]*\.pdf(\?.*)?$/.test(u) ? u : '';
+    const title = params.get('t');
+    if (title) document.title = title;
+    const frame = document.getElementById('pdf');
+    function doPrint() {
+      try { frame.contentWindow.focus(); frame.contentWindow.print(); }
+      catch (e) { window.print(); }
+    }
+    if (safe) {
+      frame.src = safe;
+      // Auto-open the print dialog once the PDF has rendered.
+      frame.addEventListener('load', () => setTimeout(doPrint, 400));
+    } else {
+      document.body.insertAdjacentHTML('beforeend', '<p style="color:#fff;text-align:center;margin-top:40px">Documento no válido.</p>');
+    }
+  </script>
+</body>
+</html>

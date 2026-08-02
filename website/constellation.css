@@ -1,0 +1,408 @@
+/*
+ * constellation.css — the "your health network, connected" hero diagram,
+ * humanrounds.org only. Lives in the hero's illustration slot (.product-proof),
+ * not a full-bleed section. Renders a compact 3D sphere of nodes: institutions
+ * on the equator, capabilities on two mid bands, outcome quotes near the
+ * poles. constellation.js drives all per-frame positioning via transform;
+ * this file only owns static box sizing + the 4 discrete fog-tier classes
+ * (toggled on tier crossing, never per-frame). The sphere renders the same
+ * way at every width, including phones — see the responsive block at the
+ * bottom, which only shrinks the box.
+ */
+
+/* ----------------------------------------------------- country switcher (select) */
+/* One native <select> with every country (flag + localized name) — correct
+   control once a set has more than a handful of short options, per the
+   pill/segmented-control rule. Pre-selected to the geo-detected country. */
+/* Sits AFTER .const-figure in markup and pulls up with a negative margin so
+   it reads as "at the bottom of the sphere" rather than a separate control
+   above it. That negative margin slides it UNDER .const-figure's own box,
+   and a positioned element paints above a static sibling — so the figure
+   (not even a chip: the figure div itself) was eating every click on the
+   select and the dropdown never opened. It must therefore be positioned and
+   stacked above the whole node cloud (tf-front is z-index 40); the figure
+   sets no z-index of its own, so its nodes stack in the same context. */
+.const-switcher { position: relative; z-index: 50; margin: -24px 0 4px; text-align: center; }
+.const-country-select {
+  appearance: auto;
+  width: auto;
+  max-width: 180px;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  color: var(--muted);
+  padding: 2px 4px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .68rem;
+  cursor: pointer;
+}
+.const-country-select:hover,
+.const-country-select:focus {
+  color: var(--ink);
+  background: rgba(238, 232, 221, .96);
+}
+
+/* ------------------------------------------------------------------------ figure */
+.const-figure {
+  position: relative;
+  width: 100%;
+  height: clamp(320px, 36vh, 380px);
+  margin-top: 0;
+  overflow: visible; /* edge chips spill past the box instead of clipping */
+  cursor: grab;
+  /* Rotating by drag was selecting the hub/chip/quote text underneath the
+     pointer on every mousedown-drag — this is a spatial control, not text. */
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+.const-figure.is-dragging { cursor: grabbing; }
+
+/* Soft "gas giant" glow behind the node cloud so the poles (never occupied
+   by a node — see BAND_OUT_A/B_PHI in constellation.js) still read as part
+   of a globe instead of leaving the shape looking like a rotating flat
+   band. Deliberately NOT a filled disc: no base-color layer and no
+   box-shadow, so the element's own circular bounds are never visible —
+   only two soft radial blobs that fade to fully transparent well inside
+   the box before its edge. First child of .const-figure, z-index 0 so
+   every node/edge/hub paints over it; sized every frame/resize in
+   updateFigureRect() to track SPHERE_R. */
+.const-sphere-shade {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 253, 248, .32), rgba(255, 253, 248, 0) 40%),
+    radial-gradient(circle at 50% 54%, rgba(255, 253, 248, .2), rgba(255, 253, 248, 0) 46%);
+}
+
+.const-edges {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.const-edge {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 1;
+  opacity: .4;
+  transition: stroke .2s ease, opacity .2s ease, stroke-width .2s ease;
+}
+.const-edge.is-hot { stroke: var(--accent-deep); stroke-width: 1.8; opacity: .9; }
+
+/* the single wandering dot — replaces the old simultaneous pulses */
+.const-dot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  pointer-events: none;
+  z-index: 35;
+  opacity: 0;
+  will-change: transform;
+  transition: opacity .15s ease;
+}
+
+/* -------------------------------------------------------------------------- hub */
+/* Fixed at the figure's CSS center, outside the rAF loop — always sharp, never
+   fogged, icon + title only (no subtitle/ticker/badge). */
+.const-hub {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 45;
+  width: min(150px, 34%);
+  padding: 16px 14px;
+  text-align: center;
+  /* Frosted, not merely near-opaque: at .96 a chip passing behind the hub
+     still bled a ghost line of text through the card and collided with the
+     title. The backdrop blur softens whatever is underneath to a wash. */
+  background: rgba(238, 232, 221, .92);
+  backdrop-filter: blur(10px) saturate(1.05);
+  -webkit-backdrop-filter: blur(10px) saturate(1.05);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: 0 22px 48px rgba(39, 32, 22, .12);
+}
+.const-hub h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+/* ---------------------------------------------------------------- ring labels */
+.const-ring-label {
+  display: none;
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+/* ----------------------------------------------------------- sphere node base */
+/* Every node (capability, institution, outcome) is a sphere-node: JS writes
+   ONE style.transform per node per frame (position + scale + recoil folded
+   together); this file only owns the 4 discrete fog tiers, toggled by class
+   only when a node crosses a tier boundary — never a per-frame style write. */
+.sphere-node {
+  position: absolute;
+  left: 0;
+  top: 0;
+  will-change: transform, opacity;
+  opacity: 0;
+  transition: filter .35s ease;
+}
+/* Opacity itself is written per-frame in constellation.js as a continuous
+   function of depth (see frame()) — snapping between 4 flat plateaus here
+   is what read as chips "popping" in and out on rotation. These classes
+   still own the genuinely discrete bits: blur amount, stacking, and
+   click-through on the far side. */
+   The two front tiers are the viewer-facing hemisphere and stay perfectly
+   sharp; the two back tiers are BEHIND the equator and are blurred hard, so
+   a far label can never compete for reading with a near one it happens to
+   sit under. */
+.sphere-node.tf-front { filter: none; z-index: 40; }
+.sphere-node.tf-mid { filter: none; z-index: 30; }
+.sphere-node.tf-backnear { filter: blur(3px); z-index: 20; }
+.sphere-node.tf-backfar { filter: blur(6px); z-index: 10; pointer-events: none; }
+
+/* Labels are legible text (mid tier is opacity .80, no blur — fully
+   readable), so front+mid+back-near chips all carrying full-width labels at
+   once is what produced mangled cross-tier text overlap. Only the FRONT
+   tier keeps its label/note; everything else falls back to icon-only and a
+   narrower box (which also shrinks its own collision footprint — an
+   icon-only chip is far less likely to visually collide with a neighbor
+   than a full text label is). Labels reappear as a chip rotates into front.
+   The sphere engine now runs at every width (mobile included), so every
+   chip gets a tf-* class everywhere — this rule applies unscoped. */
+.cchip:not(.tf-front) .cchip-label,
+.cchip:not(.tf-front) .cchip-note,
+.ichip:not(.tf-front) .ichip-label,
+.ichip:not(.tf-front) .ichip-note {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
+  transition: opacity .2s ease, max-height .3s ease, margin .3s ease;
+}
+/* …except a text-only institution (no logo file exists for it): its name IS
+   its mark, so hiding the label would leave an empty slot on the ring. It
+   keeps the label in every tier and stays at full width. */
+.ichip.is-textonly:not(.tf-front) .ichip-label { opacity: 1; max-height: 14px; }
+.cchip:not(.tf-front) { width: 34px; }
+.ichip:not(.tf-front) { width: 44px; }
+.ichip.is-textonly:not(.tf-front) { width: 92px; }
+.ichip.is-widelogo:not(.tf-front) { width: 70px; }
+.cchip, .ichip { transition: width .3s ease; }
+
+/* content lives in a child <span> so innerHTML swaps (country switch, i18n
+   refresh) never touch the transform-carrying parent; display:contents keeps
+   the flex layout identical to when icon/label/note were direct children. */
+.chip-content { display: contents; }
+
+/* ------------------------------------------------------------- capability chips */
+.cchip {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  cursor: pointer;
+}
+.cchip-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: transparent;
+  transition: transform .2s ease;
+}
+.cchip-icon img { width: 20px; height: 20px; }
+/* Colored glyph via CSS mask on the same monochrome SVG (Icons8 "iOS 27
+   Glyph" pack — masking tints the existing asset, it doesn't swap packs),
+   instead of a flat-black <img>. background-color is set inline per chip
+   (see capabilityTint() in constellation.js). No roundel behind it — that
+   white circle was the actual complaint, worse once blurred on the sphere's
+   back/fog tiers — so this box stays a plain transparent flex square and the
+   glyph is sized up a few px since it no longer has a roundel giving it
+   visual weight. */
+.cchip-glyph {
+  display: block;
+  width: 22px;
+  height: 22px;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+.cchip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  transition: transform .2s ease;
+}
+.cchip-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .58rem;
+  font-weight: 500;
+  letter-spacing: .01em;
+  line-height: 1.2;
+  color: var(--ink);
+  white-space: nowrap;
+  max-height: 14px;
+  transition: color .2s ease, opacity .2s ease, max-height .3s ease, margin .3s ease;
+}
+.cchip-note {
+  font-size: .56rem;
+  color: var(--muted);
+  letter-spacing: .01em;
+  max-height: 12px;
+  transition: opacity .2s ease, max-height .3s ease, margin .3s ease;
+}
+.cchip.is-partial .cchip-note { color: var(--development); }
+.cchip.is-partial .cchip-dot { background: var(--development); }
+/* Grayscale goes on the chip's INNER parts, never on the chip itself: the
+   chip element already carries the depth `filter: blur()` from its tf-* tier,
+   and a second `filter` on the same element (same specificity, later in the
+   file) silently replaced it — planned chips stayed sharp on the far side. */
+.cchip.is-planned .cchip-icon, .cchip.is-planned .cchip-label { filter: grayscale(1); }
+.cchip.is-planned .cchip-dot { background: var(--muted); }
+.cchip:hover .cchip-icon, .cchip:focus-visible .cchip-icon { transform: scale(1.14); }
+.cchip:hover .cchip-dot, .cchip:focus-visible .cchip-dot { transform: scale(1.5); }
+.cchip.is-hot .cchip-label { color: var(--accent-deep); }
+.cchip:focus-visible { outline: 2px solid var(--magenta); outline-offset: 4px; border-radius: 8px; }
+
+/* ------------------------------------------------------------- institution chips */
+.ichip {
+  width: 92px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  transition: opacity .18s ease;
+}
+.ichip.is-morphing { opacity: 0; }
+/* A logotype is shown as the logotype — no card, no tile, no border behind
+   it. An institution with no real logo file shows its NAME and nothing else
+   (never an invented initials monogram or a placeholder glyph). */
+.ichip-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  transition: transform .2s ease;
+}
+/* A wordmark is not square. Squeezing a 4:1 logotype into the 34px box left
+   it 8px tall and unreadable, so a logo whose own artwork is wide gets a
+   wide box instead (tagged from the image's natural aspect in
+   constellation.js — no per-file list to maintain when a country is added). */
+.ichip-logo--wide { width: 66px; height: 22px; }
+.ichip-logo img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
+.ichip-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .58rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ink);
+  white-space: nowrap;
+  max-height: 14px;
+  transition: opacity .2s ease, max-height .3s ease, margin .3s ease;
+}
+.ichip-note {
+  font-size: .56rem;
+  color: var(--muted);
+  max-height: 12px;
+  transition: opacity .2s ease, max-height .3s ease, margin .3s ease;
+}
+.ichip.is-partial .ichip-note { color: var(--development); }
+.ichip.is-planned .ichip-logo { filter: grayscale(1) contrast(.92); }
+.ichip.is-planned .ichip-label { color: var(--muted); }
+.ichip.is-planned .ichip-note { color: var(--muted); }
+.ichip:hover .ichip-logo, .ichip:focus-visible .ichip-logo { transform: scale(1.1); }
+.ichip.is-hot .ichip-label { color: var(--accent-deep); }
+.ichip:focus-visible { outline: 2px solid var(--magenta); outline-offset: 4px; border-radius: 10px; }
+
+/* -------------------------------------------------------------------- hover state */
+.const-figure.is-hovering .cchip:not(.is-hot),
+.const-figure.is-hovering .ichip:not(.is-hot),
+.const-figure.is-hovering .const-outcome:not(.is-hot) {
+  opacity: .22 !important;
+}
+.const-figure.is-hovering .const-edge:not(.is-hot) { opacity: .16; }
+
+/* ---------------------------------------------------------------------- outcomes */
+/* Decorative only (aria-hidden) — pointer-events:none so this overlay never
+   steals hover/focus from the capability and institution chips. Positioned by
+   the sphere engine like every other node; the polar bands + fog naturally
+   de-emphasize them without hiding them outright. */
+.const-outcomes { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.const-outcome {
+  max-width: 80px;
+  font: italic 500 10px/1.22 Georgia, "Times New Roman", serif;
+  color: var(--clay-ink, #8a5a34);
+  text-align: center;
+  white-space: normal;
+}
+/* Outcome opacity is now the same continuous depth-based value every other
+   sphere-node gets (see frame() in constellation.js) — at rest pose that
+   already lands the pole quotes around .55-.6, visible top AND bottom
+   without requiring rotation, so no outcome-specific override is needed
+   here anymore. */
+
+/* --------------------------------------------------------------- reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .sphere-node { transition: none; }
+  .const-dot { display: none; }
+}
+
+/* -------------------------------------------------------------------- responsive */
+/* Stacked-hero band (landing.css collapses .hero to one column here, copy
+   above the figure) — a full 400-460px figure on top of a full hero-copy
+   stack pushed the sphere below the fold at 1024x768. Shrink the figure's
+   box; constellation.js's updateFigureRect derives a smaller SPHERE_R from
+   it automatically, so the sphere itself gets more compact, not just the
+   box around it (which .const-figure's overflow:visible would otherwise let
+   spill past unchanged). */
+/* Same animated 3D sphere at every width below desktop — just a smaller
+   box. constellation.js's updateFigureRect derives a smaller SPHERE_R from
+   the box automatically (clamped down further, see SPHERE_R_MIN), so the
+   sphere shrinks with the viewport instead of clipping or overflowing.
+   Mobile used to collapse this into a static list (no rAF engine, no
+   transforms) — that fallback is gone; phones get the real sphere,
+   including touch drag (pointer events already unify mouse/touch) and a
+   small ambient idle drift so it doesn't read as frozen without a hover
+   affordance (see AUTO_YAW_SPEED_MOBILE in constellation.js). */
+@media (max-width: 1120px) {
+  .const-figure { height: clamp(220px, 28vh, 260px); margin-top: 0; }
+  .const-switcher { margin: -16px 0 4px; }
+}
+
+@media (max-width: 620px) {
+  .const-country-select { max-width: 100%; }
+}
+
+@media (max-width: 390px) {
+  .const-hub { padding: 14px 12px; }
+}

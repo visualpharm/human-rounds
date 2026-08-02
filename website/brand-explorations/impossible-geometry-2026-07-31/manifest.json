@@ -1,0 +1,55 @@
+{
+  "brief": "Human Rounds impossible-geometry logo benchmark",
+  "prompt": "Use case: logo-brand\nAsset type: international healthcare technology identity\nPrimary request: Create one original, finished horizontal logo lockup for the exact brand name \"HUMAN ROUNDS\". The company is an international, open-source healthcare operations platform that removes administrative work so patients and care teams can talk to each other again.\nSymbol: one compact emblem that suggests 3 human presences in conversation through a single continuous interwoven ribbon. Use impossible Escher-like geometry, ambiguous figure/ground, and controlled negative space. The human connection should emerge on a second look, never as literal faces, bodies, hands, speech bubbles, or connected dots.\nStyle/medium: flat vector-like identity design; precise geometry softened by imperfect curves and one deliberate contradiction; quiet, intelligent, editorial, humane; distinctive enough to own; not ornamental.\nComposition/framing: one emblem beside one wordmark, centered on a plain warm-cream field with generous padding. The emblem must remain recognizable at 16-24 px and reveal richer internal structure when enlarged.\nTypography: render the words \"HUMAN ROUNDS\" exactly once and spell them correctly. Create a confident monochrome custom wordmark with editorial character, drawing from a restrained serif or a highly customized sans. Alter one ligature, counter, cut, or join so typography participates in the idea. It must not look like a generic rounded lowercase SaaS wordmark.\nColor palette: warm black and cream only. No gradient.\nConstraints: original design; strong silhouette; balanced negative space; credible for a global healthcare institution; scalable; no mockup, no poster, no stationery, no multiple options, no explanation text, no watermark.\nAvoid: similarity to the OpenAI, Perplexity, or Anthropic marks; sparkles; purple-blue gradients; blobs; brains; circuits; hexagons; orbiting dots; node networks; literal chatbot bubbles; crosses; hearts; stethoscopes; shields; hands; medical clip art; generic Celtic knot; flower rosette; camera aperture; extra letters or words.",
+  "models": [
+    {
+      "model": "gpt-image-2",
+      "endpoint": "fal-ai/gpt-image-2",
+      "request_id": "019fba29-c898-7ae0-ab54-3f11cc1a3f41",
+      "files": [
+        "assets/raw/gpt-image-2-01.png",
+        "assets/raw/gpt-image-2-02.png",
+        "assets/raw/gpt-image-2-03.png",
+        "assets/raw/gpt-image-2-04.png"
+      ],
+      "result_metadata": {}
+    },
+    {
+      "model": "ideogram-4.0",
+      "endpoint": "ideogram/v4",
+      "request_id": "019fba29-c8aa-7393-9186-9ef7ba7e88ad",
+      "files": [
+        "assets/raw/ideogram-4.0-01.png",
+        "assets/raw/ideogram-4.0-02.png",
+        "assets/raw/ideogram-4.0-03.png",
+        "assets/raw/ideogram-4.0-04.png"
+      ],
+      "result_metadata": {
+        "timings": {
+          "inference": 11.950460719000148,
+          "prompt_expansion": 4.381860292998681
+        },
+        "seed": 425924404,
+        "has_nsfw_concepts": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "prompt": "{\"high_level_description\":\"A horizontal logo lockup for Human Rounds, an open-source healthcare operations platform, featuring a compact interwoven ribbon emblem on the left and a custom editorial serif wordmark on the right, set in warm black ink on a warm-cream field.\",\"compositional_deconstruction\":{\"background\":\"A plain warm-cream field filling the entire frame with even padding on all sides. Flat, untextured, no gradient, no shadow — a quiet paper-like ground that lets the warm-black mark sit cleanly in the center.\",\"elements\":[{\"type\":\"obj\",\"desc\":\"Compact emblem built from a single continuous interwoven ribbon looping back on itself in Escher-like impossible geometry, anchored left of center. Warm black ink, flat vector-like strokes with slightly imperfect hand-drawn curves. The ribbon's path resolves into three implied human presences in conversation only on a second look — negative space between loops reads as faces turned toward each other without ever drawing a face. A single deliberate crossover at the emblem's center cannot physically exist, the quiet visual hook.\"},{\"type\":\"text\",\"text\":\"HUMAN ROUNDS\",\"desc\":\"Medium-sized wordmark to the right of the emblem, vertically centered with the mark, set in a single horizontal line. Custom editorial serif in warm black, tight tracking, restrained and confident. The 'H' and 'U' of 'HUMAN' share a custom ligature whose shared counter echoes the ribbon's interweave.\"}]}}"
+      }
+    },
+    {
+      "model": "reve-2.1",
+      "endpoint": "reve/2.1/text-to-image",
+      "request_id": "019fba29-c899-7122-8bda-b7259c547837",
+      "files": [
+        "assets/raw/reve-2.1-01.png",
+        "assets/raw/reve-2.1-02.png",
+        "assets/raw/reve-2.1-03.png",
+        "assets/raw/reve-2.1-04.png"
+      ],
+      "result_metadata": {}
+    }
+  ]
+}

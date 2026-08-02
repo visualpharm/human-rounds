@@ -1,0 +1,18 @@
+{
+  "brief": "Human Rounds impossible-roundtable finalist refinement",
+  "reference_local": "assets/raw/round2-gpt-image-2-01.png",
+  "reference_url": "https://v3b.fal.media/files/b/0aa482a6/kMRF6onjKZkNdWiVDnuE3_Gta422e9.png",
+  "prompt": "Image 1 is the selected Human Rounds identity direction. Treat it as a design source, not a scene.\n\nCreate 4 polished refinements of this exact logo system. Preserve the warm-black-on-cream horizontal lockup, the open circular band, the asymmetry, and the single impossible over/under contradiction. Keep the exact brand text \"HUMAN ROUNDS\" spelled correctly once.\n\nRefine only these points:\n1. Remove any residual chain-link, Celtic-knot, camera-aperture, or generic infinity association. Use no more than 2 crossings.\n2. Shape 3 subtle concave bays around the central negative space so 3 people sharing a roundtable can be sensed only on a second look. Do not draw heads, faces, bodies, hands, dots, or speech bubbles.\n3. Make the emblem survive at 16-24 px: consistent stroke logic, open counters, no hairline gaps, strong silhouette.\n4. Replace the generic wordmark with a custom, intelligent humanist wordmark. Use restrained editorial character and alter one R, U, O counter, ligature, or join so it belongs to the emblem. Keep it calm and globally credible.\n5. Add one deliberate tiny interruption or impossible join that rewards close inspection without harming micro legibility.\n\nOne finished logo lockup per image, centered with generous padding. Flat vector-like design only. No mockup, poster, stationery, extra text, watermark, gradient, 3D shading, medical cross, heart, shield, stethoscope, sparkles, nodes, or similarity to OpenAI, Perplexity, or Anthropic marks.",
+  "model": {
+    "model": "final-gpt-image-2",
+    "endpoint": "fal-ai/gpt-image-2/edit",
+    "request_id": "019fba31-3ec5-7fe3-a492-1a0eb274e662",
+    "files": [
+      "assets/raw/final-gpt-image-2-01.png",
+      "assets/raw/final-gpt-image-2-02.png",
+      "assets/raw/final-gpt-image-2-03.png",
+      "assets/raw/final-gpt-image-2-04.png"
+    ],
+    "result_metadata": {}
+  }
+}

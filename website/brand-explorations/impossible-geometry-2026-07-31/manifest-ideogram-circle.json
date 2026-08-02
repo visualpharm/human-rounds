@@ -1,0 +1,98 @@
+{
+  "endpoint": "ideogram/v4/image-to-image",
+  "source": "ideogram-4.0-04.png",
+  "sourceUrl": "https://v3b.fal.media/files/b/0aa4833d/0fAHlmqtEnGK3fEWhuSxh_1785536454285.png",
+  "generatedAt": "2026-07-31T22:20:56.111Z",
+  "outputs": [
+    {
+      "slug": "clarified-weave",
+      "strength": 0.42,
+      "prompt": "Refine the supplied HUMAN ROUNDS healthcare-operations logo into one world-class horizontal identity lockup on a warm cream field. Preserve its best idea: exactly three people in intimate circular conversation, joined hand-to-hand inside one continuous infinity-like woven emblem. Keep the words \"HUMAN ROUNDS\" exactly once, spelled exactly, in a restrained editorial serif. Black ink only. Flat vector-like artwork, no mockup, no poster, no extra text. The emblem must remain legible at 20px and reveal richer structure when enlarged. Avoid literal chat bubbles, dots-and-lines networks, brains, circuits, hearts, medical crosses, stethoscopes, sparkles, gradients, shadows, 3D rendering, decorative borders, and corporate SaaS softness.\nDirection: a disciplined redraw of the reference. Retain the three heads, three hand-to-hand contacts, and infinity silhouette, but reduce each person to one confident organic contour. Make every face and hand unmistakable without tiny features. Use two calm stroke weights and generous negative space.",
+      "filename": "ideogram-circle-01-clarified-weave.png",
+      "requestId": "019fba44-280d-73b3-9f7f-adcc3931302f",
+      "image": {
+        "url": "https://v3b.fal.media/files/b/0aa48333/FUUv-_T5J7vtD10N7b_ip_AbvlNIAN.png",
+        "content_type": "image/png",
+        "file_name": "FUUv-_T5J7vtD10N7b_ip_AbvlNIAN.png",
+        "file_size": null,
+        "width": 1024,
+        "height": 768
+      }
+    },
+    {
+      "slug": "negative-space-trinity",
+      "strength": 0.56,
+      "prompt": "Refine the supplied HUMAN ROUNDS healthcare-operations logo into one world-class horizontal identity lockup on a warm cream field. Preserve its best idea: exactly three people in intimate circular conversation, joined hand-to-hand inside one continuous infinity-like woven emblem. Keep the words \"HUMAN ROUNDS\" exactly once, spelled exactly, in a restrained editorial serif. Black ink only. Flat vector-like artwork, no mockup, no poster, no extra text. The emblem must remain legible at 20px and reveal richer structure when enlarged. Avoid literal chat bubbles, dots-and-lines networks, brains, circuits, hearts, medical crosses, stethoscopes, sparkles, gradients, shadows, 3D rendering, decorative borders, and corporate SaaS softness.\nDirection: the people are discovered in negative space. Build one compact black woven loop with exactly three warm-cream human presences cut from it, facing inward. Their arms complete the loop; there are no drawn facial details. Human first, clever second.",
+      "filename": "ideogram-circle-02-negative-space-trinity.png",
+      "requestId": "019fba45-2f56-7cb1-8446-894ae38d8fa2",
+      "image": {
+        "url": "https://v3b.fal.media/files/b/0aa48335/pHWLeBruj4cQwa0PmCKeV_cA2UMwVC.png",
+        "content_type": "image/png",
+        "file_name": "pHWLeBruj4cQwa0PmCKeV_cA2UMwVC.png",
+        "file_size": null,
+        "width": 1024,
+        "height": 768
+      }
+    },
+    {
+      "slug": "impossible-round",
+      "strength": 0.58,
+      "prompt": "Refine the supplied HUMAN ROUNDS healthcare-operations logo into one world-class horizontal identity lockup on a warm cream field. Preserve its best idea: exactly three people in intimate circular conversation, joined hand-to-hand inside one continuous infinity-like woven emblem. Keep the words \"HUMAN ROUNDS\" exactly once, spelled exactly, in a restrained editorial serif. Black ink only. Flat vector-like artwork, no mockup, no poster, no extra text. The emblem must remain legible at 20px and reveal richer structure when enlarged. Avoid literal chat bubbles, dots-and-lines networks, brains, circuits, hearts, medical crosses, stethoscopes, sparkles, gradients, shadows, 3D rendering, decorative borders, and corporate SaaS softness.\nDirection: introduce one precise Escher-like contradiction. The continuous band is simultaneously three bodies and an impossible over-under loop, yet the three inward-facing people and joined hands remain immediately readable. One contradiction only; no generic Celtic knot.",
+      "filename": "ideogram-circle-03-impossible-round.png",
+      "requestId": "019fba45-6dbe-76f1-97d4-309869af6cd7",
+      "image": {
+        "url": "https://v3b.fal.media/files/b/0aa48337/6my2yeQu0yZbQu2gH_LOr_i2yP6D5A.png",
+        "content_type": "image/png",
+        "file_name": "6my2yeQu0yZbQu2gH_LOr_i2yP6D5A.png",
+        "file_size": null,
+        "width": 1024,
+        "height": 768
+      }
+    },
+    {
+      "slug": "circle-symmetry",
+      "strength": 0.6,
+      "prompt": "Refine the supplied HUMAN ROUNDS healthcare-operations logo into one world-class horizontal identity lockup on a warm cream field. Preserve its best idea: exactly three people in intimate circular conversation, joined hand-to-hand inside one continuous infinity-like woven emblem. Keep the words \"HUMAN ROUNDS\" exactly once, spelled exactly, in a restrained editorial serif. Black ink only. Flat vector-like artwork, no mockup, no poster, no extra text. The emblem must remain legible at 20px and reveal richer structure when enlarged. Avoid literal chat bubbles, dots-and-lines networks, brains, circuits, hearts, medical crosses, stethoscopes, sparkles, gradients, shadows, 3D rendering, decorative borders, and corporate SaaS softness.\nDirection: convert the infinity silhouette into a near-circular, threefold-symmetric emblem. Three softened geometric human forms rotate around a calm central opening, each holding the next person's hand. Symmetry is exact at first glance, with one humane imperfect notch that rewards close viewing.",
+      "filename": "ideogram-circle-04-circle-symmetry.png",
+      "requestId": "019fba45-e643-7ea1-b740-8ac7bf62706d",
+      "image": {
+        "url": "https://v3b.fal.media/files/b/0aa48339/fyHvALedHc5XDX41L6SYD_gp5kYJrA.png",
+        "content_type": "image/png",
+        "file_name": "fyHvALedHc5XDX41L6SYD_gp5kYJrA.png",
+        "file_size": null,
+        "width": 1024,
+        "height": 768
+      }
+    },
+    {
+      "slug": "matisse-ribbon",
+      "strength": 0.62,
+      "prompt": "Refine the supplied HUMAN ROUNDS healthcare-operations logo into one world-class horizontal identity lockup on a warm cream field. Preserve its best idea: exactly three people in intimate circular conversation, joined hand-to-hand inside one continuous infinity-like woven emblem. Keep the words \"HUMAN ROUNDS\" exactly once, spelled exactly, in a restrained editorial serif. Black ink only. Flat vector-like artwork, no mockup, no poster, no extra text. The emblem must remain legible at 20px and reveal richer structure when enlarged. Avoid literal chat bubbles, dots-and-lines networks, brains, circuits, hearts, medical crosses, stethoscopes, sparkles, gradients, shadows, 3D rendering, decorative borders, and corporate SaaS softness.\nDirection: Matisse-like economy interpreted as a modern identity, not an illustration. Three joyful human gestures are cut from one broad black paper ribbon and dance around the circle while remaining linked. Use sweeping hand-cut curves, controlled asymmetry, and no fine linework.",
+      "filename": "ideogram-circle-05-matisse-ribbon.png",
+      "requestId": "019fba46-2833-78c0-9142-8278cd597015",
+      "image": {
+        "url": "https://v3b.fal.media/files/b/0aa4833b/Zu0eYj6kf5dLIWYj12jmz_2UgE0DY9.png",
+        "content_type": "image/png",
+        "file_name": "Zu0eYj6kf5dLIWYj12jmz_2UgE0DY9.png",
+        "file_size": null,
+        "width": 1024,
+        "height": 768
+      }
+    },
+    {
+      "slug": "soft-modular",
+      "strength": 0.57,
+      "prompt": "Refine the supplied HUMAN ROUNDS healthcare-operations logo into one world-class horizontal identity lockup on a warm cream field. Preserve its best idea: exactly three people in intimate circular conversation, joined hand-to-hand inside one continuous infinity-like woven emblem. Keep the words \"HUMAN ROUNDS\" exactly once, spelled exactly, in a restrained editorial serif. Black ink only. Flat vector-like artwork, no mockup, no poster, no extra text. The emblem must remain legible at 20px and reveal richer structure when enlarged. Avoid literal chat bubbles, dots-and-lines networks, brains, circuits, hearts, medical crosses, stethoscopes, sparkles, gradients, shadows, 3D rendering, decorative borders, and corporate SaaS softness.\nDirection: a modular identity system. Construct the three people from three related soft geometric pieces that interlock into one round symbol; each piece works alone as a secondary mark, while together they form a single continuous human round. Add one deliberate optical interruption, not ornament.",
+      "filename": "ideogram-circle-06-soft-modular.png",
+      "requestId": "019fba46-8189-7d81-ac29-ff53272e1ab9",
+      "image": {
+        "url": "https://v3b.fal.media/files/b/0aa4834d/CuCwfnS9qMFEPuw55vDte_n0LE0LnN.png",
+        "content_type": "image/png",
+        "file_name": "CuCwfnS9qMFEPuw55vDte_n0LE0LnN.png",
+        "file_size": null,
+        "width": 1024,
+        "height": 768
+      }
+    }
+  ]
+}
