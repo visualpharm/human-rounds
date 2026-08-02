@@ -511,9 +511,7 @@ strong { font-weight: 700; }
 
 /* Roadmap "Use cases" — three story cards, folded into #roadmap */
 .stories-block {
-  margin-top: var(--sp-block);
-  padding-top: var(--sp-intro);
-  border-top: 1px solid var(--line);
+  margin-top: var(--sp-intro);
 }
 .stories-title {
   font-size: clamp(1.6rem, 2.4vw, 2.1rem);
