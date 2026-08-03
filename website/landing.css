@@ -904,6 +904,41 @@ strong { font-weight: 700; }
   .system-flow--tiles li { grid-template-columns: 48px 1fr; gap: 18px; padding-block: 22px; }
 }
 
+/* A feature title that leads to its documentation page. One treatment for every
+   one of them — the flow tiles and the roadmap cards — so the affordance reads
+   the same wherever a feature is named, without turning the whole roadmap red. */
+.system-flow h3 a,
+.kanban-cards h4 a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.system-flow h3 a:hover,
+.kanban-cards h4 a:hover {
+  color: var(--accent-deep);
+  text-decoration-color: currentColor;
+}
+
+/* Links inside running prose stay accent-coloured and underlined, so a sentence
+   that mentions a capability reads as a sentence with links in it. */
+.hero-lead a,
+.updates-item a {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklch, var(--accent-deep) 38%, transparent);
+  text-underline-offset: 3px;
+}
+.hero-lead a:hover,
+.updates-item a:hover { text-decoration-color: currentColor; }
+
+/* Six nav items since Docs joined the menu — a small laptop needs the tighter
+   gap earlier than the 900px tier gives it, or the header runs into the brand. */
+@media (max-width: 1080px) and (min-width: 901px) {
+  .site-nav { gap: 15px; }
+  .site-nav a { font-size: .87rem; }
+}
+
 @media (max-width: 900px) and (min-width: 751px) {
   .site-header { gap: 14px; }
   .brand { gap: 10px; font-size: 1.06rem; }

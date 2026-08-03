@@ -4,6 +4,7 @@
     en: {
       navHow: 'How it works',
       navRoadmap: 'Roadmap',
+      navDocs: 'Docs',
       navBlog: 'Blog',
       navGithub: 'GitHub',
       navDemo: 'Live demo',
@@ -12,9 +13,10 @@
 
       heroTitle: 'The open-source, AI-native medical platform',
       heroTagline: 'Humans do the rounds. AI does the rest.',
-      heroLead: 'AI interviews patients before the visit, reads handwritten referral orders from a photo, judges urgency, and writes to the health record. The care team walks in prepared. Live today in a real public hospital. Free to run, open to inspect.',
+      heroLead: 'AI <a href="/docs/pre-consult-interview">interviews patients before the visit</a>, <a href="/docs/referral-orders">reads handwritten referral orders from a photo</a>, judges urgency, and <a href="/docs/health-record-handoff">writes to the health record</a>. The care team walks in prepared. Live today in a real public hospital. Free to run, open to inspect.',
       heroLinkDemo: 'Live demo',
       heroLinkOpenSource: 'Open source',
+      heroLinkDocs: 'Documentation',
 
       constHubTitle: 'Your health network',
       constInstitutionsLabel: 'Who it talks to',
@@ -172,9 +174,9 @@
         '<p>The waitlist means <strong>no freed slot sits empty</strong>, and every rejection tells the patient exactly what to do next.</p>',
 
       updatesTitle: 'Latest updates',
-      update1Text: '<b>QR pre-consult interview.</b> Scan the code at the consulting-room door and the AI interview starts on the patient’s own phone, ready for the doctor before the encounter.',
-      update2Text: '<b>Scan-to-register.</b> A document camera reads an ID and insurance credential, fills the health record, and learns unfamiliar QR formats for the next patient.',
-      update3Text: '<b>Resilient EHR handoff.</b> Registration work stays queued locally and retries automatically when the clinical record comes back online.',
+      update1Text: '<b><a href="/docs/pre-consult-interview">QR pre-consult interview</a>.</b> Scan the code at the consulting-room door and the AI interview starts on the patient’s own phone, ready for the doctor before the encounter.',
+      update2Text: '<b><a href="/docs/scan-to-register">Scan-to-register</a>.</b> A document camera reads an ID and insurance credential, fills the health record, and learns unfamiliar QR formats for the next patient.',
+      update3Text: '<b><a href="/docs/health-record-handoff">Resilient EHR handoff</a>.</b> Registration work stays queued locally and retries automatically when the clinical record comes back online.',
 
       invitationsTitle: 'Who this is for',
       invitationsIntro: 'Three ways into the same platform — run it, extend it, or fund the next deployments.',
@@ -199,6 +201,7 @@
     es: {
       navHow: 'Cómo funciona',
       navRoadmap: 'Hoja de ruta',
+      navDocs: 'Documentación',
       navBlog: 'Blog',
       navGithub: 'GitHub',
       navDemo: 'Demo en vivo',
@@ -207,9 +210,10 @@
 
       heroTitle: 'La plataforma médica de código abierto e IA nativa',
       heroTagline: 'La ronda la hacen las personas. El resto lo hace la IA.',
-      heroLead: 'La IA entrevista al paciente antes de la consulta, lee derivaciones manuscritas desde una foto, estima la urgencia y escribe en la historia clínica. El equipo de salud entra a la consulta ya preparado. Hoy funciona en un hospital público de verdad. Gratis para instalar, abierto para auditar.',
+      heroLead: 'La IA <a href="/docs/pre-consult-interview">entrevista al paciente antes de la consulta</a>, <a href="/docs/referral-orders">lee derivaciones manuscritas desde una foto</a>, estima la urgencia y <a href="/docs/health-record-handoff">escribe en la historia clínica</a>. El equipo de salud entra a la consulta ya preparado. Hoy funciona en un hospital público de verdad. Gratis para instalar, abierto para auditar.',
       heroLinkDemo: 'Demo en vivo',
       heroLinkOpenSource: 'Código abierto',
+      heroLinkDocs: 'Documentación',
 
       constHubTitle: 'Tu red de salud',
       constInstitutionsLabel: 'Con quién se conecta',
@@ -367,9 +371,9 @@
         '<p>La lista de espera hace que <strong>ningún turno liberado quede vacío</strong>, y cada rechazo le dice al paciente exactamente qué hacer.</p>',
 
       updatesTitle: 'Últimas novedades',
-      update1Text: '<b>Entrevista previa por QR.</b> Escaneá el código en la puerta del consultorio y la entrevista con IA empieza en el celular del paciente, lista para el médico antes de la consulta.',
-      update2Text: '<b>Alta por escaneo.</b> Una cámara lee el DNI y la credencial de cobertura, completa HSI y aprende formatos de QR desconocidos para el próximo paciente.',
-      update3Text: '<b>Envío resiliente a HSI.</b> El alta queda en cola local y se reintenta automáticamente cuando vuelve la historia clínica.',
+      update1Text: '<b><a href="/docs/pre-consult-interview">Entrevista previa por QR</a>.</b> Escaneá el código en la puerta del consultorio y la entrevista con IA empieza en el celular del paciente, lista para el médico antes de la consulta.',
+      update2Text: '<b><a href="/docs/scan-to-register">Alta por escaneo</a>.</b> Una cámara lee el DNI y la credencial de cobertura, completa HSI y aprende formatos de QR desconocidos para el próximo paciente.',
+      update3Text: '<b><a href="/docs/health-record-handoff">Envío resiliente a HSI</a>.</b> El alta queda en cola local y se reintenta automáticamente cuando vuelve la historia clínica.',
 
       invitationsTitle: 'Para quién es',
       invitationsIntro: 'Tres formas de entrar a la misma plataforma: ponerla a andar, extenderla o financiar las próximas instalaciones.',

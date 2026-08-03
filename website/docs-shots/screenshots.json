@@ -1,0 +1,43 @@
+{
+  "_note": "Every image here was rendered from a Claude Design mockup, never from the live app — no screenshot of real patient data is ever published. Regenerate with the claude-design-screenshot skill: open the file below in the project, render_preview, then assets/shoot.sh at the stated preset. Window sizes are Raycast 'Reasonable Size' on the stated MacBook (60% of the screen, capped 1025x900), captured at deviceScaleFactor 2.",
+  "project": "Human Rounds — Docs Screenshots",
+  "project_id": "43682d74-2f4d-40c8-b069-65bb2de470a2",
+  "shots": {
+    "pre-consult-interview.png": {
+      "file": "Pre-consult interview.dc.html",
+      "etag": "1785747554333599",
+      "window": "14in", "css_px": "907x589", "png_px": "1814x1178",
+      "captured": "2026-08-03"
+    },
+    "booking.png": {
+      "file": "Booking.dc.html",
+      "etag": "1785747986136837",
+      "window": "14in", "css_px": "907x589", "png_px": "1814x1178",
+      "captured": "2026-08-03"
+    },
+    "referral-orders.png": {
+      "file": "Referral orders.dc.html",
+      "etag": "1785747986136837",
+      "window": "16in", "css_px": "1025x670", "png_px": "2050x1340",
+      "captured": "2026-08-03"
+    },
+    "health-record-handoff.png": {
+      "file": "Health record handoff.dc.html",
+      "etag": "1785747986136837",
+      "window": "16in", "css_px": "1025x670", "png_px": "2050x1340",
+      "captured": "2026-08-03"
+    },
+    "scan-to-register.png": {
+      "file": "Scan to register.dc.html",
+      "etag": "1785748193730783",
+      "window": "16in", "css_px": "1025x670", "png_px": "2050x1340",
+      "captured": "2026-08-03"
+    },
+    "prepared-clinician.png": {
+      "file": "Prepared clinician.dc.html",
+      "etag": "1785748267774668",
+      "window": "16in", "css_px": "1025x670", "png_px": "2050x1340",
+      "captured": "2026-08-03"
+    }
+  }
+}

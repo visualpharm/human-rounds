@@ -1,0 +1,179 @@
+/* Documentation layout for humanrounds.org/docs.
+
+   Structure borrowed from docs.plane.so — a persistent grouped sidebar on the
+   left, one prose column, screenshots that open large. Everything else is the
+   Human Rounds paper/vermillion system: this file only adds layout, it never
+   redefines a colour, a font or a control that landing.css already owns.
+   landing.css must be loaded first. */
+
+.docs-shell {
+  width: min(var(--wrap), calc(100% - 64px));
+  margin: 0 auto;
+  padding: 40px 0 var(--sp-section);
+  display: grid;
+  grid-template-columns: 236px minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+
+/* ---------- sidebar ---------- */
+
+.docs-nav {
+  position: sticky;
+  top: 24px;
+  font-size: .95rem;
+  line-height: 1.45;
+}
+.docs-nav ul { list-style: none; margin: 0 0 26px; padding: 0; }
+.docs-nav ul:last-child { margin-bottom: 0; }
+.docs-nav-group {
+  margin: 0 0 10px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.docs-nav li { margin: 0; }
+.docs-nav li a {
+  display: block;
+  padding: 5px 0 5px 14px;
+  border-left: 2px solid var(--line);
+  color: var(--muted);
+}
+.docs-nav li a:hover { color: var(--ink); border-left-color: var(--ink); }
+.docs-nav li a[aria-current="page"] {
+  color: var(--accent-deep);
+  border-left-color: var(--accent-deep);
+  font-weight: 600;
+}
+
+/* ---------- article ---------- */
+
+.docs-article { max-width: var(--prose); }
+.docs-article h1 {
+  font-size: clamp(2.1rem, 3.4vw, 2.9rem);
+  max-width: 20ch;
+  margin-bottom: 14px;
+}
+.docs-lead {
+  font-size: 1.18rem;
+  line-height: 1.5;
+  color: var(--muted);
+  margin-bottom: var(--sp-intro);
+}
+.docs-article h2 {
+  font-size: 1.5rem;
+  max-width: 26ch;
+  margin: var(--sp-block) 0 12px;
+}
+.docs-article h3 { font-size: 1.08rem; margin: 32px 0 8px; }
+.docs-article p { margin: 0 0 18px; }
+.docs-article ul, .docs-article ol { margin: 0 0 18px; padding-left: 22px; }
+.docs-article li { margin-bottom: 8px; }
+.docs-article li::marker { color: var(--muted); }
+.docs-article code {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .88em;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+.docs-article pre {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 18px;
+  overflow-x: auto;
+  margin: 0 0 18px;
+}
+.docs-article pre code { background: none; border: 0; padding: 0; font-size: .86rem; }
+
+/* A status line — "prototype", "live at Pinamar" — reads as a sentence, not a chip. */
+.docs-status {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .78rem;
+  letter-spacing: .02em;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.docs-status b { color: var(--ink); font-weight: 500; }
+
+.docs-note {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+.docs-note p:last-child { margin-bottom: 0; }
+
+/* ---------- screenshots ---------- */
+
+.docs-shot { margin: 28px 0 var(--sp-block); }
+.docs-shot button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+  cursor: zoom-in;
+  box-shadow: 0 18px 44px -34px rgba(26, 23, 18, .8);
+}
+.docs-shot button:hover { border-color: var(--ink); }
+.docs-shot img { width: 100%; }
+.docs-shot figcaption {
+  margin-top: 10px;
+  font-size: .9rem;
+  color: var(--muted);
+}
+
+/* ---------- home cards ---------- */
+
+ul.docs-cards {
+  list-style: none;
+  margin: 0 0 var(--sp-block);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+ul.docs-cards li { margin: 0; background: var(--surface); padding: 22px 24px; }
+ul.docs-cards h2 { font-size: 1.05rem; margin: 0 0 6px; max-width: none; }
+ul.docs-cards p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+.docs-next {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  margin-top: var(--sp-block);
+}
+
+/* ---------- narrow ---------- */
+
+@media (max-width: 900px) {
+  .docs-shell {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+    width: min(var(--wrap), calc(100% - 40px));
+    padding-top: 28px;
+  }
+  .docs-nav {
+    position: static;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 22px;
+  }
+  .docs-nav ul { margin-bottom: 18px; }
+  .docs-article { max-width: none; }
+}
+
+/* Full-bleed screenshots on a phone: the window shot is the content, and 20px of
+   paper on each side shrinks it below readable. */
+@media (max-width: 560px) {
+  .docs-shot { margin-inline: -20px; }
+  .docs-shot button { border-radius: 0; border-left: 0; border-right: 0; }
+  .docs-shot figcaption { padding-inline: 20px; }
+}
