@@ -19,16 +19,18 @@
     { id: 'prepared-clinician', href: '/docs/prepared-clinician',   en: 'The prepared clinician',  es: 'El médico llega preparado' },
     { id: 'scan-to-register',   href: '/docs/scan-to-register',     en: 'Scan to register',        es: 'Registro por escaneo' },
     { id: 'record-handoff',     href: '/docs/health-record-handoff',en: 'Health-record handoff',   es: 'Envío a la historia clínica' },
-    { id: 'booking',            href: '/docs/booking-and-queue',    en: 'Booking and the queue',   es: 'Turnos y la cola' },
+    { id: 'booking',            href: '/docs/booking-and-queue',    en: 'Booking',                 es: 'Turnos' },
+    { id: 'staff-panel',        href: '/docs/staff-panel',          en: 'The desk and the panel',  es: 'La ventanilla y el panel' },
     { id: 'install',            href: '/docs/install',              en: 'Install',                 es: 'Instalación' },
-    { id: 'connectors',         href: '/docs/connectors',           en: 'Connectors',              es: 'Conectores' }
+    { id: 'connectors',         href: '/docs/connectors',           en: 'Connectors',              es: 'Conectores' },
+    { id: 'writing-connector',  href: '/docs/writing-a-connector',  en: 'Writing a connector',     es: 'Escribir un conector' }
   ];
 
   var GROUPS = [
     { en: '',                        es: '',                        items: ['index'] },
     { en: 'What makes it different', es: 'Lo que lo hace distinto', items: ['pre-consult', 'referral-orders', 'prepared-clinician', 'scan-to-register', 'record-handoff'] },
-    { en: 'Everyday use',            es: 'El día a día',            items: ['booking'] },
-    { en: 'Run it yourself',         es: 'Instalarlo',              items: ['install', 'connectors'] }
+    { en: 'Everyday use',            es: 'El día a día',            items: ['booking', 'staff-panel'] },
+    { en: 'Run it yourself',         es: 'Instalarlo',              items: ['install', 'connectors', 'writing-connector'] }
   ];
 
   function page(id) {
@@ -73,8 +75,8 @@
       en: 'Writes to the national health record, and survives it being down.',
       es: 'Escribe en la historia clínica nacional y aguanta que se caiga.' },
     { id: 'booking',
-      en: 'Search, slots, reminders, waitlist and the staff panel.',
-      es: 'Búsqueda, turnos, recordatorios, lista de espera y el panel.' }
+      en: 'Search, real slots, reminders, cancellation and the waitlist.',
+      es: 'Búsqueda, horarios reales, recordatorios, cancelación y lista de espera.' }
   ];
 
   var copy = {
@@ -200,67 +202,171 @@
       },
 
       booking: {
-        title: 'Booking and the queue',
-        lead: 'The parts every scheduling system has. They are listed here because they have to work, not because they are remarkable.',
+        title: 'Booking',
+        lead: 'How a patient gets an appointment, from the first three letters they type to the reminder the night before. Ordinary scheduling — written down because it is the part that has to be right every single day.',
         status: 'Live at the Pinamar installation.',
         body:
           shot('booking.png', 'The patient picking an appointment slot',
                'Real slots, nearest first, held for eight minutes while the patient finishes.') +
-          '<h2>For the patient</h2>' +
+          '<h2>Finding the service</h2>' +
+          '<p>The patient types what they are looking for, and the search answers from three letters on, across the hospital and every health centre at once. It matches on word roots, so <i>cardio</i> finds cardiology and <i>traumato</i> finds traumatology, and it searches specialties, service names and the professionals themselves.</p>' +
+          '<p>What it never does is invent an option. A service that is attended first-come-first-served is labelled as such and leads to its opening hours, not to a calendar. A service the installation does not offer says so and points at the ones it does.</p>' +
+          '<h2>Being offered a time</h2>' +
           '<ul>' +
-            '<li><b>Find a service by typing three letters</b>, across the hospital and every health centre, with stemming so a near miss still matches.</li>' +
-            '<li><b>Real slots, nearest first</b>, held for eight minutes so two people cannot take the same one.</li>' +
-            '<li><b>Book on the site, in a chat, or on WhatsApp</b> — the same booking, whichever door it came through.</li>' +
-            '<li><b>A reminder the day before</b>, by email and WhatsApp. Answering YES or NO confirms or cancels it.</li>' +
-            '<li><b>Sign up with a photo of the ID</b>, and coverage is looked up from the national registry rather than asked for.</li>' +
+            '<li><b>The slots are real.</b> They come from the professional’s own agenda, minus what is already taken, minus that day’s closures. Nothing is offered that the desk would then have to undo.</li>' +
+            '<li><b>Nearest first, grouped by day.</b> The patient sees the first date that exists and can walk forward from it.</li>' +
+            '<li><b>A chosen slot is held for eight minutes</b> while they finish. Two people cannot take the same time, and an abandoned booking releases the slot on its own.</li>' +
+            '<li><b>The first appointment shown is the first one, not the only one.</b> Every band that promises a time leads to a flow that can actually give it.</li>' +
           '</ul>' +
-          '<h2>For the desk</h2>' +
+          '<h2>Three doors, one appointment</h2>' +
+          '<p>A patient can book <b>on the site</b>, <b>in the chat</b> on the corner of the page, or <b>on WhatsApp</b> — the assistant asks the same questions and produces the same request. A conversation that starts on WhatsApp can be tied to the account already logged in on the site with a short code, so nobody dictates their ID number twice.</p>' +
+          '<p>Whichever door it came through, identity comes from the session, never from what the message says. Somebody who writes “I am booking for my mother” has to be logged in as the person who is allowed to.</p>' +
+          '<h2>The account</h2>' +
+          '<p>Signing up takes a photo of the identity document, front and back. The details are read from it, and health coverage is looked up in the national registry instead of being asked for. What the registry cannot answer stays editable by hand — no field is ever locked because a lookup failed. Detail: <a href="/docs/scan-to-register">Scan to register</a>.</p>' +
+          '<h2>Before the visit</h2>' +
           '<ul>' +
-            '<li><b>One queue</b> of requests, with the AI reading attached to each.</li>' +
-            '<li><b>Today’s patients</b>, doctor agendas, and a calendar that reflects the real one.</li>' +
-            '<li><b>A freed slot is re-offered automatically</b> to the next patient on the waitlist.</li>' +
-            '<li><b>Reports</b> on capacity, attendance and billing recovery.</li>' +
+            '<li><b>A confirmation the moment it is booked</b>, with the address of that particular centre, the date in words, and what to bring.</li>' +
+            '<li><b>Preparation instructions per service</b> — fasting, previous studies, arriving earlier — written once against the service, so they are the same on the site, in the email and at the desk.</li>' +
+            '<li><b>A reminder the day before</b>, by email and WhatsApp, that asks a yes-or-no question. Answering confirms it or cancels it; nothing else is required of the patient.</li>' +
           '</ul>' +
+          '<h2>Cancelling, and the waitlist</h2>' +
+          '<p>A patient can cancel from the email, from the reminder, or from their own account. A freed slot does not sit there: the next person on the waitlist for that service is offered it automatically, and the offer expires so it moves on to the next person if nobody takes it.</p>' +
+          '<p>Waitlists exist because the honest answer to “nothing until October” is not to send the patient away. They register once and get told when something opens.</p>' +
+          '<h2>When the answer is no</h2>' +
+          '<p>A refusal always carries the next concrete step, and the step is a link, not a homepage. An order that cannot be read gets the instruction to photograph it again with the parts that were missing named. A service with no availability gets the waitlist and the nearest centre that has one. A patient who already holds the maximum number of appointments gets shown the one they hold, with the option to move it.</p>' +
           '<h2>Two rules worth knowing</h2>' +
           '<p><b>Walk-in services never offer appointments.</b> If a service is first-come-first-served, no surface anywhere in the product will promise a time for it — the single exception is a same-day opening, which is capped at one day ahead.</p>' +
-          '<p><b>How many appointments a patient may hold at once is a number</b>, resolved per doctor, then per service, then per installation. It applies to what the patient books themselves, never to what the front desk books for them.</p>'
+          '<p><b>How many appointments a patient may hold at once is a number</b>, resolved per doctor, then per service, then per installation. Kinesiology ships at ten because a course of treatment is ten sessions; most services ship at one. It applies to what the patient books themselves, never to what the front desk books for them.</p>'
+      },
+
+      'staff-panel': {
+        title: 'The desk and the panel',
+        lead: 'One queue holds everything patients have asked for. The panel is where the decisions get made — the AI only arrives at them prepared.',
+        status: 'Live at the Pinamar installation.',
+        body:
+          '<h2>The queue</h2>' +
+          '<p>Every request lands in one list, oldest first, with the AI’s reading of the referral order already attached: what study it asks for, which specialty it belongs to, whether the professional’s signature and licence are there. The person at the desk approves, rejects, or edits and then approves.</p>' +
+          '<p>Approving does three things at once — it books the appointment, writes it to the health record, and emails the patient. If the health record is down, the first two still happen and the write is retried on its own.</p>' +
+          '<p>Rejecting picks a reason from a short curated list rather than typing free text, because the reason is what the patient reads, and it is what turns into the instruction for fixing it. The list is edited in the panel when a new reason turns out to be real.</p>' +
+          '<h2>Today’s patients</h2>' +
+          '<p>The day in one screen: who is coming, at what time, to which professional, with what coverage, and whether they answered the reminder. Anyone who arrives without an appointment is added here, so the list matches the waiting room rather than the calendar.</p>' +
+          '<h2>Agendas and the calendar</h2>' +
+          '<ul>' +
+            '<li><b>Each professional has an agenda</b>: days, hours, appointment length, which centre, which services.</li>' +
+            '<li><b>Exceptions are first-class</b> — a holiday, a training day, an afternoon that runs elsewhere. The patient site stops offering those times the moment they are entered.</li>' +
+            '<li><b>The calendar reflects the real one.</b> What the desk sees and what the patient can take are the same data, not two systems kept in sync by hand.</li>' +
+            '<li><b>A professional who leaves is disabled, never deleted</b>, whenever they have appointments — the history has to stay readable.</li>' +
+          '</ul>' +
+          '<h2>Who sees what</h2>' +
+          '<p>Five roles, and a new endpoint is closed to all of them until it is deliberately opened:</p>' +
+          '<ul>' +
+            '<li><b>Administrator</b> — everything, including users, services and settings.</li>' +
+            '<li><b>Front desk</b> — the queue, today’s patients, booking on someone’s behalf.</li>' +
+            '<li><b>Clinician</b> — their own agenda and their own patients, with the pre-consult interview and the record summary.</li>' +
+            '<li><b>Reports</b> — the numbers, and nothing identifying beyond what a report needs.</li>' +
+            '<li><b>Communications</b> — the public texts, the news entries and the site’s own copy.</li>' +
+          '</ul>' +
+          '<p>Login is a password plus, optionally, a second factor or a passkey. Sessions are the only source of identity anywhere in the product.</p>' +
+          '<h2>Reports</h2>' +
+          '<p>Each report answers one question and says the answer in a sentence before it draws anything: how much of the offered capacity was actually used, who did not show up and on which services, and how much of the care given to insured patients was never billed back to their insurer. That last one tends to pay for the installation.</p>' +
+          '<h2>Settings and system health</h2>' +
+          '<p>Languages, location, the site’s own texts, the AI instructions and the API keys are edited from the panel, without a redeploy. Keys are shown as present or missing, never printed back. A status screen says which integrations are actually answering right now — the health record, the coverage registry, WhatsApp, email, the AI provider — so “it is not working” has an address before anyone opens a terminal.</p>'
       },
 
       install: {
         title: 'Install',
-        lead: 'A container and a Postgres database. The first run opens a setup wizard that writes the installation’s own data package.',
+        lead: 'One container and a Postgres database. No queue, no cache, no worker fleet. The first run opens a setup wizard that writes the installation’s own data package.',
         body:
           '<h2>What you need</h2>' +
           '<ul>' +
-            '<li><b>Docker</b> and a <b>PostgreSQL</b> database.</li>' +
-            '<li>A domain, if the site is to be public.</li>' +
-            '<li>An <b>AI key</b>, only if you want the features that read paper or interview patients. Everything else runs without one.</li>' +
+            '<li><b>Docker</b> with the compose plugin, or Python 3.12 and Postgres 14 or newer on the host.</li>' +
+            '<li>A domain and a reverse proxy for TLS, if the site is to be public. The app itself speaks plain HTTP on one port.</li>' +
+            '<li>An <b>AI key</b>, only for the features that read paper, interview patients or summarise a record. Everything else runs without one.</li>' +
           '</ul>' +
           '<h2>Run it</h2>' +
           '<pre><code>git clone https://github.com/visualpharm/human-rounds\ncd human-rounds\ndocker compose up -d</code></pre>' +
           '<p>Open the site and the <b>setup wizard</b> takes over: it asks for the installation’s name, timezone, languages and first centre, and only writes to the database at the last step, so an abandoned setup leaves nothing behind.</p>' +
+          '<h2>What it costs to run</h2>' +
+          '<p>A small virtual machine is enough. The whole application is a <b>single process</b> that handles each request on its own thread, plus Postgres next to it — two vCPUs and 2 GB of memory carry a district-sized public network — one hospital and a handful of health centres — and the load that matters is measured in requests per minute, not per second. There is no Redis, no message broker, no Node service and no separate worker to deploy.</p>' +
+          '<p>Two operating-system packages are needed beyond Python: <code>poppler-utils</code>, to turn a referral order that arrives as a PDF into an image before the AI reads it, and <code>ffmpeg</code>. Three Python packages, all pinned. Nothing else is compiled.</p>' +
+          '<p>The only thing on disk that grows is what patients upload — photos and PDFs of referral orders. Put that directory on a volume you actually back up: the database can be restored from a dump, an uploaded order cannot.</p>' +
+          '<h2>What runs in the background</h2>' +
+          '<p>Inside that same process, a handful of small loops do the work nobody triggers: sending the day-before reminders, re-offering a freed slot to the waitlist, retrying appointments the health record refused, preparing record summaries ahead of the clinic, taking off-site backups, and watching whether the AI provider is answering. Each can be switched off with a setting, and each one failing degrades only itself.</p>' +
           '<h2>Your services and centres are a data package</h2>' +
-          '<p>Everything specific to one town — centres, services, professionals, specialties, preparation instructions — lives in a <b>data package</b> layered over a country package and a global one. Upgrading the software does not touch it, and a second installation is a second package rather than a fork.</p>' +
+          '<p>Everything specific to one town — centres, services, professionals, specialties, preparation instructions, the site’s own texts — lives in a <b>data package</b> layered over a country package and a global one. You only write what differs from the layer below. Upgrading the software does not touch it, and a second installation is a second package rather than a fork.</p>' +
+          '<h2>Upgrading</h2>' +
+          '<p>Pull and redeploy. The database migrates itself on boot, forward only, and refuses to run a migration twice. Your data package, your settings and your uploads are outside the image and survive the redeploy untouched. Take the database dump first anyway.</p>' +
           '<h2>Modules</h2>' +
-          '<p>Appointments are one module. The pre-consult interview is another. A module can be turned off in an installation that does not want it, and a new one plugs into the same platform core.</p>'
+          '<p>Appointments are one module. The pre-consult interview is another. A module can be turned off in an installation that does not want it, and a new one plugs into the same platform core — the core owns the account, the session, the roles and the data package, and a module owns its own routes and screens.</p>' +
+          '<h2>Configuration, and where it lives</h2>' +
+          '<p>Only the database connection has to be an environment variable. Everything the institution changes afterwards — languages, location, keys, the texts, the AI instructions — is edited from the panel and takes effect without a redeploy. Secrets are written, never read back: the panel reports a key as present or missing and nothing else.</p>'
       },
 
       connectors: {
         title: 'Connectors',
-        lead: 'Identity, coverage and health-record systems are different in every country. Each sits behind a small interface, so bringing a new country is a pull request instead of a fork.',
+        lead: 'Identity, coverage, health records and messaging are different in every country. Each sits behind a small interface, so bringing a new country is a pull request instead of a fork — and running with none of them still gives you a working appointment system.',
         body:
-          '<h2>What a connector covers</h2>' +
+          '<h2>The seven things a connector can be</h2>' +
           '<ul>' +
-            '<li><b>Identity</b> — reading a national ID document, and verifying it against a registry where one exists.</li>' +
+            '<li><b>Identity</b> — verifying a person against the national identity system.</li>' +
             '<li><b>Coverage</b> — which insurer or public scheme a patient belongs to.</li>' +
-            '<li><b>The health record</b> — writing appointments and reading a patient’s history.</li>' +
+            '<li><b>The health record</b> — writing appointments into the institution’s record system.</li>' +
+            '<li><b>Clinical history</b> — reading what already exists about this patient, including archives that predate the current system.</li>' +
             '<li><b>Professional registries</b> — confirming a licence number is real and active.</li>' +
-            '<li><b>Messaging</b> — whatever channel people in that country actually answer.</li>' +
+            '<li><b>Messaging</b> — the channel people in that country actually answer.</li>' +
+            '<li><b>External availability</b> — appointment slots that live in somebody else’s system.</li>' +
           '</ul>' +
+          '<p>Argentina ships with all of them wired. Below are the four an institution usually turns on first, and exactly what it has to obtain to do it.</p>' +
+          '<h2>Identity</h2>' +
+          '<p>Lets a patient log in as themselves, verified against the national identity provider, instead of a password you have to reset by phone.</p>' +
+          '<p><b>What the institution needs:</b> to be registered with the national identity provider as a relying party, which for Argentina means the municipality’s own agreement with the registry, not ours. That registration returns a client identifier and a secret, and takes the callback address of your installation. Three values in the settings panel, and the login button appears.</p>' +
+          '<p><b>Before you have it:</b> a test mode runs the entire login flow against synthetic identities with no network call, so the screens can be reviewed and demonstrated while the paperwork is in progress. <b>Without it:</b> password login stays on. The product will not let an installation end up with zero usable ways to log in.</p>' +
+          '<h2>Coverage</h2>' +
+          '<p>Answers “which insurer is this person in today” from the national registry, at the moment of registration and again at the moment of the appointment. It is what makes billing recovery possible, because the patient who says they have no coverage frequently does.</p>' +
+          '<p><b>What the institution needs:</b> nothing, to start. There is a public lookup that requires no credentials and is on by default. A service account for the ministry’s registry gives higher limits and a documented interface, and is worth requesting once the volume justifies it.</p>' +
+          '<p><b>Without it:</b> the patient types their insurer and membership number by hand, as they do today at every desk.</p>' +
+          '<h2>The health record</h2>' +
+          '<p>Pushes each approved appointment into the institution’s clinical record system, so the visit exists where the clinician actually works and not only in Human Rounds.</p>' +
+          '<p><b>What the institution needs:</b> the address of its record-system instance, a service user and password created inside it, and the institution’s own identifier there. The professionals and specialties you offer have to exist on that side too — that mapping is the real work, and it is done once.</p>' +
+          '<p><b>Without it, or when it is down:</b> approving still books the appointment and still emails the patient. The write is queued and retried on its own every few minutes, and a record system that is refusing is not hammered. Nothing a patient or a receptionist does is ever blocked by the record system being unavailable. It can also be switched off deliberately, which is what an installation evaluating the product does on day one.</p>' +
+          '<h2>WhatsApp</h2>' +
+          '<p>In much of the world this is the only channel a patient reliably reads. It carries the verification code when an account is created, the reminder the day before, and the booking conversation itself.</p>' +
+          '<p><b>Two ways to connect it.</b> A <b>self-hosted gateway</b> is a second container, a phone number, and a QR scanned once to pair it — no business verification, no message templates, and it is the path that works on the first afternoon. <b>Meta’s official cloud API</b> needs a business account, a verified number and an access token; it is more paperwork, it carries conversations rather than verification codes, and it is the durable option at scale.</p>' +
+          '<p><b>What the institution needs either way:</b> a phone number that belongs to the institution and not to a person, and a webhook address on your installation for inbound replies. That address stays closed — it returns nothing at all — until a shared secret is configured, so a half-finished setup never leaves an open endpoint.</p>' +
+          '<p><b>Without it:</b> everything falls back to email. Codes, confirmations and reminders are sent, just on a channel fewer patients open.</p>' +
+          '<h2>The rest</h2>' +
+          '<p>The professional-licence registry, the clinical-history archives and third-party availability follow the same shape: configured, they add a capability; unconfigured, the screen that used them simply does not offer that assistance. <b>Email</b> is not a connector but behaves like one — a domain and an API key, and without them the site never blocks, it just does not send.</p>' +
           '<h2>Degrading is part of the contract</h2>' +
-          '<p>A capability with no connector must leave the product usable. No registry means the field is typed by hand; no health record means appointments live only in Human Rounds. A country with none of these connectors still gets a working appointment system on day one.</p>' +
-          '<h2>What ships today</h2>' +
-          '<p>Argentina: the national ID barcode, the public coverage registry, the federal professional registry, and the national health record. Other countries are welcome — the interface is deliberately small enough to implement in an afternoon and grow later.</p>'
+          '<p>A capability with no connector must leave the product usable, and every connector ships with the test that proves it. No registry means the field is typed by hand. No record system means appointments live only here. A country with none of these connectors still gets a working appointment system on day one, and adds the rest as the agreements arrive.</p>'
+      },
+
+      'writing-connector': {
+        title: 'Writing a connector',
+        lead: 'A connector is a folder with a manifest and one class. If your country’s registry answers an HTTP call, this is an afternoon of work, not a fork of the project.',
+        body:
+          '<h2>The shape</h2>' +
+          '<p>A connector is a directory under <code>connectors/</code> containing three things: a manifest declaring what it is, an implementation that talks to the outside world, and a thin adapter implementing the capability’s interface. Nothing else in the codebase needs to know your country exists.</p>' +
+          '<pre><code>connectors/aadhaar/\n  connector.json   id, country, capability, config keys\n  aadhaar.py       the HTTP client\n  adapter.py       implements IdentityVerificationConnector</code></pre>' +
+          '<p>The manifest declares one capability out of the seven, a two-letter country code, and every configuration key the connector reads. That last list is what the panel and the command line use to report the connector as configured or not — key names are shown, values never are.</p>' +
+          '<h2>Six rules</h2>' +
+          '<ul>' +
+            '<li><b>Read the capability’s interface first; it is the specification.</b> Each one is a handful of methods with a docstring saying what “not configured”, “not found” and “provider unavailable” have to mean. Implement that, nothing wider.</li>' +
+            '<li><b>Fail with the shared errors.</b> Raise the framework’s own “not found” and “provider unavailable”, not a new exception type of your own. Every caller already handles those two, which is what makes your country work without touching their code.</li>' +
+            '<li><b>Ship a test mode.</b> A connector that can only be exercised against a live government endpoint cannot be tested, cannot be demonstrated, and cannot be reviewed. One flag, deterministic answers, no network. Every connector in the repository has one.</li>' +
+            '<li><b>Degrade, never crash.</b> Unconfigured has to leave the product usable, and the pull request has to contain the test that proves it. This is the single rule the reviewer will check hardest.</li>' +
+            '<li><b>Never print a secret.</b> Not in a log line, not in an error message, not in the status screen. Presence or absence is the whole reportable surface.</li>' +
+            '<li><b>One capability per connector.</b> A registry that answers both identity and coverage is two connectors sharing a client, not one connector with a flag.</li>' +
+          '</ul>' +
+          '<h2>What a pull request needs</h2>' +
+          '<ul>' +
+            '<li>The manifest, with its identifier equal to the directory name and a capability that actually exists.</li>' +
+            '<li>The adapter, delegating to the implementation rather than containing it.</li>' +
+            '<li>Three tests: the connector is discovered, the unconfigured case degrades as documented, and the test mode answers.</li>' +
+            '<li>A row in the connectors documentation, honest about what is real and what is a stub.</li>' +
+          '</ul>' +
+          '<h2>Be honest about wiring</h2>' +
+          '<p>The registry discovers connectors, enables them and holds their configuration. What it does not yet do everywhere is dispatch: several call sites in the Argentine stack still import their connector directly, because that code predates the interface. A new country that wants its identity provider on the login screen today therefore also needs a few lines of glue at the call site, following how Argentina does it.</p>' +
+          '<p>That is stated here rather than discovered later. Replacing those direct imports with a lookup through the registry is the next slice of work, and a pull request that does it for the capability you care about is welcome.</p>'
       }
     },
 
@@ -386,67 +492,171 @@
       },
 
       booking: {
-        title: 'Turnos y la cola',
-        lead: 'Lo que tiene cualquier sistema de turnos. Está listado porque tiene que funcionar, no porque sea notable.',
+        title: 'Turnos',
+        lead: 'Cómo un paciente consigue un turno, desde las primeras tres letras que tipea hasta el recordatorio de la noche anterior. Turnos comunes y corrientes, escritos acá porque es la parte que tiene que salir bien todos los días.',
         status: 'Funcionando en la instalación de Pinamar.',
         body:
           shot('booking.png', 'El paciente eligiendo un horario',
                'Horarios reales, el más cercano primero, reservados ocho minutos mientras el paciente termina.') +
-          '<h2>Para el paciente</h2>' +
+          '<h2>Encontrar el servicio</h2>' +
+          '<p>El paciente escribe lo que busca y la búsqueda contesta desde la tercera letra, en el hospital y en todos los centros de salud a la vez. Compara raíces de palabra, así <i>cardio</i> encuentra cardiología y <i>traumato</i> encuentra traumatología, y busca en especialidades, en nombres de servicio y en los profesionales.</p>' +
+          '<p>Lo que nunca hace es inventar una opción. Un servicio por orden de llegada aparece dicho así y lleva a los horarios de atención, no a un calendario. Un servicio que la instalación no ofrece lo dice y muestra los que sí.</p>' +
+          '<h2>Que le ofrezcan un horario</h2>' +
           '<ul>' +
-            '<li><b>Encontrar un servicio tipeando tres letras</b>, en el hospital y en todos los centros de salud, con raíces de palabra para que un casi-acierto igual encuentre.</li>' +
-            '<li><b>Horarios reales, el más cercano primero</b>, reservados ocho minutos para que dos personas no tomen el mismo.</li>' +
-            '<li><b>Sacar turno en el sitio, en un chat o por WhatsApp</b>: el mismo turno, por la puerta que entre.</li>' +
-            '<li><b>Un recordatorio el día antes</b>, por mail y por WhatsApp. Contestando SÍ o NO se confirma o se cancela.</li>' +
-            '<li><b>Crear la cuenta con una foto del DNI</b>, y la cobertura se busca en el registro nacional en vez de preguntarla.</li>' +
+            '<li><b>Los horarios son reales.</b> Salen de la agenda del profesional, menos lo ya tomado, menos los cierres de ese día. No se ofrece nada que después la ventanilla tenga que deshacer.</li>' +
+            '<li><b>El más cercano primero, agrupado por día.</b> El paciente ve la primera fecha que existe y desde ahí camina para adelante.</li>' +
+            '<li><b>El horario elegido queda reservado ocho minutos</b> mientras termina. Dos personas no pueden tomar el mismo, y un trámite abandonado libera el horario solo.</li>' +
+            '<li><b>El primer turno que se muestra es el primero, no el único.</b> Toda pantalla que promete un horario lleva a un flujo que de verdad puede darlo.</li>' +
           '</ul>' +
-          '<h2>Para el equipo</h2>' +
+          '<h2>Tres puertas, un mismo turno</h2>' +
+          '<p>Se puede sacar turno <b>en el sitio</b>, <b>en el chat</b> de la esquina de la página o <b>por WhatsApp</b>: el asistente hace las mismas preguntas y produce la misma solicitud. Una conversación que arranca en WhatsApp se ata con un código corto a la cuenta que ya está logueada en el sitio, así nadie dicta el número de documento dos veces.</p>' +
+          '<p>Entre por donde entre, la identidad sale de la sesión y nunca de lo que dice el mensaje. El que escribe «saco turno para mi mamá» tiene que estar logueado como alguien que puede hacerlo.</p>' +
+          '<h2>La cuenta</h2>' +
+          '<p>Registrarse es una foto del documento, frente y dorso. Los datos se leen de ahí y la cobertura se busca en el padrón nacional en vez de preguntarla. Lo que el padrón no contesta queda editable a mano: ningún campo se traba porque una consulta falló. Detalle: <a href="/docs/scan-to-register">Registro por escaneo</a>.</p>' +
+          '<h2>Antes de la consulta</h2>' +
           '<ul>' +
-            '<li><b>Una sola cola</b> de solicitudes, con la lectura de la IA pegada a cada una.</li>' +
-            '<li><b>Los pacientes de hoy</b>, las agendas de cada médico y un calendario que refleja el real.</li>' +
-            '<li><b>Un turno liberado se re-ofrece solo</b> al próximo paciente de la lista de espera.</li>' +
-            '<li><b>Reportes</b> de capacidad, asistencia y recupero de facturación.</li>' +
+            '<li><b>Una confirmación al momento</b>, con la dirección de ese centro en particular, la fecha en palabras y qué llevar.</li>' +
+            '<li><b>Preparación por servicio</b> —ayuno, estudios previos, llegar antes—, escrita una sola vez contra el servicio, así dice lo mismo en el sitio, en el mail y en la ventanilla.</li>' +
+            '<li><b>Un recordatorio el día antes</b>, por mail y por WhatsApp, que hace una pregunta de sí o no. Contestar confirma o cancela; al paciente no se le pide nada más.</li>' +
           '</ul>' +
+          '<h2>Cancelar y la lista de espera</h2>' +
+          '<p>Se cancela desde el mail, desde el recordatorio o desde la propia cuenta. Un turno liberado no queda ahí: se le ofrece automáticamente al próximo de la lista de espera de ese servicio, y la oferta vence para que siga al siguiente si nadie la toma.</p>' +
+          '<p>La lista de espera existe porque la respuesta honesta a «no hay nada hasta octubre» no es mandar al paciente a su casa. Se anota una vez y le avisan cuando se libera algo.</p>' +
+          '<h2>Cuando la respuesta es no</h2>' +
+          '<p>Un rechazo siempre trae el paso siguiente concreto, y el paso es un link, no la home. Una orden que no se pudo leer trae la indicación de volver a sacarle la foto, con las partes que faltaban dichas por su nombre. Un servicio sin disponibilidad trae la lista de espera y el centro más cercano que sí tiene. Un paciente que ya llegó al máximo de turnos ve el turno que tiene, con la opción de moverlo.</p>' +
           '<h2>Dos reglas que conviene saber</h2>' +
           '<p><b>Lo que es por orden de llegada nunca ofrece turno.</b> Si un servicio se atiende por demanda espontánea, ninguna pantalla del producto va a prometer un horario para eso; la única excepción es una apertura del mismo día, que no pasa de un día.</p>' +
-          '<p><b>Cuántos turnos puede tener un paciente a la vez es un número</b>, que se resuelve por médico, después por servicio y después por instalación. Aplica a lo que el paciente saca solo, nunca a lo que le carga la ventanilla.</p>'
+          '<p><b>Cuántos turnos puede tener un paciente a la vez es un número</b>, que se resuelve por médico, después por servicio y después por instalación. Kinesiología sale con diez porque un tratamiento son diez sesiones; casi todo lo demás sale con uno. Aplica a lo que el paciente saca solo, nunca a lo que le carga la ventanilla.</p>'
+      },
+
+      'staff-panel': {
+        title: 'La ventanilla y el panel',
+        lead: 'Una sola cola con todo lo que pidieron los pacientes. El panel es donde se toman las decisiones; la IA sólo llega preparada a ellas.',
+        status: 'Funcionando en la instalación de Pinamar.',
+        body:
+          '<h2>La cola</h2>' +
+          '<p>Cada solicitud cae en una sola lista, la más vieja primero, con la lectura de la orden ya hecha al lado: qué estudio pide, a qué especialidad corresponde, si están la firma y la matrícula del profesional. La persona de la ventanilla aprueba, rechaza, o corrige y aprueba.</p>' +
+          '<p>Aprobar hace tres cosas de una: da el turno, lo escribe en la historia clínica y le avisa al paciente. Si la historia clínica está caída, las dos primeras pasan igual y la escritura se reintenta sola.</p>' +
+          '<p>Rechazar elige un motivo de una lista corta y curada en vez de escribir texto libre, porque el motivo es lo que lee el paciente y es lo que se convierte en la instrucción para arreglarlo. La lista se edita en el panel cuando aparece un motivo nuevo que resulta ser real.</p>' +
+          '<h2>Los pacientes de hoy</h2>' +
+          '<p>El día en una pantalla: quién viene, a qué hora, con qué profesional, con qué cobertura y si contestó el recordatorio. El que llega sin turno se agrega acá, así la lista se parece a la sala de espera y no al calendario.</p>' +
+          '<h2>Agendas y calendario</h2>' +
+          '<ul>' +
+            '<li><b>Cada profesional tiene su agenda</b>: días, horarios, duración del turno, en qué centro, para qué servicios.</li>' +
+            '<li><b>Las excepciones son de primera clase</b>: un feriado, una capacitación, una tarde que se atiende en otro lado. El sitio deja de ofrecer esos horarios apenas se cargan.</li>' +
+            '<li><b>El calendario refleja el real.</b> Lo que ve la ventanilla y lo que puede tomar el paciente son el mismo dato, no dos sistemas sincronizados a mano.</li>' +
+            '<li><b>Un profesional que se va se deshabilita, nunca se elimina</b>, si tiene turnos: la historia tiene que quedar legible.</li>' +
+          '</ul>' +
+          '<h2>Quién ve qué</h2>' +
+          '<p>Cinco roles, y un endpoint nuevo queda cerrado para todos hasta que se abre a propósito:</p>' +
+          '<ul>' +
+            '<li><b>Administración</b>: todo, incluidos usuarios, servicios y configuración.</li>' +
+            '<li><b>Admisión</b>: la cola, los pacientes de hoy, sacar turno en nombre de alguien.</li>' +
+            '<li><b>Médico</b>: su propia agenda y sus propios pacientes, con la entrevista previa y el resumen de la historia.</li>' +
+            '<li><b>Reportes</b>: los números, y nada identificatorio más allá de lo que un reporte necesita.</li>' +
+            '<li><b>Comunicación</b>: los textos públicos, las novedades y lo que dice el sitio.</li>' +
+          '</ul>' +
+          '<p>Se entra con contraseña y, si se quiere, un segundo factor o una passkey. La sesión es la única fuente de identidad en todo el producto.</p>' +
+          '<h2>Reportes</h2>' +
+          '<p>Cada reporte contesta una pregunta y dice la respuesta en una oración antes de dibujar nada: cuánto de la capacidad ofrecida se usó de verdad, quién no vino y en qué servicios, y cuánta atención dada a pacientes con cobertura nunca se le facturó a la obra social. Ese último suele pagar la instalación.</p>' +
+          '<h2>Configuración y estado del sistema</h2>' +
+          '<p>Idiomas, ubicación, los textos del sitio, las instrucciones de la IA y las claves se editan desde el panel, sin volver a desplegar. Las claves se muestran como presentes o ausentes, nunca se imprimen. Una pantalla de estado dice qué integraciones están contestando ahora mismo —la historia clínica, el padrón de cobertura, WhatsApp, el mail, el proveedor de IA— así «no anda» tiene una dirección antes de que alguien abra una terminal.</p>'
       },
 
       install: {
         title: 'Instalación',
-        lead: 'Un contenedor y una base Postgres. El primer arranque abre un asistente que escribe el paquete de datos de la instalación.',
+        lead: 'Un contenedor y una base Postgres. Sin cola, sin caché, sin flota de workers. El primer arranque abre un asistente que escribe el paquete de datos de la instalación.',
         body:
           '<h2>Qué hace falta</h2>' +
           '<ul>' +
-            '<li><b>Docker</b> y una base <b>PostgreSQL</b>.</li>' +
-            '<li>Un dominio, si el sitio va a ser público.</li>' +
-            '<li>Una <b>clave de IA</b>, sólo si querés las funciones que leen papeles o entrevistan pacientes. Todo lo demás anda sin eso.</li>' +
+            '<li><b>Docker</b> con el plugin compose, o Python 3.12 y Postgres 14 o más nuevo en la máquina.</li>' +
+            '<li>Un dominio y un proxy inverso para el TLS, si el sitio va a ser público. La aplicación habla HTTP común en un puerto.</li>' +
+            '<li>Una <b>clave de IA</b>, sólo para las funciones que leen papeles, entrevistan pacientes o resumen una historia. Todo lo demás anda sin eso.</li>' +
           '</ul>' +
           '<h2>Levantarlo</h2>' +
           '<pre><code>git clone https://github.com/visualpharm/human-rounds\ncd human-rounds\ndocker compose up -d</code></pre>' +
           '<p>Abrís el sitio y toma el control el <b>asistente de instalación</b>: pregunta el nombre de la instalación, la zona horaria, los idiomas y el primer centro, y recién escribe en la base en el último paso, así un setup abandonado no deja nada.</p>' +
+          '<h2>Qué cuesta tenerlo prendido</h2>' +
+          '<p>Alcanza con una máquina virtual chica. Toda la aplicación es <b>un solo proceso</b> que atiende cada pedido en su propio hilo, más Postgres al lado: dos vCPU y 2 GB de memoria sostienen una red pública de un partido —un hospital y varios centros de salud— y la carga que importa se mide en pedidos por minuto, no por segundo. No hay Redis, ni broker de mensajes, ni servicio en Node, ni un worker aparte para desplegar.</p>' +
+          '<p>Hacen falta dos paquetes del sistema además de Python: <code>poppler-utils</code>, para convertir en imagen una orden que llega en PDF antes de que la lea la IA, y <code>ffmpeg</code>. Tres paquetes de Python, todos con versión fija. Nada más se compila.</p>' +
+          '<p>Lo único que crece en disco es lo que suben los pacientes: fotos y PDF de órdenes. Poné ese directorio en un volumen que realmente respaldes: la base se restaura de un dump, una orden subida no.</p>' +
+          '<h2>Qué corre de fondo</h2>' +
+          '<p>Dentro de ese mismo proceso, unos cuantos loops chicos hacen lo que nadie dispara: mandar los recordatorios del día antes, re-ofrecer un turno liberado a la lista de espera, reintentar los turnos que rechazó la historia clínica, preparar los resúmenes de historia antes del consultorio, sacar backups fuera de la máquina y mirar si el proveedor de IA está contestando. Cada uno se apaga con una opción, y si uno falla degrada sólo lo suyo.</p>' +
           '<h2>Tus servicios y centros son un paquete de datos</h2>' +
-          '<p>Todo lo propio de un pueblo —centros, servicios, profesionales, especialidades, preparaciones— vive en un <b>paquete de datos</b> apilado sobre uno de país y uno global. Actualizar el software no lo toca, y una segunda instalación es un segundo paquete, no un fork.</p>' +
+          '<p>Todo lo propio de un pueblo —centros, servicios, profesionales, especialidades, preparaciones, los textos del sitio— vive en un <b>paquete de datos</b> apilado sobre uno de país y uno global. Sólo escribís lo que difiere de la capa de abajo. Actualizar el software no lo toca, y una segunda instalación es un segundo paquete, no un fork.</p>' +
+          '<h2>Actualizar</h2>' +
+          '<p>Traés los cambios y volvés a desplegar. La base se migra sola al arrancar, sólo hacia adelante, y se niega a correr dos veces la misma migración. Tu paquete de datos, tu configuración y lo subido viven afuera de la imagen y sobreviven intactos. Igual sacá el dump antes.</p>' +
           '<h2>Módulos</h2>' +
-          '<p>Los turnos son un módulo. La entrevista previa es otro. Un módulo se puede apagar en una instalación que no lo quiere, y uno nuevo se enchufa al mismo núcleo.</p>'
+          '<p>Los turnos son un módulo. La entrevista previa es otro. Un módulo se puede apagar en una instalación que no lo quiere, y uno nuevo se enchufa al mismo núcleo: el núcleo es dueño de la cuenta, la sesión, los roles y el paquete de datos, y el módulo es dueño de sus rutas y sus pantallas.</p>' +
+          '<h2>La configuración y dónde vive</h2>' +
+          '<p>Sólo la conexión a la base tiene que ser una variable de entorno. Todo lo que la institución cambia después —idiomas, ubicación, claves, los textos, las instrucciones de la IA— se edita desde el panel y tiene efecto sin volver a desplegar. Los secretos se escriben, no se leen: el panel dice si una clave está o no está, y nada más.</p>'
       },
 
       connectors: {
         title: 'Conectores',
-        lead: 'Los sistemas de identidad, cobertura e historia clínica son distintos en cada país. Cada uno vive detrás de una interfaz chica, así sumar un país es un pull request y no un fork.',
+        lead: 'Identidad, cobertura, historia clínica y mensajería son distintos en cada país. Cada uno vive detrás de una interfaz chica, así sumar un país es un pull request y no un fork; y andar sin ninguno igual te deja un sistema de turnos funcionando.',
         body:
-          '<h2>Qué cubre un conector</h2>' +
+          '<h2>Las siete cosas que puede ser un conector</h2>' +
           '<ul>' +
-            '<li><b>Identidad</b>: leer el documento nacional y, donde exista, verificarlo contra un registro.</li>' +
+            '<li><b>Identidad</b>: verificar a una persona contra el sistema nacional de identidad.</li>' +
             '<li><b>Cobertura</b>: a qué obra social o sistema público pertenece el paciente.</li>' +
-            '<li><b>La historia clínica</b>: escribir turnos y leer los antecedentes.</li>' +
+            '<li><b>La historia clínica</b>: escribir los turnos en el sistema de registro de la institución.</li>' +
+            '<li><b>Antecedentes</b>: leer lo que ya existe de ese paciente, incluidos archivos anteriores al sistema actual.</li>' +
             '<li><b>Registros profesionales</b>: confirmar que una matrícula existe y está activa.</li>' +
             '<li><b>Mensajería</b>: el canal que la gente de ese país realmente contesta.</li>' +
+            '<li><b>Disponibilidad externa</b>: turnos que viven en el sistema de otro.</li>' +
           '</ul>' +
+          '<p>Argentina viene con los siete cableados. Abajo están los cuatro que una institución suele prender primero, y exactamente qué tiene que conseguir para hacerlo.</p>' +
+          '<h2>Identidad</h2>' +
+          '<p>Deja que el paciente entre como él mismo, verificado contra el proveedor nacional de identidad, en vez de una contraseña que después hay que resetear por teléfono.</p>' +
+          '<p><b>Qué necesita la institución:</b> estar registrada ante el proveedor nacional de identidad, que en Argentina es el trámite del municipio con el registro, no nuestro. Ese registro devuelve un identificador de cliente y un secreto, y toma la dirección de retorno de tu instalación. Tres valores en el panel de configuración y aparece el botón de ingreso.</p>' +
+          '<p><b>Mientras no lo tenés:</b> un modo de prueba corre todo el flujo de ingreso contra identidades sintéticas, sin salir a la red, así las pantallas se revisan y se muestran mientras el papeleo avanza. <b>Sin esto:</b> queda el ingreso con contraseña. El producto no deja que una instalación se quede sin ninguna forma de entrar.</p>' +
+          '<h2>Cobertura</h2>' +
+          '<p>Contesta «en qué obra social está hoy esta persona» desde el padrón nacional, al registrarse y otra vez al momento del turno. Es lo que hace posible el recupero, porque el paciente que dice no tener cobertura muchas veces la tiene.</p>' +
+          '<p><b>Qué necesita la institución:</b> nada, para empezar. Hay una consulta pública que no pide credenciales y viene prendida. Una cuenta de servicio en el padrón del ministerio da más límite y una interfaz documentada, y conviene pedirla cuando el volumen lo justifica.</p>' +
+          '<p><b>Sin esto:</b> el paciente tipea su obra social y su número de afiliado a mano, como hace hoy en cualquier ventanilla.</p>' +
+          '<h2>La historia clínica</h2>' +
+          '<p>Empuja cada turno aprobado al sistema de registro clínico de la institución, para que la consulta exista donde el médico trabaja de verdad y no sólo en Human Rounds.</p>' +
+          '<p><b>Qué necesita la institución:</b> la dirección de su instancia, un usuario de servicio con su contraseña creado ahí adentro, y el identificador propio de la institución en ese sistema. Los profesionales y las especialidades que ofrecés tienen que existir también de aquel lado: ese mapeo es el trabajo real, y se hace una sola vez.</p>' +
+          '<p><b>Sin esto, o cuando se cae:</b> aprobar igual da el turno e igual le avisa al paciente. La escritura queda encolada y se reintenta sola cada pocos minutos, y a un sistema que está rechazando no se lo martilla. Nada de lo que hace un paciente o una recepcionista se traba porque la historia clínica no esté. También se puede apagar a propósito, que es lo que hace el primer día una institución que está evaluando el producto.</p>' +
+          '<h2>WhatsApp</h2>' +
+          '<p>En buena parte del mundo es el único canal que el paciente lee de verdad. Lleva el código de verificación al crear la cuenta, el recordatorio del día antes y la propia conversación para sacar turno.</p>' +
+          '<p><b>Dos maneras de conectarlo.</b> Una <b>pasarela propia</b> es un segundo contenedor, un número de teléfono y un QR escaneado una vez para vincularlo: sin verificación de empresa, sin plantillas de mensaje, y es el camino que funciona la primera tarde. La <b>API oficial de Meta</b> pide una cuenta de empresa, un número verificado y un token de acceso; es más papeleo, lleva conversaciones y no códigos de verificación, y es la opción duradera a escala.</p>' +
+          '<p><b>Qué necesita la institución en cualquiera de los dos casos:</b> un número de teléfono que sea de la institución y no de una persona, y una dirección de webhook en tu instalación para las respuestas que entran. Esa dirección queda cerrada —no devuelve absolutamente nada— hasta que se configura un secreto compartido, así una instalación a medio hacer nunca deja un endpoint abierto.</p>' +
+          '<p><b>Sin esto:</b> todo cae al mail. Códigos, confirmaciones y recordatorios salen igual, sólo que por un canal que abren menos pacientes.</p>' +
+          '<h2>Lo demás</h2>' +
+          '<p>El registro de matrículas, los archivos de historia clínica y la disponibilidad de terceros siguen la misma forma: configurados suman una capacidad; sin configurar, la pantalla que los usaba simplemente no ofrece esa ayuda. El <b>mail</b> no es un conector pero se comporta como uno: un dominio y una clave, y sin eso el sitio nunca se traba, solamente no manda.</p>' +
           '<h2>Degradar es parte del contrato</h2>' +
-          '<p>Una capacidad sin conector tiene que dejar el producto usable. Sin registro, el campo se tipea a mano; sin historia clínica, los turnos viven sólo en Human Rounds. Un país sin ninguno de estos conectores igual tiene un sistema de turnos andando desde el primer día.</p>' +
-          '<h2>Qué viene hecho</h2>' +
-          '<p>Argentina: el código de barras del DNI, el padrón público de cobertura, el registro federal de profesionales y la historia clínica nacional. Otros países son bienvenidos: la interfaz es a propósito lo bastante chica como para implementarla en una tarde y ampliarla después.</p>'
+          '<p>Una capacidad sin conector tiene que dejar el producto usable, y cada conector viene con el test que lo demuestra. Sin padrón, el campo se tipea a mano. Sin sistema de registro, los turnos viven sólo acá. Un país sin ninguno de estos conectores igual tiene un sistema de turnos andando desde el primer día, y suma el resto a medida que llegan los acuerdos.</p>'
+      },
+
+      'writing-connector': {
+        title: 'Escribir un conector',
+        lead: 'Un conector es una carpeta con un manifiesto y una clase. Si el registro de tu país contesta una llamada HTTP, esto es una tarde de trabajo, no un fork del proyecto.',
+        body:
+          '<h2>La forma</h2>' +
+          '<p>Un conector es un directorio dentro de <code>connectors/</code> con tres cosas: un manifiesto que declara qué es, una implementación que habla con el mundo exterior y un adaptador finito que implementa la interfaz de la capacidad. Nada más en el código necesita enterarse de que tu país existe.</p>' +
+          '<pre><code>connectors/aadhaar/\n  connector.json   id, país, capacidad, claves de configuración\n  aadhaar.py       el cliente HTTP\n  adapter.py       implementa IdentityVerificationConnector</code></pre>' +
+          '<p>El manifiesto declara una capacidad de las siete, un código de país de dos letras y todas las claves de configuración que el conector lee. Esa última lista es lo que usan el panel y la línea de comandos para decir si el conector está configurado o no: los nombres de las claves se muestran, los valores nunca.</p>' +
+          '<h2>Seis reglas</h2>' +
+          '<ul>' +
+            '<li><b>Leé primero la interfaz de la capacidad: es la especificación.</b> Cada una son unos pocos métodos con un comentario que dice qué tienen que significar «sin configurar», «no encontrado» y «proveedor caído». Implementá eso y nada más ancho.</li>' +
+            '<li><b>Fallá con los errores compartidos.</b> Levantá el «no encontrado» y el «proveedor caído» del framework, no un tipo de excepción nuevo tuyo. Todos los que llaman ya manejan esos dos, y eso es lo que hace que tu país funcione sin tocar el código de nadie.</li>' +
+            '<li><b>Traé un modo de prueba.</b> Un conector que sólo se puede ejercitar contra un endpoint estatal en vivo no se puede testear, ni mostrar, ni revisar. Una bandera, respuestas deterministas, cero red. Todos los conectores del repositorio tienen uno.</li>' +
+            '<li><b>Degradá, no revientes.</b> Sin configurar tiene que dejar el producto usable, y el pull request tiene que traer el test que lo demuestra. Es la regla que el revisor va a mirar más fuerte.</li>' +
+            '<li><b>Nunca imprimas un secreto.</b> Ni en un log, ni en un mensaje de error, ni en la pantalla de estado. Que esté o no esté es toda la superficie reportable.</li>' +
+            '<li><b>Una capacidad por conector.</b> Un registro que contesta identidad y cobertura son dos conectores compartiendo un cliente, no un conector con una bandera.</li>' +
+          '</ul>' +
+          '<h2>Qué tiene que traer un pull request</h2>' +
+          '<ul>' +
+            '<li>El manifiesto, con el identificador igual al nombre del directorio y una capacidad que exista.</li>' +
+            '<li>El adaptador, delegando en la implementación en vez de contenerla.</li>' +
+            '<li>Tres tests: que el conector se descubre, que el caso sin configurar degrada como está documentado y que el modo de prueba contesta.</li>' +
+            '<li>Una fila en la documentación de conectores, honesta sobre qué es real y qué es un stub.</li>' +
+          '</ul>' +
+          '<h2>Sé honesto con el cableado</h2>' +
+          '<p>El registro descubre conectores, los habilita y guarda su configuración. Lo que todavía no hace en todos lados es despachar: varios puntos del stack argentino siguen importando su conector directo, porque ese código es anterior a la interfaz. Un país nuevo que quiera hoy su proveedor de identidad en la pantalla de ingreso necesita además unas líneas de pegamento en el punto de llamada, siguiendo cómo lo hace Argentina.</p>' +
+          '<p>Está dicho acá y no se descubre después. Reemplazar esos imports directos por una búsqueda en el registro es la próxima tanda de trabajo, y un pull request que lo haga para la capacidad que te importa es bienvenido.</p>'
       }
     }
   };
