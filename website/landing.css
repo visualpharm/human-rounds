@@ -216,7 +216,9 @@ strong { font-weight: 700; }
   padding: 28px 26px 30px;
   transition: background .15s ease;
 }
-.system-flow--tiles li:hover { background: rgba(26, 23, 18, .025); }
+/* Hover feedback only where the tile actually leads somewhere: its title is the
+   link, so a tile without one must stay flat (Ivan, 2026-08-04). */
+.system-flow--tiles li:has(a):hover { background: rgba(26, 23, 18, .025); }
 .flow-rail {
   position: relative;
   display: flex;
@@ -235,7 +237,7 @@ strong { font-weight: 700; }
   font-family: "IBM Plex Mono", monospace;
   font-size: .82rem;
 }
-.system-flow--tiles li:hover .flow-num {
+.system-flow--tiles li:has(a):hover .flow-num {
   border-color: var(--accent-deep);
   color: var(--accent-deep);
 }
@@ -410,7 +412,7 @@ strong { font-weight: 700; }
   border-radius: 8px;
   transition: background .12s ease;
 }
-.kanban-cards li:hover { background: rgba(26, 23, 18, .04); }
+.kanban-cards li:has(a):hover { background: rgba(26, 23, 18, .04); }
 .task-glyph {
   width: 11px;
   height: 11px;
@@ -816,7 +818,7 @@ strong { font-weight: 700; }
   gap: 12px;
   transition: background .15s ease;
 }
-.invite-card:hover { background: rgba(26, 23, 18, .025); }
+
 .invite-role {
   display: flex;
   align-items: center;
