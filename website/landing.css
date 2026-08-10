@@ -908,31 +908,25 @@ strong { font-weight: 700; }
 
 /* A feature title that leads to its documentation page. One treatment for every
    one of them — the flow tiles and the roadmap cards — so the affordance reads
-   the same wherever a feature is named, without turning the whole roadmap red. */
+   the same wherever a feature is named, without turning the whole roadmap red.
+   Link affordance is COLOR only — never underlined (Ivan, 2026-08-07). */
 .system-flow h3 a,
 .kanban-cards h4 a {
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-color: var(--line);
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
+  color: var(--accent-deep);
 }
 .system-flow h3 a:hover,
 .kanban-cards h4 a:hover {
-  color: var(--accent-deep);
-  text-decoration-color: currentColor;
+  color: var(--accent);
 }
 
-/* Links inside running prose stay accent-coloured and underlined, so a sentence
-   that mentions a capability reads as a sentence with links in it. */
+/* Links inside running prose are accent-coloured — a sentence that mentions a
+   capability reads as a sentence with links in it. Never underlined. */
 .hero-lead a,
 .updates-item a {
-  text-decoration: underline;
-  text-decoration-color: color-mix(in oklch, var(--accent-deep) 38%, transparent);
-  text-underline-offset: 3px;
+  color: var(--accent-deep);
 }
 .hero-lead a:hover,
-.updates-item a:hover { text-decoration-color: currentColor; }
+.updates-item a:hover { color: var(--accent); }
 
 /* Six nav items since Docs joined the menu — a small laptop needs the tighter
    gap earlier than the 900px tier gives it, or the header runs into the brand. */
