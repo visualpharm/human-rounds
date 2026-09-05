@@ -1,6 +1,6 @@
 /* Shared public footer for the project site and the demo hub.
 
-   The footer carries LEGAL and credit only. It deliberately does not repeat the
+   The footer carries legal links and related projects. It does not repeat the
    header menu (GitHub, the Pinamar Turnos reference) and does not carry a
    language link, because the header already has the language toggle
    (Ivan, 2026-08-01: "don't copy the menu basically there"). */
@@ -20,6 +20,12 @@
           '<a href="/data-deletion">' + (es ? 'Borrar datos' : 'Data deletion') + '</a>' +
           '<a href="/terms">' + (es ? 'Términos' : 'Terms') + '</a>' +
           '<a href="' + GITHUB + '/blob/main/LICENSE" rel="noopener">' + (es ? 'Licencia' : 'License') + '</a>' +
+        '</nav>' +
+        '<nav class="public-footer__projects" aria-label="' + (es ? 'Otros proyectos' : 'Other projects') + '">' +
+          '<a href="https://usabruno.com">Bruno</a>' +
+          '<a href="https://lira-voice.app">Lira</a>' +
+          '<a href="https://inglesconjenny.vercel.app">Inglés con Jenny</a>' +
+          '<a href="https://finda-capital.com">Finda Capital</a>' +
         '</nav>' +
       '</div>';
   }
