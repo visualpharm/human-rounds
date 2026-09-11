@@ -416,7 +416,20 @@
       toggle.setAttribute('aria-label', lang === 'en' ? 'Cambiar a español' : 'Switch to English');
     }
     try { localStorage.setItem('human-rounds-language', lang); } catch {}
+    syncDemoLinks(lang);
     window.dispatchEvent(new CustomEvent('human-rounds:language', { detail: { lang: lang } }));
+  }
+
+  /* The demo (demo.humanrounds.org) opens in the language the visitor is
+     reading here: every demo link carries `?lang=`, which the demo turns
+     into its own language cookie. Rewritten on every switch. */
+  function syncDemoLinks(lang) {
+    var links = document.querySelectorAll('a[href^="https://demo.humanrounds.org"]');
+    for (var i = 0; i < links.length; i++) {
+      var url = new URL(links[i].getAttribute('href'));
+      url.searchParams.set('lang', lang);
+      links[i].setAttribute('href', url.toString());
+    }
   }
 
   function initialLanguage() {

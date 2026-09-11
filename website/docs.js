@@ -100,7 +100,7 @@
           '<p>It is <b>not a diagnosis engine</b>. Every AI output is a proposal a person approves, rejects or edits, and the existing medical record stays the source of truth. Triage rules can escalate a patient, never downgrade one.</p>' +
           '<p>It is <b>not measured yet</b>. Nothing here claims a change in waiting times, absenteeism or cost — the platform has not run long enough anywhere to have that data.</p>' +
           '<h2>Try it or run it</h2>' +
-          '<p>The <a href="https://demo.humanrounds.org/">live demo</a> is a full installation of a fictional town, rebuilt every day. To put it on your own machine, start with <a href="/docs/install">Install</a>. The code is on <a href="https://github.com/visualpharm/human-rounds" rel="noopener">GitHub</a>.</p>'
+          '<p>The <a href="https://demo.humanrounds.org/?lang=en">live demo</a> is a full installation of a fictional town, rebuilt every day. To put it on your own machine, start with <a href="/docs/install">Install</a>. The code is on <a href="https://github.com/visualpharm/human-rounds" rel="noopener">GitHub</a>.</p>'
       },
 
       'pre-consult': {
@@ -390,7 +390,7 @@
           '<p><b>No diagnostica.</b> Todo lo que sale de la IA es una propuesta que una persona aprueba, rechaza o corrige, y la historia clínica sigue siendo la fuente de verdad. Las reglas de triage pueden subir la urgencia de un paciente, nunca bajarla.</p>' +
           '<p><b>Todavía no está medido.</b> Acá no vas a encontrar una mejora en tiempos de espera, ausentismo ni costos: el sistema no lleva el tiempo suficiente en ningún lado como para tener ese dato.</p>' +
           '<h2>Probalo o instalalo</h2>' +
-          '<p>La <a href="https://demo.humanrounds.org/">demo</a> es una instalación completa de un pueblo ficticio, que se regenera todos los días. Para levantarlo en tu máquina, empezá por <a href="/docs/install">Instalación</a>. El código está en <a href="https://github.com/visualpharm/human-rounds" rel="noopener">GitHub</a>.</p>'
+          '<p>La <a href="https://demo.humanrounds.org/?lang=es">demo</a> es una instalación completa de un pueblo ficticio, que se regenera todos los días. Para levantarlo en tu máquina, empezá por <a href="/docs/install">Instalación</a>. El código está en <a href="https://github.com/visualpharm/human-rounds" rel="noopener">GitHub</a>.</p>'
       },
 
       'pre-consult': {
