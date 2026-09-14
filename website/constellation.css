@@ -406,3 +406,25 @@
 @media (max-width: 390px) {
   .const-hub { padding: 14px 12px; }
 }
+
+/* The lit scene supplies depth; label faces stay sharp and selectable by AT. */
+.const-webgl { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.has-webgl .const-edges,.has-webgl .const-sphere-shade { display:none; }
+.has-webgl .const-hub { top:calc(50% + 57px); padding:5px 8px; border:0; box-shadow:none; background:transparent; backdrop-filter:none; width:180px; }
+.has-webgl .sphere-node { filter:none; }
+.has-webgl .ichip-logo { filter:drop-shadow(2px 4px 2px rgba(58,37,16,.20)); }
+.const-country-select { font-size:16px; min-height:44px; max-width:100%; }
+
+.has-webgl .const-outcome { display:none; }
+.has-webgl .cap-label,.has-webgl .ichip-label { font-size:13px; }
+.has-webgl .cap-note,.has-webgl .ichip-note { font-size:13px; }
+
+.has-webgl .cchip-icon,.has-webgl .cchip-dot { display:none; }
+.has-webgl .cchip-label,.has-webgl .ichip-label { font:500 16px/1.2 Manrope,sans-serif; max-height:none; }
+.has-webgl .cchip-note,.has-webgl .ichip-note { font-size:13px; max-height:none; }
+.has-webgl .const-hub { top:auto; bottom:5px; transform:translateX(-50%); width:240px; }
+
+
+.has-webgl .const-hub { bottom:-12px; }
+.product-proof:has(.has-webgl) .const-switcher { margin:24px 0 4px; }
+@media(max-width:620px) { .const-figure.has-webgl { height:340px; } }

@@ -915,7 +915,8 @@
     // here (not per frame) and seeded into the occlusion pass — a chip that
     // wanders under the card gives way to it like it would to any nearer node.
     if (hubEl) {
-      hubBox = { w: hubEl.offsetWidth, h: hubEl.offsetHeight };
+      var hubRect = hubEl.getBoundingClientRect(), figRect = figureEl.getBoundingClientRect();
+      hubBox = { w: hubRect.width, h: hubRect.height, x: hubRect.left - figRect.left + hubRect.width / 2, y: hubRect.top - figRect.top + hubRect.height / 2 };
     }
     if (outcomesEl && outcomesEl.firstChild) measureOutcomes();
     // Backdrop always tracks the live sphere radius so it reads as a globe
@@ -941,6 +942,10 @@
   };
   function nodeBox(node) {
     var s = node.pscale || 1;
+    if (active3d) {
+      var label = node.el && node.el.querySelector(".cchip-label,.ichip-label");
+      return { w: Math.max(80, label ? label.textContent.length * 8 : 80) * s, h: 58 * s };
+    }
     // Quotes are free text of wildly different lengths, and they are the ones
     // that actually collide, so they get a real measurement (taken once per
     // text change, never inside the loop) instead of an estimate.
@@ -973,7 +978,8 @@
   // The winner is the nearer node; ties break on the outcome's own priority.
   function applyOcclusion() {
     var drawn = [];
-    if (hubBox) drawn.push({ x: centerX, y: centerY, w: hubBox.w, h: hubBox.h });
+    if (active3d) drawn.push({ x: centerX, y: centerY, w: 90, h: 90 });
+    if (hubBox) drawn.push({ x: hubBox.x, y: hubBox.y, w: hubBox.w, h: hubBox.h });
     var order = nodeList.slice().sort(function (a, b) {
       var da = a.pd == null ? -1 : a.pd, db = b.pd == null ? -1 : b.pd;
       if (db !== da) return db - da;
@@ -1002,7 +1008,9 @@
       // Eased so a node crossing another doesn't strobe on rotation.
       node.occl += (target - node.occl) * 0.14;
       var op = opacityFor(node.pd) * node.occl;
-      node.el.style.opacity = op.toFixed(2);
+      node.el.style.opacity = active3d ? (op > 0.65 ? "1" : "0") : op.toFixed(2);
+      node.el.style.visibility = active3d && op <= 0.65 ? "hidden" : "";
+      node.el.style.pointerEvents = active3d && op <= 0.65 ? "none" : "";
       // Only a node you can actually read blocks the one behind it. Without
       // this a ghost at 4% opacity would push a legible label out of the way
       // and leave that patch of the sphere empty for no visible reason.
@@ -1010,6 +1018,7 @@
     }
   }
 
+  var graph3d = null, active3d = false;
   function frame(now) {
     if (!visible) { rafId = null; return; }
     var dt = lastFrameTime == null ? 16 : Math.min(now - lastFrameTime, 48);
@@ -1039,6 +1048,8 @@
     var effYaw = yaw + pointerYawOffset;
     var effPitch = clamp(pitch + pointerPitchOffset, -(PITCH_CLAMP + PARALLAX_PITCH_RANGE), PITCH_CLAMP + PARALLAX_PITCH_RANGE);
 
+    var use3d = graph3d && graph3d.render(effYaw, effPitch, figW, figH);
+    if (active3d !== !!use3d) { active3d = !!use3d; updateFigureRect(); }
     for (var i = 0; i < nodeList.length; i++) {
       var node = nodeList[i];
       var r = rotateUnit(node.unit, effYaw, effPitch);
@@ -1061,6 +1072,11 @@
         sy = clamp(sy, my, figH - my);
       }
 
+      if (use3d) {
+        var projected = graph3d.project(node);
+        sx = projected.x; sy = projected.y + (node.kind === "out" ? 0 : 22);
+        d = clamp(projected.depth, 0, 1); scale = .7 + .3 * d;
+      }
       var rx = 0, ry = 0;
       if (node.recoilStart) {
         var rt = now - node.recoilStart;
@@ -1158,6 +1174,10 @@
   }
 
   function initSphereEngine() {
+    import("/web/constellation-3d.min.js?v=1").then(function (module) {
+      graph3d = module.createGraph(figureEl, nodeList);
+      updateFigureRect();
+    }).catch(function () { /* Keep the readable DOM graph when WebGL is unavailable. */ });
     if (reduceMotion) { yaw = 20 * DEG; pitch = -8 * DEG; yawVel = 0; pitchVel = 0; }
 
     updateFigureRect();
@@ -1167,7 +1187,7 @@
       window.addEventListener('resize', updateFigureRect);
     }
 
-    figureEl.style.touchAction = 'none';
+    figureEl.style.touchAction = 'pan-y';
     figureEl.addEventListener('pointerdown', onPointerDown);
     figureEl.addEventListener('pointermove', onPointerMove);
     figureEl.addEventListener('pointerup', endDrag);
