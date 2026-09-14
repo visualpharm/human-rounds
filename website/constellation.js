@@ -1379,7 +1379,11 @@
     // Same animated sphere at every width, including mobile — see
     // AUTO_YAW_SPEED_MOBILE above for the ambient drift that replaces hover
     // on touch devices.
-    initSphereEngine();
+    import("/web/network-player.js?v=1").then(function (module) { module.mount(figureEl, nodeList); }).catch(function () {
+      figureEl.replaceChildren();
+      var poster = document.createElement("img"); poster.src = "/web/health-network-poster.png?v=1"; poster.alt = "The three-dimensional health network"; poster.style.cssText = "width:100%;height:100%;object-fit:contain";
+      figureEl.appendChild(poster);
+    });
 
     window.addEventListener('human-rounds:language', refreshLanguageDependentText);
   }
