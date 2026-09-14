@@ -13,15 +13,15 @@
   <meta property="og:image" content="https://humanrounds.org/web/human-rounds-public-preview.png?v=4">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://humanrounds.org/">
-  <link rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: dark)" href="/web/human-rounds-mark-32-dark.png?v=4">
-  <link rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: light)" href="/web/human-rounds-mark-32.png?v=4">
-  <link rel="apple-touch-icon" href="/web/human-rounds-mark-180.png?v=4">
+  <link rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: dark)" href="/web/human-rounds-mark-32-dark.png?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: light)" href="/web/human-rounds-mark-32.png?v=2">
+  <link rel="apple-touch-icon" href="/web/human-rounds-mark-180.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/web/landing.css?v=21">
-  <link rel="stylesheet" href="/web/constellation.css?v=13">
-  <link rel="stylesheet" href="/web/public-footer.css?v=8">
+  <link rel="stylesheet" href="/web/landing.css?v=19">
+  <link rel="stylesheet" href="/web/constellation.css?v=15">
+  <link rel="stylesheet" href="/web/public-footer.css?v=7">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,7 +39,7 @@
 <body>
   <header class="site-header site-header--bilingual">
     <a class="brand" href="/" aria-label="Human Rounds home">
-      <img src="/web/human-rounds-mark.png?v=1" alt="" width="55" height="55">
+      <img src="/web/human-rounds-mark.png?v=2" alt="" width="55" height="55">
       <span>Human Rounds</span>
     </a>
     <nav class="site-nav" aria-label="Primary navigation">
@@ -51,7 +51,18 @@
       <a href="https://github.com/visualpharm/human-rounds/issues/new" rel="noopener" data-i18n="navContact">Contact</a>
     </nav>
     <nav class="site-actions" aria-label="Language">
-      <button class="language-toggle" type="button" data-language-toggle>Español</button>
+      <select class="language-select" data-language-select aria-label="Language">
+          <option value="en" lang="en">English</option>
+          <option value="es" lang="es">Español</option>
+          <option value="pt" lang="pt">Português</option>
+          <option value="fr" lang="fr">Français</option>
+          <option value="it" lang="it">Italiano</option>
+          <option value="de" lang="de">Deutsch</option>
+          <option value="ru" lang="ru">Русский</option>
+          <option value="uk" lang="uk">Українська</option>
+          <option value="ja" lang="ja">日本語</option>
+          <option value="zh" lang="zh">中文</option>
+        </select>
     </nav>
   </header>
 
@@ -295,8 +306,10 @@
   </main>
 
   <footer data-public-footer data-lang="en"></footer>
-  <script src="/web/public-footer.js?v=7"></script>
-  <script src="/web/landing.js?v=19"></script>
-  <script src="/web/constellation.js?v=14"></script>
+  <script src="/web/public-footer.js?v=6"></script>
+  <script src="/web/i18n-extra.js?v=1"></script>
+    <script src="/web/i18n-extra.js?v=1"></script>
+    <script src="/web/landing.js?v=29"></script>
+  <script src="/web/constellation.js?v=15"></script>
 </body>
 </html>
