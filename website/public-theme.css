@@ -1,0 +1,54 @@
+/* Public site and demo share the Human Rounds visual vocabulary.
+   Matched to the live demo's humanrounds tokens, 2026-09-20. */
+:root{--paper:#f4f1ea;--paper-deep:#e9e5da;--surface:#fffdf8;--ink:#1a1714;--title-ink:#2e2924;--muted:#55504a;--line:#ddd7ca;--accent:#874f2e;--accent-deep:#874f2e;--link-underline:rgba(26,23,20,.14);--link-hover:rgba(26,23,20,.62)}
+body{background:var(--paper);font-family:Manrope,system-ui,sans-serif;text-wrap:pretty}
+body h1,body h2,body h3{color:var(--title-ink);font-weight:500;letter-spacing:-.035em}
+body h1{line-height:1.07}
+body a{color:inherit;text-decoration:underline;text-decoration-color:var(--link-underline);text-underline-offset:4px;text-decoration-thickness:1px;transition:color .15s,text-decoration-color .15s}
+body a:hover{color:var(--ink);text-decoration-color:var(--link-hover)}
+body a:focus-visible,body button:focus-visible,body select:focus-visible{outline:2px solid var(--ink);outline-offset:5px}
+body .brand{font-size:1.4rem;font-weight:600;letter-spacing:-.04em;text-transform:none;text-decoration:none;gap:10px}
+body .brand img{width:56px;height:56px}
+body .site-header{border:0;min-height:92px}
+body .site-nav{gap:22px}
+body .site-nav a,body .site-actions a,body .docs-nav a{font-size:16px;font-weight:400;text-decoration:none;color:var(--ink);min-height:44px;display:inline-flex;align-items:center}
+body .language-select{font:400 16px Manrope,system-ui,sans-serif;color:var(--ink);border:0;background:transparent;min-height:44px;max-width:142px}
+body .hero{padding-top:54px;padding-bottom:72px}
+body .hero-tagline{font-weight:400;color:var(--ink)}
+body .hero-lead{font-weight:400;font-size:18px;line-height:1.6;color:var(--muted)}
+body .hero-links a,body .invite-links a{font-weight:400;font-size:17px;color:var(--ink)}
+body .system-section{background:var(--paper-deep);border:0}
+body .system-flow h3 a,body .kanban-cards h4 a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--link-underline)}
+body .flow-num,body .flow-badge,body .invite-role,body .kanban-count,body .docs-status{font-family:inherit;font-size:16px;letter-spacing:0;text-transform:none}
+body .flow-badge{display:none}
+body .kanban-column h3{font-size:20px;text-transform:none;letter-spacing:-.02em}
+body .kanban-cards h4{font-size:17px;font-weight:500;line-height:1.4}
+body .kanban-cards p,body .kanban-subtitle{font-size:16px}
+body .kanban-column{border-radius:12px}
+body .story-card{border-radius:12px}
+body .story-card .story-excerpt,body .story-body p{font-weight:400}
+body .story-toggle{color:var(--ink);font:400 16px Manrope,system-ui,sans-serif;border:1px solid var(--line);padding:9px 16px;border-radius:999px;background:var(--paper-deep)}
+body .invite-section{background:var(--paper)}
+body .public-footer{background:var(--paper);color:var(--muted)}
+body .public-footer a,body .public-footer__credit,body .public-footer__credit a{color:var(--muted)}
+body .public-footer a:hover{color:var(--ink)}
+body .public-footer .public-footer__projects{border-color:var(--line)}
+.market-section{padding-block:72px}
+.market-section h2{max-width:24ch;font-size:clamp(2rem,3.5vw,3.5rem);margin-bottom:30px}
+.comparison-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}
+.comparison-item{min-width:0}
+.comparison-item h3{font-size:24px;margin:0 0 14px;letter-spacing:-.025em}
+.comparison-item p{font-size:17px;line-height:1.6;color:var(--muted);margin:18px 0 0;max-width:52ch}
+.comparison-shot{display:flex;align-items:center;justify-content:center;aspect-ratio:1025/670;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:zoom-in}
+.comparison-shot img{width:100%;height:100%;object-fit:contain}
+.market-pitch{padding:60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;background:var(--paper-deep);border-radius:16px;margin-top:70px}
+.market-pitch h2{margin:0;max-width:16ch}
+.market-pitch p{font-size:19px;line-height:1.6;margin:0 0 22px;color:var(--ink)}
+.market-pitch p:last-child{margin-bottom:0}
+.public-menu{display:contents}
+.public-menu>summary{display:none}
+body .kanban-state{color:var(--muted);font-size:16px;margin:0 0 16px}
+@media(max-width:1100px){body .site-header{grid-template-columns:1fr auto;gap:4px 16px;padding-bottom:12px}body .site-nav{grid-column:1/-1;grid-row:2;justify-self:start;flex-wrap:wrap;gap:0 22px}body .site-actions{grid-column:2;grid-row:1}body .hero{padding-top:36px}}
+@media(max-width:760px){.comparison-grid,.market-pitch{grid-template-columns:1fr}.comparison-grid{gap:36px}.market-section{padding-block:48px}.market-pitch{padding:28px;gap:26px;margin-top:44px}.market-pitch h2{max-width:22ch}.market-pitch p{font-size:17px}body .hero{padding-bottom:42px}body .brand{font-size:21px}body .brand img{width:44px;height:44px}body .site-nav{gap:0 18px}body .site-nav a{font-size:16px}body .site-header{margin-top:10px}body .language-select{font-size:16px;max-width:112px}body .hero-links{gap:16px 24px}.comparison-item h3{font-size:22px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}body a{transition:none}}
+@media(max-width:760px){.public-menu{display:block;grid-column:1/-1;grid-row:2}.public-menu>summary{display:list-item;cursor:pointer;width:fit-content;min-height:44px;line-height:44px;font-size:16px;list-style-position:inside}.public-menu:not([open])>.site-nav{display:none}body .public-menu>.site-nav{display:flex;flex-wrap:wrap;gap:0 22px}body .hero{padding-top:20px}body .site-header{padding-bottom:0}}

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Human Rounds — open-source AI-native medical platform</title>
   <meta name="description" content="Human Rounds, the open-source AI-native medical platform: AI interviews patients before the visit, reads handwritten referrals, and writes to the health record. Humans do the rounds. AI does the rest.">
-  <meta name="theme-color" content="#f8ecde">
+  <meta name="theme-color" content="#f4f1ea">
   <meta property="og:type" content="website">
   <meta property="og:title" content="The open-source, AI-native medical platform">
   <meta property="og:description" content="Humans do the rounds. AI does the rest. AI interviews patients, reads handwritten referrals, judges urgency, and writes to the health record. Free to run, open to inspect.">
@@ -35,6 +35,7 @@
     "isAccessibleForFree": true
   }
   </script>
+  <link rel="stylesheet" href="/web/public-theme.css?v=1">
 </head>
 <body>
   <header class="site-header site-header--bilingual">
@@ -70,7 +71,6 @@
     <section class="hero public-wrap">
       <div class="hero-copy">
         <h1 data-i18n="heroTitle">The open-source, AI-native medical platform</h1>
-        <p class="hero-tagline" data-i18n="heroTagline">Humans do the rounds. AI does the rest.</p>
         <p class="hero-lead" data-i18n-html data-i18n="heroLead">AI interviews patients before the visit, reads handwritten referral orders from a photo, judges urgency, and writes to the health record. The care team walks in prepared. Live today in a real public hospital. Free to run, open to inspect.</p>
         <div class="hero-links">
           <a href="https://demo.humanrounds.org/" data-i18n="heroLinkDemo">Live demo</a>
@@ -97,6 +97,34 @@
       </figure>
     </section>
 
+    <section class="market-section public-wrap" id="clinical-clarity">
+      <h2 data-market="contrastTitle">AI shouldn’t give doctors more to read.</h2>
+      <div class="comparison-grid">
+        <article class="comparison-item">
+          <h3><a href="https://www.abridge.com/platform/clinicians" rel="noopener" data-market="abridgeTitle">Abridge’s clinical note</a></h3>
+          <a class="comparison-shot" href="/web/abridge-clinicians.avif" data-photozoom data-photozoom-group="clinical-comparison" data-photozoom-src="/web/abridge-clinicians.avif">
+            <img src="/web/abridge-clinicians.avif" alt="Abridge’s public marketing image: a long clinical note beside its AI assistant" loading="lazy" width="1025" height="670">
+          </a>
+          <p data-market="abridgeText">The AI has done the writing. The doctor still has to do the reading. This is the note shown on Abridge’s clinician page.</p>
+        </article>
+        <article class="comparison-item">
+          <h3 data-market="oursTitle">Our direction: the patient at a glance</h3>
+          <a class="comparison-shot" href="/web/clinical-summary-concept.png" data-photozoom data-photozoom-group="clinical-comparison" data-photozoom-src="/web/clinical-summary-concept.png">
+            <img src="/web/clinical-summary-concept.png" alt="Human Rounds design concept with a structured summary and blood-pressure trends using fictional data" loading="lazy" width="1025" height="670">
+          </a>
+          <p data-market="oursText">Relevant history, clear trends, and what needs attention. A design concept with fictional data; clinical-history graphs are on our roadmap.</p>
+        </article>
+      </div>
+      <div class="market-pitch" id="emerging-markets">
+        <h2 data-market="marketTitle">The next leap in care can start here.</h2>
+        <div>
+          <p data-market="marketLead">An AI-native medical platform for emerging markets. Build around the care people need today, with today’s technology.</p>
+          <p data-market="marketBody">Established systems have decades of software, billing workflows, and integration requirements to accommodate. Health systems building their digital foundations have a chance to take a different path.</p>
+          <p data-market="marketClose">Open source. Adaptable to local systems. Clinicians in control. Less legacy to inherit, with privacy, clinical validation, and local requirements built into the work.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="system-section" id="platform">
       <div class="public-wrap">
         <div class="section-intro">
@@ -117,7 +145,6 @@
             <div class="flow-copy">
               <div class="flow-badge" data-i18n="flowBadge2">During the visit</div>
               <h3><a href="/docs/prepared-clinician" data-i18n="flowClinicianTitle">Everything the clinician needs is already prepared</a></h3>
-              <p data-i18n="flowClinicianText">The dashboard surfaces relevant history, medications, past visits, trends, and key findings before the conversation begins.</p>
             </div>
           </li>
           <li>
@@ -125,7 +152,6 @@
             <div class="flow-copy">
               <div class="flow-badge" data-i18n="flowBadge3">Around the visit</div>
               <h3><a href="/docs/staff-panel" data-i18n="flowOpsTitle">One workflow instead of disconnected systems</a></h3>
-              <p data-i18n="flowOpsText">Registration, scheduling, arrivals, waiting-room management, queues, and insurance claims run in one coordinated workflow.</p>
             </div>
           </li>
           <li>
@@ -150,9 +176,9 @@
             <h3><span class="status-dot"></span><span data-i18n="roadmapPlannedTitle">Planned</span></h3>
             <span class="kanban-count" data-kanban-count>2</span>
           </div>
-          <p class="kanban-subtitle" data-i18n="roadmapPlannedSubtitle">Not started yet</p>
+          <p class="kanban-state" data-i18n="roadmapPlannedSubtitle">Not started yet</p>
           <ul class="kanban-cards">
-            <li><span class="task-glyph"></span><div><h4 data-i18n="kbPlanned2Title">Clinical-history summary</h4><p data-i18n="kbPlanned2Text">Reads today's symptoms, finds what matters in years of history, and charts it as data-dense, Tufte-style graphics.</p></div></li>
+            <li><span class="task-glyph"></span><div><h4 data-i18n="kbPlanned2Title">Clinical-history summary</h4></div></li>
             <li><span class="task-glyph"></span><div><h4><a href="/docs/connectors" data-i18n="kbPlanned3Title">More regional connectors</a></h4><p data-i18n="kbPlanned3Text">Identity, coverage and record systems beyond Argentina</p></div></li>
           </ul>
         </div>
@@ -161,7 +187,7 @@
             <h3><span class="status-dot"></span><span data-i18n="roadmapPrototypedTitle">Prototyped</span></h3>
             <span class="kanban-count" data-kanban-count>5</span>
           </div>
-          <p class="kanban-subtitle" data-i18n="roadmapPrototypedSubtitle">Prototype ready, pending Human Rounds review</p>
+          <p class="kanban-state" data-i18n="roadmapPrototypedSubtitle">Prototype ready, pending Human Rounds review</p>
           <ul class="kanban-cards">
             <li><span class="task-glyph"></span><div><h4 data-i18n="kbProto4Title">SOAP summary + differential probabilities</h4><p data-i18n="kbProto4Text">The dictated interview arrives structured: SOAP note, ranked differential, draft orders and prescriptions to review</p></div></li>
             <li><span class="task-glyph"></span><div><h4 data-i18n="kbProto2Title">Voice intake</h4><p data-i18n="kbProto2Text">The patient dictates symptoms and answers follow-ups</p></div></li>
@@ -175,7 +201,7 @@
             <h3><span class="status-dot"></span><span data-i18n="roadmapLiveTitle">Live</span></h3>
             <span class="kanban-count" data-kanban-count>12</span>
           </div>
-          <p class="kanban-subtitle" data-i18n="roadmapLiveSubtitle">Running at the Pinamar reference installation</p>
+          <p class="kanban-state" data-i18n="roadmapLiveSubtitle">Running at the Pinamar reference installation</p>
           <ul class="kanban-cards">
             <li><span class="task-glyph"></span><div><h4><a href="/docs/referral-orders" data-i18n="kbLive3Title">Referral orders read by AI</a></h4><p data-i18n="kbLive3Text">Even handwriting; staff approve, the AI proposes</p></div></li>
             <li><span class="task-glyph"></span><div><h4><a href="/docs/health-record-handoff" data-i18n="kbLive11Title">Health-record handoff</a></h4><p data-i18n="kbLive11Text">Writes to the national EHR with automatic retry; nothing breaks if the record is down</p></div></li>
@@ -260,7 +286,6 @@
       <div class="public-wrap">
         <div class="section-intro">
           <h2 data-i18n="invitationsTitle">Who this is for</h2>
-          <p data-i18n="invitationsIntro">Three ways into the same platform — run it, extend it, or fund the next deployments.</p>
         </div>
         <div class="invite-grid">
           <article class="invite-card">
@@ -279,7 +304,6 @@
           <article class="invite-card">
             <div class="invite-role" data-i18n="inviteDevRole">Developers</div>
             <h3 data-i18n="inviteDevTitle">Ship a whole country as a module, not a fork.</h3>
-            <p data-i18n="inviteDevText">Identity, coverage and health-record connectors are pluggable, so your region’s integration is a pull request instead of a rewrite.</p>
             <ul class="invite-facts">
               <li data-i18n="inviteDevFact1">Pluggable per-country connectors</li>
               <li data-i18n="inviteDevFact2">A codebase already carrying real clinical traffic</li>
@@ -311,5 +335,8 @@
     <script src="/web/i18n-extra.js?v=1"></script>
     <script src="/web/landing.js?v=29"></script>
   <script src="/web/constellation.js?v=15"></script>
+  <script src="/web/market-positioning.js?v=1"></script>
+  <script src="/web/lib/photo-zoom.js?v=1"></script>
+  <script src="/web/public-theme.js?v=1"></script>
 </body>
 </html>
