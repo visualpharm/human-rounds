@@ -38,7 +38,7 @@ body .public-footer .public-footer__projects{border-color:var(--line)}
 .comparison-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}
 .comparison-item{min-width:0}
 .comparison-item h3{font-size:24px;margin:0 0 14px;letter-spacing:-.025em}
-.comparison-item p{font-size:17px;line-height:1.6;color:var(--muted);margin:18px 0 0;max-width:52ch}
+.comparison-item p{font-size:17px;line-height:1.6;color:var(--muted);margin:18px 0 0;max-width:52ch;text-wrap:balance}
 .comparison-shot{display:flex;align-items:center;justify-content:center;aspect-ratio:1025/670;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:zoom-in}
 .comparison-shot img{width:100%;height:100%;object-fit:contain}
 .market-pitch{padding:60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;background:var(--paper-deep);border-radius:16px;margin-top:70px}
