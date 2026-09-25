@@ -54,13 +54,16 @@
     "../clinical-summary-concept.png": {
       "project_id": "8c286ddb-3fb5-49dd-aac6-220d3a1d791b",
       "file": "Clinical summary - public concept.dc.html",
-      "etag": "1789943576477442",
+      "etag": "1790341023333911",
       "window": "16in",
       "css_px": "1025x670",
       "png_px": "2050x1340",
-      "captured": "2026-09-20",
+      "captured": "2026-09-25",
       "status": "Concept; fictional non-identifiable data; clinical-history graphs are planned",
-      "open_url": "https://claude.ai/design/p/8c286ddb-3fb5-49dd-aac6-220d3a1d791b?file=Clinical%20summary%20-%20public%20concept.dc.html"
+      "open_url": "https://claude.ai/design/p/8c286ddb-3fb5-49dd-aac6-220d3a1d791b?file=Clinical%20summary%20-%20public%20concept.dc.html",
+      "source": "design-plans/clinical-summary-concept.dc.html",
+      "chart_audit": "10 original values retained; each month aligned to its point; equal 30 mmHg spans",
+      "icons": "Existing Icons8 stethoscope, soap-note, checklist"
     }
   }
 }
