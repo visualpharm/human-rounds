@@ -12,7 +12,7 @@
 
 ## Recovered context
 - September 25 follow-up: add section icons, selective highlights and more scannable formatting to our clinical-summary image. Correct all month labels to align directly with the corresponding data points. Apply Gatto Nero's business-report-suite chart canon and Tufte rules; preserve all 10 fictional readings and the prototype status.
-- The September 25 chart uses two related panels with equal 30 mmHg spans and directly labeled values. Dates and points share the same SVG coordinates. No normal-range or causation claim is inferred.
+- Latest September 25 correction: remove the entire clinician-review block and combine systolic and diastolic readings on one chart. Both lines use one shared 80–160 mmHg scale; dates and points share the same SVG coordinates. Preserve all 10 readings. No normal-range or causation claim is inferred.
 - Intake solution notes require illustrations to reflect actual demo component families and preserve complete-row responsive layouts.
 - Public mirror contains a partial September 16 palette update; incorporate its intended colors without overwriting it.
 - Live demo token comments record September 14–18 requests for Cursor-like beige, lighter headings, neutral links with faint underlines, and no bright accent on every link.

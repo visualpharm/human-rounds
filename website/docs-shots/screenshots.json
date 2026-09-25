@@ -54,7 +54,7 @@
     "../clinical-summary-concept.png": {
       "project_id": "8c286ddb-3fb5-49dd-aac6-220d3a1d791b",
       "file": "Clinical summary - public concept.dc.html",
-      "etag": "1790341023333911",
+      "etag": "1790341847427407",
       "window": "16in",
       "css_px": "1025x670",
       "png_px": "2050x1340",
@@ -62,8 +62,8 @@
       "status": "Concept; fictional non-identifiable data; clinical-history graphs are planned",
       "open_url": "https://claude.ai/design/p/8c286ddb-3fb5-49dd-aac6-220d3a1d791b?file=Clinical%20summary%20-%20public%20concept.dc.html",
       "source": "design-plans/clinical-summary-concept.dc.html",
-      "chart_audit": "10 original values retained; each month aligned to its point; equal 30 mmHg spans",
-      "icons": "Existing Icons8 stethoscope, soap-note, checklist"
+      "chart_audit": "One chart; shared 80-160 mmHg scale; 10 readings retained; aligned months; clinician-review block removed",
+      "icons": "Existing Icons8 stethoscope and soap-note"
     }
   }
 }
