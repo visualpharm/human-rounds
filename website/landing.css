@@ -1,10 +1,16 @@
 :root {
-  --paper: #f8ecde;
-  --paper-deep: #efe1cf;
-  --surface: #fdf7ef;
-  --ink: #1a1712;
-  --muted: #6d6559;
-  --line: #ddcfba;
+  /* Demo palette (2026-09-16, Ivan: "update the public website with the same
+     style as the demo"). Values mirrored from the demo app's tokens.css
+     humanrounds theme so both surfaces read as one product: paper beige
+     #f4f1ea/#e9e5da, warm card #fffdf8, ink #1a1714 with the lighter title
+     ink #2e2924, borders #ddd7ca. */
+  --paper: #f4f1ea;
+  --paper-deep: #e9e5da;
+  --surface: #fffdf8;
+  --ink: #1a1714;
+  --title-ink: #2e2924;
+  --muted: #55504a;
+  --line: #ddd7ca;
   --accent: oklch(.52 .085 52);
   --accent-deep: oklch(.44 .085 52);
   --olive: oklch(.52 .055 128);
@@ -50,6 +56,9 @@ h1, h2, h3 {
   line-height: 1.1;
   letter-spacing: -.015em;
   text-wrap: balance;
+  /* Demo title ink (2026-09-16): one step lighter than body ink, the same
+     --title-ink the demo's card and tile titles use. */
+  color: var(--title-ink);
 }
 h1 { font-size: clamp(3rem, 4.2vw, 4.4rem); max-width: 15ch; margin-bottom: 20px; }
 h2 { font-size: clamp(2.1rem, 3.6vw, 3.3rem); max-width: 18ch; margin-bottom: 8px; }
@@ -78,7 +87,7 @@ strong { font-weight: 700; }
   gap: 14px;
   color: var(--ink);
   font-family: "Manrope", system-ui, sans-serif;
-  font-size: 1.34rem;
+  font-size: 1.45rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: .07em;
@@ -86,7 +95,9 @@ strong { font-weight: 700; }
   white-space: nowrap;
 }
 .brand:hover { color: var(--ink); opacity: .72; }
-.brand img { width: 55px; height: 55px; border-radius: 50%; flex: none; }
+/* Logo at the demo's size (2026-09-16, Ivan: same treatment as the demo
+   nav — 64px mark, larger wordmark). */
+.brand img { width: 64px; height: 64px; border-radius: 50%; flex: none; }
 .site-nav,
 .site-actions {
   display: flex;
@@ -937,8 +948,8 @@ strong { font-weight: 700; }
 
 @media (max-width: 900px) and (min-width: 751px) {
   .site-header { gap: 14px; }
-  .brand { gap: 10px; font-size: 1.06rem; }
-  .brand img { width: 44px; height: 44px; }
+  .brand { gap: 10px; font-size: 1.16rem; }
+  .brand img { width: 48px; height: 48px; }
   .site-nav { gap: 12px; }
   .site-nav a { font-size: .82rem; }
   .language-toggle { font-size: .8rem; }
@@ -981,7 +992,7 @@ strong { font-weight: 700; }
     gap: 14px;
   }
   .brand { grid-column: auto; font-size: 1.15rem; }
-  .brand img { width: 44px; height: 44px; }
+  .brand img { width: 48px; height: 48px; }
   .site-nav,
   .site-actions {
     justify-self: stretch;
