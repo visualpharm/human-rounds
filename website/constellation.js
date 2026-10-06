@@ -390,7 +390,7 @@
     { id: 's4', group: 'staff', priority: 1, text: { en: 'Billing recovery without spreadsheets', es: 'Recupero SUMAR sin planillas' } },
     { id: 's5', group: 'staff', priority: 2, text: { en: 'Talks to the national EHR', es: 'Se entiende con HSI' } },
     { id: 'm1', group: 'leaders', priority: 1, text: { en: 'Modernization that makes headlines', es: 'Modernización que es noticia' } },
-    { id: 'm2', group: 'leaders', priority: 1, text: { en: 'Free and open source', es: 'Gratis y código abierto' } },
+    { id: 'm2', group: 'leaders', priority: 1, text: { en: 'Free, source available', es: 'Gratis, código disponible' } },
     { id: 'm3', group: 'leaders', priority: 2, text: { en: 'A case for conferences', es: 'Caso para el congreso' } },
     { id: 'm4', group: 'leaders', priority: 2, text: { en: 'Data for the ministry', es: 'Datos para el ministerio' } },
     { id: 'm5', group: 'leaders', priority: 1, text: { en: 'Policy, not politics', es: 'Política de Estado' } }

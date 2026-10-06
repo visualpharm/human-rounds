@@ -86,7 +86,7 @@
 
       index: {
         title: 'Human Rounds documentation',
-        lead: 'Human Rounds is an open-source medical platform. AI does the repetitive work around a visit — interviewing, reading paper, summarising, filing — and the care team decides. It runs today at a public hospital in Pinamar, Argentina.',
+        lead: 'Human Rounds is a source-available medical platform. AI does the repetitive work around a visit — interviewing, reading paper, summarising, filing — and the care team decides. It runs today at a public hospital in Pinamar, Argentina.',
         body:
           cards('en', HOME_CARDS) +
           '<h2>How one visit runs</h2>' +
@@ -376,7 +376,7 @@
 
       index: {
         title: 'Documentación de Human Rounds',
-        lead: 'Human Rounds es una plataforma médica de código abierto. La IA hace el trabajo repetitivo alrededor de la consulta —entrevistar, leer papeles, resumir, cargar— y el equipo de salud decide. Hoy funciona en un hospital público de Pinamar.',
+        lead: 'Human Rounds es una plataforma médica de código disponible. La IA hace el trabajo repetitivo alrededor de la consulta —entrevistar, leer papeles, resumir, cargar— y el equipo de salud decide. Hoy funciona en un hospital público de Pinamar.',
         body:
           cards('es', HOME_CARDS) +
           '<h2>Cómo transcurre una consulta</h2>' +
