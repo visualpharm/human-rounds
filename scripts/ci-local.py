@@ -39,6 +39,10 @@ for page in sorted((web/'docs').glob('*.html'))+sorted((web/'blog').glob('*.html
     assert parsed.h1==1, f'{page.relative_to(root)}: {parsed.h1} <h1> without scripts, expected 1'
     assert parsed.words>=150, f'{page.relative_to(root)}: {parsed.words} words without scripts'
 subprocess.run(['node',str(root/'scripts/prerender.mjs'),'--check'],check=True)
+# The sitemap lists only humanrounds.org's own pages: the demo is a sandbox on
+# another host, served noindex by its own app (sana-turnos demo mode).
+sitemap=(web/'sitemap.xml').read_text()
+assert 'demo.humanrounds.org' not in sitemap, 'sitemap.xml lists demo.humanrounds.org'
 for script in ('public-theme.js','market-positioning.js'):
     subprocess.run(['node','--check',str(web/script)],check=True)
 manifest=json.loads((web/'docs-shots/screenshots.json').read_text())
