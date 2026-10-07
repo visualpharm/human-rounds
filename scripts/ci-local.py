@@ -43,6 +43,9 @@ subprocess.run(['node',str(root/'scripts/prerender.mjs'),'--check'],check=True)
 # another host, served noindex by its own app (sana-turnos demo mode).
 sitemap=(web/'sitemap.xml').read_text()
 assert 'demo.humanrounds.org' not in sitemap, 'sitemap.xml lists demo.humanrounds.org'
+# Every URL carries the real date its text last changed (from git).
+assert sitemap.count('<url>')==sitemap.count('<lastmod>'), 'sitemap.xml: a <url> without <lastmod>'
+subprocess.run(['python3',str(root/'scripts/sitemap_lastmod.py'),'--check'],check=True)
 for script in ('public-theme.js','market-positioning.js'):
     subprocess.run(['node','--check',str(web/script)],check=True)
 manifest=json.loads((web/'docs-shots/screenshots.json').read_text())
