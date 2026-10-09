@@ -2,97 +2,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://humanrounds.org/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://demo.humanrounds.org/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-09-25</lastmod>
   </url>
   <url>
     <loc>https://humanrounds.org/docs</loc>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://humanrounds.org/docs/pre-consult-interview</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://humanrounds.org/docs/referral-orders</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://humanrounds.org/docs/prepared-clinician</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://humanrounds.org/docs/scan-to-register</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://humanrounds.org/docs/health-record-handoff</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://humanrounds.org/docs/booking-and-queue</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://humanrounds.org/docs/staff-panel</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://humanrounds.org/docs/install</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://humanrounds.org/docs/connectors</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://humanrounds.org/docs/writing-a-connector</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://humanrounds.org/privacy</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-09-20</lastmod>
   </url>
   <url>
     <loc>https://humanrounds.org/data-deletion</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-09-20</lastmod>
   </url>
   <url>
     <loc>https://humanrounds.org/terms</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-09-20</lastmod>
   </url>
   <url>
     <loc>https://humanrounds.org/blog/three-letters-to-a-cardiologist.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://humanrounds.org/blog/the-doctor-walks-in-prepared.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-10-07</lastmod>
   </url>
   <url>
     <loc>https://humanrounds.org/blog/a-queue-that-reads-itself.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-10-07</lastmod>
   </url>
 </urlset>
