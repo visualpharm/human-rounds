@@ -2,7 +2,7 @@
 
 **Humans do the rounds. AI does the rest.**
 
-Human Rounds is an AI-native, open-source layer for the work around care. AI interviews patients before the visit, reads handwritten referrals, judges urgency, and writes to the health record, so patients and care teams can talk to each other again.
+Human Rounds is an AI-native, source-available layer for the work around care. The application code is published progressively after privacy, security and licensing review; this repository carries the public roadmap, architecture, governance and website. AI interviews patients before the visit, reads handwritten referrals, judges urgency, and writes to the health record, so patients and care teams can talk to each other again.
 
 [Public project site](https://humanrounds.org) · [Demo](https://demo.humanrounds.org)
 

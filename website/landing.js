@@ -11,11 +11,11 @@
       navContact: 'Contact',
       language: 'Español',
 
-      heroTitle: 'The open-source, AI-native medical platform',
+      heroTitle: 'The source-available, AI-native medical platform',
       heroTagline: 'Humans do the rounds. AI does the rest.',
       heroLead: 'AI <a href="/docs/pre-consult-interview">interviews patients before the visit</a>, <a href="/docs/referral-orders">reads handwritten referral orders from a photo</a>, judges urgency, and <a href="/docs/health-record-handoff">writes to the health record</a>. The care team walks in prepared. Live today in a real public hospital. Free to run, open to inspect.',
       heroLinkDemo: 'Live demo',
-      heroLinkOpenSource: 'Open source',
+      heroLinkOpenSource: 'Source available',
       heroLinkDocs: 'Documentation',
 
       constHubTitle: 'Your health network',
@@ -208,11 +208,11 @@
       navContact: 'Contacto',
       language: 'English',
 
-      heroTitle: 'La plataforma médica de código abierto e IA nativa',
+      heroTitle: 'La plataforma médica de código disponible e IA nativa',
       heroTagline: 'La ronda la hacen las personas. El resto lo hace la IA.',
       heroLead: 'La IA <a href="/docs/pre-consult-interview">entrevista al paciente antes de la consulta</a>, <a href="/docs/referral-orders">lee derivaciones manuscritas desde una foto</a>, estima la urgencia y <a href="/docs/health-record-handoff">escribe en la historia clínica</a>. El equipo de salud entra a la consulta ya preparado. Hoy funciona en un hospital público de verdad. Gratis para instalar, abierto para auditar.',
       heroLinkDemo: 'Demo en vivo',
-      heroLinkOpenSource: 'Código abierto',
+      heroLinkOpenSource: 'Código disponible',
       heroLinkDocs: 'Documentación',
 
       constHubTitle: 'Tu red de salud',
