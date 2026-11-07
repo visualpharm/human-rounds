@@ -6,7 +6,7 @@
 - Compare the supplied Abridge marketing example with Human Rounds' structured summaries and graphs. Critique the visible presentation, not unverified clinical outcomes or the entire competitor product.
 - Position the platform for emerging markets: the opportunity to build around current AI instead of inheriting legacy workflows. No claim of exemption from local law, clinical validation, privacy or responsibility.
 - Keep planned/prototyped/live status truthful. Clinical-history graphs remain a concept, not a shipped claim.
-- Preserve the existing integration illustration, country switching, roadmap, demo links, documentation, multilingual navigation and open-source destinations.
+- Preserve the existing integration illustration, country switching, roadmap, demo links, documentation, multilingual navigation and repository destinations.
 - Screenshots published on the site come from Claude Design with fictional, non-identifiable data. Competitor image is its original public marketing asset, attributed through a linked title.
 - Compare images at equal dimensions; both open at full size. Phone layout stacks in reading order.
 

@@ -13,4 +13,4 @@ Project decisions are guided by:
 
 The initial maintainer sets repository scope and release gates. As institutional pilots begin, governance will add representatives from participating providers, clinical reviewers, implementation partners and independent evaluators.
 
-No institution is expected to accept a clinical model, workflow policy or data exchange merely because it exists in the open-source project. Deployment remains subject to local approval, validation and regulation.
+No institution is expected to accept a clinical model, workflow policy or data exchange merely because it exists in the project. Deployment remains subject to local approval, validation and regulation.

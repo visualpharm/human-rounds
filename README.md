@@ -2,7 +2,7 @@
 
 **Humans do the rounds. AI does the rest.**
 
-Human Rounds is an AI-native, open-source layer for the work around care. AI interviews patients before the visit, reads handwritten referrals, judges urgency, and writes to the health record, so patients and care teams can talk to each other again.
+Human Rounds is an AI-native layer for the work around care. AI interviews patients before the visit, reads handwritten referrals, judges urgency, and writes to the health record, so patients and care teams can talk to each other again.
 
 [Public project site](https://humanrounds.org) · [Demo](https://demo.humanrounds.org)
 
@@ -50,7 +50,7 @@ See the [funding roadmap](docs/roadmap.md) and [architecture overview](docs/arch
 
 ## Repository scope
 
-This repository starts with the public roadmap, architecture, governance documents and website source. Reviewed application modules will be added progressively after privacy, security and licensing review. Private prototype history and patient-like fixtures are intentionally not mirrored here.
+This repository holds the documentation, roadmap, architecture, governance documents and the source of the humanrounds.org website. The application code is released here module by module after privacy and security review. A module that is not in this repository is not public. Private prototype history and patient-like fixtures are intentionally not mirrored here.
 
 ## Contributing
 
@@ -60,4 +60,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing a connector, workflow m
 
 Human Rounds is built by [Generated Media, Inc.](https://generated.photos)
 
-Copyright © 2026 Generated Media, Inc. Apache License 2.0, see [LICENSE](LICENSE).
+Copyright © 2026 Generated Media, Inc.
+
+- Documentation, roadmap and website source: Apache License 2.0, see [LICENSE](LICENSE).
+- Application code: GNU AGPL-3.0, published module by module after privacy and security review. Each published module carries its own licence notice.

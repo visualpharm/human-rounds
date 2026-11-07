@@ -18,7 +18,7 @@ FAL_KEY = os.environ.get("FAL_KEY", "").strip()
 
 PROMPT = """Use case: logo-brand
 Asset type: international healthcare technology identity
-Primary request: Create one original, finished horizontal logo lockup for the exact brand name "HUMAN ROUNDS". The company is an international, open-source healthcare operations platform that removes administrative work so patients and care teams can talk to each other again.
+Primary request: Create one original, finished horizontal logo lockup for the exact brand name "HUMAN ROUNDS". The company is an international healthcare operations platform that removes administrative work so patients and care teams can talk to each other again.
 Symbol: one compact emblem that suggests 3 human presences in conversation through a single continuous interwoven ribbon. Use impossible Escher-like geometry, ambiguous figure/ground, and controlled negative space. The human connection should emerge on a second look, never as literal faces, bodies, hands, speech bubbles, or connected dots.
 Style/medium: flat vector-like identity design; precise geometry softened by imperfect curves and one deliberate contradiction; quiet, intelligent, editorial, humane; distinctive enough to own; not ornamental.
 Composition/framing: one emblem beside one wordmark, centered on a plain warm-cream field with generous padding. The emblem must remain recognizable at 16-24 px and reveal richer internal structure when enlarged.

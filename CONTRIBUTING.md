@@ -29,4 +29,4 @@ Clinical-model output is advisory. It must not diagnose, prescribe, discharge or
 
 Keep changes focused. Explain the public-health problem, the authorised data source, the affected users, the safety boundary and how the change was tested.
 
-By contributing, you agree that your contribution is licensed under the Apache License 2.0.
+By contributing, you agree that your contribution is licensed under the licence of the files it changes: the Apache License 2.0 for documentation, roadmap and website source, the GNU AGPL-3.0 for application code.

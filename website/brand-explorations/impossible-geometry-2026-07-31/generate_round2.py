@@ -9,7 +9,7 @@ import json
 from generate import MODELS, ROOT, generate
 
 
-COMMON = """Create one original, finished logo lockup for the exact brand name "HUMAN ROUNDS", an international open-source healthcare operations platform that returns time for patients and care teams to talk. Warm black on a plain warm-cream field. Flat vector-like identity design. Render "HUMAN ROUNDS" exactly once and spell it correctly. One lockup only, generous padding, strong silhouette, credible for a global healthcare institution, recognizable at 16-24 px. No mockup, poster, stationery, explanation text, extra words, watermark, gradient, medical cross, heart, shield, stethoscope, brain, circuit, sparkle, node network, connected dots, speech bubble, hands, faces, bodies, flower, camera aperture, triangle, triquetra, Celtic knot, or 3-fold rotational rosette. Do not resemble OpenAI, Perplexity, or Anthropic marks."""
+COMMON = """Create one original, finished logo lockup for the exact brand name "HUMAN ROUNDS", an international healthcare operations platform that returns time for patients and care teams to talk. Warm black on a plain warm-cream field. Flat vector-like identity design. Render "HUMAN ROUNDS" exactly once and spell it correctly. One lockup only, generous padding, strong silhouette, credible for a global healthcare institution, recognizable at 16-24 px. No mockup, poster, stationery, explanation text, extra words, watermark, gradient, medical cross, heart, shield, stethoscope, brain, circuit, sparkle, node network, connected dots, speech bubble, hands, faces, bodies, flower, camera aperture, triangle, triquetra, Celtic knot, or 3-fold rotational rosette. Do not resemble OpenAI, Perplexity, or Anthropic marks."""
 
 PROMPTS = {
     "gpt-image-2": COMMON + """

@@ -86,7 +86,7 @@
 
       index: {
         title: 'Human Rounds documentation',
-        lead: 'Human Rounds is an open-source medical platform. AI does the repetitive work around a visit — interviewing, reading paper, summarising, filing — and the care team decides. It runs today at a public hospital in Pinamar, Argentina.',
+        lead: 'Human Rounds is an AI-native medical platform for public health. AI does the repetitive work around a visit — interviewing, reading paper, summarising, filing — and the care team decides. It runs today at a public hospital in Pinamar, Argentina.',
         body:
           cards('en', HOME_CARDS) +
           '<h2>How one visit runs</h2>' +
@@ -100,7 +100,7 @@
           '<p>It is <b>not a diagnosis engine</b>. Every AI output is a proposal a person approves, rejects or edits, and the existing medical record stays the source of truth. Triage rules can escalate a patient, never downgrade one.</p>' +
           '<p>It is <b>not measured yet</b>. Nothing here claims a change in waiting times, absenteeism or cost — the platform has not run long enough anywhere to have that data.</p>' +
           '<h2>Try it or run it</h2>' +
-          '<p>The <a href="https://demo.humanrounds.org/?lang=en">live demo</a> is a full installation of a fictional town, rebuilt every day. To put it on your own machine, start with <a href="/docs/install">Install</a>. The code is on <a href="https://github.com/visualpharm/human-rounds" rel="noopener">GitHub</a>.</p>'
+          '<p>The <a href="https://demo.humanrounds.org/?lang=en">live demo</a> is a full installation of a fictional town, rebuilt every day. To put it on your own machine, start with <a href="/docs/install">Install</a>. Documentation and roadmap are on <a href="https://github.com/visualpharm/human-rounds" rel="noopener">GitHub</a> under Apache-2.0; the application code is AGPL-3.0 and is published there module by module, after privacy and security review.</p>'
       },
 
       'pre-consult': {
@@ -284,7 +284,7 @@
             '<li>An <b>AI key</b>, only for the features that read paper, interview patients or summarise a record. Everything else runs without one.</li>' +
           '</ul>' +
           '<h2>Run it</h2>' +
-          '<pre><code>git clone https://github.com/visualpharm/human-rounds\ncd human-rounds\ndocker compose up -d</code></pre>' +
+          '<p>The application code is AGPL-3.0 and reaches the <a href="https://github.com/visualpharm/human-rounds" rel="noopener">public repository</a> module by module, after privacy and security review. Until the modules you need are there, an installation is set up together with the project: <a href="https://github.com/visualpharm/human-rounds/issues/new" rel="noopener">write to us</a>.</p>' +
           '<p>Open the site and the <b>setup wizard</b> takes over: it asks for the installation’s name, timezone, languages and first centre, and only writes to the database at the last step, so an abandoned setup leaves nothing behind.</p>' +
           '<h2>What it costs to run</h2>' +
           '<p>A small virtual machine is enough. The whole application is a <b>single process</b> that handles each request on its own thread, plus Postgres next to it — two vCPUs and 2 GB of memory carry a district-sized public network — one hospital and a handful of health centres — and the load that matters is measured in requests per minute, not per second. There is no Redis, no message broker, no Node service and no separate worker to deploy.</p>' +
@@ -376,7 +376,7 @@
 
       index: {
         title: 'Documentación de Human Rounds',
-        lead: 'Human Rounds es una plataforma médica de código abierto. La IA hace el trabajo repetitivo alrededor de la consulta —entrevistar, leer papeles, resumir, cargar— y el equipo de salud decide. Hoy funciona en un hospital público de Pinamar.',
+        lead: 'Human Rounds es una plataforma médica de IA nativa para la salud pública. La IA hace el trabajo repetitivo alrededor de la consulta —entrevistar, leer papeles, resumir, cargar— y el equipo de salud decide. Hoy funciona en un hospital público de Pinamar.',
         body:
           cards('es', HOME_CARDS) +
           '<h2>Cómo transcurre una consulta</h2>' +
@@ -390,7 +390,7 @@
           '<p><b>No diagnostica.</b> Todo lo que sale de la IA es una propuesta que una persona aprueba, rechaza o corrige, y la historia clínica sigue siendo la fuente de verdad. Las reglas de triage pueden subir la urgencia de un paciente, nunca bajarla.</p>' +
           '<p><b>Todavía no está medido.</b> Acá no vas a encontrar una mejora en tiempos de espera, ausentismo ni costos: el sistema no lleva el tiempo suficiente en ningún lado como para tener ese dato.</p>' +
           '<h2>Probalo o instalalo</h2>' +
-          '<p>La <a href="https://demo.humanrounds.org/?lang=es">demo</a> es una instalación completa de un pueblo ficticio, que se regenera todos los días. Para levantarlo en tu máquina, empezá por <a href="/docs/install">Instalación</a>. El código está en <a href="https://github.com/visualpharm/human-rounds" rel="noopener">GitHub</a>.</p>'
+          '<p>La <a href="https://demo.humanrounds.org/?lang=es">demo</a> es una instalación completa de un pueblo ficticio, que se regenera todos los días. Para levantarlo en tu máquina, empezá por <a href="/docs/install">Instalación</a>. La documentación y la hoja de ruta están en <a href="https://github.com/visualpharm/human-rounds" rel="noopener">GitHub</a> bajo Apache-2.0; el código de la aplicación es AGPL-3.0 y se publica ahí módulo por módulo, después de una revisión de privacidad y seguridad.</p>'
       },
 
       'pre-consult': {
@@ -574,7 +574,7 @@
             '<li>Una <b>clave de IA</b>, sólo para las funciones que leen papeles, entrevistan pacientes o resumen una historia. Todo lo demás anda sin eso.</li>' +
           '</ul>' +
           '<h2>Levantarlo</h2>' +
-          '<pre><code>git clone https://github.com/visualpharm/human-rounds\ncd human-rounds\ndocker compose up -d</code></pre>' +
+          '<p>El código de la aplicación es AGPL-3.0 y llega al <a href="https://github.com/visualpharm/human-rounds" rel="noopener">repositorio público</a> módulo por módulo, después de una revisión de privacidad y seguridad. Mientras los módulos que necesitás no estén ahí, la instalación se arma junto con el proyecto: <a href="https://github.com/visualpharm/human-rounds/issues/new" rel="noopener">escribinos</a>.</p>' +
           '<p>Abrís el sitio y toma el control el <b>asistente de instalación</b>: pregunta el nombre de la instalación, la zona horaria, los idiomas y el primer centro, y recién escribe en la base en el último paso, así un setup abandonado no deja nada.</p>' +
           '<h2>Qué cuesta tenerlo prendido</h2>' +
           '<p>Alcanza con una máquina virtual chica. Toda la aplicación es <b>un solo proceso</b> que atiende cada pedido en su propio hilo, más Postgres al lado: dos vCPU y 2 GB de memoria sostienen una red pública de un partido —un hospital y varios centros de salud— y la carga que importa se mide en pedidos por minuto, no por segundo. No hay Redis, ni broker de mensajes, ni servicio en Node, ni un worker aparte para desplegar.</p>' +
