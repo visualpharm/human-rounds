@@ -35,6 +35,7 @@
   }
   </script>
   <link rel="stylesheet" href="/web/public-theme.css?v=1">
+  <link rel="stylesheet" href="/web/landing-redesign.css?v=2">
 </head>
 <body>
   <header class="site-header site-header--bilingual">
@@ -72,12 +73,64 @@
         <h1 data-i18n="heroTitle">The AI-native medical platform for public health</h1>
         <p class="hero-lead" data-i18n-html data-i18n="heroLead">AI interviews patients before the visit, reads handwritten referral orders from a photo, judges urgency, and writes to the health record. The care team walks in prepared. Live today in a real public hospital. No licence fee.</p>
         <div class="hero-links">
-          <a href="https://demo.humanrounds.org/" data-i18n="heroLinkDemo">Live demo</a>
-          <a href="https://github.com/visualpharm/human-rounds" rel="noopener" data-i18n="heroLinkOpenSource">GitHub</a>
-          <a href="/docs" data-i18n="heroLinkDocs">Documentation</a>
+          <a class="btn btn--primary" href="https://demo.humanrounds.org/" data-i18n="heroLinkDemo">Live demo</a>
+          <a class="btn btn--outline" href="/docs" data-i18n="heroLinkDocs">Documentation</a>
+          <a class="hero-link-quiet" href="https://github.com/visualpharm/human-rounds" rel="noopener" data-i18n="heroLinkOpenSource">GitHub</a>
         </div>
       </div>
 
+      <div class="hero-shots" aria-hidden="true">
+        <div class="hero-shot hero-shot--desk"><img src="/web/hero-prepared.jpg" alt="" width="1300" height="849" fetchpriority="high"></div>
+        <div class="hero-shot hero-shot--card"><img src="/web/hero-preconsult.jpg" alt="" width="700" height="454"></div>
+      </div>
+    </section>
+
+    <section class="system-section" id="platform">
+      <div class="public-wrap">
+        <div class="section-intro">
+          <h2 data-i18n="flowTitle">Every patient encounter, prepared by AI.</h2>
+          <p data-i18n="flowIntro">Human Rounds automates the repetitive work before, during, and after each visit. Your existing medical record remains the source of truth — clinicians review every recommendation.</p>
+        </div>
+        <ol class="system-flow system-flow--tiles">
+          <li>
+            <div class="flow-rail"><span class="flow-num">01</span></div>
+            <div class="flow-copy">
+              <img class="flow-icon" src="/web/icons/conversation.svg" alt="" width="40" height="40">
+              <div class="flow-badge" data-i18n="flowBadge1">Before the visit</div>
+              <h3><a href="/docs/pre-consult-interview" data-i18n="flowPatientTitle">AI interviews and prioritizes patients</a></h3>
+              <p data-i18n="flowPatientText">Patients describe their problem in their own words. AI asks follow-up questions, estimates urgency, and places the patient in the right queue.</p>
+            </div>
+          </li>
+          <li>
+            <div class="flow-rail"><span class="flow-num">02</span></div>
+            <div class="flow-copy">
+              <img class="flow-icon" src="/web/icons/stethoscope.svg" alt="" width="40" height="40">
+              <div class="flow-badge" data-i18n="flowBadge2">During the visit</div>
+              <h3><a href="/docs/prepared-clinician" data-i18n="flowClinicianTitle">Everything the clinician needs is already prepared</a></h3>
+            </div>
+          </li>
+          <li>
+            <div class="flow-rail"><span class="flow-num">03</span></div>
+            <div class="flow-copy">
+              <img class="flow-icon" src="/web/icons/network.svg" alt="" width="40" height="40">
+              <div class="flow-badge" data-i18n="flowBadge3">Around the visit</div>
+              <h3><a href="/docs/staff-panel" data-i18n="flowOpsTitle">One workflow instead of disconnected systems</a></h3>
+            </div>
+          </li>
+          <li>
+            <div class="flow-rail"><span class="flow-num">04</span></div>
+            <div class="flow-copy">
+              <img class="flow-icon" src="/web/icons/soap-note.svg" alt="" width="40" height="40">
+              <div class="flow-badge" data-i18n="flowBadge4">After the visit</div>
+              <h3 data-i18n="flowRecordTitle">Documentation completes itself</h3>
+              <p data-i18n="flowRecordText">The consultation is summarized automatically. Prescriptions, referrals, lab orders, and follow-up instructions are generated for clinician review.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="network-section public-wrap" id="network">
       <figure class="product-proof" id="constellation">
         <div class="const-figure" id="constFigure">
           <div class="const-sphere-shade" id="constSphereShade"></div>
@@ -96,6 +149,7 @@
       </figure>
     </section>
 
+    <div class="band band--dark">
     <section class="market-section public-wrap" id="clinical-clarity">
       <h2 data-market="contrastTitle">AI shouldn’t give doctors more to read.</h2>
       <div class="comparison-grid">
@@ -114,6 +168,9 @@
           <p data-market="oursText">Relevant history, clear trends, and what needs attention. A design concept with fictional data; clinical-history graphs are on our roadmap.</p>
         </article>
       </div>
+    </section>
+    </div>
+    <section class="pitch-section public-wrap" id="emerging-markets-section">
       <div class="market-pitch" id="emerging-markets">
         <h2 data-market="marketTitle">The next leap in care can start here.</h2>
         <div>
@@ -121,47 +178,6 @@
           <p data-market="marketBody">Established systems have decades of software, billing workflows, and integration requirements to accommodate. Health systems building their digital foundations have a chance to take a different path.</p>
           <p data-market="marketClose">Open documentation and roadmap. Adaptable to local systems. Clinicians in control. Less legacy to inherit, with privacy, clinical validation, and local requirements built into the work.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="system-section" id="platform">
-      <div class="public-wrap">
-        <div class="section-intro">
-          <h2 data-i18n="flowTitle">Every patient encounter, prepared by AI.</h2>
-          <p data-i18n="flowIntro">Human Rounds automates the repetitive work before, during, and after each visit. Your existing medical record remains the source of truth — clinicians review every recommendation.</p>
-        </div>
-        <ol class="system-flow system-flow--tiles">
-          <li>
-            <div class="flow-rail"><span class="flow-num">01</span></div>
-            <div class="flow-copy">
-              <div class="flow-badge" data-i18n="flowBadge1">Before the visit</div>
-              <h3><a href="/docs/pre-consult-interview" data-i18n="flowPatientTitle">AI interviews and prioritizes patients</a></h3>
-              <p data-i18n="flowPatientText">Patients describe their problem in their own words. AI asks follow-up questions, estimates urgency, and places the patient in the right queue.</p>
-            </div>
-          </li>
-          <li>
-            <div class="flow-rail"><span class="flow-num">02</span></div>
-            <div class="flow-copy">
-              <div class="flow-badge" data-i18n="flowBadge2">During the visit</div>
-              <h3><a href="/docs/prepared-clinician" data-i18n="flowClinicianTitle">Everything the clinician needs is already prepared</a></h3>
-            </div>
-          </li>
-          <li>
-            <div class="flow-rail"><span class="flow-num">03</span></div>
-            <div class="flow-copy">
-              <div class="flow-badge" data-i18n="flowBadge3">Around the visit</div>
-              <h3><a href="/docs/staff-panel" data-i18n="flowOpsTitle">One workflow instead of disconnected systems</a></h3>
-            </div>
-          </li>
-          <li>
-            <div class="flow-rail"><span class="flow-num">04</span></div>
-            <div class="flow-copy">
-              <div class="flow-badge" data-i18n="flowBadge4">After the visit</div>
-              <h3 data-i18n="flowRecordTitle">Documentation completes itself</h3>
-              <p data-i18n="flowRecordText">The consultation is summarized automatically. Prescriptions, referrals, lab orders, and follow-up instructions are generated for clinician review.</p>
-            </div>
-          </li>
-        </ol>
       </div>
     </section>
 

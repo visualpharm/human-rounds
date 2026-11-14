@@ -1,0 +1,132 @@
+/* Home page redesign, 2026-11-14. Loaded after public-theme.css on the landing page only.
+   Scale: h1 clamp(44px,5vw,72px), h2 clamp(30px,3.4vw,46px), h3 22-24px; vertical rhythm 96/64/40 (64/40/24 on phones). */
+:root{--muted:#55554f;--rd-main:96px;--rd-sub:64px;--rd-aux:40px;--rd-ink:#1a1714;--rd-btn:52px}
+body{background:var(--paper);background-image:none}
+body h1{font-size:clamp(44px,5vw,72px);font-weight:600;line-height:1.05;max-width:12ch;text-wrap:balance}
+body h2{font-size:clamp(30px,3.4vw,46px);font-weight:600;line-height:1.1;max-width:20ch;text-wrap:balance}
+body h3{font-size:clamp(20px,1.8vw,24px);line-height:1.2}
+
+/* header */
+body .site-header{min-height:84px;border-bottom:0}
+body .brand img{width:44px;height:44px}
+body .brand{font-size:22px;font-weight:700;letter-spacing:-.03em;white-space:nowrap}
+body .site-nav a[href^="https://demo"]{display:inline-flex;align-items:center;min-height:42px;padding:0 20px;border-radius:999px;background:var(--rd-ink);color:var(--paper);font-weight:600;text-decoration:none}
+body .site-nav a[href^="https://demo"]:hover{background:#000;color:var(--paper)}
+
+/* buttons */
+body .hero-links{display:flex;flex-wrap:wrap;align-items:center;gap:14px 14px;margin-top:36px}
+body .btn{display:inline-flex;align-items:center;justify-content:center;min-height:var(--rd-btn);padding:0 28px;border-radius:999px;font-size:17px;font-weight:600;text-decoration:none;white-space:nowrap;border:1.5px solid var(--rd-ink)}
+body .hero-links a.btn--primary,body .invitations-section .invite-card:first-child .invite-links a:first-child{background:var(--rd-ink);color:var(--paper)}
+body .hero-links a.btn--primary:hover{background:#000;color:#fff}
+body .hero-links a.btn--outline{background:transparent;color:var(--rd-ink);font-weight:600;font-size:17px}
+body .btn--outline:hover{background:var(--paper-deep)}
+body .hero-link-quiet{margin-left:8px;font-size:17px;font-weight:500;color:var(--rd-ink)}
+
+/* hero */
+body .hero{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(40px,5vw,72px);align-items:center;padding-block:56px var(--rd-main)}
+body .hero-copy h1{max-width:12ch}
+body .hero-lead{font-size:clamp(18px,1.5vw,21px);line-height:1.55;color:var(--muted);max-width:30em;margin:26px 0 0}
+.hero-shots{position:relative;min-width:0;padding-bottom:44px}
+.hero-shot{margin:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--surface)}
+.hero-shot img{display:block;width:100%;height:auto}
+.hero-shot--desk{box-shadow:0 36px 64px -34px rgba(26,23,20,.4)}
+.hero-shot--card{position:absolute;left:-36px;bottom:0;width:46%;border-radius:14px;box-shadow:0 26px 48px -22px rgba(26,23,20,.5)}
+
+/* flow */
+body .system-section{background:var(--paper-deep);padding-block:var(--rd-main)}
+body .system-section .section-intro{max-width:760px;margin-bottom:var(--rd-sub)}
+body .section-intro p{font-size:clamp(18px,1.5vw,20px);color:var(--muted);margin-top:18px}
+body .system-flow--tiles{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;background:transparent;border:0;border-radius:0;overflow:visible}
+body .system-flow--tiles li{display:flex;flex-direction:column;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px 26px 32px}
+body .system-flow--tiles .flow-rail{display:none}
+.flow-icon{width:40px;height:40px;margin-bottom:22px}
+body .system-flow h3{font-size:clamp(20px,1.7vw,23px);font-weight:600;max-width:none;margin-bottom:12px;line-height:1.22}
+body .system-flow p{font-size:17px;color:var(--muted);line-height:1.55;max-width:none}
+
+/* network */
+body .network-section{padding-block:var(--rd-main)}
+body .network-section .product-proof{max-width:none;justify-self:center;margin:0 auto}
+
+/* comparison on the one dark band */
+.band--dark{background:var(--rd-ink);color:var(--paper)}
+.band--dark .market-section{padding-block:var(--rd-main)}
+.band--dark h2,.band--dark h3,.band--dark h3 a{color:var(--paper)}
+.band--dark .comparison-item p{color:#d9d3c7}
+.band--dark .comparison-shot{background:var(--surface);border-color:rgba(244,241,234,.25)}
+.band--dark a{text-decoration-color:rgba(244,241,234,.35)}
+.band--dark a:hover{color:#fff}
+body .market-section h2{max-width:20ch;margin-bottom:44px}
+
+/* pitch on paper */
+.pitch-section{padding-block:var(--rd-main)}
+body .market-pitch{padding:0;margin:0;background:transparent;border-radius:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(32px,6vw,80px);align-items:start}
+body .market-pitch h2{margin:0;max-width:14ch}
+body .market-pitch p{font-size:19px;color:var(--ink)}
+
+/* roadmap: Live first and widest */
+body .roadmap-section{padding-block:var(--rd-sub) var(--rd-main)}
+body .roadmap-section>.section-intro{margin-bottom:var(--rd-aux)}
+body .kanban{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+body .kanban-column--live{grid-column:1/-1}
+body .kanban{background:transparent;border:0;border-radius:0;overflow:visible;gap:20px}
+body .kanban-column{border-radius:18px;min-width:0;height:auto;border:1px solid var(--line);overflow:hidden}
+body .kanban-cards{overflow:visible}
+body .updates-item{grid-template-columns:190px minmax(0,1fr);gap:24px}
+body .updates-date{font-family:inherit;font-size:16px;white-space:nowrap}
+body .updates-list{max-width:900px}
+body .kanban-column--live{order:1;border:1.5px solid var(--rd-ink);background:var(--surface)}
+body .kanban-column--prototyped{order:2}
+body .kanban-column--planned{order:3;background:transparent}
+body .kanban-column--live .kanban-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:24px}
+body .kanban-cards p{font-size:16px}
+body .kanban-head{padding:20px 24px 16px}
+body .kanban-state{margin:0;padding:14px 24px 0;font-size:16px;color:var(--muted)}
+body .kanban-column{max-height:none}
+body .kanban-cards{padding:16px 24px 24px}
+body .kanban-column h3{font-size:15px}
+body .roadmap-stories{align-items:stretch}
+
+/* use cases + updates + audiences */
+body .stories-block{margin-top:var(--rd-sub)}
+body .stories-title{font-size:clamp(26px,2.6vw,34px);font-weight:600;margin-bottom:28px}
+body .roadmap-stories{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+body .story-card{border-radius:18px}
+body .story-card .story-toggle{margin-top:auto}
+body .updates-section{padding-block:var(--rd-sub)}
+body .updates-date{font-size:16px;font-weight:600;color:var(--muted)}
+body .updates-item p{font-size:17px}
+body .invitations-section{padding-block:var(--rd-main);background:var(--paper-deep)}
+body .invite-grid{gap:20px;background:transparent;border:0;border-radius:0;overflow:visible;margin-top:0}
+body .invite-links{margin-top:auto}
+body .invite-card{border-radius:18px;border:1px solid var(--line);padding:32px 28px 30px}
+body .invite-links a:first-child{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;border:1.5px solid var(--rd-ink);font-weight:600;text-decoration:none}
+body .invitations-section .invite-card:first-child .invite-links a:first-child{background:var(--rd-ink);color:var(--paper)}
+
+@media(max-width:1180px){
+  body .system-flow--tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  body .kanban{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  body .kanban-column--live .kanban-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  body .roadmap-stories{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:900px){
+  body .hero{grid-template-columns:1fr;gap:40px;padding-block:32px var(--rd-sub)}
+  body .hero-copy h1{max-width:14ch}
+  .hero-shot--card{left:-8px;width:50%}
+  body .market-pitch{grid-template-columns:1fr;gap:28px}
+  body .kanban{grid-template-columns:1fr}
+  body .kanban-column--live .kanban-cards{grid-template-columns:1fr}
+  body .roadmap-stories{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  :root{--rd-main:64px;--rd-sub:40px;--rd-aux:24px}
+  body .site-header{min-height:68px}
+  body .updates-item{grid-template-columns:1fr;gap:4px}
+  body .system-flow--tiles{grid-template-columns:1fr;gap:14px}
+  body .system-flow--tiles li{padding:24px 22px}
+  body .hero-links{flex-direction:column;align-items:stretch}
+  body .hero-links .btn{width:100%}
+  body .hero-link-quiet{margin:6px 0 0;text-align:center}
+  .hero-shots{padding-bottom:36px}
+  .hero-shot--card{display:none}
+  .hero-shots{padding-bottom:0}
+}
