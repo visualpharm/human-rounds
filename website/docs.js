@@ -705,27 +705,72 @@
 
   /* The status label is the only string the body strings don't carry, and it is
      the same word in both languages, so it stays inline above. */
+
+  // Merge translations from HR_COPY_DOCS (web/i18n-docs.js, {lang: {copy, pages,
+  // groups}}) for docs; every language it carries becomes renderable.
+  function mergeDocsTranslations() {
+    if (!window.HR_COPY_DOCS) return;
+    for (var lang in window.HR_COPY_DOCS) {
+      var t = window.HR_COPY_DOCS[lang];
+      if (t.copy) {
+        if (!copy[lang]) copy[lang] = {};
+        for (var key in t.copy) copy[lang][key] = t.copy[key];
+      }
+      if (t.pages) {
+        for (var pageId in t.pages) {
+          var p = page(pageId);
+          if (p) p[lang] = t.pages[pageId];
+        }
+      }
+      if (t.groups && Array.isArray(t.groups)) {
+        for (var i = 0; i < t.groups.length && i < GROUPS.length; i++) {
+          if (t.groups[i] && t.groups[i][lang]) GROUPS[i][lang] = t.groups[i][lang];
+        }
+      }
+    }
+  }
   function render(lang) {
     if (!copy[lang]) lang = 'en';
     var id = currentId();
     if (!id) return;
     renderNav(lang, id);
     renderBody(lang, id);
+    // Decorate demo links with current language
+    if (window.HumanRoundsI18n) {
+      window.HumanRoundsI18n.decorateDemoLinks(document.querySelector('.docs-shell'));
+    }
   }
 
   function initialLanguage() {
-    var query = new URLSearchParams(location.search).get('lang');
-    if (copy[query]) return query;
-    try {
-      var saved = localStorage.getItem('human-rounds-language');
-      if (copy[saved]) return saved;
-    } catch (e) {}
+    // Use HumanRoundsI18n if available (set by landing.js)
+    if (window.HumanRoundsI18n) {
+      return window.HumanRoundsI18n.current() || 'en';
+    }
+    // Fallback: same logic as landing.js for standalone use
+    var pathMatch = window.location.pathname.match(/^\/([a-z]{2})(?:\/|$)/);
+    if (pathMatch) {
+      var code = pathMatch[1];
+      var LANGS = ['en', 'es', 'pt', 'fr', 'it', 'de', 'ru', 'uk', 'ja', 'zh'];
+      if (LANGS.indexOf(code) !== -1) return code;
+    }
+    var params = new URLSearchParams(window.location.search);
+    var langParam = params.get('lang');
+    var LANGS = ['en', 'es', 'pt', 'fr', 'it', 'de', 'ru', 'uk', 'ja', 'zh'];
+    if (langParam && LANGS.indexOf(langParam) !== -1) return langParam;
+    var stored = localStorage.getItem('human-rounds-language');
+    if (stored && LANGS.indexOf(stored) !== -1) return stored;
+    if (navigator.languages) {
+      for (var i = 0; i < navigator.languages.length; i++) {
+        var browserlang = navigator.languages[i].toLowerCase().split('-')[0];
+        if (LANGS.indexOf(browserlang) !== -1) return browserlang;
+      }
+    }
     return 'en';
   }
 
   window.addEventListener('human-rounds:language', function (event) { render(event.detail.lang); });
 
-  function init() { render(initialLanguage()); }
+  function init() { mergeDocsTranslations(); render(initialLanguage()); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();

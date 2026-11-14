@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/web/landing.css?v=18">
+  <link rel="stylesheet" href="/web/landing.css?v=19">
   <link rel="stylesheet" href="/web/public-footer.css?v=8">
   <link rel="stylesheet" href="/web/legal.css?v=3">
   <script>
@@ -36,7 +36,7 @@
 <body>
   <header class="site-header site-header--bilingual">
     <a class="brand" href="/" aria-label="Human Rounds home">
-      <img src="/web/human-rounds-mark.png?v=1" alt="" width="55" height="55">
+      <img src="/web/human-rounds-mark.png?v=2" alt="" width="55" height="55">
       <span>Human Rounds</span>
     </a>
     <nav class="site-nav" aria-label="Primary navigation">
@@ -48,7 +48,18 @@
       <a href="https://github.com/visualpharm/human-rounds/issues/new" rel="noopener" data-i18n="navContact">Contact</a>
     </nav>
     <nav class="site-actions" aria-label="Language">
-      <button class="language-toggle" type="button" data-language-toggle>Español</button>
+      <select class="language-select" data-language-select aria-label="Language">
+          <option value="en" lang="en">English</option>
+          <option value="es" lang="es">Español</option>
+          <option value="pt" lang="pt">Português</option>
+          <option value="fr" lang="fr">Français</option>
+          <option value="it" lang="it">Italiano</option>
+          <option value="de" lang="de">Deutsch</option>
+          <option value="ru" lang="ru">Русский</option>
+          <option value="uk" lang="uk">Українська</option>
+          <option value="ja" lang="ja">日本語</option>
+          <option value="zh" lang="zh">中文</option>
+        </select>
     </nav>
   </header>
 
@@ -58,9 +69,8 @@
         <div class="lang-en">
           <h1>Delete your Human Rounds data</h1>
           <p class="legal-updated">Last updated 10 August 2026</p>
-          <p class="legal-lead"><strong>Remove Human Rounds from Meta or ask us privately to erase data the project controls.</strong> Do not include medical records or patient information in a deletion request.</p>
-
           <p class="legal-note">This page exists because Human Rounds connects to Meta through a WhatsApp Business integration. Meta requires every app that reads account data to publish a public data-deletion endpoint and a contact address. The public website itself has no accounts, cookies or analytics — this page covers only what the Meta integration can see.</p>
+          <p class="legal-lead"><strong>Remove Human Rounds from Meta or ask us privately to erase data the project controls.</strong> Do not include medical records or patient information in a deletion request.</p>
 
           <h2>Remove Human Rounds from Meta</h2>
           <ol>
@@ -87,9 +97,8 @@
         <div class="lang-es">
           <h1>Borrá tus datos de Human Rounds</h1>
           <p class="legal-updated">Última actualización: 10 de agosto de 2026</p>
-          <p class="legal-lead"><strong>Quitá Human Rounds de Meta o pedinos en privado que borremos los datos bajo control del proyecto.</strong> No incluyas historias clínicas ni datos de pacientes en el pedido.</p>
-
           <p class="legal-note">Esta página existe porque Human Rounds se conecta a Meta mediante una integración de WhatsApp Business. Meta exige a toda aplicación que lee datos de cuenta publicar un endpoint público de borrado de datos y una dirección de contacto. El sitio público no tiene cuentas, cookies ni analítica — esta página cubre solo lo que la integración de Meta puede ver.</p>
+          <p class="legal-lead"><strong>Quitá Human Rounds de Meta o pedinos en privado que borremos los datos bajo control del proyecto.</strong> No incluyas historias clínicas ni datos de pacientes en el pedido.</p>
 
           <h2>Quitá Human Rounds de Meta</h2>
           <ol>
@@ -118,7 +127,7 @@
 
   <footer data-public-footer></footer>
   <script src="/web/public-footer.js?v=7"></script>
-  <script src="/web/landing.js?v=19"></script>
+  <script src="/web/landing.js?v=20"></script>
   <script src="/web/public-theme.js?v=1"></script>
 </body>
 </html>

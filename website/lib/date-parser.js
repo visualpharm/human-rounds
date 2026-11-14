@@ -181,10 +181,23 @@
     return a >= 0 && a < 130 ? a : null;
   }
 
+  // DOB for a patient who only gave an age: born "today" `age` years ago. Feb 29
+  // in a non-leap year is not a date, so it becomes Feb 28 (still that age today,
+  // and the server's Date-based age agrees). Returns ISO yyyy-mm-dd or null.
+  function isoFromAge(age, now) {
+    var a = Math.floor(Number(age));
+    if (!isFinite(a) || a < 0 || a > 120) return null;
+    now = now || new Date();
+    var y = now.getFullYear() - a;
+    var lastDay = new Date(y, now.getMonth() + 1, 0).getDate();
+    var d = Math.min(now.getDate(), lastDay);
+    return y + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+  }
+
   // The human-facing hint that tells the user the format we prefer.
   var FORMAT_HINT = 'Ej: 09/11/1959 (día/mes/año). También vale 9-11-1959 o "9 de noviembre de 1959".';
 
-  var api = { parseFlexibleDate: parseFlexibleDate, isoToArg: isoToArg, ageFromIso: ageFromIso, FORMAT_HINT: FORMAT_HINT };
+  var api = { parseFlexibleDate: parseFlexibleDate, isoToArg: isoToArg, ageFromIso: ageFromIso, isoFromAge: isoFromAge, FORMAT_HINT: FORMAT_HINT };
 
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.SanaDates = api;

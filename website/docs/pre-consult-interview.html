@@ -13,21 +13,21 @@
   <meta property="og:image" content="https://humanrounds.org/web/human-rounds-public-preview.png?v=4">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://humanrounds.org/docs/pre-consult-interview">
-  <link rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: dark)" href="/web/human-rounds-mark-32-dark.png?v=4">
-  <link rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: light)" href="/web/human-rounds-mark-32.png?v=4">
-  <link rel="apple-touch-icon" href="/web/human-rounds-mark-180.png?v=4">
+  <link rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: dark)" href="/web/human-rounds-mark-32-dark.png?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: light)" href="/web/human-rounds-mark-32.png?v=2">
+  <link rel="apple-touch-icon" href="/web/human-rounds-mark-180.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/web/landing.css?v=19">
   <link rel="stylesheet" href="/web/docs.css?v=2">
-  <link rel="stylesheet" href="/web/public-footer.css?v=8">
+  <link rel="stylesheet" href="/web/public-footer.css?v=7">
   <link rel="stylesheet" href="/web/public-theme.css?v=1">
 </head>
 <body>
   <header class="site-header site-header--bilingual">
     <a class="brand" href="/" aria-label="Human Rounds home">
-      <img src="/web/human-rounds-mark.png?v=1" alt="" width="55" height="55">
+      <img src="/web/human-rounds-mark.png?v=2" alt="" width="55" height="55">
       <span>Human Rounds</span>
     </a>
     <nav class="site-nav" aria-label="Primary navigation">
@@ -39,21 +39,36 @@
       <a href="https://github.com/visualpharm/human-rounds/issues/new" rel="noopener" data-i18n="navContact">Contact</a>
     </nav>
     <nav class="site-actions" aria-label="Language">
-      <button class="language-toggle" type="button" data-language-toggle>Español</button>
+      <select class="language-select" data-language-select aria-label="Language">
+          <option value="en" lang="en">English</option>
+          <option value="es" lang="es">Español</option>
+          <option value="pt" lang="pt">Português</option>
+          <option value="fr" lang="fr">Français</option>
+          <option value="it" lang="it">Italiano</option>
+          <option value="de" lang="de">Deutsch</option>
+          <option value="ru" lang="ru">Русский</option>
+          <option value="uk" lang="uk">Українська</option>
+          <option value="ja" lang="ja">日本語</option>
+          <option value="zh" lang="zh">中文</option>
+        </select>
     </nav>
   </header>
 
   <main>
     <div class="docs-shell">
-      <nav class="docs-nav" data-docs-nav aria-label="Documentation sections"></nav>
-      <article class="docs-article" data-docs-page="pre-consult"></article>
+      <nav class="docs-nav" data-docs-nav aria-label="Documentation sections"><!-- prerendered: scripts/prerender.mjs --><ul><li><a href="/docs">Introduction</a></li></ul><p class="docs-nav-group">What makes it different</p><ul><li><a href="/docs/pre-consult-interview" aria-current="page">Pre-consult interview</a></li><li><a href="/docs/referral-orders">Referral orders read by AI</a></li><li><a href="/docs/prepared-clinician">The prepared clinician</a></li><li><a href="/docs/scan-to-register">Scan to register</a></li><li><a href="/docs/health-record-handoff">Health-record handoff</a></li></ul><p class="docs-nav-group">Everyday use</p><ul><li><a href="/docs/booking-and-queue">Booking</a></li><li><a href="/docs/staff-panel">The desk and the panel</a></li></ul><p class="docs-nav-group">Run it yourself</p><ul><li><a href="/docs/install">Install</a></li><li><a href="/docs/connectors">Connectors</a></li><li><a href="/docs/writing-a-connector">Writing a connector</a></li></ul><!-- /prerendered --></nav>
+      <article class="docs-article" data-docs-page="pre-consult"><!-- prerendered: scripts/prerender.mjs --><h1>Pre-consult interview</h1><p class="docs-lead">The patient scans a QR at the consulting-room door. The interview opens on their own phone, and the doctor reads the answers before the patient walks in.</p><p class="docs-status"><b>Status:</b> Live at the Pinamar installation.</p><figure class="docs-shot"><button type="button" data-photozoom data-photozoom-src="/web/docs-shots/pre-consult-interview.png" data-photozoom-alt="The pre-consult interview asking a follow-up question" aria-label="The pre-consult interview asking a follow-up question"><img src="/web/docs-shots/pre-consult-interview.png" alt="The pre-consult interview asking a follow-up question" loading="lazy"></button><figcaption>The interview asks in plain language and follows up on what the patient actually said.</figcaption></figure><h2>How it works</h2><ul><li><b>The door carries the entry point.</b> A printed poster with a QR code per consulting room — no app, no account, no password.</li><li><b>The narrative comes first.</b> The patient describes the problem in their own words, typed or dictated. Structured questions come after, not before.</li><li><b>The AI asks the follow-ups</b> a clinician would ask about that specific complaint, then stops. It does not run a fixed questionnaire past someone who already answered.</li><li><b>The result is a triage colour and a summary</b>, waiting in the doctor’s list for that appointment.</li></ul><h2>Where the model is not trusted</h2><p>Red-flag rules are <b>deterministic code, not a prompt</b>. Certain answers raise the triage level no matter what the model concluded. The model may raise a patient’s urgency; it may never lower it below what the rules set.</p><p>The doctor sees the raw answers next to the summary, so a wrong summary is visibly wrong rather than quietly wrong.</p><h2>Editing what it asks</h2><p>The three prompts behind the interview — the questioner, the triage judgment and the summary — are <b>editable from the staff panel</b>. The canonical text is English; staff edit the Spanish.</p><p class="docs-next">Next: <a href="/docs/referral-orders">Referral orders read by AI</a></p><!-- /prerendered --></article>
     </div>
   </main>
 
   <footer data-public-footer data-lang="en"></footer>
-  <script src="/web/public-footer.js?v=7"></script>
-  <script src="/web/landing.js?v=19"></script>
-  <script src="/web/docs.js?v=3"></script>
+  <script src="/web/public-footer.js?v=6"></script>
+  <script src="/web/i18n-extra.js?v=1"></script>
+    <script src="/web/landing.js?v=30"></script>
+  <script src="/web/i18n-docs.js?v=1"></script>
+  <script src="/web/i18n-extra.js?v=1"></script>
+    <script src="/web/i18n-docs.js?v=1"></script>
+    <script src="/web/docs.js?v=3"></script>
   <script src="/web/lib/photo-zoom.js?v=1"></script>
   <script src="/web/public-theme.js?v=1"></script>
 </body>

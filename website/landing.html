@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/web/landing.css?v=19">
-  <link rel="stylesheet" href="/web/constellation.css?v=16">
+  <link rel="stylesheet" href="/web/connectors.css?v=1">
   <link rel="stylesheet" href="/web/public-footer.css?v=7">
   <script type="application/ld+json">
   {
@@ -131,22 +131,26 @@
     </section>
 
     <section class="network-section public-wrap" id="network">
-      <figure class="product-proof" id="constellation">
-        <div class="const-figure" id="constFigure">
-          <div class="const-sphere-shade" id="constSphereShade"></div>
-          <svg class="const-edges" id="constEdges" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"></svg>
-          <div class="const-hub" id="constHub">
-            <h3 data-i18n="constHubTitle">Your health network</h3>
+      <div class="section-intro">
+        <h2 data-i18n="connTitle">Connects to the systems your country already runs</h2>
+      </div>
+      <div class="conn" id="connectors">
+        <div class="conn-bar">
+          <div class="conn-tabs" role="tablist">
+            <button type="button" role="tab" id="connTab-connectors" aria-controls="connPanel" aria-selected="true" data-i18n="connTabConnectors">Connectors</button>
+            <button type="button" role="tab" id="connTab-desk" aria-controls="connPanel" aria-selected="false" tabindex="-1" data-i18n="connTabDesk">Desk and doctor</button>
+            <button type="button" role="tab" id="connTab-ai" aria-controls="connPanel" aria-selected="false" tabindex="-1" data-i18n="connTabAi">AI</button>
           </div>
-          <div class="const-ring const-ring--capabilities" id="constCapabilities">
-          </div>
-          <div class="const-ring const-ring--institutions" id="constInstitutions">
-            <h4 class="const-ring-label" data-i18n="constInstitutionsLabel">Who it talks to</h4>
-          </div>
-          <div class="const-outcomes" id="constOutcomes" aria-hidden="true"></div>
+          <label class="conn-country">
+            <span class="conn-country-label" data-i18n="connCountry">Country</span>
+            <span class="conn-select-wrap">
+              <img class="conn-flag" src="/web/icons/globe.svg?v=1" alt="" width="28" height="28">
+              <select class="conn-country-select"></select>
+            </span>
+          </label>
         </div>
-        <div class="const-switcher" id="constSwitcher"></div>
-      </figure>
+        <div class="conn-panel" id="connPanel" role="tabpanel" aria-labelledby="connTab-connectors" tabindex="0"></div>
+      </div>
     </section>
 
     <div class="band band--dark">
@@ -283,6 +287,14 @@
       </div>
       <ul class="updates-list">
         <li class="updates-item">
+          <span class="updates-date">September 25, 2026</span>
+          <p data-i18n-html data-i18n="update4Text"><b>Clinical summary concept.</b> A new homepage section compares today’s note-heavy AI clinical notes with our design direction for a clearer summary — icons, flags, and combined trend charts — a concept built on fictional data, not yet in the product.</p>
+        </li>
+        <li class="updates-item">
+          <span class="updates-date">September 22, 2026</span>
+          <p data-i18n-html data-i18n="update5Text"><b>Readable network labels.</b> Labels on the “Your health network” illustration were too small and faded to read; they’re now larger and clearer, and any that fade out are hidden instead of left illegible.</p>
+        </li>
+        <li class="updates-item">
           <span class="updates-date">July 31, 2026</span>
           <p data-i18n-html data-i18n="update1Text"><b>QR pre-consult interview.</b> Scan the code at the consulting-room door and the AI interview starts on the patient’s own phone, ready for the doctor before the encounter.</p>
         </li>
@@ -348,8 +360,8 @@
   <script src="/web/public-footer.js?v=6"></script>
   <script src="/web/i18n-extra.js?v=1"></script>
     <script src="/web/i18n-extra.js?v=1"></script>
-    <script src="/web/landing.js?v=29"></script>
-  <script src="/web/constellation.js?v=16"></script>
+    <script src="/web/landing.js?v=30"></script>
+  <script src="/web/connectors.js?v=1"></script>
   <script src="/web/market-positioning.js?v=1"></script>
   <script src="/web/lib/photo-zoom.js?v=1"></script>
   <script src="/web/public-theme.js?v=1"></script>

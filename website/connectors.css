@@ -1,0 +1,102 @@
+/* Connectors section (#network): tab bar, country filter, one table. */
+.network-section .section-intro { max-width: 760px; margin-bottom: var(--rd-aux, 40px); }
+.network-section .section-intro h2 { max-width: none; }
+
+.conn-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 32px;
+  border-bottom: 1px solid var(--line);
+}
+.conn-tabs { display: flex; flex-wrap: wrap; gap: 0 32px; }
+.conn-tabs [role="tab"] {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  margin: 0 0 -1px;
+  padding: 12px 0 13px;
+  font: inherit;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+}
+.conn-tabs [role="tab"]:hover { color: var(--rd-ink, #1a1714); }
+.conn-tabs [role="tab"][aria-selected="true"] {
+  color: var(--rd-ink, #1a1714);
+  font-weight: 700;
+  border-bottom-color: var(--rd-ink, #1a1714);
+}
+.conn-tabs [role="tab"]:focus-visible,
+.conn-country-select:focus-visible,
+.conn-panel:focus-visible {
+  outline: 2px solid var(--rd-ink, #1a1714);
+  outline-offset: 3px;
+}
+
+.conn-country { display: flex; align-items: center; gap: 12px; padding-bottom: 8px; font-size: 16px; color: var(--rd-ink, #1a1714); }
+.conn-country[hidden] { display: none; }
+.conn-select-wrap { position: relative; display: inline-flex; align-items: center; }
+.conn-flag { position: absolute; left: 12px; width: 28px; height: 28px; object-fit: contain; pointer-events: none; }
+.conn-country-select {
+  appearance: none;
+  min-height: 48px;
+  min-width: 240px;
+  padding: 0 40px 0 52px;
+  border: 1.5px solid var(--rd-ink, #1a1714);
+  border-radius: 999px;
+  background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%231a1714' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 16px center;
+  font: inherit;
+  font-size: 16px;
+  color: var(--rd-ink, #1a1714);
+  cursor: pointer;
+}
+
+.conn-panel { padding-top: 8px; }
+.conn-table { width: 100%; border-collapse: collapse; font-size: 17px; color: var(--rd-ink, #1a1714); }
+.conn-table thead th {
+  padding: 16px 16px 12px 0;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.conn-table tbody th,
+.conn-table tbody td { padding: 16px 16px 16px 0; border-top: 1px solid var(--line); vertical-align: middle; text-align: left; font-weight: 400; }
+.conn-name { width: 34%; }
+.conn-name-wrap { display: flex; align-items: center; gap: 16px; font-weight: 600; }
+/* One slot for icons and wordmark logos, so the names line up; wide logos
+   (SUMAR+, HL7 FHIR) keep their proportions inside it. */
+.conn-icon, .conn-logo { flex: none; width: 64px; height: 32px; object-fit: contain; object-position: left center; }
+.conn-what { line-height: 1.45; text-wrap: pretty; }
+.conn-status { width: 160px; white-space: nowrap; }
+.conn-badge { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; }
+.conn-dot { width: 10px; height: 10px; border-radius: 50%; background: #8a8a82; }
+.conn-badge--live .conn-dot { background: #1f7a3d; }
+.conn-badge--progress .conn-dot { background: #b7791f; }
+
+@media (max-width: 760px) {
+  .conn-bar { align-items: stretch; }
+  .conn-tabs { gap: 0 24px; }
+  .conn-country { width: 100%; justify-content: space-between; padding-bottom: 12px; }
+  .conn-country-select { min-width: 0; width: 100%; }
+  .conn-select-wrap { flex: 1; max-width: 260px; }
+  .conn-table thead { display: none; }
+  .conn-table, .conn-table tbody, .conn-table tr, .conn-table th, .conn-table td { display: block; width: auto; }
+  .conn-table tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px 16px;
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+  }
+  .conn-table tbody th, .conn-table tbody td { padding: 0; border: 0; }
+  .conn-name { grid-column: 1; width: auto; }
+  .conn-name-wrap { gap: 12px; }
+  .conn-icon, .conn-logo { width: 48px; }
+  .conn-status { grid-column: 2; grid-row: 1; width: auto; align-self: center; }
+  .conn-what { grid-column: 1 / -1; color: var(--muted); }
+}

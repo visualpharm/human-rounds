@@ -19,9 +19,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/web/landing.css?v=18">
+  <link rel="stylesheet" href="/web/landing.css?v=19">
   <link rel="stylesheet" href="/web/public-footer.css?v=8">
-  <link rel="stylesheet" href="/web/legal.css?v=2">
+  <link rel="stylesheet" href="/web/legal.css?v=3">
   <script>
   /* Stamp the reader's language on <html> before first paint so the Spanish
      version does not flash English. landing.js re-applies the same value on
@@ -39,7 +39,7 @@
 <body>
   <header class="site-header site-header--bilingual">
     <a class="brand" href="/" aria-label="Human Rounds home">
-      <img src="/web/human-rounds-mark.png?v=1" alt="" width="55" height="55">
+      <img src="/web/human-rounds-mark.png?v=2" alt="" width="55" height="55">
       <span>Human Rounds</span>
     </a>
     <nav class="site-nav" aria-label="Primary navigation">
@@ -51,7 +51,18 @@
       <a href="https://github.com/visualpharm/human-rounds/issues/new" rel="noopener" data-i18n="navContact">Contact</a>
     </nav>
     <nav class="site-actions" aria-label="Language">
-      <button class="language-toggle" type="button" data-language-toggle>Español</button>
+      <select class="language-select" data-language-select aria-label="Language">
+          <option value="en" lang="en">English</option>
+          <option value="es" lang="es">Español</option>
+          <option value="pt" lang="pt">Português</option>
+          <option value="fr" lang="fr">Français</option>
+          <option value="it" lang="it">Italiano</option>
+          <option value="de" lang="de">Deutsch</option>
+          <option value="ru" lang="ru">Русский</option>
+          <option value="uk" lang="uk">Українська</option>
+          <option value="ja" lang="ja">日本語</option>
+          <option value="zh" lang="zh">中文</option>
+        </select>
     </nav>
   </header>
 
@@ -90,6 +101,7 @@
           <h2>Third parties this page touches</h2>
           <ul>
             <li><strong>Google Fonts</strong> serves the typefaces from fonts.googleapis.com and fonts.gstatic.com. Your browser fetches them directly, so Google sees your IP address and user agent for that request.</li>
+            <li><strong>ipwho.is</strong> is asked, only when our host does not already know it, which country your connection comes from, to pick the country shown in the connectors table. Your browser calls it directly, so it sees your IP address; nothing is stored on our side.</li>
             <li><strong>Outbound links</strong> to GitHub, Icons8 and the live demo. Once you follow one, that site's own policy applies.</li>
           </ul>
           <p>That is the whole list. No other external script runs here.</p>
@@ -156,6 +168,7 @@
           <h2>Terceros que toca esta página</h2>
           <ul>
             <li><strong>Google Fonts</strong> entrega las tipografías desde fonts.googleapis.com y fonts.gstatic.com. Tu navegador las pide directo, así que Google ve tu IP y tu navegador en ese pedido.</li>
+            <li><strong>ipwho.is</strong> se consulta, solo cuando nuestro servidor no lo sabe ya, para saber de qué país viene tu conexión y elegir el país que muestra la tabla de conectores. Tu navegador lo llama directo, así que ve tu IP; de nuestro lado no se guarda nada.</li>
             <li><strong>Enlaces salientes</strong> a GitHub, Icons8 y la demo en vivo. Al seguir uno, rige la política de ese sitio.</li>
           </ul>
           <p>Esa es la lista completa. Acá no corre ningún otro script externo.</p>
@@ -199,7 +212,7 @@
        already stamped, so a Spanish reader gets a Spanish footer on first paint. -->
   <footer data-public-footer></footer>
   <script src="/web/public-footer.js?v=7"></script>
-  <script src="/web/landing.js?v=19"></script>
+  <script src="/web/landing.js?v=20"></script>
   <script src="/web/public-theme.js?v=1"></script>
 </body>
 </html>

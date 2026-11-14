@@ -7,21 +7,43 @@
 (function () {
   var GITHUB = 'https://github.com/visualpharm/human-rounds';
 
+  var copy = {
+    en: {
+      credit: '© 2026 Human Rounds. Icons by Icons8',
+      legallabel: 'Legal links',
+      privacy: 'Privacy',
+      datadeletion: 'Data deletion',
+      terms: 'Terms',
+      license: 'License'
+    },
+    es: {
+      credit: '© 2026 Human Rounds. Íconos de Icons8',
+      legallabel: 'Enlaces legales',
+      privacy: 'Privacidad',
+      datadeletion: 'Borrar datos',
+      terms: 'Términos',
+      license: 'Licencia'
+    }
+  };
+
   function render(footer, lang) {
-    var es = lang === 'es';
+    // Merge translations from HR_COPY if available
+    if (window.HR_COPY && window.HR_COPY[lang] && window.HR_COPY[lang].footer) {
+      copy[lang] = Object.assign(copy[lang] || {}, window.HR_COPY[lang].footer);
+    }
+
+    var c = copy[lang] || copy.en;
     footer.className = 'public-footer';
     footer.innerHTML =
       '<div class="public-footer__inner">' +
-        '<p class="public-footer__credit">© 2026 Human Rounds. ' +
-          '<a href="https://icons8.com" rel="noopener">' + (es ? 'Íconos de Icons8' : 'Icons by Icons8') + '</a>' +
-        '</p>' +
-        '<nav aria-label="' + (es ? 'Enlaces legales' : 'Legal links') + '">' +
-          '<a href="/privacy">' + (es ? 'Privacidad' : 'Privacy') + '</a>' +
-          '<a href="/data-deletion">' + (es ? 'Borrar datos' : 'Data deletion') + '</a>' +
-          '<a href="/terms">' + (es ? 'Términos' : 'Terms') + '</a>' +
-          '<a href="' + GITHUB + '/blob/main/LICENSE" rel="noopener">' + (es ? 'Licencia' : 'License') + '</a>' +
+        '<p class="public-footer__credit">' + c.credit + ' <a href="https://icons8.com" rel="noopener">Icons8</a></p>' +
+        '<nav aria-label="' + c.legallabel + '">' +
+          '<a href="/privacy">' + c.privacy + '</a>' +
+          '<a href="/data-deletion">' + c.datadeletion + '</a>' +
+          '<a href="/terms">' + c.terms + '</a>' +
+          '<a href="' + GITHUB + '/blob/main/LICENSE" rel="noopener">' + c.license + '</a>' +
         '</nav>' +
-        '<nav class="public-footer__projects" aria-label="' + (es ? 'Otros proyectos' : 'Other projects') + '">' +
+        '<nav class="public-footer__projects" aria-label="' + (lang === 'es' ? 'Otros proyectos' : 'Other projects') + '">' +
           '<a href="https://usabruno.com">Bruno</a>' +
           '<a href="https://lira-voice.app">Lira</a>' +
           '<a href="https://inglesconjenny.com">Inglés con Jenny</a>' +

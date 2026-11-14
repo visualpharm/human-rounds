@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Turnos Pinamar: cambiar la forma de trabajar con el servidor</title>
+  <style>
+    @font-face { font-family: "Fira Sans"; font-weight: 400; font-display: swap; src: url(/web/pinamar-deck/fira-sans-400-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: "Fira Sans"; font-weight: 400; font-display: swap; src: url(/web/pinamar-deck/fira-sans-400-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02AF, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: "Fira Sans"; font-weight: 500; font-display: swap; src: url(/web/pinamar-deck/fira-sans-500-latin.woff2) format("woff2"); }
+    @font-face { font-family: "Fira Sans"; font-weight: 700; font-display: swap; src: url(/web/pinamar-deck/fira-sans-700-latin.woff2) format("woff2"); }
+
+    :root {
+      --bg: #f6f7f5; --panel: #fff; --recessed: #eef0ee; --line: #d6dad6;
+      --text: #1f1f1f; --text-2: #4c524c;
+      --accent: #0d7d48; --accent-hover: #008149; --accent-soft: #eaf4ec; --accent-bd: #cde7d5;
+      --nav-bg: #007342; --danger: #c2452d; --danger-soft: #fbf4f2;
+      --top: 64px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: "Fira Sans", system-ui, sans-serif; font-size: 18px; line-height: 1.55; text-wrap: pretty; }
+    h1, h2 { text-wrap: balance; line-height: 1.2; }
+
+    .topbar { position: sticky; top: 0; z-index: 20; background: var(--nav-bg); color: #fff; height: var(--top); display: flex; align-items: center; padding: 0 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; font-weight: 700; font-size: 20px; }
+    .brand img { height: 36px; width: auto; filter: brightness(0) invert(1); }
+
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 56px; }
+    .menu { position: sticky; top: calc(var(--top) + 24px); align-self: start; padding: 32px 0; }
+    .menu ol { list-style: none; margin: 0; padding: 0; counter-reset: m; }
+    .menu li { counter-increment: m; }
+    .menu a { display: block; padding: 8px 12px; margin-left: -12px; border-radius: 8px; color: var(--text-2); text-decoration: none; font-size: 16px; line-height: 1.3; font-weight: 500; }
+    .menu a::before { content: counter(m) "  "; color: var(--accent); font-weight: 700; }
+    .menu a:hover, .menu a:focus-visible { background: var(--accent-soft); color: var(--text); }
+    .menu a[aria-current="true"] { background: var(--accent-soft); color: var(--text); font-weight: 700; }
+
+    .deck { min-width: 0; padding-bottom: 48px; }
+    .screen { padding: 56px 0; }
+    .screen + .screen { border-top: 1px solid var(--line); }
+    .deck h1 { font-size: 40px; margin: 0 0 24px; letter-spacing: -.01em; }
+    .deck h2 { font-size: 30px; margin: 0 0 24px; }
+    .deck p { margin: 0 0 16px; max-width: 36em; }
+    .deck p:last-child { margin-bottom: 0; }
+    .deck ol, .deck ul { margin: 0 0 16px; padding: 0; list-style: none; max-width: 36em; }
+    .deck li { margin: 0 0 16px; }
+    .deck li:last-child, .deck ol:last-child, .deck ul:last-child { margin-bottom: 0; }
+    .deck li b { display: block; }
+    .deck a { color: var(--accent); text-decoration: none; }
+    .deck a:hover, .deck a:focus-visible { color: var(--accent-hover); text-decoration: underline; }
+    .btn { display: inline-block; margin-top: 8px; padding: 14px 24px; border-radius: 11px; background: var(--accent); color: #fff !important; font-weight: 700; text-decoration: none !important; }
+    .btn:hover, .btn:focus-visible { background: var(--accent-hover); }
+    .deck .contacts { margin: 28px 0 0; max-width: none; }
+    .deck .contacts li { margin: 0 0 12px; }
+    .deck .contacts a { display: inline-flex; align-items: center; gap: 16px; min-height: 64px; padding: 12px 24px 12px 16px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; color: var(--text); font-size: 22px; font-weight: 500; line-height: 1.25; text-decoration: none; }
+    .deck .contacts a:hover, .deck .contacts a:focus-visible { color: var(--text); border-color: var(--accent); text-decoration: none; }
+    .deck .contacts b { display: block; font-size: 17px; font-weight: 700; color: var(--text-2); }
+    .deck .contacts img { flex: none; display: block; }
+    .pic { display: block; width: 100%; max-width: 640px; height: auto; margin: 32px 0 0; border-radius: 12px; mix-blend-mode: multiply; }
+
+    /* Hoy / con la propuesta */
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 0 0 24px; max-width: none !important; }
+    .col { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 24px; }
+    .col.next { background: var(--accent-soft); border-color: var(--accent-bd); }
+    .col h3 { margin: 0 0 16px; font-size: 20px; }
+    .col.next h3 { color: var(--accent); }
+    .col ul { max-width: none; }
+    .col li { margin-bottom: 16px; }
+
+    /* Amenaza: dos hechos */
+    .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 0 0 24px; max-width: none !important; }
+    .fact { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 24px; margin: 0; }
+    .fact .big { display: block; font-size: 44px; line-height: 1; font-weight: 700; color: var(--danger); margin-bottom: 8px; }
+    .fact .when { display: block; font-weight: 700; margin-bottom: 8px; }
+    .fact p { margin-bottom: 12px; }
+
+    .asks { counter-reset: ask; }
+    .deck .asks li { counter-increment: ask; position: relative; padding-left: 48px; }
+    .asks li::before { content: counter(ask); position: absolute; left: 0; top: 0; font-size: 26px; font-weight: 700; line-height: 1.1; color: var(--accent); }
+    .deck .points { max-width: 40em; margin: 0; }
+    .deck .points li { padding-left: 52px; margin-bottom: 14px; font-size: 22px; font-weight: 500; line-height: 1.3; min-height: 36px; display: flex; align-items: center; }
+    .deck .points li::before { top: 50%; transform: translateY(-50%); font-size: 32px; }
+    .deck .who { margin-bottom: 20px; }
+    .deck #propuesta h1 { margin-bottom: 16px; }
+    mark { background: #fff3b0; color: inherit; padding: 0 .15em; border-radius: 3px; font-weight: 500; }
+    .note { background: var(--accent-soft); border: 1px solid var(--accent-bd); border-radius: 12px; padding: 16px 20px; max-width: 36em; margin-top: 24px; }
+    .note p { margin: 0; }
+    .said { margin: 32px 0 0; font-size: 21px; font-style: italic; max-width: 34em; }
+    .said footer { margin-top: 8px; font-size: 18px; font-style: normal; }
+
+    @media (max-width: 1000px) {
+      .wrap { grid-template-columns: minmax(0, 1fr); gap: 0; }
+      .menu { position: sticky; top: var(--top); z-index: 10; margin: 0 -20px; padding: 0 20px; background: var(--bg); border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; }
+      .menu::-webkit-scrollbar { display: none; }
+      .menu ol { display: flex; gap: 4px; padding: 8px 0; width: max-content; }
+      .menu a { margin: 0; padding: 8px 12px; white-space: nowrap; }
+      html { scroll-padding-top: 128px; }
+    }
+    @media (max-width: 700px) {
+      body { font-size: 17px; }
+      :root { --top: 56px; }
+      .brand { font-size: 18px; }
+      .brand img { height: 30px; }
+      .deck h1 { font-size: 30px; }
+      .deck h2 { font-size: 25px; }
+      .screen { padding: 40px 0; }
+      .compare, .facts { grid-template-columns: 1fr; gap: 16px; }
+      .col, .fact { padding: 20px; }
+      .said { font-size: 19px; }
+      .deck .points li { font-size: 19px; padding-left: 44px; margin-bottom: 10px; min-height: 0; }
+      .deck .points li::before { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="#propuesta"><img src="/web/pinamar-deck/emblema.svg" width="30" height="38" alt="">Turnos Pinamar</a></header>
+
+  <div class="wrap">
+    <nav class="menu" aria-label="Secciones">
+      <ol>
+        <li><a href="#propuesta">Propuesta</a></li>
+        <li><a href="#hoy">Hoy y con la propuesta</a></li>
+        <li><a href="#riesgo">El riesgo es real</a></li>
+        <li><a href="#afuera">Qué dicen las normas</a></li>
+        <li><a href="#pedimos">Qué pedimos</a></li>
+        <li><a href="#empezar">Cómo empezar</a></li>
+        <li><a href="#llaves">Las llaves son del municipio</a></li>
+        <li><a href="#lista">Cada versión, la misma lista</a></li>
+        <li><a href="#reunion">Próximo paso</a></li>
+      </ol>
+    </nav>
+
+    <main class="deck">
+
+      <section class="screen" id="propuesta">
+        <h1>Iván y su equipo piden cambiar la forma de trabajar con el servidor</h1>
+        <p class="who">Iván escribe el sistema de turnos del Hospital de Pinamar y de los centros de atención primaria (CAPS). Para que funcione de forma confiable, y según las normas internacionales y argentinas, hace falta cambiar cómo se publican las actualizaciones y quién accede a la información técnica. No toca los datos médicos, no da a Iván acceso automático a ellos y no cuesta nada: solo hace falta una decisión. Proponemos que:</p>
+        <ol class="asks points">
+          <li>Iván instale las versiones él mismo.</li>
+          <li>Pueda deshacer una versión si algo falla.</li>
+          <li>Consulte los registros técnicos del servidor, sin datos médicos.</li>
+          <li>Una persona del municipio tenga un acceso de emergencia.</li>
+          <li>El municipio conserve el control de los datos médicos y decida quién accede.</li>
+        </ol>
+        <img class="pic" src="/web/pinamar-deck/destino.jpg" width="1200" height="800" alt="Un calendario de turnos en pantalla: una celda rota pasa a estar arreglada antes del mediodía.">
+      </section>
+
+      <section class="screen" id="hoy">
+        <h2>Un error a la mañana, resuelto antes del mediodía</h2>
+        <div class="compare">
+          <div class="col">
+            <h3>Hoy</h3>
+            <ul>
+              <li><b>Quién instala</b>Otra persona, con un instructivo.</li>
+              <li><b>Cuánto tarda</b>Un pedido con plazo de 24 horas hábiles.</li>
+              <li><b>Qué se ve</b>Iván no ve lo que ve el servidor y pide capturas.</li>
+              <li><b>Si no alcanza</b>La vuelta empieza de nuevo.</li>
+            </ul>
+          </div>
+          <div class="col next">
+            <h3>Con la propuesta</h3>
+            <ul>
+              <li><b>Quién instala</b>Iván, en el día y horario que fija el municipio.</li>
+              <li><b>Cuánto tarda</b>Sin esperar otro pedido: según la falla, puede quedar arreglado el mismo día.</li>
+              <li><b>Qué se ve</b>Iván encuentra la causa en los registros, sin pedir capturas.</li>
+              <li><b>Si algo falla</b>Vuelve a la versión anterior en minutos, con una copia de seguridad hecha antes.</li>
+            </ul>
+          </div>
+        </div>
+        <p>Y una versión anterior sigue siempre a mano: el arreglo nunca depende de que todo salga bien a la primera.</p>
+      </section>
+
+      <section class="screen" id="riesgo">
+        <h2>El riesgo es real: una actualización puede frenar un hospital</h2>
+        <p>No es una hipótesis. Hay dos casos medidos, con dos causas opuestas.</p>
+        <div class="facts">
+          <div class="fact">
+            <span class="big">759 hospitales</span>
+            <span class="when">Estados Unidos, julio de 2024</span>
+            <p>Una actualización defectuosa de un antivirus dejó servicios caídos en 759 de los 2.232 hospitales medidos. Donde se pudo medir el tiempo, la caída mediana duró 5,1 horas (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12276631/">JAMA Network Open, 2025</a>).</p>
+            <p>En Mass General Brigham, en Boston, se cancelaron ese día las cirugías y las consultas no urgentes (<a href="https://www.statnews.com/2024/07/19/microsoft-crowdstrike-outage-hospitals-cancellations/">STAT</a>).</p>
+          </div>
+          <div class="fact">
+            <span class="big">19.000 turnos</span>
+            <span class="when">Inglaterra, mayo de 2017</span>
+            <p>El virus WannaCry alcanzó al menos a 81 de las 236 organizaciones que administran los hospitales del servicio de salud inglés. Sus sistemas estaban sin actualizar o sin soporte, aunque se había pedido actualizarlos en marzo y abril. Se estima que se cancelaron más de 19.000 turnos (<a href="https://www.nao.org.uk/reports/investigation-wannacry-cyber-attack-and-the-nhs/">National Audit Office</a>).</p>
+          </div>
+        </div>
+        <p>En un caso, la versión nueva era mala. En el otro, la versión buena no se instaló a tiempo. Los dos casos muestran por qué importa instalar a tiempo y poder volver atrás. Veamos qué dicen las normas cuando un proveedor trabaja con los sistemas de un organismo.</p>
+      </section>
+
+      <section class="screen" id="afuera">
+        <h2>Qué dicen las normas cuando un proveedor accede a los sistemas</h2>
+        <ul>
+          <li><b>Argentina, Dirección Nacional de Ciberseguridad</b>Su modelo de política para organismos públicos pide que se controle la actividad de administradores y operadores, que se evalúe la seguridad de las aplicaciones antes de ponerlas en uso y que se exija seguridad de la información a los proveedores. Sobre los problemas dice que las debilidades se comunican y minimizan «de forma tal que se apliquen las acciones correctivas <mark>en el menor tiempo posible</mark>». Es una guía de buenas prácticas, no obligatoria (<a href="https://www.argentina.gob.ar/sites/default/files/2022/03/anexo_6539747_1.pdf">Disposición 1/2022, anexo</a>).</li>
+          <li><b>Reino Unido, servicio de salud (NHS)</b>Pide conocer quién tiene acceso privilegiado a los sistemas, registrar sus acciones para que se revisen de forma independiente y tener «prácticas específicas de revisión para las operaciones con privilegios realizadas por contratistas externos y terceros, como los proveedores» (<a href="https://nhsd-proxy.openprescribing.net/cyber-and-data-security/guidance-and-resources/caf-aligned-dspt-guidance/objective-b/principle-b2-identity-and-access-control">DSPT, principio B2</a>).</li>
+          <li><b>Estados Unidos, ley HIPAA</b>Un hospital solo puede dejar que un proveedor (<i>business associate</i>) maneje información de salud electrónica si obtiene garantías de que la protegerá, fijadas en un contrato escrito (<a href="https://www.law.cornell.edu/cfr/text/45/164.308">45 CFR 164.308(b)</a>). También exige un procedimiento de acceso de emergencia (<a href="https://www.law.cornell.edu/cfr/text/45/164.312">164.312</a>).</li>
+        </ul>
+      </section>
+
+      <section class="screen" id="pedimos">
+        <h2>Pedimos tres cosas; Iván no cobra por esta tarea</h2>
+        <ol class="asks">
+          <li><b>Instalar y deshacer las versiones</b>Iván instala cada versión y vuelve a la anterior si algo falla. El horario, el aviso y la copia previa los fija el municipio.</li>
+          <li><b>Consultar los registros, sin poder modificarlos</b>Los registros son el diario técnico del programa: qué pasó y cuándo, los errores y el estado de las copias de seguridad. No son historias clínicas ni resultados, y no incluyen datos que identifiquen a los pacientes. El municipio puede verificarlo antes de habilitar el acceso.</li>
+          <li><b>Un acceso de emergencia en el municipio</b>Una persona del municipio con el mismo acceso, para que el servicio no dependa de una sola persona.</li>
+        </ol>
+        <img class="pic" src="/web/pinamar-deck/deshacer.jpg" width="1200" height="800" loading="lazy" alt="Una versión nueva se instala sobre los servidores y una flecha permite volver a la anterior; la copia de seguridad queda bajo candado.">
+      </section>
+
+      <section class="screen" id="empezar">
+        <h2>Se puede empezar por lo más chico</h2>
+        <ol class="asks">
+          <li><b>Primer mes: solo mirar</b>Iván ve los registros, los errores y el estado de las copias. No instala nada.</li>
+          <li><b>Después: un día por semana</b>Instala en un día y horario acordados, con aviso previo y copia de seguridad antes. Para una falla urgente, se acuerda antes el procedimiento.</li>
+          <li><b>Cada mes, el municipio decide</b>Revisa el registro de lo que se hizo y decide si sigue, cambia o termina.</li>
+        </ol>
+        <p>El municipio puede retirar el acceso cuando quiera.</p>
+      </section>
+
+      <section class="screen" id="llaves">
+        <h2>Las llaves y los datos médicos siguen siendo del municipio</h2>
+        <img class="pic" src="/web/pinamar-deck/custodia.jpg" width="1200" height="800" loading="lazy" alt="Una caja fuerte con forma de edificio público guarda la llave principal; una llave más chica, atada a un libro de registro, tiene tiempo limitado.">
+        <ul>
+          <li><b>Los datos médicos quedan en la base del municipio</b>No pedimos acceso a historias clínicas ni a resultados. Pedimos ver cómo funciona el programa, no lo que contienen los pacientes.</li>
+          <li><b>Un usuario propio, no una clave compartida</b>Con una segunda verificación al ingresar. El municipio lo retira cuando quiera.</li>
+          <li><b>Las copias de seguridad no se tocan</b>En salud.pinamar.gob.ar el programa no puede borrar ni sobrescribir ninguna copia. Una prueba automática lo comprueba en cada versión, y una versión que no la pasa no se publica.</li>
+          <li><b>Quién abrió datos clínicos queda registrado</b>Cada vez que el personal abre la información de un paciente queda una línea en un registro que no se puede borrar.</li>
+          <li><b>Confidencialidad</b>Iván firma el acuerdo de confidencialidad que indique el municipio.</li>
+        </ul>
+      </section>
+
+      <section class="screen" id="lista">
+        <h2>Cada versión sigue la misma lista</h2>
+        <ol class="asks">
+          <li>Copia de seguridad antes de instalar.</li>
+          <li>Aviso a quien indique el municipio, con el día y la hora.</li>
+          <li>Instalación en el día y horario acordados.</li>
+          <li>Pruebas automáticas al terminar.</li>
+          <li>Si algo falla, vuelta a la versión anterior.</li>
+          <li>Registro de cada paso: quién, cuándo y qué versión.</li>
+        </ol>
+      </section>
+
+      <section class="screen" id="reunion">
+        <h2>Próximo paso: una reunión corta</h2>
+        <p>Con Sistemas y con Asesoría Letrada, para acordar quién aprueba una versión, en qué horario se instala, cómo se avisa, quién tiene el acceso de emergencia y qué acuerdo de confidencialidad se firma.</p>
+        <p>Iván se adapta al día y al horario que proponga el municipio.</p>
+        <ul class="contacts">
+          <li><a href="https://wa.me/13023574305"><img src="/web/pinamar-deck/whatsapp.svg" width="40" height="40" alt=""><span><b>WhatsApp</b>+1 302 357 4305</span></a></li>
+          <li><a href="mailto:iboyko8@gmail.com?subject=Reuni%C3%B3n%20sobre%20las%20versiones%20de%20salud.pinamar.gob.ar"><img src="/web/pinamar-deck/gmail.svg" width="40" height="40" alt=""><span><b>Gmail</b>iboyko8@gmail.com</span></a></li>
+        </ul>
+      </section>
+
+    </main>
+  </div>
+  <script src="/web/pinamar-deck/menu.js" defer></script>
+</body>
+</html>

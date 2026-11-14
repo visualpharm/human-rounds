@@ -13,21 +13,21 @@
   <meta property="og:image" content="https://humanrounds.org/web/human-rounds-public-preview.png?v=4">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://humanrounds.org/docs/scan-to-register">
-  <link rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: dark)" href="/web/human-rounds-mark-32-dark.png?v=4">
-  <link rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: light)" href="/web/human-rounds-mark-32.png?v=4">
-  <link rel="apple-touch-icon" href="/web/human-rounds-mark-180.png?v=4">
+  <link rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: dark)" href="/web/human-rounds-mark-32-dark.png?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: light)" href="/web/human-rounds-mark-32.png?v=2">
+  <link rel="apple-touch-icon" href="/web/human-rounds-mark-180.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/web/landing.css?v=19">
   <link rel="stylesheet" href="/web/docs.css?v=2">
-  <link rel="stylesheet" href="/web/public-footer.css?v=8">
+  <link rel="stylesheet" href="/web/public-footer.css?v=7">
   <link rel="stylesheet" href="/web/public-theme.css?v=1">
 </head>
 <body>
   <header class="site-header site-header--bilingual">
     <a class="brand" href="/" aria-label="Human Rounds home">
-      <img src="/web/human-rounds-mark.png?v=1" alt="" width="55" height="55">
+      <img src="/web/human-rounds-mark.png?v=2" alt="" width="55" height="55">
       <span>Human Rounds</span>
     </a>
     <nav class="site-nav" aria-label="Primary navigation">
@@ -39,21 +39,36 @@
       <a href="https://github.com/visualpharm/human-rounds/issues/new" rel="noopener" data-i18n="navContact">Contact</a>
     </nav>
     <nav class="site-actions" aria-label="Language">
-      <button class="language-toggle" type="button" data-language-toggle>Español</button>
+      <select class="language-select" data-language-select aria-label="Language">
+          <option value="en" lang="en">English</option>
+          <option value="es" lang="es">Español</option>
+          <option value="pt" lang="pt">Português</option>
+          <option value="fr" lang="fr">Français</option>
+          <option value="it" lang="it">Italiano</option>
+          <option value="de" lang="de">Deutsch</option>
+          <option value="ru" lang="ru">Русский</option>
+          <option value="uk" lang="uk">Українська</option>
+          <option value="ja" lang="ja">日本語</option>
+          <option value="zh" lang="zh">中文</option>
+        </select>
     </nav>
   </header>
 
   <main>
     <div class="docs-shell">
-      <nav class="docs-nav" data-docs-nav aria-label="Documentation sections"></nav>
-      <article class="docs-article" data-docs-page="scan-to-register"></article>
+      <nav class="docs-nav" data-docs-nav aria-label="Documentation sections"><!-- prerendered: scripts/prerender.mjs --><ul><li><a href="/docs">Introduction</a></li></ul><p class="docs-nav-group">What makes it different</p><ul><li><a href="/docs/pre-consult-interview">Pre-consult interview</a></li><li><a href="/docs/referral-orders">Referral orders read by AI</a></li><li><a href="/docs/prepared-clinician">The prepared clinician</a></li><li><a href="/docs/scan-to-register" aria-current="page">Scan to register</a></li><li><a href="/docs/health-record-handoff">Health-record handoff</a></li></ul><p class="docs-nav-group">Everyday use</p><ul><li><a href="/docs/booking-and-queue">Booking</a></li><li><a href="/docs/staff-panel">The desk and the panel</a></li></ul><p class="docs-nav-group">Run it yourself</p><ul><li><a href="/docs/install">Install</a></li><li><a href="/docs/connectors">Connectors</a></li><li><a href="/docs/writing-a-connector">Writing a connector</a></li></ul><!-- /prerendered --></nav>
+      <article class="docs-article" data-docs-page="scan-to-register"><!-- prerendered: scripts/prerender.mjs --><h1>Scan to register</h1><p class="docs-lead">A camera at the desk reads the ID barcode and the insurance QR, and fills the health-record registration. A credential format nobody has seen before is learned once and recognised from then on.</p><p class="docs-status"><b>Status:</b> Prototype. Built and tested end to end, not yet running in production.</p><figure class="docs-shot"><button type="button" data-photozoom data-photozoom-src="/web/docs-shots/scan-to-register.png" data-photozoom-alt="The reception desk registration screen with a scanned document" aria-label="The reception desk registration screen with a scanned document"><img src="/web/docs-shots/scan-to-register.png" alt="The reception desk registration screen with a scanned document" loading="lazy"></button><figcaption>The document is read at the desk; the fields land in the health record without retyping.</figcaption></figure><h2>What it reads</h2><ul><li><b>The national ID barcode</b> — document number, sex and date of birth are reliable; accented names are best-effort, because the barcode is plain ASCII.</li><li><b>The insurance credential QR</b>, which each provider designs differently.</li><li><b>A photo instead of a live camera</b>, when the phone or the network will not cooperate. If the barcode will not decode, a vision model reads the card image.</li></ul><h2>Learning an unknown credential</h2><p>An unrecognised QR goes through four stages, and <b>the model is the last one, not the first</b>: known providers, then rules learned from earlier scans, then a structural reading of the raw fields, and only then a model call. Whatever the model works out is saved as a rule, so the next patient with that card parses instantly and for free.</p><h2>Patients can register themselves</h2><p>The same reader runs on the patient’s own phone, which focuses on a dense barcode far better than a desk webcam. A self-registration lands in a queue at the desk, where reception confirms it into the health record.</p><p class="docs-next">Next: <a href="/docs/health-record-handoff">Health-record handoff</a></p><!-- /prerendered --></article>
     </div>
   </main>
 
   <footer data-public-footer data-lang="en"></footer>
-  <script src="/web/public-footer.js?v=7"></script>
-  <script src="/web/landing.js?v=19"></script>
-  <script src="/web/docs.js?v=3"></script>
+  <script src="/web/public-footer.js?v=6"></script>
+  <script src="/web/i18n-extra.js?v=1"></script>
+    <script src="/web/landing.js?v=30"></script>
+  <script src="/web/i18n-docs.js?v=1"></script>
+  <script src="/web/i18n-extra.js?v=1"></script>
+    <script src="/web/i18n-docs.js?v=1"></script>
+    <script src="/web/docs.js?v=3"></script>
   <script src="/web/lib/photo-zoom.js?v=1"></script>
   <script src="/web/public-theme.js?v=1"></script>
 </body>

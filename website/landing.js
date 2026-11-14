@@ -1,5 +1,6 @@
 /* Distinct English and Argentine-Spanish voices for the Human Rounds public site. */
 (function () {
+  var LANGS = [['en', 'English'], ['es', 'Español'], ['pt', 'Português'], ['fr', 'Français'], ['it', 'Italiano'], ['de', 'Deutsch'], ['ru', 'Русский'], ['uk', 'Українська'], ['ja', '日本語'], ['zh', '中文']];
   var copy = {
     en: {
       navHow: 'How it works',
@@ -18,8 +19,51 @@
       heroLinkOpenSource: 'GitHub',
       heroLinkDocs: 'Documentation',
 
-      constHubTitle: 'Your health network',
-      constInstitutionsLabel: 'Who it talks to',
+      connTitle: 'Connects to the systems your country already runs',
+      connTabsLabel: 'Connectors, desk and doctor, AI',
+      connTabConnectors: 'Connectors',
+      connTabDesk: 'Desk and doctor',
+      connTabAi: 'AI',
+      connCountry: 'Country',
+      connCountryOther: 'Other country',
+      connColName: 'Name',
+      connColWhat: 'What it does',
+      connColStatus: 'Status',
+      connStatusLive: 'Live',
+      connStatusProgress: 'In progress',
+      connStatusPlanned: 'Planned',
+      connRoleIdentity: 'Verifies who the patient is',
+      connRoleCoverage: 'Checks the patient’s health coverage',
+      connRoleLicenses: 'Confirms the doctor’s license',
+      connRoleEmr: 'Shares the visit with the public health record',
+      connRoleRegional: 'Reads open appointment slots from the regional system',
+      connRoleBilling: 'Prepares visits for billing',
+      connWhatsappWhat: 'Patients book and sign in by message',
+      connEmailWhat: 'Sends confirmations and reminders',
+      connDeskRequests: 'Requests and approval',
+      connDeskRequestsWhat: 'Staff approve or decline each appointment request in one queue',
+      connDeskDirectory: 'Directory',
+      connDeskDirectoryWhat: 'Centers, services and doctors in one searchable list',
+      connDeskCenters: 'Several centers',
+      connDeskCentersWhat: 'One installation for a hospital and its health posts',
+      connDeskAgenda: 'Doctor’s agenda',
+      connDeskAgendaWhat: 'Each doctor sees their day and their patients',
+      connDeskWaitlist: 'Waiting list and reminders',
+      connDeskWaitlistWhat: 'Offers freed slots and reminds patients before the visit',
+      connDeskReports: 'Reports',
+      connDeskReportsWhat: 'Cost recovery, statistics and a no-show ranking',
+      connDeskAudit: 'Access log',
+      connDeskAuditWhat: 'Records every read of clinical data by staff',
+      connAiReferral: 'Referral reading',
+      connAiReferralWhat: 'Reads the referral photo and proposes the service',
+      connAiInterview: 'Pre-visit interview',
+      connAiInterviewWhat: 'Asks follow-up questions and proposes an urgency that staff confirm',
+      connAiSummary: 'Chart summary',
+      connAiSummaryWhat: 'Summarizes the health record before the visit',
+      connAiLabs: 'Lab results',
+      connAiLabsWhat: 'Explains each report to the patient in plain words',
+      connAiDni: 'Sign-up from a DNI photo',
+      connAiDniWhat: 'Fills in the registration from a photo of the document',
 
       flowTitle: 'Every patient encounter, prepared by AI.',
       flowIntro: 'Human Rounds automates the repetitive work before, during, and after each visit. Your existing medical record remains the source of truth — clinicians review every recommendation.',
@@ -177,6 +221,8 @@
       update1Text: '<b><a href="/docs/pre-consult-interview">QR pre-consult interview</a>.</b> Scan the code at the consulting-room door and the AI interview starts on the patient’s own phone, ready for the doctor before the encounter.',
       update2Text: '<b><a href="/docs/scan-to-register">Scan-to-register</a>.</b> A document camera reads an ID and insurance credential, fills the health record, and learns unfamiliar QR formats for the next patient.',
       update3Text: '<b><a href="/docs/health-record-handoff">Resilient EHR handoff</a>.</b> Registration work stays queued locally and retries automatically when the clinical record comes back online.',
+      update4Text: '<b>Clinical summary concept.</b> A new homepage section compares today’s note-heavy AI clinical notes with our design direction for a clearer summary — icons, flags, and combined trend charts — a concept built on fictional data, not yet in the product.',
+      update5Text: '<b>Readable network labels.</b> Labels on the “Your health network” illustration were too small and faded to read; they’re now larger and clearer, and any that fade out are hidden instead of left illegible.',
 
       invitationsTitle: 'Who this is for',
       invitationsIntro: 'Three ways into the same platform — run it, extend it, or fund the next deployments.',
@@ -215,8 +261,51 @@
       heroLinkOpenSource: 'GitHub',
       heroLinkDocs: 'Documentación',
 
-      constHubTitle: 'Tu red de salud',
-      constInstitutionsLabel: 'Con quién se conecta',
+      connTitle: 'Se conecta con los sistemas que tu país ya usa',
+      connTabsLabel: 'Conectores, mostrador y médico, IA',
+      connTabConnectors: 'Conectores',
+      connTabDesk: 'Mostrador y médico',
+      connTabAi: 'IA',
+      connCountry: 'País',
+      connCountryOther: 'Otro país',
+      connColName: 'Nombre',
+      connColWhat: 'Qué hace',
+      connColStatus: 'Estado',
+      connStatusLive: 'En uso',
+      connStatusProgress: 'En desarrollo',
+      connStatusPlanned: 'Planificado',
+      connRoleIdentity: 'Verifica quién es el paciente',
+      connRoleCoverage: 'Consulta la cobertura de salud del paciente',
+      connRoleLicenses: 'Confirma la matrícula del médico',
+      connRoleEmr: 'Comparte la consulta con la historia clínica pública',
+      connRoleRegional: 'Lee los turnos libres del sistema regional',
+      connRoleBilling: 'Prepara las consultas para facturar',
+      connWhatsappWhat: 'Los pacientes sacan turno e ingresan por mensaje',
+      connEmailWhat: 'Envía confirmaciones y recordatorios',
+      connDeskRequests: 'Solicitudes y aprobación',
+      connDeskRequestsWhat: 'El personal aprueba o rechaza cada solicitud de turno en una sola cola',
+      connDeskDirectory: 'Directorio',
+      connDeskDirectoryWhat: 'Centros, servicios y médicos en una sola lista con buscador',
+      connDeskCenters: 'Varios centros',
+      connDeskCentersWhat: 'Una instalación para un hospital y sus centros de salud',
+      connDeskAgenda: 'Agenda del médico',
+      connDeskAgendaWhat: 'Cada médico ve su día y a sus pacientes',
+      connDeskWaitlist: 'Lista de espera y recordatorios',
+      connDeskWaitlistWhat: 'Ofrece los turnos liberados y avisa al paciente antes de la consulta',
+      connDeskReports: 'Reportes',
+      connDeskReportsWhat: 'Recupero de costos, estadística y ranking de ausentes',
+      connDeskAudit: 'Registro de accesos',
+      connDeskAuditWhat: 'Anota cada lectura de datos clínicos que hace el personal',
+      connAiReferral: 'Lectura de órdenes',
+      connAiReferralWhat: 'Lee la foto de la orden y propone el servicio',
+      connAiInterview: 'Entrevista previa',
+      connAiInterviewWhat: 'Hace preguntas de seguimiento y propone una urgencia que el personal confirma',
+      connAiSummary: 'Resumen de la historia',
+      connAiSummaryWhat: 'Resume la historia clínica antes de la consulta',
+      connAiLabs: 'Resultados de laboratorio',
+      connAiLabsWhat: 'Explica cada informe al paciente en palabras simples',
+      connAiDni: 'Registro con foto del DNI',
+      connAiDniWhat: 'Completa el registro a partir de la foto del documento',
 
       flowTitle: 'Cada consulta, preparada por la IA.',
       flowIntro: 'Human Rounds automatiza el trabajo repetitivo antes, durante y después de cada consulta. La historia clínica que ya usás sigue siendo la fuente oficial: el equipo de salud revisa cada sugerencia.',
@@ -374,6 +463,8 @@
       update1Text: '<b><a href="/docs/pre-consult-interview">Entrevista previa por QR</a>.</b> Escaneá el código en la puerta del consultorio y la entrevista con IA empieza en el celular del paciente, lista para el médico antes de la consulta.',
       update2Text: '<b><a href="/docs/scan-to-register">Alta por escaneo</a>.</b> Una cámara lee el DNI y la credencial de cobertura, completa HSI y aprende formatos de QR desconocidos para el próximo paciente.',
       update3Text: '<b><a href="/docs/health-record-handoff">Envío resiliente a HSI</a>.</b> El alta queda en cola local y se reintenta automáticamente cuando vuelve la historia clínica.',
+      update4Text: '<b>Concepto de resumen clínico.</b> Una nueva sección de la portada compara las notas clínicas de otras IA, cargadas de texto, con nuestra dirección de diseño para un resumen más claro — íconos, alertas destacadas y gráficos de tendencia combinados —, un concepto con datos ficticios que todavía no está en el producto.',
+      update5Text: '<b>Etiquetas legibles en la red.</b> Las etiquetas de la ilustración “Tu red de salud” eran chicas y se desvanecían hasta volverse ilegibles; ahora son más grandes y claras, y las que quedan muy tenues se ocultan en vez de dejarse ilegibles.',
 
       invitationsTitle: 'Para quién es',
       invitationsIntro: 'Tres formas de entrar a la misma plataforma: ponerla a andar, extenderla o financiar las próximas instalaciones.',
@@ -433,15 +524,79 @@
   }
 
   function initialLanguage() {
-    if (location.pathname === '/es') return 'es';
-    if (location.pathname === '/en') return 'en';
-    var query = new URLSearchParams(location.search).get('lang');
-    if (copy[query]) return query;
-    try {
-      var saved = localStorage.getItem('human-rounds-language');
-      if (copy[saved]) return saved;
-    } catch {}
-    return 'en';
+    // Check path /<code> for any of the 10 codes
+    var pathMatch = window.location.pathname.match(/^\/([a-z]{2})(?:\/|$)/);
+    if (pathMatch) {
+      var code = pathMatch[1];
+      if (LANGS.some(function(l) { return l[0] === code; })) {
+        return code;
+      }
+    }
+
+    // Check ?lang=<code>
+    var params = new URLSearchParams(window.location.search);
+    var langParam = params.get('lang');
+    if (langParam && LANGS.some(function(l) { return l[0] === langParam; })) {
+      return langParam;
+    }
+
+    // Check localStorage
+    var stored = localStorage.getItem('human-rounds-language');
+    if (stored && LANGS.some(function(l) { return l[0] === stored; })) {
+      return stored;
+    }
+
+    // Browser language detection: check navigator.languages for primary subtag match
+    if (navigator.languages) {
+      for (var i = 0; i < navigator.languages.length; i++) {
+        var browserlang = navigator.languages[i].toLowerCase().split('-')[0];
+        if (LANGS.some(function(l) { return l[0] === browserlang; })) {
+          return browserlang;
+        }
+      }
+    }
+
+    return 'en'; // fallback
+  }
+
+  function setLanguage(lang) {
+    // Merge translations from HR_COPY if available
+    if (window.HR_COPY && window.HR_COPY[lang] && window.HR_COPY[lang].landing) {
+      copy[lang] = HR_COPY[lang].landing;
+    }
+    if (!copy[lang]) lang = 'en';
+    if (!copy[lang]) lang = 'en';
+    document.documentElement.lang = lang;
+    document.body.setAttribute('data-language', lang);
+    var nodes = document.querySelectorAll('[data-i18n]');
+    for (var i = 0; i < nodes.length; i++) {
+      var key = nodes[i].getAttribute('data-i18n');
+      if (copy[lang][key] == null) continue;
+      if (nodes[i].hasAttribute('data-i18n-html')) nodes[i].innerHTML = copy[lang][key];
+      else nodes[i].textContent = copy[lang][key];
+    }
+    var alt = document.querySelector('[data-i18n-alt]');
+    if (alt) alt.alt = copy[lang][alt.getAttribute('data-i18n-alt')];
+    var toggle = document.querySelector('[data-language-toggle]');
+    if (toggle) {
+      toggle.textContent = copy[lang].language;
+      toggle.setAttribute('aria-label', lang === 'en' ? 'Cambiar a español' : 'Switch to English');
+    }
+    try { localStorage.setItem('human-rounds-language', lang); } catch {}
+    syncDemoLinks(lang);
+    window.dispatchEvent(new CustomEvent('human-rounds:language', { detail: { lang: lang } }));
+  }
+
+  /* The demo (demo.humanrounds.org) opens in the language the visitor is
+     reading here: every demo link carries `?lang=`, which the demo turns
+     into its own language cookie. Rewritten on every switch. */
+  function syncDemoLinks(lang) {
+    var links = document.querySelectorAll('a[href^="https://demo.humanrounds.org"]');
+    for (var i = 0; i < links.length; i++) {
+      var url = new URL(links[i].getAttribute('href'));
+      url.searchParams.set('lang', lang);
+      links[i].setAttribute('href', url.toString());
+    }
   }
 
   /* Both labels live in the DOM and CSS shows the right one, so a language
@@ -475,10 +630,41 @@
     if (toggle) toggle.addEventListener('click', function () {
       setLanguage(document.documentElement.lang === 'en' ? 'es' : 'en');
     });
+    var langSelect = document.querySelector('[data-language-select]');
+    if (langSelect) {
+      langSelect.value = lang;
+      langSelect.addEventListener('change', function () { setLanguage(langSelect.value); });
+    }
     initStoryToggles();
     initKanbanCounts();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
-})();
+
+
+  // Export for use in other scripts
+  window.HumanRoundsI18n = {
+    LANGS: LANGS,
+    current: function() {
+      return document.documentElement.lang || 'en';
+    },
+    set: function(lang) {
+      setLanguage(lang);
+    },
+    // Text for a copy key in the current language, English when the key is missing.
+    t: function(key) {
+      var current = copy[document.documentElement.lang] || copy.en;
+      return current[key] != null ? current[key] : copy.en[key];
+    },
+    decorateDemoLinks: function(root) {
+      var currentLang = document.documentElement.lang || 'en';
+      var links = (root || document).querySelectorAll('a[href^="https://demo.humanrounds.org"]');
+      for (var i = 0; i < links.length; i++) {
+        var href = links[i].href;
+        var url = new URL(href);
+        url.searchParams.set('lang', currentLang);
+        links[i].href = url.toString();
+      }
+    }
+  };})();

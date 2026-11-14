@@ -13,20 +13,20 @@
   <meta property="og:image" content="https://humanrounds.org/web/human-rounds-public-preview.png?v=3">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://humanrounds.org/blog/the-doctor-walks-in-prepared.html">
-  <link rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: dark)" href="/web/human-rounds-mark-32-dark.png?v=4">
-  <link rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: light)" href="/web/human-rounds-mark-32.png?v=4">
-  <link rel="apple-touch-icon" href="/web/human-rounds-mark-180.png?v=4">
+  <link rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: dark)" href="/web/human-rounds-mark-32-dark.png?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: light)" href="/web/human-rounds-mark-32.png?v=2">
+  <link rel="apple-touch-icon" href="/web/human-rounds-mark-180.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/web/landing.css?v=18">
-  <link rel="stylesheet" href="/web/public-footer.css?v=8">
+  <link rel="stylesheet" href="/web/landing.css?v=19">
+  <link rel="stylesheet" href="/web/public-footer.css?v=7">
   <link rel="stylesheet" href="/web/public-theme.css?v=1">
 </head>
 <body>
   <header class="site-header site-header--bilingual">
     <a class="brand" href="/" aria-label="Human Rounds home">
-      <img src="/web/human-rounds-mark.png?v=1" alt="" width="55" height="55">
+      <img src="/web/human-rounds-mark.png?v=2" alt="" width="55" height="55">
       <span>Human Rounds</span>
     </a>
     <nav class="site-nav" aria-label="Primary navigation">
@@ -38,21 +38,34 @@
       <a href="https://github.com/visualpharm/human-rounds/issues/new" rel="noopener" data-i18n="navContact">Contact</a>
     </nav>
     <nav class="site-actions" aria-label="Language">
-      <button class="language-toggle" type="button" data-language-toggle>Español</button>
+      <select class="language-select" data-language-select aria-label="Language">
+          <option value="en" lang="en">English</option>
+          <option value="es" lang="es">Español</option>
+          <option value="pt" lang="pt">Português</option>
+          <option value="fr" lang="fr">Français</option>
+          <option value="it" lang="it">Italiano</option>
+          <option value="de" lang="de">Deutsch</option>
+          <option value="ru" lang="ru">Русский</option>
+          <option value="uk" lang="uk">Українська</option>
+          <option value="ja" lang="ja">日本語</option>
+          <option value="zh" lang="zh">中文</option>
+        </select>
     </nav>
   </header>
 
   <main>
     <article class="post-section public-wrap">
       <h1 data-i18n="blogPost2Title">The doctor walks in prepared</h1>
-      <div class="post-body" data-i18n="blogPost2Body" data-i18n-html></div>
+      <div class="post-body" data-i18n="blogPost2Body" data-i18n-html><!-- prerendered: scripts/prerender.mjs --><p>Dr. Nguyen opens today’s list before the first patient arrives.</p><p>Each row shows a name, a <strong>triage colour</strong>, and a one-line summary. No file to dig through, no chart to reconstruct from memory.</p><p>A new patient comes in, someone he hasn’t met before. Her intake already sits on the screen: <strong>her own words</strong>, captured when she booked. Below that, a <strong>SOAP summary</strong> the system built from her account, and a <strong>differential with probabilities</strong> ranked by likelihood.</p><p>Suggested orders sit at the bottom, tests and medication, proposed, not decided.</p><p>He examines her. He talks to her. That part is his, and no software touches it: reading a person, noticing what they don’t say, deciding what matters. That’s the part machines don’t do.</p><p>When he’s done, he <strong>checks the boxes</strong> on the orders he agrees with. Some go straight to the electronic system. Others print, for the patient to carry. He doesn’t retype a single result, a single vital, a single medication name.</p><p><strong>No typing.</strong> The screen work happened before he walked in, and it stops the moment he starts talking to the patient.</p><p>That’s the trade Human Rounds makes: AI reads, organises and suggests. The doctor decides. The visit stays what it always was — one person examining another.</p><!-- /prerendered --></div>
       <p class="post-back"><a href="/#roadmap" data-i18n="blogBackLink">More stories</a></p>
     </article>
   </main>
 
   <footer data-public-footer data-lang="en"></footer>
-  <script src="/web/public-footer.js?v=7"></script>
-  <script src="/web/landing.js?v=19"></script>
+  <script src="/web/public-footer.js?v=6"></script>
+  <script src="/web/i18n-extra.js?v=1"></script>
+    <script src="/web/i18n-extra.js?v=1"></script>
+    <script src="/web/landing.js?v=30"></script>
   <script src="/web/public-theme.js?v=1"></script>
 </body>
 </html>

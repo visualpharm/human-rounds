@@ -45,7 +45,6 @@ body .system-flow p{font-size:17px;color:var(--muted);line-height:1.55;max-width
 
 /* network */
 body .network-section{padding-block:var(--rd-main)}
-body .network-section .product-proof{max-width:none;justify-self:center;margin:0 auto}
 
 /* comparison on the one dark band */
 .band--dark{background:var(--rd-ink);color:var(--paper)}

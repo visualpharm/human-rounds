@@ -1,16 +1,10 @@
 :root {
-  /* Demo palette (2026-09-16, Ivan: "update the public website with the same
-     style as the demo"). Values mirrored from the demo app's tokens.css
-     humanrounds theme so both surfaces read as one product: paper beige
-     #f4f1ea/#e9e5da, warm card #fffdf8, ink #1a1714 with the lighter title
-     ink #2e2924, borders #ddd7ca. */
-  --paper: #f4f1ea;
-  --paper-deep: #e9e5da;
-  --surface: #fffdf8;
-  --ink: #1a1714;
-  --title-ink: #2e2924;
-  --muted: #55504a;
-  --line: #ddd7ca;
+  --paper: #f8ecde;
+  --paper-deep: #efe1cf;
+  --surface: #fdf7ef;
+  --ink: #1a1712;
+  --muted: #6d6559;
+  --line: #ddcfba;
   --accent: oklch(.52 .085 52);
   --accent-deep: oklch(.44 .085 52);
   --olive: oklch(.52 .055 128);
@@ -56,9 +50,6 @@ h1, h2, h3 {
   line-height: 1.1;
   letter-spacing: -.015em;
   text-wrap: balance;
-  /* Demo title ink (2026-09-16): one step lighter than body ink, the same
-     --title-ink the demo's card and tile titles use. */
-  color: var(--title-ink);
 }
 h1 { font-size: clamp(3rem, 4.2vw, 4.4rem); max-width: 15ch; margin-bottom: 20px; }
 h2 { font-size: clamp(2.1rem, 3.6vw, 3.3rem); max-width: 18ch; margin-bottom: 8px; }
@@ -87,7 +78,7 @@ strong { font-weight: 700; }
   gap: 14px;
   color: var(--ink);
   font-family: "Manrope", system-ui, sans-serif;
-  font-size: 1.45rem;
+  font-size: 1.34rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: .07em;
@@ -95,9 +86,7 @@ strong { font-weight: 700; }
   white-space: nowrap;
 }
 .brand:hover { color: var(--ink); opacity: .72; }
-/* Logo at the demo's size (2026-09-16, Ivan: same treatment as the demo
-   nav — 64px mark, larger wordmark). */
-.brand img { width: 64px; height: 64px; border-radius: 50%; flex: none; }
+.brand img { width: 55px; height: 55px; border-radius: 50%; flex: none; }
 .site-nav,
 .site-actions {
   display: flex;
@@ -118,7 +107,7 @@ strong { font-weight: 700; }
 .site-actions .github-link { color: var(--ink); }
 .site-nav a:hover,
 .site-actions a:hover { color: var(--ink); opacity: .62; }
-.language-toggle {
+.language-select {
   appearance: none;
   border: 0;
   background: transparent;
@@ -128,7 +117,7 @@ strong { font-weight: 700; }
   font-weight: 600;
   cursor: pointer;
 }
-.language-toggle:hover { opacity: .62; }
+.language-select:hover { opacity: .62; }
 
 .hero {
   padding-block: 56px 64px;
@@ -170,11 +159,6 @@ strong { font-weight: 700; }
   min-width: 0;
   margin: 0;
   justify-self: end;
-  /* Named container so constellation.css can size the hero diagram off its
-     own rendered width (680–980px depending on breakpoint) instead of the
-     viewport — the two aren't proportional once the hero grid collapses. */
-  container-type: inline-size;
-  container-name: consthero;
 }
 .product-proof figcaption {
   max-width: 620px;
@@ -913,31 +897,37 @@ strong { font-weight: 700; }
   .hero-tagline { margin: 0 0 12px; font-size: 1.18rem; }
   .hero-lead { font-size: 1rem; margin-bottom: 14px; }
   .hero-links { gap: 18px 40px; }
-  .product-proof { max-width: 560px; justify-self: center; }
+  .product-proof { max-width: 980px; justify-self: start; }
   .system-flow--tiles li { grid-template-columns: 48px 1fr; gap: 18px; padding-block: 22px; }
 }
 
 /* A feature title that leads to its documentation page. One treatment for every
    one of them — the flow tiles and the roadmap cards — so the affordance reads
-   the same wherever a feature is named, without turning the whole roadmap red.
-   Link affordance is COLOR only — never underlined (Ivan, 2026-08-07). */
+   the same wherever a feature is named, without turning the whole roadmap red. */
 .system-flow h3 a,
 .kanban-cards h4 a {
-  color: var(--accent-deep);
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
 }
 .system-flow h3 a:hover,
 .kanban-cards h4 a:hover {
-  color: var(--accent);
+  color: var(--accent-deep);
+  text-decoration-color: currentColor;
 }
 
-/* Links inside running prose are accent-coloured — a sentence that mentions a
-   capability reads as a sentence with links in it. Never underlined. */
+/* Links inside running prose stay accent-coloured and underlined, so a sentence
+   that mentions a capability reads as a sentence with links in it. */
 .hero-lead a,
 .updates-item a {
-  color: var(--accent-deep);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklch, var(--accent-deep) 38%, transparent);
+  text-underline-offset: 3px;
 }
 .hero-lead a:hover,
-.updates-item a:hover { color: var(--accent); }
+.updates-item a:hover { text-decoration-color: currentColor; }
 
 /* Six nav items since Docs joined the menu — a small laptop needs the tighter
    gap earlier than the 900px tier gives it, or the header runs into the brand. */
@@ -948,11 +938,11 @@ strong { font-weight: 700; }
 
 @media (max-width: 900px) and (min-width: 751px) {
   .site-header { gap: 14px; }
-  .brand { gap: 10px; font-size: 1.16rem; }
-  .brand img { width: 48px; height: 48px; }
+  .brand { gap: 10px; font-size: 1.06rem; }
+  .brand img { width: 44px; height: 44px; }
   .site-nav { gap: 12px; }
   .site-nav a { font-size: .82rem; }
-  .language-toggle { font-size: .8rem; }
+  .language-select { font-size: .8rem; }
 }
 
 @media (max-width: 750px) {
@@ -992,7 +982,7 @@ strong { font-weight: 700; }
     gap: 14px;
   }
   .brand { grid-column: auto; font-size: 1.15rem; }
-  .brand img { width: 48px; height: 48px; }
+  .brand img { width: 44px; height: 44px; }
   .site-nav,
   .site-actions {
     justify-self: stretch;

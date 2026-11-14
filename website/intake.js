@@ -11,6 +11,7 @@ let spec = null;
 let patient = { dni: '', sexo: null, apellido: '', nombres: '', fechaNacimientoIso: null, cuil: null, raw: null };
 let scanWarnings = [];
 let intakeId = null;            // set after first submit; a return visit UPDATES it
+let proofToken = null;          // identity proof from a verified lookup (DOB match or scan)
 
 // The flow has two question phases: symptom questions (asked first, before
 // identity) and "profile" / common fields — medication, allergies, family
@@ -92,6 +93,7 @@ async function runPrefill(narrative, form) {
 // Close the browser and come back to the same QR → answers restored, and editing
 // + re-sending UPDATES the same intake instead of creating a duplicate.
 const DRAFT_KEY = `sana:draft:${token}`;
+const DRAFT_TTL_MS = 12 * 60 * 60 * 1000;   // one clinic day
 function saveDraft() {
   try { localStorage.setItem(DRAFT_KEY, JSON.stringify({ patient, answers, intakeId, at: Date.now() })); }
   catch { /* private mode / quota — ignore */ }
@@ -100,6 +102,10 @@ function loadDraft() {
   try {
     const d = JSON.parse(localStorage.getItem(DRAFT_KEY) || 'null');
     if (!d) return false;
+    // The door QR is permanent and phones get shared: an old draft is someone's
+    // earlier visit, not this one. Drop it (the server also refuses to reuse an
+    // intake that is attended or belongs to another patient).
+    if (!d.at || Date.now() - d.at > DRAFT_TTL_MS) { localStorage.removeItem(DRAFT_KEY); return false; }
     if (d.answers) Object.assign(answers, d.answers);
     if (d.patient) patient = { ...patient, ...d.patient };
     if (d.intakeId) intakeId = d.intakeId;
@@ -178,18 +184,55 @@ async function lookup(value) {
   patient.dni = dni;
   let res = { found: false };
   try { res = await postJSON('/api/patients/lookup', { dni }); } catch {}
-  recalledProfile = (res && res.profile) || null;   // common fields to pre-fill later
-  if (res.found) {
-    // Found in the patient DB → carry name/age/details to the doctor and don't
-    // ask the patient their identity again. Still show the common fields next.
-    Object.assign(patient, {
-      sexo: res.patient.sexo, apellido: res.patient.apellido, nombres: res.patient.nombres,
-      fechaNacimientoIso: res.patient.fechaNacimientoIso
-    });
-    if (patient.sexo && patient.fechaNacimientoIso) return afterIdentity();
-  }
+  // A DNI that matches a stored patient reveals nothing yet: prove it's you
+  // (one date-of-birth ask) before anything comes back.
+  if (res.needsDob) return renderDobVerify();
+  if (res.found && res.patient) return adoptStored(res);
   // Not on file (or incomplete) → ask only the name and age. Sex is presumed
   // from the name; the date of birth is derived from the age.
+  renderIdentityDetails({ minimal: true });
+}
+
+// Found + proven: carry name/age/details to the doctor and don't re-ask the
+// patient's identity. Still show the common fields next.
+function adoptStored(res) {
+  proofToken = res.proofToken || proofToken;
+  recalledProfile = res.profile || null;   // common fields to pre-fill later
+  Object.assign(patient, {
+    sexo: res.patient.sexo, apellido: res.patient.apellido, nombres: res.patient.nombres,
+    fechaNacimientoIso: res.patient.fechaNacimientoIso
+  });
+  if (patient.sexo && patient.fechaNacimientoIso) return afterIdentity();
+  renderIdentityDetails({ minimal: true });
+}
+
+// The one proof a typed DNI can offer: the date of birth we have on file. A
+// match continues on the found path; a mismatch reveals nothing and falls back
+// to the minimal name+age ask, exactly like a DNI we never saw.
+function renderDobVerify() {
+  app.innerHTML = '';
+  const dob = el('input', { type: 'text', inputmode: 'numeric', placeholder: 'dd/mm/aaaa' });
+  app.appendChild(el('div', { class: 'card' },
+    el('h2', {}, 'Confirmá tu fecha de nacimiento'),
+    dob,
+    el('div', { style: 'height:16px' }),
+    el('button', { class: 'btn block big', onclick: () => verifyDob(dob) }, 'Continuar →'),
+    el('div', { style: 'height:8px' }),
+    el('button', { class: 'btn block secondary', onclick: renderIdentity }, 'Es otro número de DNI')
+  ));
+  dob.focus();
+}
+
+async function verifyDob(dob) {
+  const iso = argToIso(dob.value.trim());
+  if (!iso) { dob.focus(); return toast('No entendí la fecha. ' + DATE_HINT); }
+  let res = null;
+  try { res = await postJSON('/api/patients/lookup', { dni: patient.dni, proof: { dob: iso } }); }
+  catch (e) { return toast('No se pudo verificar: ' + e.message); }
+  if (res && res.patient) return adoptStored(res);
+  // Wrong date (or too many tries): nothing confirmed, nothing revealed —
+  // continue as if the DNI were new.
+  toast('No pudimos confirmar la fecha. Continuá con tus datos.');
   renderIdentityDetails({ minimal: true });
 }
 
@@ -305,10 +348,16 @@ function recallProfile() {
 
 async function afterIdentity() {
   // Make sure we have the recalled common fields even on the scan path (which
-  // doesn't hit /lookup). One cheap call; failures degrade to "ask from blank".
+  // doesn't hit /lookup from the typed box). The scan itself is proof — the raw
+  // payload travels along and unlocks the stored profile + a proof token. One
+  // cheap call; failures degrade to "ask from blank".
   if (recalledProfile == null && patient.dni) {
-    try { const r = await postJSON('/api/patients/lookup', { dni: patient.dni }); recalledProfile = (r && r.profile) || null; }
-    catch {}
+    try {
+      const proof = patient.raw ? { raw: patient.raw } : {};
+      const r = await postJSON('/api/patients/lookup', { dni: patient.dni, proof });
+      recalledProfile = (r && r.profile) || null;
+      if (r && r.proofToken) proofToken = r.proofToken;
+    } catch {}
   }
   recallProfile();
   saveDraft();
@@ -501,8 +550,17 @@ async function submit() {
   const btn = document.getElementById('send');
   if (btn) { btn.disabled = true; btn.textContent = 'Enviando…'; }
   try {
+    // Identity proof from earlier in the flow — the DOB-verified token, the
+    // scanned card, or both. Without it the server keeps a stored patient's
+    // data as-is (blanks only) and leaves their profile untouched.
+    const proof = {};
+    if (proofToken) proof.token = proofToken;
+    if (patient.raw) proof.raw = patient.raw;
     // Send intakeId so a return-visit edit UPDATES the same record (no duplicate).
-    const res = await postJSON('/api/intakes', { token, patient, answers, intakeId });
+    const res = await postJSON('/api/intakes', {
+      token, patient, answers, intakeId,
+      ...(Object.keys(proof).length ? { proof } : {})
+    });
     intakeId = res.id;
     saveDraft();
     renderThanks(res.updated);
@@ -594,12 +652,16 @@ const ageFromIso = SanaDates.ageFromIso || ((iso) => {
 });
 // Age -> an ISO DOB whose computed age equals the entered age (birthday "today").
 function isoFromAge(age) {
+  if (window.SanaDates && window.SanaDates.isoFromAge) return window.SanaDates.isoFromAge(age);
   const a = Math.floor(Number(age));
   if (!Number.isFinite(a) || a < 0 || a > 120) return null;
   const now = new Date();
   const y = now.getFullYear() - a;
   const mm = String(now.getMonth() + 1).padStart(2, '0');
-  const dd = String(now.getDate()).padStart(2, '0');
+  // Born "today" a years ago — except Feb 29 in a non-leap year, which is not a
+  // date: use Feb 28 (still age a today; proof in the formal sweep, AgeDob.lean).
+  const lastDay = new Date(y, now.getMonth() + 1, 0).getDate();
+  const dd = String(Math.min(now.getDate(), lastDay)).padStart(2, '0');
   return `${y}-${mm}-${dd}`;
 }
 

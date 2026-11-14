@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Human Rounds — Acceso del equipo</title>
+  <link rel="stylesheet" href="/web/styles.css">
+  <style>
+    input[type=password] { width: 100%; font: inherit; padding: 12px 14px;
+      border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--ink); }
+    .login-wrap { max-width: 380px; margin: 12vh auto 0; padding: 0 16px; }
+  </style>
+</head>
+<body>
+  <div class="topbar" data-topbar data-home="/" data-sub="Acceso del equipo"></div>
+  <script src="/web/topbar.js"></script>
+  <div class="login-wrap">
+    <div class="card">
+      <h2 style="margin:0 0 6px">Acceso del equipo</h2>
+      <p class="small muted" style="margin:0 0 16px">Esta sección es solo para el equipo médico.</p>
+      <form id="loginForm">
+        <label class="small muted" for="pw" style="display:block;margin-bottom:6px">Contraseña</label>
+        <input id="pw" type="password" autocomplete="current-password" autofocus>
+        <p class="small" id="err" style="color:#b3261e;display:none;margin:10px 0 0"></p>
+        <button class="btn block" type="submit" style="margin-top:16px">Ingresar</button>
+      </form>
+    </div>
+  </div>
+  <script type="module">
+    import { postJSON } from '/web/lib/api.js';
+    const form = document.getElementById('loginForm');
+    const err = document.getElementById('err');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      err.style.display = 'none';
+      try {
+        await postJSON('/api/login', { password: document.getElementById('pw').value });
+        // Re-request the page the person was after; the gate now lets it through.
+        location.href = location.pathname.startsWith('/api/') || location.pathname === '/login'
+          ? '/console' : location.pathname + location.search;
+      } catch (ex) {
+        err.textContent = ex.message || 'No se pudo ingresar.';
+        err.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
