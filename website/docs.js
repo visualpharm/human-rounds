@@ -372,7 +372,7 @@
         lead: 'El paciente escanea un QR en la puerta del consultorio. La entrevista se abre en su propio celular y el médico lee las respuestas antes de que entre.',
         status: 'Prototipo. Construido y probado, todavía no en producción.',
         body:
-          shot('pre-consult-interview.png', 'La entrevista previa preguntando algo puntual',
+          shot('pre-consult-interview-es.png', 'La entrevista previa preguntando algo puntual',
                'La entrevista pregunta en castellano común y repregunta sobre lo que el paciente contó.') +
           '<h2>Cómo funciona</h2>' +
           '<ul>' +
@@ -393,7 +393,7 @@
         lead: 'El paciente le saca una foto a la orden en papel. La IA la lee —manuscrita incluida— y propone especialidad, médico y horario. El equipo aprueba o rechaza en un clic.',
         status: 'Funcionando en la instalación de Pinamar.',
         body:
-          shot('referral-orders.png', 'La cola de solicitudes con la lectura de la IA',
+          shot('referral-orders-es.png', 'La cola de solicitudes con la lectura de la IA',
                'Cada solicitud llega con la lectura de la IA, la foto de la orden y un clic para aprobar.') +
           '<h2>Qué saca del papel</h2>' +
           '<ul>' +
@@ -414,7 +414,7 @@
         lead: 'Antes del primer paciente del día, la lista ya está leída: un color de triage por fila, el motivo en palabras del paciente y un resumen armado con la historia clínica.',
         status: 'La lista de pacientes del día funciona en la instalación de Pinamar. El color de triage y el resumen con IA son un prototipo; el resumen profundo de la historia clínica está planeado.',
         body:
-          shot('prepared-clinician.png', 'La lista de pacientes de hoy con un resumen previo abierto',
+          shot('prepared-clinician-es.png', 'La lista de pacientes de hoy con un resumen previo abierto',
                'La lista del día a la izquierda; a la derecha, el resumen previo del paciente elegido.') +
           '<h2>Qué trae el resumen</h2>' +
           '<ul>' +
@@ -435,7 +435,7 @@
         lead: 'Una cámara en la ventanilla lee el código del documento y el QR de la credencial, y completa el registro en la historia clínica. Un formato de credencial que nadie vio antes se aprende una vez y después se reconoce solo.',
         status: 'Prototipo. Construido y probado, todavía no en producción.',
         body:
-          shot('scan-to-register.png', 'La pantalla de registro en la ventanilla con un documento leído',
+          shot('scan-to-register-es.png', 'La pantalla de registro en la ventanilla con un documento leído',
                'El documento se lee en la ventanilla y los campos entran a la historia clínica sin tipear.') +
           '<h2>Qué lee</h2>' +
           '<ul>' +
@@ -454,7 +454,7 @@
         lead: 'Aprobar un turno lo escribe en la historia clínica nacional. Si ese sistema no responde, el turno igual queda guardado, encolado y se reintenta hasta que entra.',
         status: 'Funcionando en la instalación de Pinamar.',
         body:
-          shot('health-record-handoff.png', 'La cola de envíos a la historia clínica reintentando',
+          shot('health-record-handoff-es.png', 'La cola de envíos a la historia clínica reintentando',
                'La cola se vacía sola. Nadie vuelve a cargar un turno porque un sistema se cayó.') +
           '<h2>Nada se rompe por una integración</h2>' +
           '<p>La regla es que <b>primero se guarda acá</b>. El equipo aprueba, el turno existe, y el envío es un trabajo en segundo plano. Un envío fallido es una fila en una cola con hora de reintento, no un error que la ventanilla tenga que entender.</p>' +
@@ -470,7 +470,7 @@
         lead: 'Cómo un paciente consigue un turno, desde las primeras tres letras que tipea hasta el recordatorio del día anterior.',
         status: 'Funcionando en la instalación de Pinamar.',
         body:
-          shot('booking.png', 'El paciente eligiendo un horario', '') +
+          shot('booking-es.png', 'El paciente eligiendo un horario', '') +
           '<h2>Encontrar el servicio</h2>' +
           '<p>El paciente escribe lo que busca y la búsqueda contesta desde la tercera letra, en el hospital y en todos los centros de salud a la vez. Compara raíces de palabra, así <i>cardio</i> encuentra cardiología y <i>traumato</i> encuentra traumatología, y busca en especialidades, en nombres de servicio y en los profesionales.</p>' +
           '<p>Lo que nunca hace es inventar una opción. Un servicio por orden de llegada aparece dicho así y lleva a los horarios de atención, no a un calendario. Un servicio que la instalación no ofrece lo dice y muestra los que sí.</p>' +

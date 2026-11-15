@@ -170,7 +170,12 @@
 @media (max-width: 560px) {
   .docs-shot { margin-inline: calc(50% - 50vw); }
   .docs-shot button { border-radius: 0; border-left: 0; border-right: 0; }
-  }
+  /* The caption is text, not the shot: it keeps the header's left edge. */
+  .docs-shot figcaption { padding-inline: 17px; }
+}
+@media (max-width: 390px) {
+  .docs-shot figcaption { padding-inline: 12px; }
+}
 
 /* One left edge with the header on phones: same widths as .site-header. */
 @media (max-width: 620px) {

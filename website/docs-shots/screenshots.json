@@ -1,9 +1,17 @@
 {
-  "_note": "Every image here was rendered from a Claude Design mockup, never from the live app \u2014 no screenshot of real patient data is ever published. Regenerate with the claude-design-screenshot skill: open the file below in the project, render_preview, then assets/shoot.sh at the stated preset. Window sizes are Raycast 'Reasonable Size' on the stated MacBook (60% of the screen, capped 1025x900), captured at deviceScaleFactor 2.",
-  "project": "Human Rounds \u2014 Docs Screenshots",
+  "_note": "Every image here was rendered from a Claude Design mockup, never from the live app — no screenshot of real patient data is ever published. Regenerate with the claude-design-screenshot skill: open the file below in the project, render_preview, then assets/shoot.sh at the stated preset. Window sizes are Raycast 'Reasonable Size' on the stated MacBook (60% of the screen, capped 1025x900), captured at deviceScaleFactor 2.",
+  "project": "Human Rounds — Docs Screenshots",
   "project_id": "43682d74-2f4d-40c8-b069-65bb2de470a2",
   "shots": {
     "pre-consult-interview.png": {
+      "file": "Pre-consult interview (EN).dc.html",
+      "etag": "1794751325600100",
+      "window": "14in",
+      "css_px": "907x589",
+      "png_px": "1814x1178",
+      "captured": "2026-11-15"
+    },
+    "pre-consult-interview-es.png": {
       "file": "Pre-consult interview.dc.html",
       "etag": "1785747554333599",
       "window": "14in",
@@ -12,6 +20,14 @@
       "captured": "2026-08-03"
     },
     "booking.png": {
+      "file": "Booking (EN).dc.html",
+      "etag": "1794751672951469",
+      "window": "14in",
+      "css_px": "907x589",
+      "png_px": "1814x1178",
+      "captured": "2026-11-15"
+    },
+    "booking-es.png": {
       "file": "Booking.dc.html",
       "etag": "1785747986136837",
       "window": "14in",
@@ -20,6 +36,14 @@
       "captured": "2026-08-03"
     },
     "referral-orders.png": {
+      "file": "Referral orders (EN).dc.html",
+      "etag": "1794751672951469",
+      "window": "16in",
+      "css_px": "1025x670",
+      "png_px": "2050x1340",
+      "captured": "2026-11-15"
+    },
+    "referral-orders-es.png": {
       "file": "Referral orders.dc.html",
       "etag": "1785747986136837",
       "window": "16in",
@@ -28,6 +52,14 @@
       "captured": "2026-08-03"
     },
     "health-record-handoff.png": {
+      "file": "Health record handoff (EN).dc.html",
+      "etag": "1794751325600100",
+      "window": "16in",
+      "css_px": "1025x670",
+      "png_px": "2050x1340",
+      "captured": "2026-11-15"
+    },
+    "health-record-handoff-es.png": {
       "file": "Health record handoff.dc.html",
       "etag": "1785747986136837",
       "window": "16in",
@@ -36,6 +68,14 @@
       "captured": "2026-08-03"
     },
     "scan-to-register.png": {
+      "file": "Scan to register (EN).dc.html",
+      "etag": "1794751709360037",
+      "window": "16in",
+      "css_px": "1025x670",
+      "png_px": "2050x1340",
+      "captured": "2026-11-15"
+    },
+    "scan-to-register-es.png": {
       "file": "Scan to register.dc.html",
       "etag": "1785748193730783",
       "window": "16in",
@@ -44,6 +84,14 @@
       "captured": "2026-08-03"
     },
     "prepared-clinician.png": {
+      "file": "Prepared clinician (EN).dc.html",
+      "etag": "1794751709360037",
+      "window": "16in",
+      "css_px": "1025x670",
+      "png_px": "2050x1340",
+      "captured": "2026-11-15"
+    },
+    "prepared-clinician-es.png": {
       "file": "Prepared clinician.dc.html",
       "etag": "1785748267774668",
       "window": "16in",
@@ -64,6 +112,17 @@
       "source": "design-plans/clinical-summary-concept.dc.html",
       "chart_audit": "One chart; shared 80-160 mmHg scale; 10 readings retained; aligned months; clinician-review block removed",
       "icons": "Existing Icons8 stethoscope and soap-note"
+    },
+    "../hero-prepared.jpg": {
+      "from": "prepared-clinician.png",
+      "resize": "1300x849 jpeg",
+      "captured": "2026-11-15"
+    },
+    "../hero-prepared-es.jpg": {
+      "from": "prepared-clinician-es.png",
+      "resize": "1300x849 jpeg",
+      "captured": "2026-11-14"
     }
-  }
+  },
+  "_languages": "name.png is the English mockup, used for every language except Spanish; name-es.png is the Spanish one (docs.js es copy, landing.js data-src-es)."
 }

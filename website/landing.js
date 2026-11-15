@@ -340,38 +340,16 @@
     }
   };
 
-  function setLanguage(lang) {
-    if (!copy[lang]) lang = 'en';
-    document.documentElement.lang = lang;
-    document.body.setAttribute('data-language', lang);
-    var nodes = document.querySelectorAll('[data-i18n]');
-    for (var i = 0; i < nodes.length; i++) {
-      var key = nodes[i].getAttribute('data-i18n');
-      if (copy[lang][key] == null) continue;
-      if (nodes[i].hasAttribute('data-i18n-html')) nodes[i].innerHTML = copy[lang][key];
-      else nodes[i].textContent = copy[lang][key];
-    }
-    var alt = document.querySelector('[data-i18n-alt]');
-    if (alt) alt.alt = copy[lang][alt.getAttribute('data-i18n-alt')];
-    var toggle = document.querySelector('[data-language-toggle]');
-    if (toggle) {
-      toggle.textContent = copy[lang].language;
-      toggle.setAttribute('aria-label', lang === 'en' ? 'Cambiar a español' : 'Switch to English');
-    }
-    try { localStorage.setItem('human-rounds-language', lang); } catch {}
-    syncDemoLinks(lang);
-    window.dispatchEvent(new CustomEvent('human-rounds:language', { detail: { lang: lang } }));
-  }
-
-  /* The demo (demo.humanrounds.org) opens in the language the visitor is
-     reading here: every demo link carries `?lang=`, which the demo turns
-     into its own language cookie. Rewritten on every switch. */
-  function syncDemoLinks(lang) {
-    var links = document.querySelectorAll('a[href^="https://demo.humanrounds.org"]');
-    for (var i = 0; i < links.length; i++) {
-      var url = new URL(links[i].getAttribute('href'));
-      url.searchParams.set('lang', lang);
-      links[i].setAttribute('href', url.toString());
+  /* Product screenshots exist in English and Spanish. The English file is the
+     default src (every language but Spanish); an <img data-src-es> swaps to
+     the Spanish mockup while the page reads in Spanish. */
+  function syncLocalizedShots(lang) {
+    var imgs = document.querySelectorAll('img[data-src-es]');
+    for (var i = 0; i < imgs.length; i++) {
+      var img = imgs[i];
+      if (!img.hasAttribute('data-src-default')) img.setAttribute('data-src-default', img.getAttribute('src'));
+      var want = lang === 'es' ? img.getAttribute('data-src-es') : img.getAttribute('data-src-default');
+      if (img.getAttribute('src') !== want) img.setAttribute('src', want);
     }
   }
 
@@ -436,6 +414,7 @@
     }
     try { localStorage.setItem('human-rounds-language', lang); } catch {}
     syncDemoLinks(lang);
+    syncLocalizedShots(lang);
     window.dispatchEvent(new CustomEvent('human-rounds:language', { detail: { lang: lang } }));
   }
 
