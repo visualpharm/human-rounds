@@ -435,12 +435,12 @@ strong { font-weight: 700; }
 }
 
 /* Blog post page */
-.post-section { padding-block: 64px 96px; }
+.post-section { padding-block: 64px var(--sp-block); }
 .post-section h1 { max-width: 18ch; }
 .post-body { max-width: var(--prose); }
 .post-body p { margin: 0 0 20px; color: var(--ink); }
 .post-body p:last-child { margin-bottom: 0; }
-.post-back { margin-top: 40px; }
+.post-back { margin: 40px 0 0; }
 .post-back a { font-weight: 400; }
 
 /* Invitations */
@@ -649,8 +649,8 @@ strong { font-weight: 700; }
   .updates-section,
   .status-section,
   .roadmap-section { padding-bottom: 64px; }
-  .partner-section .public-wrap,
-  .post-section { padding-block: 64px; }
+  .partner-section .public-wrap { padding-block: 64px; }
+  .post-section { padding-block: 64px var(--sp-block); }
   .system-flow,
   .status-columns,
   .partner-grid,
