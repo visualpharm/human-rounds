@@ -58,7 +58,7 @@
 }
 
 .conn-panel { padding-top: 8px; }
-.conn-table { width: auto; max-width: 100%; border-collapse: collapse; font-size: 17px; color: var(--rd-ink, #1a1714); }
+.conn-table { width: 100%; border-collapse: collapse; font-size: 17px; color: var(--rd-ink, #1a1714); }
 .conn-table thead th {
   padding: 16px 16px 12px 0;
   text-align: left;

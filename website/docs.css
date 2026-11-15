@@ -9,7 +9,7 @@
 .docs-shell {
   width: min(var(--wrap), calc(100% - 64px));
   margin: 0 auto;
-  padding: 40px 0 var(--sp-section);
+  padding: 40px 0 var(--sp-block);
   display: grid;
   grid-template-columns: 236px minmax(0, 1fr);
   gap: clamp(32px, 5vw, 72px);
@@ -53,7 +53,7 @@
 .docs-lead {
   font-size: 1.18rem;
   line-height: 1.5;
-  color: var(--muted);
+  color: var(--ink);
   margin-bottom: var(--sp-intro);
 }
 .docs-article h2 {
@@ -184,3 +184,6 @@
 @media (max-width: 390px) {
   .docs-shell { width: min(100% - 24px, var(--wrap)); }
 }
+
+/* The last block of an article sits on the shell's own bottom padding. */
+.docs-article > :last-child { margin-bottom: 0; }

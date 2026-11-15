@@ -91,9 +91,9 @@ body .updates-date{font-size:16px;font-weight:600;color:var(--muted)}
 body .updates-item p{font-size:17px}
 body .invitations-section{padding-block:var(--rd-main);background:var(--paper-deep)}
 body .invite-grid{gap:20px;background:transparent;border:0;border-radius:0;overflow:visible;margin-top:0}
-body .invite-links{margin-top:auto}
+body .invite-links{margin-top:auto;gap:12px}
 body .invite-card{border-radius:18px;border:1px solid var(--line);padding:32px 28px 30px}
-body .invite-links a:first-child{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;border:1.5px solid var(--rd-ink);font-weight:600;text-decoration:none}
+body .invite-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;border:1.5px solid var(--rd-ink);font-weight:600;text-decoration:none}
 body .invitations-section .invite-card:first-child .invite-links a:first-child{background:var(--rd-ink);color:var(--paper)}
 
 @media(max-width:1180px){
