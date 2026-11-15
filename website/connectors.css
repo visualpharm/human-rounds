@@ -85,6 +85,9 @@
   .conn-bar { align-items: stretch; }
   .conn-tabs { gap: 0 24px; }
   .conn-country { width: 100%; }
+  /* The select fills the row so its chevron meets the table's right edge. */
+  .conn-select-wrap { flex: 1 1 auto; min-width: 0; }
+  .conn-country-select { width: 100%; }
   .conn-table thead { display: none; }
   .conn-table, .conn-table tbody, .conn-table tr, .conn-table th, .conn-table td { display: block; width: auto; }
   .conn-table tr {
