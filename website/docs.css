@@ -34,16 +34,13 @@
 .docs-nav li { margin: 0; }
 .docs-nav li a {
   display: block;
-  padding: 5px 0 5px 14px;
-  border-left: 2px solid var(--line);
-  color: var(--muted);
+  padding: 5px 0;
+  color: var(--ink);
 }
-.docs-nav li a:hover { color: var(--ink); border-left-color: var(--ink); }
-.docs-nav li a[aria-current="page"] {
-  color: var(--accent-deep);
-  border-left-color: var(--accent-deep);
-  font-weight: 600;
-}
+.docs-nav li a[aria-current="page"] { font-weight: 700; }
+/* The phone disclosure row (current page name) only exists below 900px. */
+.docs-nav > details > summary { display: none; }
+.docs-nav > details { display: contents; }
 
 /* ---------- article ---------- */
 
@@ -87,15 +84,11 @@
 }
 .docs-article pre code { background: none; border: 0; padding: 0; font-size: .86rem; }
 
-/* A status line — "prototype", "live at Pinamar" — reads as a sentence, not a chip. */
+/* A status line — "prototype", "live at Pinamar" — reads as a sentence in dark ink. */
 .docs-status {
-  font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: .78rem;
-  letter-spacing: .02em;
-  color: var(--muted);
+  color: var(--ink);
   margin-bottom: 18px;
 }
-.docs-status b { color: var(--ink); font-weight: 500; }
 
 .docs-note {
   border-top: 1px solid var(--line);
@@ -128,24 +121,6 @@
   color: var(--muted);
 }
 
-/* ---------- home cards ---------- */
-
-ul.docs-cards {
-  list-style: none;
-  margin: 0 0 var(--sp-block);
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  overflow: hidden;
-}
-ul.docs-cards li { margin: 0; background: var(--surface); padding: 22px 24px; }
-ul.docs-cards h2 { font-size: 1.05rem; margin: 0 0 6px; max-width: none; }
-ul.docs-cards p { margin: 0; color: var(--muted); font-size: .95rem; }
-
 .docs-next {
   border-top: 1px solid var(--line);
   padding-top: 20px;
@@ -157,15 +132,35 @@ ul.docs-cards p { margin: 0; color: var(--muted); font-size: .95rem; }
 @media (max-width: 900px) {
   .docs-shell {
     grid-template-columns: minmax(0, 1fr);
-    gap: 34px;
-    width: min(var(--wrap), calc(100% - 40px));
-    padding-top: 28px;
+    gap: 24px;
+    padding-top: 20px;
   }
-  .docs-nav {
-    position: static;
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 22px;
+  .docs-nav { position: static; border-bottom: 1px solid var(--line); }
+  .docs-nav > details { display: block; }
+  .docs-nav > details > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 48px;
+    list-style: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--ink);
   }
+  .docs-nav > details > summary::-webkit-details-marker { display: none; }
+  .docs-nav > details > summary::after {
+    content: "";
+    flex: none;
+    width: 14px;
+    height: 14px;
+    background: currentColor;
+    -webkit-mask: url(/web/icons/chevron-down.svg) center / contain no-repeat;
+    mask: url(/web/icons/chevron-down.svg) center / contain no-repeat;
+    transition: transform .15s;
+  }
+  .docs-nav > details[open] > summary::after { transform: rotate(180deg); }
+  .docs-nav > details[open] { padding-bottom: 12px; }
   .docs-nav ul { margin-bottom: 18px; }
   .docs-article { max-width: none; }
 }
@@ -173,7 +168,14 @@ ul.docs-cards p { margin: 0; color: var(--muted); font-size: .95rem; }
 /* Full-bleed screenshots on a phone: the window shot is the content, and 20px of
    paper on each side shrinks it below readable. */
 @media (max-width: 560px) {
-  .docs-shot { margin-inline: -20px; }
+  .docs-shot { margin-inline: calc(50% - 50vw); }
   .docs-shot button { border-radius: 0; border-left: 0; border-right: 0; }
-  .docs-shot figcaption { padding-inline: 20px; }
+  }
+
+/* One left edge with the header on phones: same widths as .site-header. */
+@media (max-width: 620px) {
+  .docs-shell { width: min(100% - 34px, var(--wrap)); }
+}
+@media (max-width: 390px) {
+  .docs-shell { width: min(100% - 24px, var(--wrap)); }
 }

@@ -32,7 +32,7 @@
 }
 .public-footer__credit a { color: #d9a679; }
 .public-footer__credit a:hover { color: #f8ecde; }
-.public-footer .public-footer__projects { grid-column: 1 / -1; justify-content: flex-start; border-top: 1px solid #574b3f; padding-top: 24px; gap: 16px 24px; }
+.public-footer .public-footer__projects { grid-column: 1 / -1; justify-content: flex-start; gap: 16px 24px; }
 @media (max-width: 760px) {
   .public-footer__inner {
     width: min(100% - 34px, var(--footer-wrap));

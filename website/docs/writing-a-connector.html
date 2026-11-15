@@ -19,10 +19,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/web/landing.css?v=19">
-  <link rel="stylesheet" href="/web/docs.css?v=2">
-  <link rel="stylesheet" href="/web/public-footer.css?v=7">
-  <link rel="stylesheet" href="/web/public-theme.css?v=1">
+  <link rel="stylesheet" href="/web/landing.css?v=1115">
+  <link rel="stylesheet" href="/web/docs.css?v=1115">
+  <link rel="stylesheet" href="/web/public-footer.css?v=1115">
+  <link rel="stylesheet" href="/web/public-theme.css?v=1115">
 </head>
 <body>
   <header class="site-header site-header--bilingual">
@@ -36,7 +36,7 @@
       <a href="/#roadmap" data-i18n="navRoadmap">Roadmap</a>
       <a href="https://github.com/visualpharm/human-rounds" rel="noopener" data-i18n="navGithub">GitHub</a>
       <a href="https://demo.humanrounds.org/" data-i18n="navDemo">Live demo</a>
-      <a href="https://github.com/visualpharm/human-rounds/issues/new" rel="noopener" data-i18n="navContact">Contact</a>
+      <a href="/#contact" data-i18n="navContact">Contact</a>
     </nav>
     <nav class="site-actions" aria-label="Language">
       <select class="language-select" data-language-select aria-label="Language">
@@ -56,7 +56,7 @@
 
   <main>
     <div class="docs-shell">
-      <nav class="docs-nav" data-docs-nav aria-label="Documentation sections"><!-- prerendered: scripts/prerender.mjs --><ul><li><a href="/docs">Introduction</a></li></ul><p class="docs-nav-group">What makes it different</p><ul><li><a href="/docs/pre-consult-interview">Pre-consult interview</a></li><li><a href="/docs/referral-orders">Referral orders read by AI</a></li><li><a href="/docs/prepared-clinician">The prepared clinician</a></li><li><a href="/docs/scan-to-register">Scan to register</a></li><li><a href="/docs/health-record-handoff">Health-record handoff</a></li></ul><p class="docs-nav-group">Everyday use</p><ul><li><a href="/docs/booking-and-queue">Booking</a></li><li><a href="/docs/staff-panel">The desk and the panel</a></li></ul><p class="docs-nav-group">Run it yourself</p><ul><li><a href="/docs/install">Install</a></li><li><a href="/docs/connectors">Connectors</a></li><li><a href="/docs/writing-a-connector" aria-current="page">Writing a connector</a></li></ul><!-- /prerendered --></nav>
+      <nav class="docs-nav" data-docs-nav aria-label="Documentation sections"><!-- prerendered: scripts/prerender.mjs --><details open><summary>Writing a connector</summary><ul><li><a href="/docs">Introduction</a></li></ul><p class="docs-nav-group">What makes it different</p><ul><li><a href="/docs/pre-consult-interview">Pre-consult interview</a></li><li><a href="/docs/referral-orders">Referral orders read by AI</a></li><li><a href="/docs/prepared-clinician">The prepared clinician</a></li><li><a href="/docs/scan-to-register">Scan to register</a></li><li><a href="/docs/health-record-handoff">Health-record handoff</a></li></ul><p class="docs-nav-group">Everyday use</p><ul><li><a href="/docs/booking-and-queue">Booking</a></li><li><a href="/docs/staff-panel">The desk and the panel</a></li></ul><p class="docs-nav-group">Run it yourself</p><ul><li><a href="/docs/install">Install</a></li><li><a href="/docs/connectors">Connectors</a></li><li><a href="/docs/writing-a-connector" aria-current="page">Writing a connector</a></li></ul></details><!-- /prerendered --></nav>
       <article class="docs-article" data-docs-page="writing-connector"><!-- prerendered: scripts/prerender.mjs --><h1>Writing a connector</h1><p class="docs-lead">A connector is a folder with a manifest and one class. If your country’s registry answers an HTTP call, this is an afternoon of work, not a fork of the project.</p><h2>The shape</h2><p>A connector is a directory under <code>connectors/</code> containing three things: a manifest declaring what it is, an implementation that talks to the outside world, and a thin adapter implementing the capability’s interface. Nothing else in the codebase needs to know your country exists.</p><pre><code>connectors/aadhaar/
   connector.json   id, country, capability, config keys
   aadhaar.py       the HTTP client
@@ -65,14 +65,12 @@
   </main>
 
   <footer data-public-footer data-lang="en"></footer>
-  <script src="/web/public-footer.js?v=6"></script>
-  <script src="/web/i18n-extra.js?v=1"></script>
-    <script src="/web/landing.js?v=30"></script>
-  <script src="/web/i18n-docs.js?v=1"></script>
-  <script src="/web/i18n-extra.js?v=1"></script>
-    <script src="/web/i18n-docs.js?v=1"></script>
-    <script src="/web/docs.js?v=3"></script>
+  <script src="/web/public-footer.js?v=1115"></script>
+  <script src="/web/i18n-extra.js?v=1115"></script>
+  <script src="/web/landing.js?v=1115"></script>
+  <script src="/web/i18n-docs.js?v=1115"></script>
+  <script src="/web/docs.js?v=1115"></script>
   <script src="/web/lib/photo-zoom.js?v=1"></script>
-  <script src="/web/public-theme.js?v=1"></script>
+  <script src="/web/public-theme.js?v=1115"></script>
 </body>
 </html>

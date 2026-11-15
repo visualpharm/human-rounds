@@ -46,38 +46,8 @@
       '<button type="button" data-photozoom data-photozoom-src="' + SHOT + file + '"' +
       ' data-photozoom-alt="' + alt + '" aria-label="' + alt + '">' +
       '<img src="' + SHOT + file + '" alt="' + alt + '" loading="lazy"></button>' +
-      '<figcaption>' + caption + '</figcaption></figure>';
+      (caption ? '<figcaption>' + caption + '</figcaption>' : '') + '</figure>';
   }
-
-  function cards(lang, ids) {
-    var out = '<ul class="docs-cards">';
-    for (var i = 0; i < ids.length; i++) {
-      var p = page(ids[i].id);
-      out += '<li><h2><a href="' + p.href + '">' + p[lang] + '</a></h2><p>' + ids[i][lang] + '</p></li>';
-    }
-    return out + '</ul>';
-  }
-
-  var HOME_CARDS = [
-    { id: 'pre-consult',
-      en: 'A QR at the door, the interview on the patient’s own phone.',
-      es: 'Un QR en la puerta y la entrevista en el celular del paciente.' },
-    { id: 'referral-orders',
-      en: 'A photo of the paper order, read by AI — handwriting included.',
-      es: 'Una foto de la orden en papel, leída por IA, manuscrita incluida.' },
-    { id: 'prepared-clinician',
-      en: 'The day’s list already read: triage, reason, summary.',
-      es: 'La lista del día ya leída: triage, motivo, resumen.' },
-    { id: 'scan-to-register',
-      en: 'The camera reads the ID and the insurance card into the record.',
-      es: 'La cámara pasa el documento y la credencial a la historia clínica.' },
-    { id: 'record-handoff',
-      en: 'Writes to the national health record, and survives it being down.',
-      es: 'Escribe en la historia clínica nacional y aguanta que se caiga.' },
-    { id: 'booking',
-      en: 'Search, real slots, reminders, cancellation and the waitlist.',
-      es: 'Búsqueda, horarios reales, recordatorios, cancelación y lista de espera.' }
-  ];
 
   var copy = {
     en: {
@@ -88,12 +58,11 @@
         title: 'Human Rounds documentation',
         lead: 'Human Rounds is an AI-native medical platform for public health. AI does the repetitive work around a visit — interviewing, reading paper, summarising, filing — and the care team decides. It runs today at a public hospital in Pinamar, Argentina.',
         body:
-          cards('en', HOME_CARDS) +
           '<h2>How one visit runs</h2>' +
           '<ol>' +
-            '<li><b>Before.</b> The patient books online, on WhatsApp, or at the desk, and answers an AI interview on their own phone.</li>' +
-            '<li><b>At the door.</b> Reception scans the ID; a new patient is registered without retyping anything.</li>' +
-            '<li><b>In the room.</b> The clinician opens a list that already carries a triage colour, the reason in the patient’s words, and a summary of the record.</li>' +
+            '<li><b>Before.</b> The patient books online, on WhatsApp or at the desk, with a photo of the referral order. The AI reads the order and staff approve it. An AI interview on the patient’s own phone is a prototype.</li>' +
+            '<li><b>At the door.</b> Reception registers the patient. Scanning the ID instead of typing it is a prototype.</li>' +
+            '<li><b>In the room.</b> The clinician opens the day’s list of patients. A triage colour and an AI summary on that list are a prototype.</li>' +
             '<li><b>After.</b> The appointment is written into the national health record, and retried on its own if that record is down.</li>' +
           '</ol>' +
           '<h2>What it is not</h2>' +
@@ -106,7 +75,7 @@
       'pre-consult': {
         title: 'Pre-consult interview',
         lead: 'The patient scans a QR at the consulting-room door. The interview opens on their own phone, and the doctor reads the answers before the patient walks in.',
-        status: 'Live at the Pinamar installation.',
+        status: 'Prototype. Built and tested, not yet running in production.',
         body:
           shot('pre-consult-interview.png', 'The pre-consult interview asking a follow-up question',
                'The interview asks in plain language and follows up on what the patient actually said.') +
@@ -148,7 +117,7 @@
       'prepared-clinician': {
         title: 'The prepared clinician',
         lead: 'Before the first patient of the day, the list is already read: a triage colour per row, the reason in the patient’s own words, and a summary drawn from the record.',
-        status: 'Live at the Pinamar installation. The deeper clinical-history summary is on the roadmap.',
+        status: 'Today’s patient list is live at the Pinamar installation. The triage colour and the AI summary are a prototype; the deeper clinical-history summary is planned.',
         body:
           shot('prepared-clinician.png', 'Today’s patient list with a pre-visit summary open',
                'Today’s list on the left, the pre-visit summary of the selected patient on the right.') +
@@ -169,7 +138,7 @@
       'scan-to-register': {
         title: 'Scan to register',
         lead: 'A camera at the desk reads the ID barcode and the insurance QR, and fills the health-record registration. A credential format nobody has seen before is learned once and recognised from then on.',
-        status: 'Prototype. Built and tested end to end, not yet running in production.',
+        status: 'Prototype. Built and tested, not yet running in production.',
         body:
           shot('scan-to-register.png', 'The reception desk registration screen with a scanned document',
                'The document is read at the desk; the fields land in the health record without retyping.') +
@@ -203,11 +172,10 @@
 
       booking: {
         title: 'Booking',
-        lead: 'How a patient gets an appointment, from the first three letters they type to the reminder the night before. Ordinary scheduling — written down because it is the part that has to be right every single day.',
+        lead: 'How a patient gets an appointment, from the first three letters they type to the reminder the day before.',
         status: 'Live at the Pinamar installation.',
         body:
-          shot('booking.png', 'The patient picking an appointment slot',
-               'Real slots, nearest first, held for eight minutes while the patient finishes.') +
+          shot('booking.png', 'The patient picking an appointment slot', '') +
           '<h2>Finding the service</h2>' +
           '<p>The patient types what they are looking for, and the search answers from three letters on, across the hospital and every health centre at once. It matches on word roots, so <i>cardio</i> finds cardiology and <i>traumato</i> finds traumatology, and it searches specialties, service names and the professionals themselves.</p>' +
           '<p>What it never does is invent an option. A service that is attended first-come-first-served is labelled as such and leads to its opening hours, not to a calendar. A service the installation does not offer says so and points at the ones it does.</p>' +
@@ -235,7 +203,7 @@
           '<h2>When the answer is no</h2>' +
           '<p>A refusal always carries the next concrete step, and the step is a link, not a homepage. An order that cannot be read gets the instruction to photograph it again with the parts that were missing named. A service with no availability gets the waitlist and the nearest centre that has one. A patient who already holds the maximum number of appointments gets shown the one they hold, with the option to move it.</p>' +
           '<h2>Two rules worth knowing</h2>' +
-          '<p><b>Walk-in services never offer appointments.</b> If a service is first-come-first-served, no surface anywhere in the product will promise a time for it — the single exception is a same-day opening, which is capped at one day ahead.</p>' +
+          '<p><b>Walk-in services offer appointments only for the same day.</b> If a service is first-come-first-served, no screen promises it a time on any other day.</p>' +
           '<p><b>How many appointments a patient may hold at once is a number</b>, resolved per doctor, then per service, then per installation. Kinesiology ships at ten because a course of treatment is ten sessions; most services ship at one. It applies to what the patient books themselves, never to what the front desk books for them.</p>'
       },
 
@@ -284,15 +252,22 @@
             '<li>An <b>AI key</b>, only for the features that read paper, interview patients or summarise a record. Everything else runs without one.</li>' +
           '</ul>' +
           '<h2>Run it</h2>' +
-          '<p>The application code is AGPL-3.0 and reaches the <a href="https://github.com/visualpharm/human-rounds" rel="noopener">public repository</a> module by module, after privacy and security review. Until the modules you need are there, an installation is set up together with the project: <a href="https://github.com/visualpharm/human-rounds/issues/new" rel="noopener">write to us</a>.</p>' +
-          '<p>Open the site and the <b>setup wizard</b> takes over: it asks for the installation’s name, timezone, languages and first centre, and only writes to the database at the last step, so an abandoned setup leaves nothing behind.</p>' +
-          '<h2>What it costs to run</h2>' +
-          '<p>A small virtual machine is enough. The whole application is a <b>single process</b> that handles each request on its own thread, plus Postgres next to it — two vCPUs and 2 GB of memory carry a district-sized public network — one hospital and a handful of health centres — and the load that matters is measured in requests per minute, not per second. There is no Redis, no message broker, no Node service and no separate worker to deploy.</p>' +
-          '<p>Two operating-system packages are needed beyond Python: <code>poppler-utils</code>, to turn a referral order that arrives as a PDF into an image before the AI reads it, and <code>ffmpeg</code>. Three Python packages, all pinned. Nothing else is compiled.</p>' +
-          '<p>The only thing on disk that grows is what patients upload — photos and PDFs of referral orders. Put that directory on a volume you actually back up: the database can be restored from a dump, an uploaded order cannot.</p>' +
+          '<p>The application repository is not public yet: its modules reach the <a href="https://github.com/visualpharm/human-rounds" rel="noopener">public repository</a> one by one, after privacy and security review. Access to the full code is given on request through <a href="/#contact">Contact</a>. With a checkout, one command installs everything:</p>' +
+          '<pre><code>git clone &lt;repository-url&gt; human-rounds\ncd human-rounds\n./install.sh</code></pre>' +
+          '<p><code>install.sh</code> checks Docker, creates <code>.env</code> from <code>.env.example</code>, starts the application and Postgres with Docker Compose, waits until both are healthy and prints the setup address. The same by hand:</p>' +
+          '<pre><code>cp .env.example .env\ndocker compose up -d --build\n# then open http://localhost:7700/setup</code></pre>' +
+          '<p>Logs: <code>docker compose logs -f app</code>. Stop: <code>docker compose down</code>.</p>' +
+          '<p>The <b>setup wizard</b> asks for the installation’s name, timezone, languages and first centre, and only writes to the database at the last step, so an abandoned setup leaves nothing behind.</p>' +
+          '<h2>Without Docker</h2>' +
+          '<pre><code>apt-get install poppler-utils ffmpeg postgresql-client\npip install -r requirements.txt\nDATABASE_URL=postgresql://user:password@localhost/humanrounds PORT=7700 python3 -m app</code></pre>' +
+          '<p><code>poppler-utils</code> turns a referral order that arrives as a PDF into an image before the AI reads it, <code>ffmpeg</code> converts patients’ voice messages, and <code>postgresql-client</code> takes the database dumps for backups. The schema is created on the first start.</p>' +
+          '<h2>Server size</h2>' +
+          '<p>One virtual machine with <b>2 vCPU and 2 GB of memory</b> carries a district-sized public network: one hospital and a handful of health centres. Cloud providers rent that size for about US$5–20 a month. The AI provider bills the AI features separately, per use. There is no Redis, no message broker and no separate worker to deploy: the application is a single process with Postgres next to it.</p>' +
+          '<h2>Backups</h2>' +
+          '<p>The built-in backup encrypts the database dump and the uploaded files (photos and PDFs of referral orders, document photos) and sends both to S3-compatible storage you choose. Uploaded files are the one thing a database dump cannot bring back, so keep their directory on a volume that is backed up.</p>' +
           '<h2>What runs in the background</h2>' +
           '<p>Inside that same process, a handful of small loops do the work nobody triggers: sending the day-before reminders, re-offering a freed slot to the waitlist, retrying appointments the health record refused, preparing record summaries ahead of the clinic, taking off-site backups, and watching whether the AI provider is answering. Each can be switched off with a setting, and each one failing degrades only itself.</p>' +
-          '<h2>Your services and centres are a data package</h2>' +
+          '<h2>The data package</h2>' +
           '<p>Everything specific to one town — centres, services, professionals, specialties, preparation instructions, the site’s own texts — lives in a <b>data package</b> layered over a country package and a global one. You only write what differs from the layer below. Upgrading the software does not touch it, and a second installation is a second package rather than a fork.</p>' +
           '<h2>Upgrading</h2>' +
           '<p>Pull and redeploy. The database migrates itself on boot, forward only, and refuses to run a migration twice. Your data package, your settings and your uploads are outside the image and survive the redeploy untouched. Take the database dump first anyway.</p>' +
@@ -378,12 +353,11 @@
         title: 'Documentación de Human Rounds',
         lead: 'Human Rounds es una plataforma médica de IA nativa para la salud pública. La IA hace el trabajo repetitivo alrededor de la consulta —entrevistar, leer papeles, resumir, cargar— y el equipo de salud decide. Hoy funciona en un hospital público de Pinamar.',
         body:
-          cards('es', HOME_CARDS) +
           '<h2>Cómo transcurre una consulta</h2>' +
           '<ol>' +
-            '<li><b>Antes.</b> El paciente saca turno por el sitio, por WhatsApp o en la ventanilla, y responde una entrevista con IA desde su propio celular.</li>' +
-            '<li><b>En la puerta.</b> Mesa de entrada escanea el documento y el paciente nuevo queda registrado sin volver a tipear nada.</li>' +
-            '<li><b>En el consultorio.</b> El médico abre una lista que ya trae color de triage, el motivo en palabras del paciente y un resumen de la historia.</li>' +
+            '<li><b>Antes.</b> El paciente saca turno por el sitio, por WhatsApp o en la ventanilla, con una foto de la orden. La IA lee la orden y el equipo la aprueba. La entrevista con IA desde el celular del paciente es un prototipo.</li>' +
+            '<li><b>En la puerta.</b> Mesa de entrada registra al paciente. Escanear el documento en vez de tipearlo es un prototipo.</li>' +
+            '<li><b>En el consultorio.</b> El médico abre la lista de pacientes del día. El color de triage y el resumen con IA en esa lista son un prototipo.</li>' +
             '<li><b>Después.</b> El turno se escribe en la historia clínica nacional, y si ese sistema está caído se reintenta solo.</li>' +
           '</ol>' +
           '<h2>Lo que no es</h2>' +
@@ -396,7 +370,7 @@
       'pre-consult': {
         title: 'Entrevista previa',
         lead: 'El paciente escanea un QR en la puerta del consultorio. La entrevista se abre en su propio celular y el médico lee las respuestas antes de que entre.',
-        status: 'Funcionando en la instalación de Pinamar.',
+        status: 'Prototipo. Construido y probado, todavía no en producción.',
         body:
           shot('pre-consult-interview.png', 'La entrevista previa preguntando algo puntual',
                'La entrevista pregunta en castellano común y repregunta sobre lo que el paciente contó.') +
@@ -438,7 +412,7 @@
       'prepared-clinician': {
         title: 'El médico llega preparado',
         lead: 'Antes del primer paciente del día, la lista ya está leída: un color de triage por fila, el motivo en palabras del paciente y un resumen armado con la historia clínica.',
-        status: 'Funcionando en la instalación de Pinamar. El resumen profundo de la historia clínica está en el roadmap.',
+        status: 'La lista de pacientes del día funciona en la instalación de Pinamar. El color de triage y el resumen con IA son un prototipo; el resumen profundo de la historia clínica está planeado.',
         body:
           shot('prepared-clinician.png', 'La lista de pacientes de hoy con un resumen previo abierto',
                'La lista del día a la izquierda; a la derecha, el resumen previo del paciente elegido.') +
@@ -459,7 +433,7 @@
       'scan-to-register': {
         title: 'Registro por escaneo',
         lead: 'Una cámara en la ventanilla lee el código del documento y el QR de la credencial, y completa el registro en la historia clínica. Un formato de credencial que nadie vio antes se aprende una vez y después se reconoce solo.',
-        status: 'Prototipo. Construido y probado de punta a punta, todavía no en producción.',
+        status: 'Prototipo. Construido y probado, todavía no en producción.',
         body:
           shot('scan-to-register.png', 'La pantalla de registro en la ventanilla con un documento leído',
                'El documento se lee en la ventanilla y los campos entran a la historia clínica sin tipear.') +
@@ -493,11 +467,10 @@
 
       booking: {
         title: 'Turnos',
-        lead: 'Cómo un paciente consigue un turno, desde las primeras tres letras que tipea hasta el recordatorio de la noche anterior. Turnos comunes y corrientes, escritos acá porque es la parte que tiene que salir bien todos los días.',
+        lead: 'Cómo un paciente consigue un turno, desde las primeras tres letras que tipea hasta el recordatorio del día anterior.',
         status: 'Funcionando en la instalación de Pinamar.',
         body:
-          shot('booking.png', 'El paciente eligiendo un horario',
-               'Horarios reales, el más cercano primero, reservados ocho minutos mientras el paciente termina.') +
+          shot('booking.png', 'El paciente eligiendo un horario', '') +
           '<h2>Encontrar el servicio</h2>' +
           '<p>El paciente escribe lo que busca y la búsqueda contesta desde la tercera letra, en el hospital y en todos los centros de salud a la vez. Compara raíces de palabra, así <i>cardio</i> encuentra cardiología y <i>traumato</i> encuentra traumatología, y busca en especialidades, en nombres de servicio y en los profesionales.</p>' +
           '<p>Lo que nunca hace es inventar una opción. Un servicio por orden de llegada aparece dicho así y lleva a los horarios de atención, no a un calendario. Un servicio que la instalación no ofrece lo dice y muestra los que sí.</p>' +
@@ -525,7 +498,7 @@
           '<h2>Cuando la respuesta es no</h2>' +
           '<p>Un rechazo siempre trae el paso siguiente concreto, y el paso es un link, no la home. Una orden que no se pudo leer trae la indicación de volver a sacarle la foto, con las partes que faltaban dichas por su nombre. Un servicio sin disponibilidad trae la lista de espera y el centro más cercano que sí tiene. Un paciente que ya llegó al máximo de turnos ve el turno que tiene, con la opción de moverlo.</p>' +
           '<h2>Dos reglas que conviene saber</h2>' +
-          '<p><b>Lo que es por orden de llegada nunca ofrece turno.</b> Si un servicio se atiende por demanda espontánea, ninguna pantalla del producto va a prometer un horario para eso; la única excepción es una apertura del mismo día, que no pasa de un día.</p>' +
+          '<p><b>Lo que es por orden de llegada sólo ofrece turno para el mismo día.</b> Si un servicio se atiende por demanda espontánea, ninguna pantalla le promete un horario para otro día.</p>' +
           '<p><b>Cuántos turnos puede tener un paciente a la vez es un número</b>, que se resuelve por médico, después por servicio y después por instalación. Kinesiología sale con diez porque un tratamiento son diez sesiones; casi todo lo demás sale con uno. Aplica a lo que el paciente saca solo, nunca a lo que le carga la ventanilla.</p>'
       },
 
@@ -574,15 +547,22 @@
             '<li>Una <b>clave de IA</b>, sólo para las funciones que leen papeles, entrevistan pacientes o resumen una historia. Todo lo demás anda sin eso.</li>' +
           '</ul>' +
           '<h2>Levantarlo</h2>' +
-          '<p>El código de la aplicación es AGPL-3.0 y llega al <a href="https://github.com/visualpharm/human-rounds" rel="noopener">repositorio público</a> módulo por módulo, después de una revisión de privacidad y seguridad. Mientras los módulos que necesitás no estén ahí, la instalación se arma junto con el proyecto: <a href="https://github.com/visualpharm/human-rounds/issues/new" rel="noopener">escribinos</a>.</p>' +
-          '<p>Abrís el sitio y toma el control el <b>asistente de instalación</b>: pregunta el nombre de la instalación, la zona horaria, los idiomas y el primer centro, y recién escribe en la base en el último paso, así un setup abandonado no deja nada.</p>' +
-          '<h2>Qué cuesta tenerlo prendido</h2>' +
-          '<p>Alcanza con una máquina virtual chica. Toda la aplicación es <b>un solo proceso</b> que atiende cada pedido en su propio hilo, más Postgres al lado: dos vCPU y 2 GB de memoria sostienen una red pública de un partido —un hospital y varios centros de salud— y la carga que importa se mide en pedidos por minuto, no por segundo. No hay Redis, ni broker de mensajes, ni servicio en Node, ni un worker aparte para desplegar.</p>' +
-          '<p>Hacen falta dos paquetes del sistema además de Python: <code>poppler-utils</code>, para convertir en imagen una orden que llega en PDF antes de que la lea la IA, y <code>ffmpeg</code>. Tres paquetes de Python, todos con versión fija. Nada más se compila.</p>' +
-          '<p>Lo único que crece en disco es lo que suben los pacientes: fotos y PDF de órdenes. Poné ese directorio en un volumen que realmente respaldes: la base se restaura de un dump, una orden subida no.</p>' +
+          '<p>El repositorio de la aplicación todavía no es público: sus módulos llegan al <a href="https://github.com/visualpharm/human-rounds" rel="noopener">repositorio público</a> de a uno, después de una revisión de privacidad y seguridad. El acceso al código completo se da a pedido por <a href="/#contact">Contacto</a>. Con el código, un solo comando instala todo:</p>' +
+          '<pre><code>git clone &lt;repository-url&gt; human-rounds\ncd human-rounds\n./install.sh</code></pre>' +
+          '<p><code>install.sh</code> revisa Docker, crea <code>.env</code> a partir de <code>.env.example</code>, levanta la aplicación y Postgres con Docker Compose, espera a que los dos estén sanos e imprime la dirección del asistente. Lo mismo a mano:</p>' +
+          '<pre><code>cp .env.example .env\ndocker compose up -d --build\n# then open http://localhost:7700/setup</code></pre>' +
+          '<p>Logs: <code>docker compose logs -f app</code>. Apagar: <code>docker compose down</code>.</p>' +
+          '<p>El <b>asistente de instalación</b> pregunta el nombre de la instalación, la zona horaria, los idiomas y el primer centro, y recién escribe en la base en el último paso, así un setup abandonado no deja nada.</p>' +
+          '<h2>Sin Docker</h2>' +
+          '<pre><code>apt-get install poppler-utils ffmpeg postgresql-client\npip install -r requirements.txt\nDATABASE_URL=postgresql://user:password@localhost/humanrounds PORT=7700 python3 -m app</code></pre>' +
+          '<p><code>poppler-utils</code> convierte en imagen una orden que llega en PDF antes de que la lea la IA, <code>ffmpeg</code> convierte los mensajes de voz de los pacientes y <code>postgresql-client</code> saca los dumps de la base para los backups. El esquema se crea en el primer arranque.</p>' +
+          '<h2>Tamaño del servidor</h2>' +
+          '<p>Una máquina virtual de <b>2 vCPU y 2 GB de memoria</b> sostiene la red pública de un partido: un hospital y varios centros de salud. Los proveedores de nube alquilan ese tamaño por unos US$5–20 al mes. Las funciones de IA las cobra aparte el proveedor de IA, por uso. No hay Redis, ni broker de mensajes, ni un worker aparte para desplegar: la aplicación es un solo proceso con Postgres al lado.</p>' +
+          '<h2>Backups</h2>' +
+          '<p>El backup incluido cifra el dump de la base y los archivos subidos (fotos y PDF de órdenes, fotos de documentos) y manda los dos a un almacenamiento compatible con S3 que elijas. Lo subido es lo único que un dump de la base no recupera, así que su directorio tiene que estar en un volumen con backup.</p>' +
           '<h2>Qué corre de fondo</h2>' +
           '<p>Dentro de ese mismo proceso, unos cuantos loops chicos hacen lo que nadie dispara: mandar los recordatorios del día antes, re-ofrecer un turno liberado a la lista de espera, reintentar los turnos que rechazó la historia clínica, preparar los resúmenes de historia antes del consultorio, sacar backups fuera de la máquina y mirar si el proveedor de IA está contestando. Cada uno se apaga con una opción, y si uno falla degrada sólo lo suyo.</p>' +
-          '<h2>Tus servicios y centros son un paquete de datos</h2>' +
+          '<h2>El paquete de datos</h2>' +
           '<p>Todo lo propio de un pueblo —centros, servicios, profesionales, especialidades, preparaciones, los textos del sitio— vive en un <b>paquete de datos</b> apilado sobre uno de país y uno global. Sólo escribís lo que difiere de la capa de abajo. Actualizar el software no lo toca, y una segunda instalación es un segundo paquete, no un fork.</p>' +
           '<h2>Actualizar</h2>' +
           '<p>Traés los cambios y volvés a desplegar. La base se migra sola al arrancar, sólo hacia adelante, y se niega a correr dos veces la misma migración. Tu paquete de datos, tu configuración y lo subido viven afuera de la imagen y sobreviven intactos. Igual sacá el dump antes.</p>' +
@@ -669,7 +649,8 @@
   function renderNav(lang, id) {
     var box = document.querySelector('[data-docs-nav]');
     if (!box) return;
-    var html = '';
+    var cur = id ? page(id) : null;
+    var html = '<details open><summary>' + (cur ? cur[lang] : PAGES[0][lang]) + '</summary>';
     for (var g = 0; g < GROUPS.length; g++) {
       var grp = GROUPS[g];
       if (grp[lang]) html += '<p class="docs-nav-group">' + grp[lang] + '</p>';
@@ -681,7 +662,20 @@
       }
       html += '</ul>';
     }
-    box.innerHTML = html;
+    box.innerHTML = html + '</details>';
+    // Phones get the list folded behind the current page's name.
+    // On desktop the summary is hidden, so the list must be open there again.
+    if (!window.matchMedia) return;
+    var mq = window.matchMedia('(max-width: 900px)');
+    var sync = function () {
+      var fold = box.querySelector('details');
+      if (fold) fold.open = !mq.matches;
+    };
+    sync();
+    if (!box.dataset.foldWatch && mq.addEventListener) {
+      box.dataset.foldWatch = '1';
+      mq.addEventListener('change', sync);
+    }
   }
 
   function renderBody(lang, id) {

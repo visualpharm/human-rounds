@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy policy — Human Rounds</title>
-  <meta name="description" content="Human Rounds collects nothing about visitors: no accounts, no cookies, no analytics. Hospital installations hold their own patient data and we never receive it.">
+  <meta name="description" content="No accounts, no cookies, no analytics and no visit logs on humanrounds.org. Hospital installations hold their own patient data and we never receive it.">
   <meta name="theme-color" content="#f4f1ea">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Privacy policy">
@@ -19,9 +19,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/web/landing.css?v=19">
-  <link rel="stylesheet" href="/web/public-footer.css?v=8">
-  <link rel="stylesheet" href="/web/legal.css?v=3">
+  <link rel="stylesheet" href="/web/landing.css?v=1115">
+  <link rel="stylesheet" href="/web/public-footer.css?v=1115">
+  <link rel="stylesheet" href="/web/legal.css?v=1115">
   <script>
   /* Stamp the reader's language on <html> before first paint so the Spanish
      version does not flash English. landing.js re-applies the same value on
@@ -34,7 +34,7 @@
     } catch (e) {}
   })();
   </script>
-  <link rel="stylesheet" href="/web/public-theme.css?v=1">
+  <link rel="stylesheet" href="/web/public-theme.css?v=1115">
 </head>
 <body>
   <header class="site-header site-header--bilingual">
@@ -48,7 +48,7 @@
       <a href="/#roadmap" data-i18n="navRoadmap">Roadmap</a>
       <a href="https://github.com/visualpharm/human-rounds" rel="noopener" data-i18n="navGithub">GitHub</a>
       <a href="https://demo.humanrounds.org/" data-i18n="navDemo">Live demo</a>
-      <a href="https://github.com/visualpharm/human-rounds/issues/new" rel="noopener" data-i18n="navContact">Contact</a>
+      <a href="/#contact" data-i18n="navContact">Contact</a>
     </nav>
     <nav class="site-actions" aria-label="Language">
       <select class="language-select" data-language-select aria-label="Language">
@@ -72,8 +72,8 @@
 
         <div class="lang-en">
           <h1>Privacy policy</h1>
-          <p class="legal-updated">Last updated 1 August 2026</p>
-          <p class="legal-lead"><strong>This website collects nothing about you.</strong> No accounts, no cookies, no analytics, no tracking pixels. What follows is the short list of what is left.</p>
+          <p class="legal-updated">Last updated 15 November 2026</p>
+          <p class="legal-lead"><strong>This website keeps no record of your visit.</strong> No accounts, no cookies, no analytics, no tracking pixels and no visit log.</p>
 
           <h2>What this page covers</h2>
           <p>This policy covers <strong>humanrounds.org</strong>, the project website you are reading. Human Rounds is a philanthropic project maintained from Argentina, and "we" below means its maintainers.</p>
@@ -82,9 +82,9 @@
           <h2>What the site collects</h2>
           <ul>
             <li><strong>Nothing you type.</strong> There is no sign-up, no newsletter, no comment box and no contact form on this site.</li>
-            <li><strong>Server logs.</strong> Like any web server, ours records the IP address, the time, the page requested, the browser user agent and the referring page. Those logs rotate automatically and serve only to keep the site running and to investigate errors or abuse.</li>
+            <li><strong>No visit log.</strong> Neither the site nor the proxy in front of it writes an access log. When the server itself fails, it writes an error log of about 30 MB that rotates on its own and does not record who was visiting.</li>
           </ul>
-          <p>We do not build visitor profiles, and we never sell, rent or share logs.</p>
+          <p>We do not build visitor profiles, and we never sell, rent or share anything about visitors.</p>
 
           <h2>What the site does not do</h2>
           <ul>
@@ -96,7 +96,7 @@
           </ul>
 
           <h2>Your language choice</h2>
-          <p>Switching the site between English and Spanish stores one value in your browser under <em>human-rounds-language</em>. It stays in your browser, is never sent to us, and clearing your browser data removes it.</p>
+          <p>Choosing one of the site's ten languages stores one value in your browser under <em>human-rounds-language</em>. It stays in your browser, is never sent to us, and clearing your browser data removes it.</p>
 
           <h2>Third parties this page touches</h2>
           <ul>
@@ -104,13 +104,13 @@
             <li><strong>ipwho.is</strong> is asked, only when our host does not already know it, which country your connection comes from, to pick the country shown in the connectors table. Your browser calls it directly, so it sees your IP address; nothing is stored on our side.</li>
             <li><strong>Outbound links</strong> to GitHub, Icons8 and the live demo. Once you follow one, that site's own policy applies.</li>
           </ul>
-          <p>That is the whole list. No other external script runs here.</p>
+          <p>No other external script runs here.</p>
 
           <h2>The live demo</h2>
           <p>demo.humanrounds.org is a <strong>separate installation</strong> loaded with fictional data and kept for demonstration only.</p>
           <ul>
             <li>Never enter real patient data, real medical records or anyone's personal details in it.</li>
-            <li>It is reset periodically, and anything typed into it can disappear without notice.</li>
+            <li>It is rebuilt every day, and anything typed into it disappears at the next rebuild.</li>
           </ul>
 
           <h2>Hospital installations and patient data</h2>
@@ -125,7 +125,10 @@
           <p>If you are a patient of a hospital that uses Human Rounds, ask the hospital about its data handling. We cannot look up, correct or delete anything held in its system.</p>
 
           <h2>Your rights</h2>
-          <p>We hold no account, profile or record tied to you, so there is nothing to export or erase beyond rotating server logs. To remove the Meta app or ask us privately to erase data we control, follow the <a href="/data-deletion">Human Rounds data deletion instructions</a>.</p>
+          <p>We hold no account, profile or record tied to you, so there is nothing to export or erase.</p>
+          <h2>WhatsApp and Meta</h2>
+          <p>Hospital installations can let patients book over WhatsApp, which runs through a WhatsApp Business app registered with Meta. Meta requires every such app to publish a data-deletion page. Messages a patient sends to a hospital's number belong to that hospital's installation, not to this site. If you write to the project lead on WhatsApp from the contact section, that chat is an ordinary WhatsApp conversation under Meta's own policy.</p>
+          <p>To remove the Meta app or ask us privately to erase data we control, follow the <a href="/data-deletion">Human Rounds data deletion instructions</a>.</p>
 
           <h2>Security reports</h2>
           <p>Report a vulnerability through the repository's <a href="https://github.com/visualpharm/human-rounds/security/advisories" rel="noopener">GitHub Security Advisory</a> flow, never in a public issue. Leave credentials, personal data and any patient-identifiable information out of the report.</p>
@@ -139,8 +142,8 @@
 
         <div class="lang-es">
           <h1>Política de privacidad</h1>
-          <p class="legal-updated">Última actualización: 1 de agosto de 2026</p>
-          <p class="legal-lead"><strong>Este sitio no recopila nada sobre vos.</strong> No hay cuentas, ni cookies, ni analítica, ni píxeles de seguimiento. Abajo está la lista corta de lo que queda.</p>
+          <p class="legal-updated">Última actualización: 15 de noviembre de 2026</p>
+          <p class="legal-lead"><strong>Este sitio no guarda registro de tu visita.</strong> No hay cuentas, ni cookies, ni analítica, ni píxeles de seguimiento, ni registro de visitas.</p>
 
           <h2>Qué cubre esta página</h2>
           <p>Esta política cubre <strong>humanrounds.org</strong>, el sitio del proyecto que estás leyendo. Human Rounds es un proyecto filantrópico mantenido desde Argentina, y "nosotros" acá significa quienes lo mantienen.</p>
@@ -149,9 +152,9 @@
           <h2>Qué recopila el sitio</h2>
           <ul>
             <li><strong>Nada de lo que escribas.</strong> No hay registro, ni newsletter, ni comentarios, ni formulario de contacto.</li>
-            <li><strong>Registros del servidor.</strong> Como cualquier servidor web, el nuestro guarda la dirección IP, la hora, la página pedida, el navegador y la página de origen. Esos registros rotan solos y sirven únicamente para mantener el sitio en línea y revisar errores o abusos.</li>
+            <li><strong>Sin registro de visitas.</strong> Ni el sitio ni el proxy que tiene delante escriben un registro de accesos. Cuando falla el propio servidor, escribe un registro de errores de unos 30 MB que rota solo y no anota quién estaba visitando.</li>
           </ul>
-          <p>No armamos perfiles de visitantes, y nunca vendemos, alquilamos ni compartimos esos registros.</p>
+          <p>No armamos perfiles de visitantes, y nunca vendemos, alquilamos ni compartimos nada sobre quienes nos visitan.</p>
 
           <h2>Qué no hace el sitio</h2>
           <ul>
@@ -163,7 +166,7 @@
           </ul>
 
           <h2>Tu elección de idioma</h2>
-          <p>Cambiar el sitio entre inglés y español guarda un valor en tu navegador bajo <em>human-rounds-language</em>. Queda en tu navegador, nunca nos llega, y borrar los datos del navegador lo elimina.</p>
+          <p>Elegir uno de los diez idiomas del sitio guarda un valor en tu navegador bajo <em>human-rounds-language</em>. Queda en tu navegador, nunca nos llega, y borrar los datos del navegador lo elimina.</p>
 
           <h2>Terceros que toca esta página</h2>
           <ul>
@@ -171,13 +174,13 @@
             <li><strong>ipwho.is</strong> se consulta, solo cuando nuestro servidor no lo sabe ya, para saber de qué país viene tu conexión y elegir el país que muestra la tabla de conectores. Tu navegador lo llama directo, así que ve tu IP; de nuestro lado no se guarda nada.</li>
             <li><strong>Enlaces salientes</strong> a GitHub, Icons8 y la demo en vivo. Al seguir uno, rige la política de ese sitio.</li>
           </ul>
-          <p>Esa es la lista completa. Acá no corre ningún otro script externo.</p>
+          <p>Acá no corre ningún otro script externo.</p>
 
           <h2>La demo en vivo</h2>
           <p>demo.humanrounds.org es una <strong>instalación aparte</strong>, cargada con datos ficticios y mantenida sólo para mostrar el producto.</p>
           <ul>
             <li>Nunca cargues datos reales de pacientes, historias clínicas reales ni datos personales de nadie.</li>
-            <li>Se reinicia cada tanto, y lo que escribas ahí puede desaparecer sin aviso.</li>
+            <li>Se reconstruye todos los días, y lo que escribas ahí desaparece en la siguiente reconstrucción.</li>
           </ul>
 
           <h2>Instalaciones hospitalarias y datos de pacientes</h2>
@@ -192,7 +195,10 @@
           <p>Si sos paciente de un hospital que usa Human Rounds, consultale al hospital cómo maneja tus datos. Nosotros no podemos consultar, corregir ni borrar nada de su sistema.</p>
 
           <h2>Tus derechos</h2>
-          <p>No tenemos ninguna cuenta, perfil ni registro asociado a vos, así que no hay nada para exportar o borrar más allá de los registros rotativos del servidor. Para quitar la aplicación de Meta o pedirnos en privado que borremos datos bajo nuestro control, seguí las <a href="/data-deletion?lang=es">instrucciones de Human Rounds para borrar datos</a>.</p>
+          <p>No tenemos ninguna cuenta, perfil ni registro asociado a vos, así que no hay nada para exportar o borrar.</p>
+          <h2>WhatsApp y Meta</h2>
+          <p>Las instalaciones hospitalarias pueden dejar que los pacientes saquen turno por WhatsApp, a través de una aplicación de WhatsApp Business registrada en Meta. Meta exige que toda aplicación así publique una página para borrar datos. Los mensajes que un paciente manda al número de un hospital pertenecen a la instalación de ese hospital, no a este sitio. Si le escribís por WhatsApp al responsable del proyecto desde la sección de contacto, ese chat es una conversación común de WhatsApp bajo la política de Meta.</p>
+          <p>Para quitar la aplicación de Meta o pedirnos en privado que borremos datos bajo nuestro control, seguí las <a href="/data-deletion?lang=es">instrucciones de Human Rounds para borrar datos</a>.</p>
 
           <h2>Reportes de seguridad</h2>
           <p>Reportá una vulnerabilidad por el flujo de <a href="https://github.com/visualpharm/human-rounds/security/advisories" rel="noopener">GitHub Security Advisory</a> del repositorio, nunca en un issue público. Dejá afuera del reporte credenciales, datos personales y cualquier dato identificable de pacientes.</p>
@@ -211,8 +217,8 @@
   <!-- No data-lang: the footer follows <html lang>, which the head script above
        already stamped, so a Spanish reader gets a Spanish footer on first paint. -->
   <footer data-public-footer></footer>
-  <script src="/web/public-footer.js?v=7"></script>
-  <script src="/web/landing.js?v=20"></script>
-  <script src="/web/public-theme.js?v=1"></script>
+  <script src="/web/public-footer.js?v=1115"></script>
+  <script src="/web/landing.js?v=1115"></script>
+  <script src="/web/public-theme.js?v=1115"></script>
 </body>
 </html>

@@ -14,7 +14,8 @@
       privacy: 'Privacy',
       datadeletion: 'Data deletion',
       terms: 'Terms',
-      license: 'License'
+      license: 'Licence',
+      projects: 'Other projects by the team'
     },
     es: {
       credit: '© 2026 Human Rounds. Íconos de Icons8',
@@ -22,7 +23,8 @@
       privacy: 'Privacidad',
       datadeletion: 'Borrar datos',
       terms: 'Términos',
-      license: 'Licencia'
+      license: 'Licencia',
+      projects: 'Otros proyectos del equipo'
     }
   };
 
@@ -32,18 +34,21 @@
       copy[lang] = Object.assign(copy[lang] || {}, window.HR_COPY[lang].footer);
     }
 
-    var c = copy[lang] || copy.en;
+    var c = Object.assign({}, copy.en, copy[lang] || {});
+    // The credit names Icons8 once, as the link.
+    var credit = c.credit.replace('Icons8', '<a href="https://icons8.com" rel="noopener">Icons8</a>');
     footer.className = 'public-footer';
     footer.innerHTML =
       '<div class="public-footer__inner">' +
-        '<p class="public-footer__credit">' + c.credit + ' <a href="https://icons8.com" rel="noopener">Icons8</a></p>' +
+        '<p class="public-footer__credit">' + credit + '</p>' +
         '<nav aria-label="' + c.legallabel + '">' +
           '<a href="/privacy">' + c.privacy + '</a>' +
           '<a href="/data-deletion">' + c.datadeletion + '</a>' +
           '<a href="/terms">' + c.terms + '</a>' +
           '<a href="' + GITHUB + '/blob/main/LICENSE" rel="noopener">' + c.license + '</a>' +
         '</nav>' +
-        '<nav class="public-footer__projects" aria-label="' + (lang === 'es' ? 'Otros proyectos' : 'Other projects') + '">' +
+        '<nav class="public-footer__projects" aria-labelledby="public-footer-projects">' +
+          '<span id="public-footer-projects">' + c.projects + '</span>' +
           '<a href="https://usabruno.com">Bruno</a>' +
           '<a href="https://lira-voice.app">Lira</a>' +
           '<a href="https://inglesconjenny.com">Inglés con Jenny</a>' +
